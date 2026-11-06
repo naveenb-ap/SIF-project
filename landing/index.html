@@ -221,6 +221,20 @@ a { color: var(--brand); }
   .ahx-photo { width: min(300px, 82%); }
   .ahx-blob { width: 120%; }
 }
+.ahx-q { position: absolute; z-index: 2; background: #fff; border: 1px solid #E3E9F4; border-radius: 16px; padding: 10px 14px 11px; box-shadow: 0 14px 32px rgba(27,62,120,.14); display: grid; gap: 2px; max-width: 220px; font-family: "Inter", Arial, sans-serif; }
+.ahx-q b { font-family: "Geist", "Inter", Arial, sans-serif; font-weight: 600; font-size: 15px; color: #2B4FA8; line-height: 1.25; }
+.ahx-q span { font-size: 12px; color: #6B7385; }
+.ahx-q::after { content: ""; position: absolute; width: 14px; height: 14px; background: #fff; border: 1px solid #E3E9F4; transform: rotate(45deg); }
+.ahx-q.q1 { left: -4%; top: 20%; } .ahx-q.q1::after { right: -8px; top: 22px; border-left: 0; border-bottom: 0; }
+.ahx-q.q2 { right: -6%; top: 46%; } .ahx-q.q2::after { left: -8px; top: 22px; border-right: 0; border-top: 0; }
+.ahx-q.q3 { left: 0; bottom: 14%; } .ahx-q.q3::after { right: -8px; top: 22px; border-left: 0; border-bottom: 0; }
+.ahx-q { animation: rise-in .6s ease-out both; } .ahx-q.q2 { animation-delay: .15s; } .ahx-q.q3 { animation-delay: .3s; }
+@media (max-width: 900px) {
+  .ahx-q { max-width: 170px; padding: 8px 11px; border-radius: 13px; }
+  .ahx-q b { font-size: 13px; } .ahx-q span { font-size: 10.5px; }
+  .ahx-q.q1 { left: 0; top: 6%; } .ahx-q.q3 { display: none; }
+  .ahx-q.q2 { right: 0; top: auto; bottom: 0; } .ahx-q.q2::after { left: auto; right: 30px; top: -8px; border-right: 1px solid #E3E9F4; border-top: 1px solid #E3E9F4; border-left: 0; border-bottom: 0; }
+}
 /* SIF Ready hero (reference layout) */
 .rhero { background: linear-gradient(180deg, #F2F6FE 0%, #F7F9FD 100%); overflow: hidden; }
 .rhero > .wrap:first-child { display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr); gap: 40px; padding-top: 44px; align-items: center; }
@@ -1019,6 +1033,9 @@ input:focus, select:focus { outline: 2px solid var(--brand); border-color: var(-
     <div class="ahx-vis">
       <div class="ahx-blob" aria-hidden="true"></div>
       <img class="ahx-photo" fetchpriority="high" decoding="async" src="img/hero-vd.webp" alt="A distributor holding his NISM V-D certificate" width="702" height="1200">
+      <div class="ahx-q q1" aria-hidden="true"><b>“One exam. Both products.”</b><span>NISM V-D covers MF + SIF</span></div>
+      <div class="ahx-q q2" aria-hidden="true"><b>“Free, live, 8 evenings”</b><span>Batch starts 16 Nov · 6:30 PM</span></div>
+      <div class="ahx-q q3" aria-hidden="true"><b>“₹38,287 cr in 11 months”</b><span>SIF assets, Sep 2026 · AMFI</span></div>
     </div>
   </div>
 </section>
