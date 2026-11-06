@@ -1584,14 +1584,18 @@ function savedLead(){ try { return JSON.parse(store.get("ap_sif_lead") || "null"
 async function saveLead(lead){
   store.set("ap_sif_lead", JSON.stringify({name: lead.name, mobile: lead.mobile, arn: lead.arn, vd: lead.vd, city: lead.city}));
   const db = await getDb();
-  if (!db) return false;
   const id = "L" + Date.now().toString(36) + Math.random().toString(36).slice(2,7);
+  if (!db) {
+    // Hosted outside Claude (e.g. Vercel): send to the site's own lead endpoint
+    try { const r = await fetch("/api/lead", {method: "POST", headers: {"Content-Type": "application/json"}, body: JSON.stringify({id, ...lead, ...ATTR, visit: VISIT, at: new Date().toISOString(), page: location.href})}); return r.ok ? id : false; } catch(e){ return false; }
+  }
   try { await db.doc("leads/" + id).set({...lead, ...ATTR, visit: VISIT, at: new Date().toISOString(), page: "sif-partner-hub"}); track("lead", {source: lead.source, doc: lead.doc||""}); return id; } catch(e){ return false; }
 }
 async function updateLead(id, fields){
   const p = savedLead() || {}; store.set("ap_sif_lead", JSON.stringify({...p, ...fields}));
   if (!id) return;
-  const db = await getDb(); if (!db) return;
+  const db = await getDb();
+  if (!db) { try { await fetch("/api/lead", {method: "POST", headers: {"Content-Type": "application/json"}, body: JSON.stringify({id, update: true, ...fields, updatedAt: new Date().toISOString()})}); } catch(e){} return; }
   try { await db.doc("leads/" + id).update({...fields, updatedAt: new Date().toISOString()}); } catch(e){}
 }
 
@@ -1714,8 +1718,24 @@ async function download(doc){
       track("download", {doc: doc.id});
       return "saved";
     } catch(e) { if (e && e.code === "cancelled") return "cancelled"; }
+    return "link";
   }
-  return "link";
+  // Hosted outside Claude: build the file in the browser and save it directly
+  try {
+    const res = await fetch("pdfs/" + doc.file);
+    if (!res.ok) throw new Error("fetch");
+    let blob = await res.blob();
+    if (doc.aud === "client") {
+      try { blob = new Blob([await stampPdf(await blob.arrayBuffer(), savedLead())], {type: "application/pdf"}); }
+      catch(err) { return "nostamp"; }
+    }
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = (doc.aud === "client" ? (String(savedLead()?.arn||"").replace(/\W/g,"") + "-") : (doc.file.startsWith("AssetPlus") ? "" : "AssetPlus-")) + doc.file;
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(() => URL.revokeObjectURL(a.href), 4000);
+    return "saved";
+  } catch(e) { return "link"; }
 }
 function docLink(doc){ return doc.aud === "client" ? "" : '<a class="btn btn-ghost btn-sm" href="pdfs/' + esc(doc.file) + '" target="_blank" rel="noopener">Open PDF</a>'; }
 const dlText = r => r === "saved" ? "Saved." : r === "cancelled" ? "Download cancelled." : r === "nostamp" ? "We couldn\u2019t add your name and ARN to this note in this browser. Try again, or message us on WhatsApp for your stamped copy." : "Use Open PDF to view and save it.";

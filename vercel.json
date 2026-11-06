@@ -1,0 +1,9 @@
+{
+  "buildCommand": "",
+  "outputDirectory": "landing",
+  "cleanUrls": true,
+  "headers": [
+    { "source": "/(img|thumbs)/(.*)", "headers": [{ "key": "Cache-Control", "value": "public, max-age=604800" }] },
+    { "source": "/pdfs/(.*)", "headers": [{ "key": "Cache-Control", "value": "public, max-age=86400" }, { "key": "X-Robots-Tag", "value": "noindex" }] }
+  ]
+}
