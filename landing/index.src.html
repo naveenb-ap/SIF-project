@@ -192,6 +192,41 @@ a { color: var(--brand); }
 .feat-card svg { width: 100%; max-width: 180px; height: auto; background: var(--brand-soft); border-radius: 12px; padding: 8px; }
 .feat-card h3 { font-size: 17px; }
 .feat-card p { font-size: 14px; color: var(--muted); }
+/* Brand hero with live sign-up card */
+.hero3 { background: radial-gradient(800px 400px at 85% 0%, rgba(127,166,238,.22), transparent 60%), linear-gradient(140deg, #0F4185 0%, #0B2F63 100%); color: #fff; }
+.hero3 .wrap { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); gap: 56px; padding-block: 64px 72px; align-items: center; }
+@media (max-width: 920px) { .hero3 .wrap { grid-template-columns: 1fr; gap: 32px; padding-block: 40px 48px; } }
+.h3-copy { display: grid; gap: 0; justify-items: start; animation: rise-in .5s ease-out both; }
+.live-pill.on-dark { background: rgba(255,255,255,.1); color: #fff; border-color: rgba(255,255,255,.28); }
+.live-pill.on-dark i { background: #FF5A4F; box-shadow: 0 0 0 3px rgba(255,90,79,.25); }
+.hero3 h1 { color: #fff; font-size: clamp(38px, 5.4vw, 64px); font-weight: 900; letter-spacing: -0.015em; line-height: 1.04; margin-top: 20px; }
+.h3-sub { color: #D5E0F2; font-size: clamp(17px, 1.6vw, 20px); max-width: 52ch; margin-top: 16px; }
+.h3-ticks { list-style: none; padding: 0; margin: 22px 0 0; display: grid; gap: 10px; }
+.h3-ticks li { padding-left: 30px; position: relative; color: #fff; font-size: 16px; }
+.h3-ticks li::before { content: ""; position: absolute; left: 0; top: 2px; width: 20px; height: 20px; border-radius: 50%; background: #2FB463 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 12.5l4 4 8-9' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 13px no-repeat; }
+.h3-count { display: flex; align-items: flex-end; gap: 10px; margin-top: 28px; flex-wrap: wrap; }
+.h3-count div { background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.2); border-radius: 12px; padding: 10px 14px; min-width: 76px; text-align: center; }
+.h3-count b { display: block; font-size: 30px; font-weight: 900; line-height: 1; font-variant-numeric: tabular-nums; }
+.h3-count span { font-size: 12px; color: #C9D8F2; }
+.h3-count p { color: #C9D8F2; font-size: 14px; padding-bottom: 6px; }
+.h3-card { scroll-margin-top: 84px; background: var(--surface); color: var(--body); border-radius: 18px; box-shadow: 0 30px 70px rgba(0,10,40,.35); overflow: hidden; animation: rise-in .6s .1s ease-out both; width: min(460px, 100%); justify-self: end; }
+@media (max-width: 920px) { .h3-card { justify-self: stretch; width: 100%; } }
+.h3-card-top { display: flex; gap: 14px; align-items: center; padding: 16px 22px; background: var(--brand-soft); border-bottom: 1px solid var(--brand-tint); font-size: 14px; color: var(--body); }
+.h3-card-top b { color: var(--ink); }
+.h3-date { width: 52px; border-radius: 10px; background: var(--flame); color: #fff; display: grid; place-items: center; padding: 6px 0; line-height: 1; flex: none; }
+.h3-date small { font-size: 10px; font-weight: 900; letter-spacing: .1em; }
+.h3-date strong { font-size: 24px; font-weight: 900; }
+#seatForm { padding: 20px 22px 22px; gap: 12px; }
+#seatForm h2 { font-size: 24px; font-weight: 900; color: var(--ink); }
+.sf-tel { display: flex; align-items: center; border: 1px solid var(--line); border-radius: 10px; background: var(--bg); }
+.sf-tel:focus-within { outline: 2px solid var(--brand); border-color: var(--brand); }
+.sf-tel span { padding: 0 10px; color: var(--muted); font-weight: 700; border-right: 1px solid var(--line); }
+.sf-tel input { border: 0; background: transparent; outline: none; }
+#seatForm .btn { width: 100%; }
+.h3-fine { font-size: 13px; color: var(--muted); text-align: center; }
+.h3-done { padding: 26px 22px; display: grid; gap: 12px; }
+.h3-done h2 { font-size: 22px; font-weight: 900; color: var(--ink); }
+.h3-done p { color: var(--body); font-size: 15px; }
 /* SaaS hero */
 .hero2 { background: radial-gradient(900px 420px at 50% -60px, var(--brand-soft), transparent 70%), var(--bg); border-bottom: 0; }
 .hero2 .wrap { display: grid; grid-template-columns: 1fr; gap: 44px; padding-block: 64px 56px; justify-items: center; text-align: center; }
@@ -595,66 +630,44 @@ input:focus, select:focus { outline: 2px solid var(--brand); border-color: var(-
       <a href="#kit">Partner kit</a>
       <a href="#faq">FAQ</a>
     </nav>
-    <a class="btn btn-flame btn-sm btn-cta" href="https://academy.assetplus.in/course/nism-series-v-d-mf-sif-distributors-certification-training-16th-november" target="_blank" rel="noopener">Save my seat</a>
+    <a class="btn btn-flame btn-sm btn-cta" href="#seatCard">Save my seat</a>
   </div>
 </header>
 
-<div class="ribbon" id="top">
-  <div class="wrap">
-    <span><b>Free NISM V-D training</b> · Live online from 16 Nov 2026 · 8 evenings, 6:30–8:30 PM</span>
-    <a href="https://academy.assetplus.in/course/nism-series-v-d-mf-sif-distributors-certification-training-16th-november" target="_blank" rel="noopener">Save my seat →</a>
-  </div>
-</div>
+<div id="top"></div>
 
-<section class="hero hero2">
+<section class="hero3">
   <div class="wrap">
-    <div class="hero-copy">
-      <a class="live-pill" href="#how"><i aria-hidden="true"></i>Registrations open · Batch from 16 Nov</a>
-      <h1>Become a SIF distributor in 8 evenings</h1>
-      <p class="sub">Free NISM Series V-D training, live online. Then start your SIF practice with the SIF Decoder, client notes with your ARN, and daily NAVs.</p>
-      <form class="hero-form" id="heroForm" novalidate>
-        <label class="sr" for="hf-mobile">WhatsApp number</label>
-        <span class="cc">+91</span>
-        <input id="hf-mobile" name="mobile" inputmode="numeric" autocomplete="tel" placeholder="Your WhatsApp number">
-        <button class="btn btn-flame glow" type="submit">Get certified free</button>
-      </form>
-      <p class="err center" id="hf-err" role="alert"></p>
-      <p class="hero-meta">Free · 8 live evenings · 6:30 to 8:30 PM · English</p>
-      <div class="social">
-        <span class="avatars" aria-hidden="true"><b style="background:#2B62C0">RK</b><b style="background:#E0322A">MS</b><b style="background:#1D7A3A">AP</b><b style="background:#B7791F">VN</b></span>
-        <span><strong>3,000+ learners</strong> · Rated 4.8 by 11k+ users</span>
+    <div class="h3-copy">
+      <a class="live-pill on-dark" href="#how"><i aria-hidden="true"></i>Registrations open for the 16 Nov batch</a>
+      <h1>Become a SIF distributor</h1>
+      <p class="h3-sub">Get NISM Series V-D certified with our free live training. One exam lets you offer both mutual funds and SIFs.</p>
+      <ul class="h3-ticks">
+        <li>Free live batch from 16 Nov, 8 evenings, 6:30 to 8:30 PM</li>
+        <li>SIF Decoder research and 15 one-pagers, free</li>
+        <li>Client notes stamped with your name and ARN</li>
+      </ul>
+      <div class="h3-count" aria-label="Time to batch start">
+        <div><b id="cdD">--</b><span>days</span></div>
+        <div><b id="cdH">--</b><span>hours</span></div>
+        <div><b id="cdM">--</b><span>mins</span></div>
+        <p>to batch start</p>
       </div>
     </div>
 
-    <div class="mock" aria-label="What you get: your seat, research, NAVs and client notes">
-      <div class="mock-bar"><i></i><i></i><i></i><span>assetplus · SIF Partner Hub</span></div>
-      <div class="mock-grid">
-        <div class="mc mc-seat">
-          <div class="mc-h"><span class="mc-tag red">Your seat</span><span class="mc-ok">Saved</span></div>
-          <h4>NISM Series V-D</h4>
-          <p>MF &amp; SIF Distributors · Batch 16 Nov</p>
-          <div class="sessions" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
-          <div class="mc-foot"><span id="mockCountdown">Starts 16 Nov, 6:30 PM</span><span>8 sessions</span></div>
-        </div>
-        <div class="mc mc-dec">
-          <div class="mc-h"><span class="mc-tag blue">Research</span><span class="mc-free">Free</span></div>
-          <img src="decoder-cover.jpg" alt="SIF Decoder, October 2026" width="1000" height="563">
-          <p><b>SIF Decoder</b> · Oct 2026 · 26 pages</p>
-        </div>
-        <div class="mc mc-nav">
-          <div class="mc-h"><span class="mc-tag green">SIF NAVs</span><span class="mc-date" id="mockAsof"></span></div>
-          <table aria-label="Sample of daily SIF NAVs"><tbody id="mockNav"></tbody></table>
-          <p class="mc-small" id="mockNavSum"></p>
-        </div>
-        <div class="mc mc-note">
-          <img src="thumbs/06a-SIF-vs-FD.jpg" alt="" width="104" height="146">
-          <div>
-            <span class="mc-tag gold">Client note</span>
-            <h4>SIF vs Bank FD</h4>
-            <p class="stamp">Shared by <b>Your Name</b> | <b>ARN-XXXXXX</b></p>
-          </div>
-        </div>
-      </div>
+    <div class="h3-card" id="seatCard">
+      <div class="h3-card-top"><span class="h3-date"><small>NOV</small><strong>16</strong></span><span><b>NISM Series V-D</b><br>MF &amp; SIF Distributors · Free</span></div>
+      <form id="seatForm" novalidate>
+        <h2>Save your seat</h2>
+        <label for="sf-name">Full name<input id="sf-name" name="name" autocomplete="name"></label>
+        <label for="sf-mobile">WhatsApp number<span class="sf-tel"><span>+91</span><input id="sf-mobile" name="mobile" inputmode="numeric" autocomplete="tel" placeholder="10-digit mobile"></span></label>
+        <label for="sf-arn">ARN<input id="sf-arn" name="arn" placeholder="ARN-123456" autocapitalize="characters"></label>
+        <label class="noarn" for="sf-noarn"><input type="checkbox" id="sf-noarn" name="noarn">I don’t have an ARN yet</label>
+        <label class="check" for="sf-consent"><input type="checkbox" id="sf-consent" name="consent"><span>AssetPlus may contact me on WhatsApp about this batch and SIFs.</span></label>
+        <p class="err" id="sf-err" role="alert"></p>
+        <button class="btn btn-flame btn-lg" type="submit">Save my seat</button>
+        <p class="h3-fine">Free. You also get the SIF Decoder.</p>
+      </form>
     </div>
   </div>
 </section>
@@ -1039,7 +1052,7 @@ input:focus, select:focus { outline: 2px solid var(--brand); border-color: var(-
 </a>
 
 <div class="mbar">
-  <a class="btn btn-flame" href="https://academy.assetplus.in/course/nism-series-v-d-mf-sif-distributors-certification-training-16th-november" target="_blank" rel="noopener">Save my seat</a>
+  <a class="btn btn-flame" href="#seatCard">Save my seat</a>
   <a class="btn btn-ghost" href="#certify">Batch details</a>
 </div>
 
@@ -1126,18 +1139,6 @@ $("#asof3").textContent = DATA.asof;
     if (i % 3 === 0 || last) g += '<text x="' + (x + w / 2) + '" y="' + (H - 6) + '" text-anchor="middle" font-size="11" fill="var(--muted)">' + d[0] + '</text>';
   });
   svg.innerHTML = g;
-})();
-
-/* Hero mock data */
-(function mock(){
-  const pick = [...rows].sort((a, b) => b.chg - a.chg);
-  const sample = [pick[0], pick[3], pick[Math.floor(pick.length / 2)], pick[pick.length - 1]];
-  $("#mockNav").innerHTML = sample.map(r => '<tr><td><b>' + esc(r.b) + '</b> <span style="color:var(--muted)">' + esc(shortCat(r.c)) + '</span></td><td class="r num">' + fmt(r.nav, 2) + '</td><td class="r num ' + (r.chg >= 0 ? "up" : "down") + '">' + (r.chg >= 0 ? "+" : "") + r.chg.toFixed(2) + '%</td></tr>').join("");
-  $("#mockAsof").textContent = DATA.asof;
-  $("#mockNavSum").textContent = rows.length + " strategies · " + up + " up, " + down + " down";
-  const el = $("#mockCountdown"), start = new Date(CONFIG.eventStart).getTime();
-  const tick = () => { const ms = start - Date.now(); if (ms <= 0) { el.textContent = "Batch in progress"; return; } const d = Math.floor(ms / 864e5), h = Math.floor(ms % 864e5 / 36e5); el.textContent = "Starts in " + d + "d " + h + "h"; };
-  tick(); setInterval(tick, 60000);
 })();
 
 /* Charts */
@@ -1302,7 +1303,7 @@ function leadForm(opts){
 }
 function bindLead(source, extra, onDone){
   const f = $("#leadForm");
-  if (f.noarn) f.noarn.addEventListener("change", () => { f.arn.disabled = f.noarn.checked; if (f.noarn.checked) f.arn.value = ""; });
+  if (f.noarn) $("#sf-noarn").addEventListener("change", e => { $("#sf-arn").disabled = e.target.checked; if (e.target.checked) $("#sf-arn").value = ""; });
   f.addEventListener("submit", async e => {
     e.preventDefault();
     const d = Object.fromEntries(new FormData(f).entries());
@@ -1430,10 +1431,12 @@ function openStarter(source){
   const bonus = '<div class="bonus"><img src="decoder-cover.jpg" alt="" width="72" height="41" style="width:72px;height:auto;border-radius:4px;flex:none"><span>You also get the SIF Decoder, our 26-page SIF research.</span></div>';
   openModal("", '<div class="pop"><span class="steps">Step 1 of 2</span>' + thumb + '<p class="sub">8 live evenings from 16 Nov, 6:30 to 8:30 PM, in English.</p>' + bonus + leadForm({minimal: true, cta: "Register"}) + '<button class="skip" type="button" id="popSkip">No thanks</button></div>', true, true);
   $("#popSkip").addEventListener("click", closeModal);
-  bindLead(source, {want: "sif-decoder"}, (saved, d) => askCertified(saved, d.name, (certified) => {
+  bindLead(source, {want: "sif-decoder"}, (saved, d) => askCertified(saved, d.name, (certified) => showDecoder(saved, d.name, certified)));
+}
+function showDecoder(saved, name, certified){
     const dec = DOCS.find(x => x.id === "D");
-    const waGet = "https://wa.me/" + CONFIG.whatsapp + "?text=" + encodeURIComponent("Hi, please send me the SIF Decoder. I'm " + d.name.trim() + ".");
-    $("#mMain").innerHTML = '<div class="pop"><h3 id="mTitle">Thanks, ' + esc(d.name.trim().split(" ")[0]) + '</h3><p class="sub">Get the SIF Decoder on WhatsApp or download it here.</p>' +
+    const waGet = "https://wa.me/" + CONFIG.whatsapp + "?text=" + encodeURIComponent("Hi, please send me the SIF Decoder. I'm " + String(name).trim() + ".");
+    $("#mMain").innerHTML = '<div class="pop"><h3 id="mTitle">Thanks, ' + esc(String(name).trim().split(" ")[0]) + '</h3><p class="sub">Get the SIF Decoder on WhatsApp or download it here.</p>' +
       '<a class="btn btn-wa" href="' + waGet + '" target="_blank" rel="noopener">Get it on WhatsApp</a>' +
       '<button class="btn btn-ghost" type="button" id="decNow">Download PDF here</button><p class="err" id="dlMsg" role="status"></p>' +
       (certified ? '<p class="notice">Your client notes (06a–06e) are unlocked too. <a href="#kit" id="toKit">Open the partner kit</a></p>' : '<p class="notice">Seat not saved yet? <a href="' + CONFIG.eventUrl + '" target="_blank" rel="noopener">Register free for 16 Nov</a></p>') +
@@ -1441,7 +1444,6 @@ function openStarter(source){
     $("#decNow").addEventListener("click", async () => { const r = await download(dec); $("#dlMsg").innerHTML = r === "saved" ? "Saved." : r === "cancelled" ? "Download cancelled." : '<a href="pdfs/' + esc(dec.file) + '" target="_blank" rel="noopener">Open the PDF</a>'; });
     const tk = $("#toKit"); if (tk) tk.addEventListener("click", closeModal);
     renderLib();
-  }));
 }
 function simpleLead(kind){
   const cfg = {
@@ -1482,17 +1484,33 @@ document.addEventListener("click", e => {
   setTimeout(() => below.forEach(el => el.classList.remove("pre")), 6000);
 })();
 
-/* Hero form: one field, then the short sign-up with the number filled in */
-$("#heroForm").addEventListener("submit", e => {
-  e.preventDefault();
-  const m = $("#hf-mobile").value.replace(/\D/g, "").replace(/^91(?=\d{10}$)/, "");
-  if (!/^[6-9]\d{9}$/.test(m)) { $("#hf-err").textContent = "Enter a valid 10-digit mobile number."; return; }
-  $("#hf-err").textContent = "";
-  track("hero_form", {});
-  openStarter("hero-form");
-  const f = $("#lf-mobile"); if (f) f.value = m;
-  const n = $("#lf-name"); if (n) n.focus();
-});
+/* Hero seat card: capture the lead in place, then ask about V-D and hand over the Decoder */
+(function seatCard(){
+  const f = $("#seatForm"); if (!f) return;
+  const prev = savedLead();
+  if (prev) { $("#sf-name").value = prev.name || ""; $("#sf-mobile").value = prev.mobile || ""; $("#sf-arn").value = prev.arn || ""; }
+  $("#sf-noarn").addEventListener("change", e => { $("#sf-arn").disabled = e.target.checked; if (e.target.checked) $("#sf-arn").value = ""; });
+  const start = new Date(CONFIG.eventStart).getTime();
+  const tick = () => { const ms = Math.max(0, start - Date.now()); $("#cdD").textContent = String(Math.floor(ms / 864e5)).padStart(2, "0"); $("#cdH").textContent = String(Math.floor(ms % 864e5 / 36e5)).padStart(2, "0"); $("#cdM").textContent = String(Math.floor(ms % 36e5 / 6e4)).padStart(2, "0"); };
+  tick(); setInterval(tick, 30000);
+  f.addEventListener("submit", async e => {
+    e.preventDefault();
+    const err = $("#sf-err"), name = $("#sf-name").value.trim();
+    const mobile = $("#sf-mobile").value.replace(/\D/g, "").replace(/^91(?=\d{10}$)/, ""), noArn = $("#sf-noarn").checked, arn = $("#sf-arn").value.trim();
+    if (name.length < 2) return err.textContent = "Enter your full name.";
+    if (!/^[6-9]\d{9}$/.test(mobile)) return err.textContent = "Enter a valid 10-digit mobile number.";
+    if (!noArn && !/^(ARN-?)?\d{3,7}$/i.test(arn)) return err.textContent = "Enter your ARN, or tick \u201cI don\u2019t have an ARN yet\u201d.";
+    if (!$("#sf-consent").checked) return err.textContent = "Tick the box so we can send you the batch details.";
+    err.textContent = "";
+    const btn = f.querySelector("button[type=submit]"); btn.disabled = true; btn.textContent = "Saving\u2026";
+    store.set("ap_sif_popup", String(Date.now()));
+    const id = await saveLead({name, mobile, city: "", arn: noArn ? "" : arn.toUpperCase().replace(/^(\d)/, "ARN-$1"), noArn, vd: "", consent: true, source: "hero-card", want: "seat"});
+    $("#seatCard").innerHTML = '<div class="h3-card-top"><span class="h3-date"><small>NOV</small><strong>16</strong></span><span><b>NISM Series V-D</b><br>MF &amp; SIF Distributors \u00b7 Free</span></div><div class="h3-done"><h2>Thanks, ' + esc(name.split(" ")[0]) + '</h2><p>One last step: confirm your seat on the course page. We\u2019ll send batch details on WhatsApp.</p><a class="btn btn-flame btn-lg" href="' + CONFIG.eventUrl + '" target="_blank" rel="noopener">Confirm my seat</a><button class="btn btn-ghost" type="button" data-open="decoder-after">Get the SIF Decoder</button></div>';
+    openModal("", "", true, true);
+    askCertified(id, name, certified => showDecoder(id, name, certified));
+  });
+})();
+document.addEventListener("click", e => { const b = e.target.closest('[data-open="decoder-after"]'); if (b) { e.stopPropagation(); const l = savedLead() || {}; openModal("", "", true, true); showDecoder(null, l.name || "", l.vd === "Certified"); } }, true);
 
 /* First-visit popup: 45% scroll, 40 s on page, or exit intent. Once per 7 days; never after sign-up. */
 (function firstVisit(){
