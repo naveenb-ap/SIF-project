@@ -8,16 +8,16 @@
 <script type="application/ld+json">[{"@context": "https://schema.org", "@type": "Organization", "name": "AssetPlus", "legalName": "Valueplus Technologies Pvt. Ltd.", "url": "https://www.assetplus.in", "description": "AMFI-registered Mutual Fund Distributor, ARN-114376"}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Who can invest in a SIF?", "acceptedAnswer": {"@type": "Answer", "text": "Resident and eligible investors who put in at least ₹10 lakh across a fund house's SIF strategies, subject to SEBI rules and each strategy's documents."}}, {"@type": "Question", "name": "What do I need to distribute SIFs?", "acceptedAnswer": {"@type": "Answer", "text": "A valid ARN and the NISM Series V-D certification (MF and SIF distributors), plus empanelment with the fund house."}}, {"@type": "Question", "name": "How is a SIF taxed?", "acceptedAnswer": {"@type": "Answer", "text": "SIF units are taxed like mutual fund units. The rate depends on the strategy's tax category and how long the investor holds."}}, {"@type": "Question", "name": "Can clients take money out any day?", "acceptedAnswer": {"@type": "Answer", "text": "Not always. Many hybrid and asset-allocator SIFs are interval funds that redeem only on set days."}}, {"@type": "Question", "name": "How is a SIF different from PMS?", "acceptedAnswer": {"@type": "Answer", "text": "A SIF is a pooled fund under the mutual fund rules from ₹10 lakh with daily NAV; PMS starts at ₹50 lakh and is taxed on each trade."}}]}, {"@context": "https://schema.org", "@type": "EducationEvent", "name": "NISM Series V-D: MF & SIF Distributors Certification Training", "startDate": "2026-11-16T18:30:00+05:30", "eventAttendanceMode": "https://schema.org/OnlineEventAttendanceMode", "eventStatus": "https://schema.org/EventScheduled", "location": {"@type": "VirtualLocation", "url": "https://academy.assetplus.in/course/nism-series-v-d-mf-sif-distributors-certification-training-16th-november"}, "isAccessibleForFree": true, "inLanguage": "en", "organizer": {"@type": "Organization", "name": "AssetPlus", "url": "https://www.assetplus.in"}}]</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;0,900;1,400&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap">
 <style>
 /* Layout: brand-blue masthead with a live "market card", then a single 1180px column of alternating paper/ink bands; data tables scroll in their own boxes. */
 :root {
   --bg: #F5F7FB;
   --surface: #FFFFFF;
   --surface-2: #EEF2F9;
-  --ink: #141B2D;
+  --ink: #1B1F28;
   --body: #3E4659;
-  --muted: #5F6A82;
+  --muted: #606C84;
   --line: #DFE4EE;
   --brand: #2B62C0;
   --brand-deep: #163A75;
@@ -36,9 +36,9 @@
   --on-band: #FFFFFF;
   --on-band-soft: #C9D8F2;
   --shadow: 0 1px 2px rgba(16,32,72,.06), 0 8px 24px rgba(16,32,72,.08);
-  --font-display: "Lato", "Segoe UI", Roboto, Arial, sans-serif;
-  --font-sans: "Lato", "Segoe UI", "Segoe UI", Roboto, Arial, sans-serif;
-  --font-mono: "Lato", "Segoe UI", Arial, sans-serif; --font-unused: ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-display: "Geist", "Inter", "Segoe UI", Arial, sans-serif;
+  --font-sans: "Inter", "Segoe UI", "Segoe UI", Roboto, Arial, sans-serif;
+  --font-mono: "Inter", "Segoe UI", Arial, sans-serif; --font-unused: ui-monospace, SFMono-Regular, Menlo, monospace;
 }
 /* Single light theme by choice: AssetPlus brand on white. */
 :root { color-scheme: light; }
@@ -48,7 +48,7 @@ html { scroll-behavior: smooth; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition: none !important; } }
 body { background: var(--bg); color: var(--body); font-family: var(--font-sans); font-size: 16px; line-height: 1.6; }
 body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 60; background: var(--surface); }
-h1, h2, h3, h4 { color: var(--ink); margin: 0; text-wrap: balance; line-height: 1.15; }
+h1, h2, h3, h4 { color: var(--ink); margin: 0; text-wrap: balance; line-height: 1.15; font-family: var(--font-display); font-weight: 600; }
 p { margin: 0; }
 a { color: var(--brand); }
 :focus-visible { outline: 3px solid var(--brand); outline-offset: 2px; border-radius: 6px; }
@@ -56,14 +56,17 @@ a { color: var(--brand); }
 .num { font-variant-numeric: tabular-nums; }
 .mono { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
 .eyebrow { font-size: 12px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--flame); }
-.h2 { font-family: var(--font-display); font-weight: 700; font-size: clamp(26px, 3.2vw, 36px); letter-spacing: -0.015em; }
+.h2 { font-family: var(--font-display); font-weight: 600; font-size: clamp(28px, 3.4vw, 40px); letter-spacing: -0.02em; }
 .h2 em { font-style: normal; color: var(--brand); }
 .lede { font-size: 18px; color: var(--body); max-width: 62ch; }
 .section { padding-block: 72px; }
 .section-head { display: grid; gap: 10px; margin-bottom: 28px; max-width: 760px; }
 .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; font: 600 15px/1 var(--font-sans); padding: 14px 20px; border-radius: 10px; border: 1px solid transparent; text-decoration: none; cursor: pointer; transition: transform .15s ease, background .15s ease; white-space: nowrap; }
 .btn:hover { transform: translateY(-1px); }
-.btn-flame { background: var(--flame); color: #fff; }
+.btn-flame { background: var(--brand); color: #fff; }
+.btn-flame:hover { background: #2153AB; }
+.btn-white { background: #fff; color: var(--brand); }
+.btn-outline-blue { background: transparent; color: var(--brand); border-color: var(--brand); }
 .btn-brand { background: var(--brand); color: #fff; }
 .btn-ghost { background: transparent; color: var(--ink); border-color: var(--line); }
 .btn-onband { background: #fff; color: #102D60; }
@@ -81,10 +84,11 @@ a { color: var(--brand); }
 .logo { height: 30px; width: auto; display: block; }
 .brandmark { display: flex; align-items: center; gap: 10px; text-decoration: none; }
 .brandmark span { font-size: 12px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); border-left: 1px solid var(--line); padding-left: 10px; }
-.nav { display: flex; gap: 22px; margin-left: auto; }
+.nav { display: flex; gap: 18px; margin-left: auto; white-space: nowrap; }
 .nav a { color: var(--body); text-decoration: none; font-size: 14px; font-weight: 500; }
 .nav a:hover { color: var(--brand); }
 .topbar .btn { margin-left: 4px; }
+@media (max-width: 1180px) { .brandmark span { display: none; } }
 @media (max-width: 980px) { .nav { display: none; } .topbar .btn-cta { margin-left: auto; } .brandmark span { display: none; } }
 
 /* event ribbon */
@@ -152,7 +156,7 @@ a { color: var(--brand); }
 .opp-cards b { font-size: 28px; font-weight: 900; color: var(--brand); white-space: nowrap; }
 .opp-cards span { font-size: 15px; color: var(--body); }
 @keyframes blink { 0%, 55% { opacity: 1; } 56%, 100% { opacity: .15; } }
-@keyframes glow { 0%, 100% { box-shadow: 0 0 0 0 rgba(224,50,42,.0), 0 6px 16px rgba(224,50,42,.25); } 50% { box-shadow: 0 0 0 8px rgba(224,50,42,.14), 0 6px 16px rgba(224,50,42,.25); } }
+@keyframes glow { 0%, 100% { box-shadow: 0 0 0 0 rgba(43,98,192,0), 0 6px 16px rgba(43,98,192,.28); } 50% { box-shadow: 0 0 0 8px rgba(43,98,192,.16), 0 6px 16px rgba(43,98,192,.28); } }
 .live-pill { display: inline-flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 700; color: var(--flame); background: var(--flame-soft); border: 1px solid rgba(224,50,42,.25); padding: 7px 14px; border-radius: 999px; text-decoration: none; }
 .live-pill i { width: 9px; height: 9px; border-radius: 50%; background: var(--flame); animation: blink 1.1s steps(1) infinite; }
 .glow { animation: glow 2.2s ease-in-out infinite; }
@@ -192,6 +196,54 @@ a { color: var(--brand); }
 .feat-card svg { width: 100%; max-width: 180px; height: auto; background: var(--brand-soft); border-radius: 12px; padding: 8px; }
 .feat-card h3 { font-size: 17px; }
 .feat-card p { font-size: 14px; color: var(--muted); }
+/* Academy-style hero */
+.ahero { background: linear-gradient(180deg, #EEF3FC 0%, var(--bg) 100%); }
+.ahero .wrap { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr); gap: 48px; padding-block: 72px 64px; align-items: center; }
+@media (max-width: 920px) { .ahero .wrap { grid-template-columns: 1fr; padding-block: 44px 40px; } }
+.ahero-copy { display: grid; justify-items: start; animation: rise-in .5s ease-out both; }
+.ahero h1 { font-size: clamp(40px, 5.6vw, 66px); font-weight: 700; letter-spacing: -0.03em; line-height: 1.04; margin-top: 20px; color: var(--ink); }
+.ahero h1 span { color: var(--brand); display: block; }
+.ahero-tag { font-family: var(--font-display); font-size: clamp(20px, 2.2vw, 26px); font-weight: 600; color: #FF9900; margin-top: 14px; }
+.ahero-sub { font-size: 18px; color: var(--muted); max-width: 50ch; margin-top: 12px; }
+.ahero-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+.ahero-rating { display: flex; align-items: center; gap: 10px; margin-top: 22px; font-size: 14px; color: var(--muted); }
+.ahero-rating b { color: var(--ink); }
+.stars { color: #FF9900; letter-spacing: 2px; font-size: 16px; }
+.ahero-vis { position: relative; min-height: 380px; animation: rise-in .6s .1s ease-out both; }
+@media (max-width: 920px) { .ahero-vis { min-height: 320px; } }
+.av-blob { position: absolute; inset: 6% 4% 4% 8%; border-radius: 40% 60% 55% 45% / 50% 45% 55% 50%; background: linear-gradient(135deg, #D6E2F7, #EEF3FC); }
+.av-cert { position: absolute; left: 10%; right: 6%; top: 18%; filter: drop-shadow(0 22px 40px rgba(27,62,120,.18)); transform: rotate(-3deg); }
+.av-cert svg { width: 100%; height: auto; display: block; }
+.av-chip { position: absolute; background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 10px 14px; box-shadow: 0 12px 28px rgba(27,62,120,.14); display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--muted); }
+.av-chip b { color: var(--ink); }
+.av-chip.c1 { left: 2%; top: 6%; }
+.av-chip.c1 i { width: 9px; height: 9px; border-radius: 50%; background: var(--flame); animation: blink 1.1s steps(1) infinite; }
+.av-chip.c2 { right: 0; top: 2%; display: grid; gap: 0; }
+.av-big { font-family: var(--font-display); font-size: 22px; font-weight: 700; color: var(--brand); }
+.av-chip.c3 { left: 4%; bottom: 2%; }
+.av-chip.c3 img { width: 64px; border-radius: 4px; }
+@media (max-width: 520px) { .av-chip.c2 { top: auto; bottom: 30%; } .av-cert { left: 4%; right: 2%; } }
+/* six-step journey */
+.journey6 { display: grid; grid-template-columns: 300px minmax(0,1fr); gap: 24px; align-items: stretch; }
+@media (max-width: 860px) { .journey6 { grid-template-columns: 1fr; } }
+.jtabs { display: grid; gap: 8px; }
+@media (max-width: 860px) { .jtabs { grid-template-columns: repeat(3, minmax(0,1fr)); } }
+.jt { all: unset; cursor: pointer; display: flex; align-items: center; gap: 12px; padding: 14px 16px; border-radius: 12px; border: 1px solid var(--line); background: var(--surface); font-weight: 600; color: var(--ink); font-family: var(--font-display); }
+.jt b { width: 30px; height: 30px; border-radius: 50%; background: var(--brand-soft); color: var(--brand); display: grid; place-items: center; font-size: 14px; flex: none; }
+.jt.on { background: var(--brand); color: #fff; border-color: var(--brand); }
+.jt.on b { background: #fff; color: var(--brand); }
+.jt:focus-visible { outline: 3px solid var(--brand); outline-offset: 2px; }
+@media (max-width: 860px) { .jt { padding: 10px; font-size: 13px; gap: 8px; } .jt b { width: 24px; height: 24px; font-size: 12px; } }
+.jpanels { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 34px; display: grid; align-content: center; min-height: 280px; background-image: radial-gradient(420px 220px at 100% 100%, var(--brand-soft), transparent 70%); }
+.jp { display: grid; gap: 14px; justify-items: start; max-width: 560px; }
+.jp-n { font-size: 13px; font-weight: 600; color: #FF9900; }
+.jp h3 { font-size: clamp(24px, 2.6vw, 32px); color: var(--brand-deep); }
+.jp p { font-size: 17px; color: var(--muted); }
+/* closing band */
+.aband { background: linear-gradient(135deg, #2B62C0, #163A75); }
+.aband .wrap { padding-block: 64px; display: grid; justify-items: center; text-align: center; gap: 14px; }
+.aband h2 { color: #fff; font-size: clamp(30px, 4vw, 46px); font-weight: 700; letter-spacing: -0.02em; }
+.aband p { color: #D5E0F2; font-size: 18px; }
 /* Brand hero with live sign-up card */
 .hero3 { background: radial-gradient(800px 400px at 85% 0%, rgba(127,166,238,.22), transparent 60%), linear-gradient(140deg, #0F4185 0%, #0B2F63 100%); color: #fff; }
 .hero3 .wrap { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); gap: 56px; padding-block: 64px 72px; align-items: center; }
@@ -622,52 +674,40 @@ input:focus, select:focus { outline: 2px solid var(--brand); border-color: var(-
       <span>SIF Partner Hub</span>
     </a>
     <nav class="nav" aria-label="Sections">
-      <a href="#how">How it works</a>
+      <a href="#steps">How it works</a>
       <a href="#bundle">Free bundle</a>
                   <a href="#tracker">Live NAVs</a>
       <a href="#decoder">SIF Decoder</a>
-      <a href="#certify">Get certified</a>
-      <a href="#kit">Partner kit</a>
+            <a href="#kit">Partner kit</a>
       <a href="#faq">FAQ</a>
     </nav>
-    <a class="btn btn-flame btn-sm btn-cta" href="#seatCard">Save my seat</a>
+    <button class="btn btn-flame btn-sm btn-cta" type="button" data-open="decoder">Become a SIF Distributor</button>
   </div>
 </header>
 
 <div id="top"></div>
 
-<section class="hero3">
+<section class="ahero">
   <div class="wrap">
-    <div class="h3-copy">
-      <a class="live-pill on-dark" href="#how"><i aria-hidden="true"></i>Registrations open for the 16 Nov batch</a>
-      <h1>Become a SIF distributor</h1>
-      <p class="h3-sub">Get NISM Series V-D certified with our free live training. One exam lets you offer both mutual funds and SIFs.</p>
-      <ul class="h3-ticks">
-        <li>Free live batch from 16 Nov, 8 evenings, 6:30 to 8:30 PM</li>
-        <li>SIF Decoder research and 15 one-pagers, free</li>
-        <li>Client notes stamped with your name and ARN</li>
-      </ul>
-      <div class="h3-count" aria-label="Time to batch start">
-        <div><b id="cdD">--</b><span>days</span></div>
-        <div><b id="cdH">--</b><span>hours</span></div>
-        <div><b id="cdM">--</b><span>mins</span></div>
-        <p>to batch start</p>
+    <div class="ahero-copy">
+      <a class="live-pill" href="#steps"><i aria-hidden="true"></i>Registrations open · Batch starts 16 Nov</a>
+      <h1>Become a <span>SIF Distributor</span></h1>
+      <p class="ahero-tag">One exam. Mutual funds and SIFs.</p>
+      <p class="ahero-sub">Get NISM Series V-D certified with free live training from AssetPlus. 8 evenings, 6:30 to 8:30 PM, in English.</p>
+      <div class="ahero-ctas">
+        <button class="btn btn-flame btn-lg glow" type="button" data-open="decoder">Get Started</button>
+        <a class="btn btn-outline-blue btn-lg" href="#opportunity">Explore the opportunity</a>
       </div>
+      <div class="ahero-rating"><span class="stars" aria-hidden="true">★★★★★</span><span><b>4.8</b> · 11k+ app ratings · 3,000+ learners</span></div>
     </div>
-
-    <div class="h3-card" id="seatCard">
-      <div class="h3-card-top"><span class="h3-date"><small>NOV</small><strong>16</strong></span><span><b>NISM Series V-D</b><br>MF &amp; SIF Distributors · Free</span></div>
-      <form id="seatForm" novalidate>
-        <h2>Save your seat</h2>
-        <label for="sf-name">Full name<input id="sf-name" name="name" autocomplete="name"></label>
-        <label for="sf-mobile">WhatsApp number<span class="sf-tel"><span>+91</span><input id="sf-mobile" name="mobile" inputmode="numeric" autocomplete="tel" placeholder="10-digit mobile"></span></label>
-        <label for="sf-arn">ARN<input id="sf-arn" name="arn" placeholder="ARN-123456" autocapitalize="characters"></label>
-        <label class="noarn" for="sf-noarn"><input type="checkbox" id="sf-noarn" name="noarn">I don’t have an ARN yet</label>
-        <label class="check" for="sf-consent"><input type="checkbox" id="sf-consent" name="consent"><span>AssetPlus may contact me on WhatsApp about this batch and SIFs.</span></label>
-        <p class="err" id="sf-err" role="alert"></p>
-        <button class="btn btn-flame btn-lg" type="submit">Save my seat</button>
-        <p class="h3-fine">Free. You also get the SIF Decoder.</p>
-      </form>
+    <div class="ahero-vis" aria-hidden="true">
+      <div class="av-blob"></div>
+      <div class="av-cert">
+        <svg viewBox="0 0 320 220"><rect x="6" y="6" width="308" height="208" rx="14" fill="#fff" stroke="#CFDCF2" stroke-width="2"/><rect x="20" y="20" width="280" height="180" rx="8" fill="none" stroke="#E3B262" stroke-width="1.5" stroke-dasharray="4 4"/><text x="160" y="58" text-anchor="middle" font-family="Geist,Inter,Arial" font-size="13" font-weight="700" fill="#606C84" letter-spacing="3">CERTIFICATE</text><text x="160" y="90" text-anchor="middle" font-family="Geist,Inter,Arial" font-size="22" font-weight="700" fill="#1B1F28">NISM Series V-D</text><text x="160" y="114" text-anchor="middle" font-family="Inter,Arial" font-size="12.5" fill="#606C84">Mutual Fund &amp; SIF Distributors</text><rect x="70" y="140" width="110" height="5" rx="2.5" fill="#CFDCF2"/><rect x="70" y="154" width="80" height="5" rx="2.5" fill="#CFDCF2"/><path d="M236 176l-9 34 15-8 15 8-9-34z" fill="#E0322A"/><circle cx="242" cy="162" r="24" fill="#2B62C0"/><circle cx="242" cy="162" r="16" fill="none" stroke="#fff" stroke-width="2.5"/><path d="M234 162l6 6 10-12" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="av-chip c1"><i></i><span><b>16 Nov</b> · Free live batch</span></div>
+      <div class="av-chip c2"><span class="av-big">₹38,287 cr</span><span>SIF assets, Sep 2026</span></div>
+      <div class="av-chip c3"><img src="decoder-cover.jpg" alt=""><span><b>SIF Decoder</b><br>included free</span></div>
     </div>
   </div>
 </section>
@@ -706,15 +746,13 @@ input:focus, select:focus { outline: 2px solid var(--brand); border-color: var(-
   </div>
 </section>
 
-<section class="section band-paper" id="how">
+<section class="section" id="steps">
   <div class="wrap">
-    <div class="section-head center"><h2 class="h2">How to get SIF certified</h2><p class="lede">Three steps. The training is free.</p></div>
-    <div class="steps3">
-      <div class="step3"><svg viewBox="0 0 160 120" aria-hidden="true"><rect x="28" y="20" width="104" height="88" rx="12" fill="var(--surface)" stroke="var(--brand-tint)" stroke-width="2"/><path d="M28 32a12 12 0 0 1 12-12h80a12 12 0 0 1 12 12v12H28z" fill="var(--flame)"/><rect x="50" y="12" width="6" height="18" rx="3" fill="var(--ink)"/><rect x="104" y="12" width="6" height="18" rx="3" fill="var(--ink)"/><text x="80" y="88" text-anchor="middle" font-size="36" font-weight="900" fill="var(--ink)" font-family="Lato,Arial,sans-serif">16</text><text x="80" y="40" text-anchor="middle" font-size="11" font-weight="700" fill="#fff" font-family="Lato,Arial,sans-serif" letter-spacing="2">NOV</text><circle cx="124" cy="98" r="16" fill="var(--pos)"/><path d="M116 98l6 6 10-12" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="sn">1</span><h3>Save your seat</h3><p>Register for the 16 Nov batch. It takes a minute.</p></div>
-      <div class="step3"><svg viewBox="0 0 160 120" aria-hidden="true"><rect x="30" y="18" width="100" height="66" rx="8" fill="var(--brand-deep)"/><rect x="36" y="24" width="88" height="54" rx="4" fill="var(--brand-soft)"/><circle cx="80" cy="44" r="10" fill="var(--brand)"/><path d="M62 74c2-11 9-16 18-16s16 5 18 16z" fill="var(--brand)"/><rect x="42" y="30" width="26" height="11" rx="5.5" fill="var(--flame)"/><circle cx="48" cy="35.5" r="2.4" fill="#fff"/><text x="58" y="38.8" text-anchor="middle" font-size="7.5" font-weight="900" fill="#fff" font-family="Lato,Arial,sans-serif">LIVE</text><path d="M18 88h124l-8 12H26z" fill="var(--brand-tint)"/><rect x="68" y="88" width="24" height="4" rx="2" fill="var(--brand)"/></svg><span class="sn">2</span><h3>Learn live for 8 evenings</h3><p>6:30 to 8:30 PM, online, in English, with Q&amp;A.</p></div>
-      <div class="step3"><svg viewBox="0 0 160 120" aria-hidden="true"><rect x="22" y="16" width="116" height="80" rx="8" fill="var(--surface)" stroke="var(--brand-tint)" stroke-width="2"/><rect x="30" y="24" width="100" height="64" rx="4" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-dasharray="3 3"/><text x="80" y="44" text-anchor="middle" font-size="11" font-weight="900" fill="var(--brand-deep)" font-family="Lato,Arial,sans-serif" letter-spacing="1">NISM SERIES V-D</text><rect x="46" y="52" width="68" height="4" rx="2" fill="var(--brand-tint)"/><rect x="56" y="62" width="48" height="4" rx="2" fill="var(--brand-tint)"/><path d="M108 84l-6 26 10-6 10 6-6-26z" fill="var(--flame)"/><circle cx="112" cy="82" r="14" fill="var(--gold)"/><circle cx="112" cy="82" r="9" fill="none" stroke="#fff" stroke-width="2"/></svg><span class="sn">3</span><h3>Pass NISM V-D</h3><p>Offer both mutual funds and SIFs to your clients.</p></div>
+    <div class="section-head center"><h2 class="h2">How to become a SIF distributor</h2><p class="lede">Six steps, from registration to your first SIF client.</p></div>
+    <div class="journey6">
+      <div class="jtabs" role="tablist" aria-label="Steps"><button type="button" role="tab" class="jt on" aria-selected="true" data-step="0"><b>1</b>Register</button><button type="button" role="tab" class="jt" aria-selected="false" data-step="1"><b>2</b>Training</button><button type="button" role="tab" class="jt" aria-selected="false" data-step="2"><b>3</b>Certification</button><button type="button" role="tab" class="jt" aria-selected="false" data-step="3"><b>4</b>ARN</button><button type="button" role="tab" class="jt" aria-selected="false" data-step="4"><b>5</b>Empanel</button><button type="button" role="tab" class="jt" aria-selected="false" data-step="5"><b>6</b>Kickstart</button></div>
+      <div class="jpanels"><div class="jp" role="tabpanel" data-panel="0"><span class="jp-n">Step 1 of 6</span><h3>Register for the free batch</h3><p>Save your seat in the free NISM V-D batch starting 16 Nov. It takes a minute.</p><button class="btn btn-flame" type="button" data-open="decoder">Save my seat</button></div><div class="jp" role="tabpanel" data-panel="1" hidden><span class="jp-n">Step 2 of 6</span><h3>Get NISM V-D training</h3><p>8 live evenings, 6:30 to 8:30 PM, in English. Expert trainers, practice tests and recorded sessions.</p><button class="btn btn-flame" type="button" data-open="decoder">Save my seat</button></div><div class="jp" role="tabpanel" data-panel="2" hidden><span class="jp-n">Step 3 of 6</span><h3>Clear the NISM V-D exam</h3><p>One exam covers both mutual funds and SIFs. It replaces the earlier V-A plus XIII route.</p><button class="btn btn-flame" type="button" data-open="decoder">Save my seat</button></div><div class="jp" role="tabpanel" data-panel="3" hidden><span class="jp-n">Step 4 of 6</span><h3>Register for your ARN</h3><p>Apply for your AMFI Registration Number once you pass. Already have an ARN? Your V-D adds SIFs to it.</p><a class="btn btn-flame wa-link" href="#" target="_blank" rel="noopener">Talk to us on WhatsApp</a></div><div class="jp" role="tabpanel" data-panel="4" hidden><span class="jp-n">Step 5 of 6</span><h3>Empanel with AssetPlus</h3><p>Offer SIFs to clients on the AssetPlus platform, with onboarding and operations support.</p><a class="btn btn-flame wa-link" href="#" target="_blank" rel="noopener">Talk to us on WhatsApp</a></div><div class="jp" role="tabpanel" data-panel="5" hidden><span class="jp-n">Step 6 of 6</span><h3>Kickstart your SIF practice</h3><p>Start with the SIF Decoder, six persona pitch sheets and client notes stamped with your ARN.</p><button class="btn btn-flame" type="button" data-open="decoder">Get the free bundle</button></div></div>
     </div>
-    <div class="center-cta"><a class="btn btn-flame btn-lg" href="https://academy.assetplus.in/course/nism-series-v-d-mf-sif-distributors-certification-training-16th-november" target="_blank" rel="noopener">Save my seat</a></div>
   </div>
 </section>
 
@@ -1027,6 +1065,14 @@ input:focus, select:focus { outline: 2px solid var(--brand); border-color: var(-
   </div>
 </section>
 
+<section class="aband">
+  <div class="wrap">
+    <h2>Become a SIF Distributor</h2>
+    <p>Free NISM V-D training, live from 16 Nov. Seats are limited for live Q&amp;A.</p>
+    <button class="btn btn-white btn-lg" type="button" data-open="decoder">Get Started Now</button>
+  </div>
+</section>
+
 <footer>
   <div class="wrap">
     <div class="disc">
@@ -1052,7 +1098,7 @@ input:focus, select:focus { outline: 2px solid var(--brand); border-color: var(-
 </a>
 
 <div class="mbar">
-  <a class="btn btn-flame" href="#seatCard">Save my seat</a>
+  <button class="btn btn-flame" type="button" data-open="decoder">Get Started</button>
   <a class="btn btn-ghost" href="#certify">Batch details</a>
 </div>
 
@@ -1139,6 +1185,15 @@ $("#asof3").textContent = DATA.asof;
     if (i % 3 === 0 || last) g += '<text x="' + (x + w / 2) + '" y="' + (H - 6) + '" text-anchor="middle" font-size="11" fill="var(--muted)">' + d[0] + '</text>';
   });
   svg.innerHTML = g;
+})();
+
+/* Six-step tabs */
+(function steps(){
+  const tabs = $$(".jt"), panels = $$(".jp");
+  tabs.forEach(t => t.addEventListener("click", () => {
+    tabs.forEach(x => { const on = x === t; x.classList.toggle("on", on); x.setAttribute("aria-selected", on); });
+    panels.forEach(pn => pn.hidden = pn.dataset.panel !== t.dataset.step);
+  }));
 })();
 
 /* Charts */
@@ -1303,7 +1358,7 @@ function leadForm(opts){
 }
 function bindLead(source, extra, onDone){
   const f = $("#leadForm");
-  if (f.noarn) $("#sf-noarn").addEventListener("change", e => { $("#sf-arn").disabled = e.target.checked; if (e.target.checked) $("#sf-arn").value = ""; });
+  if (f.noarn) f.noarn.addEventListener("change", () => { f.arn.disabled = f.noarn.checked; if (f.noarn.checked) f.arn.value = ""; });
   f.addEventListener("submit", async e => {
     e.preventDefault();
     const d = Object.fromEntries(new FormData(f).entries());
@@ -1476,7 +1531,7 @@ document.addEventListener("click", e => {
     const step = now => { const k = Math.min(1, (now - t0) / dur), v = Math.round(target * (1 - Math.pow(1 - k, 3))); el.textContent = txt.replace(m[0], v.toLocaleString("en-IN")); if (k < 1) requestAnimationFrame(step); };
     requestAnimationFrame(step);
   });
-  const targets = $$(".section-head, .steps3, .feat, .bundle, .rules, .two, .charts, .tk-sum, .table-box, .timeline, .decoder > .toc, .journey, .lib, .road, .faq, .certify .events, .wa-band .wrap");
+  const targets = $$(".section-head, .journey6, .feat, .bundle, .rules, .two, .charts, .tk-sum, .table-box, .timeline, .decoder > .toc, .journey, .lib, .road, .faq, .certify .events, .wa-band .wrap");
   const below = targets.filter(el => el.getBoundingClientRect().top > innerHeight);
   below.forEach(el => el.classList.add("reveal", "pre"));
   const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.remove("pre"); io.unobserve(e.target); } }), {rootMargin: "0px 0px -8% 0px"});
