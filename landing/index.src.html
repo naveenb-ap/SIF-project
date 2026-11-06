@@ -151,6 +151,47 @@ a { color: var(--brand); }
 .opp-cards div { display: grid; grid-template-columns: 140px minmax(0,1fr); gap: 14px; align-items: center; border-bottom: 1px solid var(--line); padding-bottom: 12px; }
 .opp-cards b { font-size: 28px; font-weight: 900; color: var(--brand); white-space: nowrap; }
 .opp-cards span { font-size: 15px; color: var(--body); }
+@keyframes blink { 0%, 55% { opacity: 1; } 56%, 100% { opacity: .15; } }
+@keyframes glow { 0%, 100% { box-shadow: 0 0 0 0 rgba(224,50,42,.0), 0 6px 16px rgba(224,50,42,.25); } 50% { box-shadow: 0 0 0 8px rgba(224,50,42,.14), 0 6px 16px rgba(224,50,42,.25); } }
+.live-pill { display: inline-flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 700; color: var(--flame); background: var(--flame-soft); border: 1px solid rgba(224,50,42,.25); padding: 7px 14px; border-radius: 999px; text-decoration: none; }
+.live-pill i { width: 9px; height: 9px; border-radius: 50%; background: var(--flame); animation: blink 1.1s steps(1) infinite; }
+.glow { animation: glow 2.2s ease-in-out infinite; }
+.bundle { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 48px; align-items: center; }
+@media (max-width: 900px) { .bundle { grid-template-columns: 1fr; } }
+.free-tag { display: inline-block; font-size: 13px; font-weight: 900; color: var(--pos); background: var(--pos-bg); padding: 5px 12px; border-radius: 999px; justify-self: start; }
+.bundle-copy { display: grid; gap: 12px; }
+.bundle-list { list-style: none; margin: 6px 0 0; padding: 0; display: grid; gap: 12px; }
+.bundle-list li { display: grid; grid-template-columns: 26px minmax(0,1fr); column-gap: 10px; }
+.bundle-list li::before { content: ""; grid-row: span 2; width: 22px; height: 22px; border-radius: 50%; background: var(--pos) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 12.5l4 4 8-9' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 14px no-repeat; margin-top: 2px; }
+.bundle-list b { color: var(--ink); font-size: 16px; }
+.bundle-list span { color: var(--muted); font-size: 14px; }
+.fan { all: unset; cursor: pointer; position: relative; display: block; width: min(520px, 100%); aspect-ratio: 5 / 4; justify-self: center; max-width: 100%; }
+.fan img { position: absolute; border-radius: 8px; box-shadow: 0 12px 30px rgba(15,40,90,.18); background: #fff; transition: transform .35s ease; }
+.fan .f1 { width: 38%; left: 4%; top: 8%; transform: rotate(-10deg); }
+.fan .f2 { width: 38%; left: 30%; top: 2%; transform: rotate(-2deg); }
+.fan .f3 { width: 38%; right: 2%; top: 9%; transform: rotate(8deg); }
+.fan .f4 { width: 78%; left: 11%; bottom: 0; }
+.fan:hover .f1 { transform: rotate(-14deg) translateX(-8px); }
+.fan:hover .f3 { transform: rotate(12deg) translateX(8px); }
+.fan-badge { position: absolute; right: 4%; bottom: 34%; background: var(--pos); color: #fff; font-weight: 900; font-size: 15px; letter-spacing: .08em; padding: 10px 14px; border-radius: 999px; box-shadow: 0 8px 18px rgba(29,122,58,.35); transform: rotate(-8deg); }
+.fan:focus-visible { outline: 3px solid var(--brand); outline-offset: 6px; border-radius: 12px; }
+.section-head.center { margin-inline: auto; text-align: center; justify-items: center; }
+.steps3 { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 22px; }
+@media (max-width: 860px) { .steps3 { grid-template-columns: 1fr; } }
+.step3 { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 22px; display: grid; gap: 8px; justify-items: center; text-align: center; position: relative; }
+.step3 svg { width: 160px; height: 120px; }
+.step3 .sn { position: absolute; top: 14px; left: 14px; width: 30px; height: 30px; border-radius: 50%; background: var(--brand); color: #fff; font-weight: 900; display: grid; place-items: center; font-size: 15px; }
+.step3 h3 { font-size: 19px; }
+.step3 p { color: var(--muted); font-size: 15px; }
+.center-cta { display: flex; justify-content: center; margin-top: 28px; }
+.feat { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 18px; }
+@media (max-width: 1000px) { .feat { grid-template-columns: repeat(2, minmax(0,1fr)); } }
+@media (max-width: 520px) { .feat { grid-template-columns: 1fr; } }
+.feat-card { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 20px; display: grid; gap: 8px; text-decoration: none; color: inherit; transition: border-color .2s, box-shadow .2s; }
+.feat-card:hover { border-color: var(--brand-tint); box-shadow: 0 10px 26px rgba(15,65,133,.10); }
+.feat-card svg { width: 100%; max-width: 180px; height: auto; background: var(--brand-soft); border-radius: 12px; padding: 8px; }
+.feat-card h3 { font-size: 17px; }
+.feat-card p { font-size: 14px; color: var(--muted); }
 /* stats strip */
 .stats { background: var(--surface); border-bottom: 1px solid var(--line); }
 .stats .wrap { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); padding-block: 22px; gap: 16px; }
@@ -408,7 +449,7 @@ footer .wrap { padding-block: 40px 96px; display: grid; gap: 20px; }
 .doc:hover { border-color: var(--brand-tint); }
 tbody tr { transition: background .15s; }
 tbody tr:hover { background: var(--brand-soft); }
-@media (prefers-reduced-motion: reduce) { .reveal.pre { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .reveal.pre { opacity: 1; transform: none; } .live-pill i, .glow { animation: none; } }
 
 /* minimal TOFU popup */
 .pop { display: grid; gap: 14px; }
@@ -490,9 +531,9 @@ input:focus, select:focus { outline: 2px solid var(--brand); border-color: var(-
       <span>SIF Partner Hub</span>
     </a>
     <nav class="nav" aria-label="Sections">
-      <a href="#opportunity">Opportunity</a>
-      <a href="#learn">What is a SIF</a>
-            <a href="#tracker">Live NAVs</a>
+      <a href="#how">How it works</a>
+      <a href="#bundle">Free bundle</a>
+                  <a href="#tracker">Live NAVs</a>
       <a href="#decoder">SIF Decoder</a>
       <a href="#certify">Get certified</a>
       <a href="#kit">Partner kit</a>
@@ -512,12 +553,12 @@ input:focus, select:focus { outline: 2px solid var(--brand); border-color: var(-
 <section class="hero">
   <div class="wrap">
     <div>
-      <p class="hero-kicker">Get SIF Certified</p>
+      <a class="live-pill" href="#how"><i aria-hidden="true"></i>Registrations open · Batch starts 16 Nov</a>
       <h1>Become a SIF Distributor</h1>
       <p class="tagline">One exam for mutual funds and SIFs</p>
       <p class="sub">Free NISM Series V-D training, live online from 16 Nov. 8 evenings, 6:30 to 8:30 PM, in English.</p>
       <div class="ctas">
-        <a class="btn btn-flame btn-lg" href="https://academy.assetplus.in/course/nism-series-v-d-mf-sif-distributors-certification-training-16th-november" target="_blank" rel="noopener">Save my seat</a>
+        <a class="btn btn-flame btn-lg glow" href="https://academy.assetplus.in/course/nism-series-v-d-mf-sif-distributors-certification-training-16th-november" target="_blank" rel="noopener">Get certified · Save my seat</a>
         <a class="btn-link" href="#certify">See batch details</a>
       </div>
     </div>
@@ -535,7 +576,55 @@ input:focus, select:focus { outline: 2px solid var(--brand); border-color: var(-
   </div>
 </section>
 
-<section class="section" id="opportunity">
+<section class="section bundle-sec" id="bundle">
+  <div class="wrap bundle">
+    <div class="bundle-copy">
+      <span class="free-tag">Free with your seat</span>
+      <h2 class="h2">Sign up and get the SIF starter bundle</h2>
+      <p class="lede">Everything we use to explain SIFs to partners and their clients, in one bundle.</p>
+      <ul class="bundle-list">
+        <li><b>SIF Decoder, Oct 2026</b><span>Our 26-page research on every SIF</span></li>
+        <li><b>15 one-pagers</b><span>Explainers, pitch sheets and client notes</span></li>
+        <li><b>Client notes with your ARN</b><span>Ready to share once you are certified</span></li>
+        <li><b>Daily SIF NAVs</b><span>Every strategy, from AMFI</span></li>
+      </ul>
+      <div class="ctas" style="margin-top:22px"><button class="btn btn-flame btn-lg" type="button" data-open="decoder">Get the free bundle</button></div>
+    </div>
+    <button type="button" class="fan" data-open="decoder" aria-label="Get the free SIF starter bundle">
+      <img class="f1" src="thumbs/01-What-is-a-SIF.jpg" alt="" loading="lazy">
+      <img class="f2" src="thumbs/07a-Persona-FD-Retiree.jpg" alt="" loading="lazy">
+      <img class="f3" src="thumbs/06a-SIF-vs-FD.jpg" alt="" loading="lazy">
+      <img class="f4" src="decoder-cover.jpg" alt="SIF Decoder cover with one-pagers behind it">
+      <span class="fan-badge">FREE</span>
+    </button>
+  </div>
+</section>
+
+<section class="section band-paper" id="how">
+  <div class="wrap">
+    <div class="section-head center"><h2 class="h2">How to get SIF certified</h2><p class="lede">Three steps. The training is free.</p></div>
+    <div class="steps3">
+      <div class="step3"><svg viewBox="0 0 160 120" aria-hidden="true"><rect x="28" y="20" width="104" height="88" rx="12" fill="var(--surface)" stroke="var(--brand-tint)" stroke-width="2"/><path d="M28 32a12 12 0 0 1 12-12h80a12 12 0 0 1 12 12v12H28z" fill="var(--flame)"/><rect x="50" y="12" width="6" height="18" rx="3" fill="var(--ink)"/><rect x="104" y="12" width="6" height="18" rx="3" fill="var(--ink)"/><text x="80" y="88" text-anchor="middle" font-size="36" font-weight="900" fill="var(--ink)" font-family="Lato,Arial,sans-serif">16</text><text x="80" y="40" text-anchor="middle" font-size="11" font-weight="700" fill="#fff" font-family="Lato,Arial,sans-serif" letter-spacing="2">NOV</text><circle cx="124" cy="98" r="16" fill="var(--pos)"/><path d="M116 98l6 6 10-12" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="sn">1</span><h3>Save your seat</h3><p>Register for the 16 Nov batch. It takes a minute.</p></div>
+      <div class="step3"><svg viewBox="0 0 160 120" aria-hidden="true"><rect x="30" y="18" width="100" height="66" rx="8" fill="var(--brand-deep)"/><rect x="36" y="24" width="88" height="54" rx="4" fill="var(--brand-soft)"/><circle cx="80" cy="44" r="10" fill="var(--brand)"/><path d="M62 74c2-11 9-16 18-16s16 5 18 16z" fill="var(--brand)"/><rect x="42" y="30" width="26" height="11" rx="5.5" fill="var(--flame)"/><circle cx="48" cy="35.5" r="2.4" fill="#fff"/><text x="58" y="38.8" text-anchor="middle" font-size="7.5" font-weight="900" fill="#fff" font-family="Lato,Arial,sans-serif">LIVE</text><path d="M18 88h124l-8 12H26z" fill="var(--brand-tint)"/><rect x="68" y="88" width="24" height="4" rx="2" fill="var(--brand)"/></svg><span class="sn">2</span><h3>Learn live for 8 evenings</h3><p>6:30 to 8:30 PM, online, in English, with Q&amp;A.</p></div>
+      <div class="step3"><svg viewBox="0 0 160 120" aria-hidden="true"><rect x="22" y="16" width="116" height="80" rx="8" fill="var(--surface)" stroke="var(--brand-tint)" stroke-width="2"/><rect x="30" y="24" width="100" height="64" rx="4" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-dasharray="3 3"/><text x="80" y="44" text-anchor="middle" font-size="11" font-weight="900" fill="var(--brand-deep)" font-family="Lato,Arial,sans-serif" letter-spacing="1">NISM SERIES V-D</text><rect x="46" y="52" width="68" height="4" rx="2" fill="var(--brand-tint)"/><rect x="56" y="62" width="48" height="4" rx="2" fill="var(--brand-tint)"/><path d="M108 84l-6 26 10-6 10 6-6-26z" fill="var(--flame)"/><circle cx="112" cy="82" r="14" fill="var(--gold)"/><circle cx="112" cy="82" r="9" fill="none" stroke="#fff" stroke-width="2"/></svg><span class="sn">3</span><h3>Pass NISM V-D</h3><p>Offer both mutual funds and SIFs to your clients.</p></div>
+    </div>
+    <div class="center-cta"><a class="btn btn-flame btn-lg" href="https://academy.assetplus.in/course/nism-series-v-d-mf-sif-distributors-certification-training-16th-november" target="_blank" rel="noopener">Save my seat</a></div>
+  </div>
+</section>
+
+<section class="section" id="features">
+  <div class="wrap">
+    <div class="section-head center"><h2 class="h2">What you get from AssetPlus</h2><p class="lede">Training, research and tools for your SIF practice.</p></div>
+    <div class="feat">
+      <a class="feat-card" href="#decoder"><svg viewBox="0 0 160 120" aria-hidden="true"><rect x="40" y="10" width="84" height="104" rx="8" fill="#0F4185"/><rect x="48" y="20" width="40" height="5" rx="2.5" fill="#FFC4BF"/><text x="48" y="44" font-size="13" font-weight="900" fill="#fff" font-family="Lato,Arial,sans-serif">SIF</text><text x="48" y="58" font-size="13" font-weight="900" fill="#fff" font-family="Lato,Arial,sans-serif">DECODER</text><rect x="52" y="88" width="9" height="16" rx="2" fill="#7FA6EE"/><rect x="65" y="80" width="9" height="24" rx="2" fill="#7FA6EE"/><rect x="78" y="72" width="9" height="32" rx="2" fill="#7FA6EE"/><rect x="91" y="62" width="9" height="42" rx="2" fill="var(--flame)"/><circle cx="122" cy="26" r="16" fill="var(--gold)"/><text x="122" y="30" text-anchor="middle" font-size="10" font-weight="900" fill="#fff" font-family="Lato,Arial,sans-serif">26p</text></svg><h3>SIF Decoder research</h3><p>Our view on SIFs, the framework we use, and a tracker of all strategies.</p></a>
+      <a class="feat-card" href="#tracker"><svg viewBox="0 0 160 120" aria-hidden="true"><rect x="20" y="18" width="120" height="84" rx="10" fill="var(--surface)" stroke="var(--brand-tint)" stroke-width="2"/><path d="M32 82l20-14 18 8 22-24 18 10 18-20" fill="none" stroke="var(--brand)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="128" cy="42" r="5" fill="var(--flame)"/><rect x="32" y="28" width="36" height="6" rx="3" fill="var(--brand-tint)"/><rect x="104" y="88" width="24" height="6" rx="3" fill="var(--pos)"/></svg><h3>Daily SIF NAVs</h3><p>Every strategy's NAV and 1-day change, from AMFI, each evening.</p></a>
+      <a class="feat-card" href="#kit"><svg viewBox="0 0 160 120" aria-hidden="true"><rect x="22" y="14" width="70" height="92" rx="8" fill="var(--surface)" stroke="var(--brand-tint)" stroke-width="2"/><rect x="30" y="24" width="40" height="6" rx="3" fill="var(--brand)"/><rect x="30" y="38" width="54" height="4" rx="2" fill="var(--brand-tint)"/><rect x="30" y="48" width="48" height="4" rx="2" fill="var(--brand-tint)"/><rect x="30" y="58" width="52" height="4" rx="2" fill="var(--brand-tint)"/><rect x="22" y="88" width="70" height="18" rx="0" fill="var(--brand-soft)"/><text x="57" y="100" text-anchor="middle" font-size="8.5" font-weight="900" fill="var(--brand-deep)" font-family="Lato,Arial,sans-serif">YOUR ARN</text><path d="M98 60h22" stroke="var(--flame)" stroke-width="3.5" stroke-linecap="round"/><path d="M114 52l8 8-8 8" fill="none" stroke="var(--flame)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="138" cy="50" r="9" fill="var(--brand)"/><path d="M124 80c2-10 8-14 14-14s12 4 14 14z" fill="var(--brand)"/></svg><h3>Client notes with your ARN</h3><p>Plain-language comparisons with FDs, arbitrage, BAFs and more.</p></a>
+      <a class="feat-card" href="#talk"><svg viewBox="0 0 160 120" aria-hidden="true"><path d="M24 26a10 10 0 0 1 10-10h62a10 10 0 0 1 10 10v30a10 10 0 0 1-10 10H50l-16 12V66h0a10 10 0 0 1-10-10z" fill="var(--brand-soft)" stroke="var(--brand-tint)" stroke-width="2"/><rect x="36" y="30" width="52" height="5" rx="2.5" fill="var(--brand)"/><rect x="36" y="42" width="38" height="5" rx="2.5" fill="var(--brand-tint)"/><path d="M58 64a10 10 0 0 1 10-10h58a10 10 0 0 1 10 10v26a10 10 0 0 1-10 10h-4v12l-16-12H68a10 10 0 0 1-10-10z" fill="#25B23C"/><rect x="70" y="68" width="48" height="5" rx="2.5" fill="#fff"/><rect x="70" y="80" width="32" height="5" rx="2.5" fill="#D9F7DF"/></svg><h3>Help on WhatsApp</h3><p>Batch dates, exam help, empanelment and client cases.</p></a>
+    </div>
+  </div>
+</section>
+
+<section class="section band-paper" id="opportunity">
   <div class="wrap opp-wrap">
     <div class="section-head" style="margin:0">
       <h2 class="h2">The SIF opportunity</h2>
@@ -1280,7 +1369,7 @@ document.addEventListener("click", e => {
     const step = now => { const k = Math.min(1, (now - t0) / dur), v = Math.round(target * (1 - Math.pow(1 - k, 3))); el.textContent = txt.replace(m[0], v.toLocaleString("en-IN")); if (k < 1) requestAnimationFrame(step); };
     requestAnimationFrame(step);
   });
-  const targets = $$(".section-head, .rules, .two, .charts, .tk-sum, .table-box, .timeline, .decoder > .toc, .journey, .lib, .road, .faq, .certify .events, .wa-band .wrap");
+  const targets = $$(".section-head, .steps3, .feat, .bundle, .rules, .two, .charts, .tk-sum, .table-box, .timeline, .decoder > .toc, .journey, .lib, .road, .faq, .certify .events, .wa-band .wrap");
   const below = targets.filter(el => el.getBoundingClientRect().top > innerHeight);
   below.forEach(el => el.classList.add("reveal", "pre"));
   const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.remove("pre"); io.unobserve(e.target); } }), {rootMargin: "0px 0px -8% 0px"});
