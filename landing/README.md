@@ -19,3 +19,8 @@ The repo is Vercel-ready: `vercel.json` serves `landing/` as a static site and `
    (Zoho Flow / Zoho CRM webhook, or a Google Apps Script that appends to a Sheet).
    Without it, leads are written to the Vercel function logs as `SIF_LEAD {...}`.
 3. Deploy. The nightly data refresh commits to the branch; Vercel redeploys on each push.
+
+### SEO
+- `tools/build_page.py` writes `landing/site.html`, a full HTML document (lang, title, description, Open Graph, Course/Event/FAQ structured data) that Vercel serves at `/`.
+- Set the `SITE_URL` environment variable when building (e.g. `SITE_URL=https://sif.assetplus.in/ python3 tools/build_page.py`) to add the canonical URL, absolute share-image links and `sitemap.xml`.
+- `og-image.jpg` is the 1200×630 share image; `robots.txt` keeps `/pdfs/` out of search.

@@ -3,7 +3,51 @@
   "outputDirectory": "landing",
   "cleanUrls": true,
   "headers": [
-    { "source": "/(img|thumbs)/(.*)", "headers": [{ "key": "Cache-Control", "value": "public, max-age=604800" }] },
-    { "source": "/pdfs/(.*)", "headers": [{ "key": "Cache-Control", "value": "public, max-age=86400" }, { "key": "X-Robots-Tag", "value": "noindex" }] }
+    {
+      "source": "/(img|thumbs)/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=604800"
+        }
+      ]
+    },
+    {
+      "source": "/pdfs/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400"
+        },
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/(index|site).src.html",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/index.html",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/",
+      "destination": "/site.html"
+    }
   ]
 }
