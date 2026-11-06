@@ -213,7 +213,7 @@ a { color: var(--brand); }
 .ahx-btn:focus-visible { outline: 3px solid #2B4FA8; outline-offset: 3px; }
 .ahx-vis { position: relative; display: grid; justify-items: center; align-self: center; padding-block: 24px 48px; }
 .ahx-blob { position: absolute; width: 112%; aspect-ratio: 1; left: 50%; top: 50%; transform: translate(-50%, -46%); border-radius: 50%; background: #E3EBFA; }
-.ahx-photo { position: relative; display: block; width: min(380px, 100%); height: auto; aspect-ratio: 702 / 1000; object-fit: cover; object-position: center 20%; border-radius: 200px 200px 24px 24px; }
+.ahx-photo { position: relative; display: block; width: min(370px, 100%); height: auto; aspect-ratio: 702 / 1080; object-fit: cover; object-position: center 62%; border-radius: 200px 200px 24px 24px; }
 @media (max-width: 900px) {
   .ahx .wrap { grid-template-columns: 1fr; padding-top: 40px; gap: 0; }
   .ahx-copy { padding-bottom: 36px; }
@@ -232,7 +232,7 @@ a { color: var(--brand); }
 @media (max-width: 900px) {
   .ahx-q { max-width: 170px; padding: 8px 11px; border-radius: 13px; }
   .ahx-q b { font-size: 13px; } .ahx-q span { font-size: 10.5px; }
-  .ahx-q.q1 { left: 0; top: 6%; } .ahx-q.q3 { display: none; }
+  .ahx-q.q1 { left: 0; top: 2%; } .ahx-q.q3 { display: none; }
   .ahx-q.q2 { right: 0; top: auto; bottom: 0; } .ahx-q.q2::after { left: auto; right: 30px; top: -8px; border-right: 1px solid #E3E9F4; border-top: 1px solid #E3E9F4; border-left: 0; border-bottom: 0; }
 }
 /* hero motion */
@@ -323,11 +323,11 @@ a { color: var(--brand); }
 .rhero-backed { font-size: 12.5px; color: var(--muted); margin-top: 12px; max-width: 620px; }
 .rhero { padding-bottom: 40px; }
 /* step photos */
-.jp.has-img { grid-template-columns: minmax(0,1fr) 240px; max-width: none; align-items: center; column-gap: 28px; }
+.jp.has-img { grid-template-columns: minmax(0,1fr) 260px; max-width: none; align-items: center; column-gap: 28px; }
 .jp.has-img { grid-template-rows: 1fr auto auto auto auto 1fr; row-gap: 0; }
 .jp.has-img > :not(.jp-img) { grid-column: 1; }
 .jp.has-img > :nth-child(1) { grid-row: 2; } .jp.has-img > :nth-child(2) { grid-row: 3; margin-top: 8px; } .jp.has-img > :nth-child(3) { grid-row: 4; margin-top: 12px; } .jp.has-img > :nth-child(4) { grid-row: 5; margin-top: 20px; }
-.jp-img { grid-column: 2; grid-row: 1 / -1; width: 240px; height: 320px; object-fit: cover; border-radius: 16px; box-shadow: 0 14px 30px rgba(10,31,68,.12); }
+.jp-img { grid-column: 2; grid-row: 1 / -1; width: 260px; height: 300px; object-fit: cover; border-radius: 16px; box-shadow: 0 14px 30px rgba(10,31,68,.12); align-self: center; }
 .jp.has-img[hidden] { display: none; }
 @media (max-width: 700px) { .jp.has-img { grid-template-columns: 1fr; grid-template-rows: none; } .jp.has-img > * { grid-row: auto !important; } .jp-img { grid-column: 1; grid-row: auto; width: 100%; height: 300px; } }
 /* Academy-style hero */
@@ -908,6 +908,9 @@ input:focus, select:focus { outline: 2px solid var(--brand); border-color: var(-
   .btn-lg { padding: 14px 18px; font-size: 16px; }
 
   /* hero */
+  .logo { height: 28px; }
+  .topbar .wrap { padding-block: 10px; }
+  .topbar .btn-cta { padding: 9px 12px; font-size: 13px; }
   .rhero > .wrap:first-child { padding-top: 24px; gap: 20px; }
   .rhero h1 { font-size: 46px; margin-top: 14px; }
   .rhero h1 .u::after { bottom: -6px; height: 9px; }
@@ -1098,7 +1101,7 @@ input:focus, select:focus { outline: 2px solid var(--brand); border-color: var(-
     <div class="section-head center"><h2 class="h2">Your journey to SIF Ready</h2><p class="lede">Six steps, from registration to your first SIF client.</p></div>
     <div class="journey6">
       <div class="jtabs" role="tablist" aria-label="Steps"><button type="button" role="tab" class="jt on" aria-selected="true" data-step="0"><b>1</b>Register</button><button type="button" role="tab" class="jt" aria-selected="false" data-step="1"><b>2</b>Training</button><button type="button" role="tab" class="jt" aria-selected="false" data-step="2"><b>3</b>Certification</button><button type="button" role="tab" class="jt" aria-selected="false" data-step="3"><b>4</b>ARN</button><button type="button" role="tab" class="jt" aria-selected="false" data-step="4"><b>5</b>Empanel</button><button type="button" role="tab" class="jt" aria-selected="false" data-step="5"><b>6</b>Kickstart</button></div>
-      <div class="jpanels"><div class="jp has-img" role="tabpanel" data-panel="0"><span class="jp-n">Step 1 of 6</span><h3>Register for the free batch</h3><p>Save your seat in the free NISM V-D batch starting 16 Nov. It takes a minute.</p><button class="btn btn-flame" type="button" data-open="decoder">Save my seat</button><img class="jp-img" src="img/p-student.webp" alt="" loading="lazy" style="object-position:center 28%"></div><div class="jp has-img" role="tabpanel" data-panel="1" hidden><span class="jp-n">Step 2 of 6</span><h3>Get NISM V-D training</h3><p>8 live evenings, 6:30 to 8:30 PM, in English. Expert trainers, practice tests and recorded sessions.</p><button class="btn btn-flame" type="button" data-open="decoder">Save my seat</button><img class="jp-img" src="img/p-live.webp" alt="" loading="lazy" style="object-position:center 55%"></div><div class="jp has-img" role="tabpanel" data-panel="2" hidden><span class="jp-n">Step 3 of 6</span><h3>Clear the NISM V-D exam</h3><p>One exam covers both mutual funds and SIFs. It replaces the earlier V-A plus XIII route.</p><button class="btn btn-flame" type="button" data-open="decoder">Save my seat</button><img class="jp-img" src="img/p-mock.webp" alt="" loading="lazy" style="object-position:center 45%"></div><div class="jp has-img" role="tabpanel" data-panel="3" hidden><span class="jp-n">Step 4 of 6</span><h3>Register for your ARN</h3><p>Apply for your AMFI Registration Number once you pass. Already have an ARN? Your V-D adds SIFs to it.</p><a class="btn btn-flame wa-link" href="#" target="_blank" rel="noopener">Talk to us on WhatsApp</a><img class="jp-img" src="img/p-learner.webp" alt="" loading="lazy" style="object-position:center 30%"></div><div class="jp has-img" role="tabpanel" data-panel="4" hidden><span class="jp-n">Step 5 of 6</span><h3>Empanel with AssetPlus</h3><p>Offer SIFs to clients on the AssetPlus platform, with onboarding and operations support.</p><a class="btn btn-flame wa-link" href="#" target="_blank" rel="noopener">Talk to us on WhatsApp</a><img class="jp-img" src="img/p-app.webp" alt="" loading="lazy" style="object-position:center 45%"></div><div class="jp has-img" role="tabpanel" data-panel="5" hidden><span class="jp-n">Step 6 of 6</span><h3>Kickstart your SIF practice</h3><p>Start with the SIF Decoder, six persona pitch sheets and client notes stamped with your ARN.</p><button class="btn btn-flame" type="button" data-open="decoder">Get the free bundle</button><img class="jp-img" src="img/p-pro.webp" alt="" loading="lazy" style="object-position:center 25%"></div></div>
+      <div class="jpanels"><div class="jp has-img" role="tabpanel" data-panel="0"><span class="jp-n">Step 1 of 6</span><h3>Register for the free batch</h3><p>Save your seat in the free NISM V-D batch starting 16 Nov. It takes a minute.</p><button class="btn btn-flame" type="button" data-open="decoder">Save my seat</button><img class="jp-img" src="img/p-student.webp" alt="" loading="lazy" style="object-position:62% 40%"></div><div class="jp has-img" role="tabpanel" data-panel="1" hidden><span class="jp-n">Step 2 of 6</span><h3>Get NISM V-D training</h3><p>8 live evenings, 6:30 to 8:30 PM, in English. Expert trainers, practice tests and recorded sessions.</p><button class="btn btn-flame" type="button" data-open="decoder">Save my seat</button><img class="jp-img" src="img/p-live.webp" alt="" loading="lazy" style="object-position:center 55%"></div><div class="jp has-img" role="tabpanel" data-panel="2" hidden><span class="jp-n">Step 3 of 6</span><h3>Clear the NISM V-D exam</h3><p>One exam covers both mutual funds and SIFs. It replaces the earlier V-A plus XIII route.</p><button class="btn btn-flame" type="button" data-open="decoder">Save my seat</button><img class="jp-img" src="img/p-mock.webp" alt="" loading="lazy" style="object-position:center 45%"></div><div class="jp has-img" role="tabpanel" data-panel="3" hidden><span class="jp-n">Step 4 of 6</span><h3>Register for your ARN</h3><p>Apply for your AMFI Registration Number once you pass. Already have an ARN? Your V-D adds SIFs to it.</p><a class="btn btn-flame wa-link" href="#" target="_blank" rel="noopener">Talk to us on WhatsApp</a><img class="jp-img" src="img/p-learner.webp" alt="" loading="lazy" style="object-position:center 30%"></div><div class="jp has-img" role="tabpanel" data-panel="4" hidden><span class="jp-n">Step 5 of 6</span><h3>Empanel with AssetPlus</h3><p>Offer SIFs to clients on the AssetPlus platform, with onboarding and operations support.</p><a class="btn btn-flame wa-link" href="#" target="_blank" rel="noopener">Talk to us on WhatsApp</a><img class="jp-img" src="img/p-app.webp" alt="" loading="lazy" style="object-position:center 78%"></div><div class="jp has-img" role="tabpanel" data-panel="5" hidden><span class="jp-n">Step 6 of 6</span><h3>Kickstart your SIF practice</h3><p>Start with the SIF Decoder, six persona pitch sheets and client notes stamped with your ARN.</p><button class="btn btn-flame" type="button" data-open="decoder">Get the free bundle</button><img class="jp-img" src="img/p-pro-crop.webp" alt="" loading="lazy" style="object-position:center 20%"></div></div>
     </div>
   </div>
 </section>
@@ -1927,13 +1930,14 @@ function showNudge(src){
 }
 /* First-visit popup: 45% scroll, 40 s on page, or exit intent. Once per 7 days; never after sign-up. */
 (function firstVisit(){
-  const last = Number(store.get("ap_sif_popup") || 0);
-  if (savedLead() || (last && Date.now() - last < 7*864e5)) return;
+  if (location.hash === "#register") { setTimeout(() => openStarter("link"), 400); return; }
+  const last = Number(store.get("ap_sif_popup") || 0), lead = savedLead();
+  if ((lead && lead.vd === "Certified") || (last && Date.now() - last < 864e5)) return;
   let shown = false;
   const phone = matchMedia("(max-width: 640px)").matches;
   const show = (src) => { if (shown || !overlay.hidden) return; shown = true; phone ? showNudge(src) : openStarter(src); };
-  setTimeout(() => show("popup-time"), 40000);
-  const onScroll = () => { const h = document.scrollingElement || document.documentElement; if ((scrollY + innerHeight) / h.scrollHeight > 0.45) { removeEventListener("scroll", onScroll); show("popup-scroll"); } };
+  setTimeout(() => show("popup-time"), 15000);
+  const onScroll = () => { const h = document.scrollingElement || document.documentElement; if ((scrollY + innerHeight) / h.scrollHeight > 0.3) { removeEventListener("scroll", onScroll); show("popup-scroll"); } };
   addEventListener("scroll", onScroll, {passive: true});
   document.addEventListener("mouseout", e => { if (!e.relatedTarget && e.clientY <= 0) show("popup-exit"); });
 })();
