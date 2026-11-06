@@ -95,7 +95,7 @@ a { color: var(--brand); }
 
 /* hero: white, one message, the Decoder as the visual */
 .hero { background: linear-gradient(180deg, var(--brand-soft) 0%, var(--bg) 100%); border-bottom: 1px solid var(--line); }
-.hero .wrap { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); gap: 56px; padding-block: 72px 64px; align-items: center; }
+.hero .wrap { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr); gap: 56px; padding-block: 64px; align-items: center; }
 .hero .kicker { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; color: var(--brand); background: var(--surface); border: 1px solid var(--brand-tint); padding: 6px 12px 6px 6px; border-radius: 999px; }
 .hero .kicker b { background: var(--flame); color: #fff; font-size: 11px; letter-spacing: .06em; padding: 3px 8px; border-radius: 999px; }
 .hero h1 { font-size: clamp(34px, 4.6vw, 52px); font-weight: 800; letter-spacing: -0.01em; line-height: 1.1; margin-top: 18px; color: var(--ink); }
@@ -131,6 +131,26 @@ a { color: var(--brand); }
 .opp-row b { display: block; font-size: 18px; color: var(--ink); font-weight: 900; }
 .opp-row span { font-size: 12px; color: var(--muted); }
 .opp-note { font-size: 12px; color: var(--muted); }
+.hero-kicker { font-size: 15px; font-weight: 700; color: var(--brand); }
+.hero .tagline { font-size: clamp(20px, 2.4vw, 26px); font-weight: 700; color: var(--brand); margin-top: 6px; }
+.hero h1 { margin-top: 8px !important; }
+.btn-lg { padding: 16px 28px; font-size: 17px; }
+.btn-link { font-weight: 700; color: var(--brand); text-decoration: none; padding: 14px 6px; }
+.btn-link:hover { text-decoration: underline; }
+.hero-creative { display: block; justify-self: center; width: min(440px, 100%); border-radius: 14px; overflow: hidden; box-shadow: 0 18px 40px rgba(15,65,133,.22); }
+.hero-creative img { display: block; width: 100%; height: auto; }
+.proof { background: var(--surface); border-bottom: 1px solid var(--line); }
+.proof .wrap { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)) minmax(0,1.6fr); gap: 18px; padding-block: 20px; align-items: center; }
+.proof b { display: block; font-size: 24px; font-weight: 900; color: var(--ink); }
+.proof span { font-size: 13px; color: var(--muted); }
+.proof .wide span { font-size: 13px; line-height: 1.5; }
+@media (max-width: 900px) { .proof .wrap { grid-template-columns: repeat(2, minmax(0,1fr)); } .proof .wide { grid-column: 1 / -1; } }
+.opp-wrap { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 40px; align-items: center; }
+@media (max-width: 900px) { .opp-wrap { grid-template-columns: 1fr; } }
+.opp-cards { display: grid; gap: 12px; margin: 8px 0 10px; }
+.opp-cards div { display: grid; grid-template-columns: 140px minmax(0,1fr); gap: 14px; align-items: center; border-bottom: 1px solid var(--line); padding-bottom: 12px; }
+.opp-cards b { font-size: 28px; font-weight: 900; color: var(--brand); white-space: nowrap; }
+.opp-cards span { font-size: 15px; color: var(--body); }
 /* stats strip */
 .stats { background: var(--surface); border-bottom: 1px solid var(--line); }
 .stats .wrap { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); padding-block: 22px; gap: 16px; }
@@ -381,7 +401,7 @@ footer .wrap { padding-block: 40px 96px; display: grid; gap: 20px; }
 @keyframes badge-float { 0%, 100% { transform: rotate(1.5deg) translateY(0); } 50% { transform: rotate(1.5deg) translateY(5px); } }
 @keyframes ring { 0% { box-shadow: 0 0 0 0 rgba(224,50,42,.45); } 80%, 100% { box-shadow: 0 0 0 14px rgba(224,50,42,0); } }
 @keyframes shine { from { transform: translateX(-120%) skewX(-20deg); } to { transform: translateX(260%) skewX(-20deg); } }
-.hero .wrap > div:first-child, .cover { animation: rise-in .5s ease-out both; }
+.hero .wrap > div:first-child, .hero-creative { animation: rise-in .5s ease-out both; }
 .reveal { transition: transform .7s cubic-bezier(.2,.7,.2,1), opacity .7s ease; }
 .reveal.pre { opacity: .5; transform: translateY(14px); }
 .doc, .rule, .road > div, .event, .panel { transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease; }
@@ -470,6 +490,7 @@ input:focus, select:focus { outline: 2px solid var(--brand); border-color: var(-
       <span>SIF Partner Hub</span>
     </a>
     <nav class="nav" aria-label="Sections">
+      <a href="#opportunity">Opportunity</a>
       <a href="#learn">What is a SIF</a>
             <a href="#tracker">Live NAVs</a>
       <a href="#decoder">SIF Decoder</a>
@@ -477,7 +498,7 @@ input:focus, select:focus { outline: 2px solid var(--brand); border-color: var(-
       <a href="#kit">Partner kit</a>
       <a href="#faq">FAQ</a>
     </nav>
-    <a class="btn btn-flame btn-sm btn-cta" href="#certify">Get certified now</a>
+    <a class="btn btn-flame btn-sm btn-cta" href="https://academy.assetplus.in/course/nism-series-v-d-mf-sif-distributors-certification-training-16th-november" target="_blank" rel="noopener">Save my seat</a>
   </div>
 </header>
 
@@ -491,34 +512,46 @@ input:focus, select:focus { outline: 2px solid var(--brand); border-color: var(-
 <section class="hero">
   <div class="wrap">
     <div>
-      <a class="kicker" href="#certify" style="text-decoration:none"><b>16 Nov</b>Free NISM V-D batch, 8 live evenings</a>
-      <h1>SIF assets grew 19 times in 11 months. Get certified to offer them.</h1>
-      <p class="sub">Specialised Investment Funds reached ₹38,287 crore by September 2026. To offer them, you need NISM Series V-D. Our free live batch starts 16 Nov.</p>
+      <p class="hero-kicker">Get SIF Certified</p>
+      <h1>Become a SIF Distributor</h1>
+      <p class="tagline">One exam for mutual funds and SIFs</p>
+      <p class="sub">Free NISM Series V-D training, live online from 16 Nov. 8 evenings, 6:30 to 8:30 PM, in English.</p>
       <div class="ctas">
-        <a class="btn btn-flame" href="https://academy.assetplus.in/course/nism-series-v-d-mf-sif-distributors-certification-training-16th-november" target="_blank" rel="noopener">Get certified now</a>
-        <a class="btn btn-ghost" href="#certify">See batch details</a>
+        <a class="btn btn-flame btn-lg" href="https://academy.assetplus.in/course/nism-series-v-d-mf-sif-distributors-certification-training-16th-november" target="_blank" rel="noopener">Save my seat</a>
+        <a class="btn-link" href="#certify">See batch details</a>
       </div>
-      <div class="trust"><span>Free, live online, in English</span><span>6:30 to 8:30 PM</span><span>AMFI-registered MFD · ARN-114376</span></div>
     </div>
-    <div class="opp" aria-label="SIF market opportunity">
-      <p class="opp-h">SIF assets at month-end, ₹ crore</p>
-      <svg id="oppChart" viewBox="0 0 460 220" role="img" aria-label="SIF assets rose from 2,010 crore in October 2025 to 38,287 crore in September 2026"></svg>
-      <div class="opp-row">
-        <div><b class="num">₹38,287 cr</b><span>assets, Sep 2026</span></div>
-        <div><b class="num">17</b><span>SIF brands</span></div>
-        <div><b class="num">₹10 lakh</b><span>minimum per client</span></div>
-      </div>
-      <p class="opp-note">Every SIF sale needs a NISM V-D certified distributor. Source: AMFI.</p>
-    </div>
+    <a class="hero-creative" href="https://academy.assetplus.in/course/nism-series-v-d-mf-sif-distributors-certification-training-16th-november" target="_blank" rel="noopener" aria-label="Free NISM V-D online training from 16 Nov 2026. Register free."><img src="vd-batch-16nov.jpg" alt="AssetPlus free NISM V-D online training from 16 Nov 2026, 6:30 to 8:30 PM, 8 evenings, live in English" width="900" height="900"></a>
   </div>
 </section>
 
-<section class="stats" aria-label="SIF market today">
+<section class="proof" aria-label="About AssetPlus">
   <div class="wrap">
-    <div class="s"><span class="v num">₹38,287 cr</span><span class="l">SIF assets, end of Sep 2026</span></div>
-    <div class="s"><span class="v num" id="nStrat">37</span><span class="l">strategies with a live NAV</span></div>
-    <div class="s"><span class="v num"><span class="up" id="nUp">–</span> <span class="down" id="nDown">–</span></span><span class="l">up / down on <span id="asof1"></span></span></div>
-    <div class="s"><span class="v num">16 Nov</span><span class="l">next free NISM V-D batch</span></div>
+    <div><b>20,000+</b><span>Distributors trust AssetPlus</span></div>
+    <div><b>₹7,500 Cr+</b><span>AUM</span></div>
+    <div><b>3,000+</b><span>Learners</span></div>
+    <div><b>4.8</b><span>Rated, 11k+ app ratings</span></div>
+    <div class="wide"><span>Backed by Nithin Kamath (Rainmatter by Zerodha), Bhupinder Singh (InCred), Eight Roads, Nexus Venture Partners</span></div>
+  </div>
+</section>
+
+<section class="section" id="opportunity">
+  <div class="wrap opp-wrap">
+    <div class="section-head" style="margin:0">
+      <h2 class="h2">The SIF opportunity</h2>
+      <p class="lede">SIF assets grew from ₹2,010 crore to ₹38,287 crore in 11 months. Every SIF sale needs a NISM V-D certified distributor.</p>
+      <div class="opp-cards">
+        <div><b>19×</b><span>growth in SIF assets since the first SIF in Oct 2025</span></div>
+        <div><b>69%</b><span>of SIF money is in hybrid strategies, the conversation for FD and debt clients</span></div>
+        <div><b>₹10 lakh</b><span>minimum per client, so every SIF client is a high-value client</span></div>
+      </div>
+      <a class="btn btn-flame" style="justify-self:start" href="https://academy.assetplus.in/course/nism-series-v-d-mf-sif-distributors-certification-training-16th-november" target="_blank" rel="noopener">Save my seat</a>
+    </div>
+    <div class="opp" aria-label="SIF assets each month">
+      <p class="opp-h">SIF assets at month-end, ₹ crore</p>
+      <svg id="oppChart" viewBox="0 0 460 220" role="img" aria-label="SIF assets rose from 2,010 crore in October 2025 to 38,287 crore in September 2026"></svg>
+      <p class="opp-note">Source: AMFI. 17 SIF brands with assets at end of Sep 2026.</p>
+    </div>
   </div>
 </section>
 
@@ -530,9 +563,8 @@ input:focus, select:focus { outline: 2px solid var(--brand); border-color: var(-
 <section class="certify" id="certify">
   <div class="wrap">
     <div>
-      <h2 class="h2">Get NISM V-D certified, free</h2>
+      <h2 class="h2">Why get SIF certified</h2>
       <p class="lede">You need NISM Series V-D to offer SIFs. It is one exam for both mutual funds and SIFs. Our live batch prepares you for it over 8 evenings.</p>
-      <img class="creative" src="vd-batch-16nov.jpg" alt="AssetPlus free NISM V-D online training from 16 Nov 2026, 6:30 to 8:30 PM, 8 evenings, live in English" width="900" height="900">
       <ul class="can">
         <li>Offer SIFs to clients investing ₹10 lakh or more</li>
         <li>Discuss SIFs with clients holding FDs, arbitrage or debt funds</li>
@@ -825,8 +857,8 @@ input:focus, select:focus { outline: 2px solid var(--brand); border-color: var(-
 </a>
 
 <div class="mbar">
-  <a class="btn btn-flame" href="https://academy.assetplus.in/course/nism-series-v-d-mf-sif-distributors-certification-training-16th-november" target="_blank" rel="noopener">Register now · free</a>
-  <button class="btn btn-ghost" type="button" data-open="decoder">SIF Decoder</button>
+  <a class="btn btn-flame" href="https://academy.assetplus.in/course/nism-series-v-d-mf-sif-distributors-certification-training-16th-november" target="_blank" rel="noopener">Save my seat</a>
+  <a class="btn btn-ghost" href="#certify">Batch details</a>
 </div>
 
 <div class="overlay" id="overlay" hidden>
@@ -892,10 +924,7 @@ $("#waNum").textContent = CONFIG.whatsappDisplay;
 const rows = DATA.rows;
 const up = rows.filter(r => r.chg > 0).length, down = rows.filter(r => r.chg < 0).length;
 const avg = rows.reduce((s,r) => s + r.chg, 0) / rows.length;
-$("#nStrat").textContent = rows.length;
-$("#nUp").textContent = up + "▲";
-$("#nDown").textContent = down + "▼";
-$("#asof1").textContent = DATA.asof;
+[["#nStrat", rows.length], ["#nUp", up + "▲"], ["#nDown", down + "▼"], ["#asof1", DATA.asof]].forEach(([sel, v]) => { const el = $(sel); if (el) el.textContent = v; });
 $("#asof3").textContent = DATA.asof;
 
 (function ticker(){
