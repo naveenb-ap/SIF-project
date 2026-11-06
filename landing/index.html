@@ -197,6 +197,9 @@ a { color: var(--brand); }
 .feat-card svg { width: 100%; max-width: 180px; height: auto; background: var(--brand-soft); border-radius: 12px; padding: 8px; }
 .feat-card h3 { font-size: 17px; }
 .feat-card p { font-size: 14px; color: var(--muted); }
+.hero-line { display: inline-flex; gap: 8px; align-items: center; font-size: 15px; font-weight: 600; color: var(--brand-deep); text-decoration: none; border-bottom: 1px solid var(--brand-tint); padding-bottom: 4px; }
+.hero-line span { color: var(--muted); font-weight: 400; }
+.hero-line:hover { color: var(--brand); border-color: var(--brand); }
 /* SIF Ready hero (reference layout) */
 .rhero { background: linear-gradient(180deg, #F2F6FE 0%, #F7F9FD 100%); overflow: hidden; }
 .rhero > .wrap:first-child { display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr); gap: 40px; padding-top: 44px; align-items: center; }
@@ -987,7 +990,7 @@ input:focus, select:focus { outline: 2px solid var(--brand); border-color: var(-
 <section class="rhero">
   <div class="wrap">
     <div class="rhero-copy">
-      <a class="live-pill green" href="#steps"><i aria-hidden="true"></i>Registrations open · Batch starts 16 Nov</a>
+      <a class="hero-line" href="#certify">NISM Series V-D <span>·</span> Free live batch from 16 Nov</a>
       <h1>Become<br><span class="u">SIF Ready</span></h1>
       <p class="rhero-sub">One exam for mutual funds and SIFs. Free live training, 8 evenings from 16 Nov.</p>
       <div class="rhero-ctas">
