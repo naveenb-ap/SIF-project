@@ -38,6 +38,7 @@
 /* Single light theme by choice: AssetPlus brand on white. */
 :root { color-scheme: light; }
 * { box-sizing: border-box; }
+[hidden] { display: none !important; }
 html { scroll-behavior: smooth; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition: none !important; } }
 body { background: var(--bg); color: var(--body); font-family: var(--font-sans); font-size: 16px; line-height: 1.6; }
@@ -338,6 +339,21 @@ footer .wrap { padding-block: 40px 96px; display: grid; gap: 20px; }
   .mbar .btn { flex: 1; padding: 13px 10px; font-size: 14px; }
 }
 
+/* minimal TOFU popup */
+.pop { display: grid; gap: 14px; }
+.pop-thumb { display: flex; gap: 14px; align-items: center; }
+.pop-thumb .mini { width: 64px; aspect-ratio: 3 / 4; border-radius: 6px; background: #0F4185; color: #fff; font-size: 9px; font-weight: 800; line-height: 1.05; padding: 7px 6px; display: grid; align-content: space-between; box-shadow: 0 6px 16px rgba(15,65,133,.3); transform: rotate(-4deg); flex: none; }
+.pop-thumb .mini i { font-style: normal; font-size: 6.5px; letter-spacing: .1em; color: #FFC4BF; font-weight: 700; }
+.pop h3 { font-size: 24px; font-weight: 800; letter-spacing: -0.02em; line-height: 1.15; }
+.pop .sub { font-size: 15px; color: var(--muted); }
+.pop .social { font-size: 13px; color: var(--muted); display: flex; gap: 6px; align-items: center; }
+.pop .social b { color: var(--pos); }
+.pop .notice { font-size: 11px; color: var(--muted); text-align: center; }
+.pop .skip { all: unset; cursor: pointer; font-size: 13px; color: var(--muted); text-align: center; text-decoration: underline; justify-self: center; }
+@media (max-width: 640px) {
+  .overlay.sheet { place-items: end stretch; padding: 0; }
+  .overlay.sheet .modal { width: 100%; border-radius: 20px 20px 0 0; padding-bottom: env(safe-area-inset-bottom, 0px); }
+}
 /* modal */
 .overlay { position: fixed; inset: 0; z-index: 100; background: rgba(8,16,36,.62); display: grid; place-items: center; padding: max(16px, env(safe-area-inset-top, 0px)) max(16px, env(safe-area-inset-right, 0px)) max(16px, env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px)); overflow-y: auto; }
 .modal { width: min(820px, 100%); background: var(--surface); border-radius: 20px; overflow: hidden; display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); box-shadow: 0 30px 80px rgba(0,0,0,.4); position: relative; animation: rise .35s ease; }
@@ -784,7 +800,7 @@ const CONFIG = {
   whatsappText: "Hi AssetPlus, I'm a mutual fund distributor and I'd like to know more about SIFs.",
   eventUrl: "https://academy.assetplus.in/course/nism-series-v-d-mf-sif-distributors-certification-training-16th-november",
   eventStart: "2026-11-16T18:30:00+05:30",
-  popupDelayMs: 7000
+  popupDelayMs: 40000
 };
 const EVENTS = [
   // Add new certification batches here; the first upcoming one gets the countdown.
@@ -937,7 +953,8 @@ async function saveLead(lead){
 /* Modal */
 const overlay = $("#overlay"), modal = $("#modal");
 let lastFocus = null;
-function openModal(side, main, narrow){
+function openModal(side, main, narrow, sheet){
+  overlay.classList.toggle("sheet", !!sheet);
   lastFocus = document.activeElement;
   $("#mSide").innerHTML = side || "";
   $("#mMain").innerHTML = main;
@@ -953,6 +970,13 @@ document.addEventListener("keydown", e => { if (e.key === "Escape" && !overlay.h
 
 function leadForm(opts){
   const prev = savedLead() || {};
+  if (opts.minimal) return '<form id="leadForm" novalidate>' +
+    '<label for="lf-name">Your name<input id="lf-name" name="name" autocomplete="name" required value="' + esc(prev.name||"") + '"></label>' +
+    '<label for="lf-mobile">WhatsApp number<input id="lf-mobile" name="mobile" inputmode="numeric" autocomplete="tel" placeholder="10-digit mobile" required value="' + esc(prev.mobile||"") + '"></label>' +
+    '<p class="err" id="lf-err" role="alert"></p>' +
+    '<button class="btn btn-flame" type="submit">' + esc(opts.cta) + '</button>' +
+    '<p class="notice">By continuing you agree that AssetPlus may contact you on WhatsApp about SIFs and training. Opt out any time.</p>' +
+  '</form>';
   const needArn = opts.needArn, needVd = opts.needVd;
   return '<form id="leadForm" novalidate>' +
     '<div class="f2"><label for="lf-name">Full name<input id="lf-name" name="name" autocomplete="name" required value="' + esc(prev.name||"") + '"></label>' +
@@ -978,14 +1002,14 @@ function bindLead(source, extra, onDone){
     const mobile = (d.mobile||"").replace(/\D/g,"").replace(/^91(?=\d{10}$)/, "");
     if (!d.name || d.name.trim().length < 2) return err.textContent = "Enter your full name.";
     if (!/^[6-9]\d{9}$/.test(mobile)) return err.textContent = "Enter a valid 10-digit Indian mobile number.";
-    if (!d.city) return err.textContent = "Enter your city.";
+    if (f.city && !d.city) return err.textContent = "Enter your city.";
     if (f.arn.required && !/^(ARN-?)?\d{3,7}$/i.test((d.arn||"").trim())) return err.textContent = "Enter your ARN, for example ARN-123456.";
-    if (!d.vd) return err.textContent = "Choose your NISM V-D status.";
+    if (f.vd && !d.vd) return err.textContent = "Choose your NISM V-D status.";
     if (f.vdok && !f.vdok.checked) return err.textContent = "Client notes can only be shared by V-D certified partners. Tick the box, or register for the free training first.";
-    if (!f.consent.checked) return err.textContent = "Tick the consent box so we can send your kit and training details.";
+    if (f.consent && !f.consent.checked) return err.textContent = "Tick the consent box so we can send your kit and training details.";
     err.textContent = "";
     const btn = f.querySelector("button[type=submit]"); btn.disabled = true; btn.textContent = "Saving…";
-    const saved = await saveLead({name: d.name.trim(), mobile, city: d.city.trim(), arn: (d.arn||"").trim().toUpperCase(), vd: d.vd, consent: true, source, ...extra});
+    const saved = await saveLead({name: d.name.trim(), mobile, city: (d.city||"").trim(), arn: (d.arn||"").trim().toUpperCase(), vd: d.vd||"", consent: true, source, ...extra});
     onDone(saved, d);
   });
 }
@@ -1018,7 +1042,7 @@ function gate(doc){
     $("#dlNow").addEventListener("click", async () => { const r = await download(doc); $("#dlMsg").textContent = r === "saved" ? "Saved." : r === "cancelled" ? "Download cancelled." : "Use Open PDF to view and save it."; });
     return;
   }
-  openModal(side, head + '<p class="sub">Tell us who you are and the PDF is yours. One form unlocks the whole kit.</p>' + leadForm({needArn: client, needVd: client, cta: "Unlock and download"}));
+  openModal(side, head + (client ? '<p class="sub">Client notes are for V-D certified partners. One form unlocks all of them.</p>' : '<p class="sub">Two quick details and the whole kit is yours.</p>') + leadForm(client ? {needArn: true, needVd: true, cta: "Unlock and download"} : {minimal: true, cta: "Unlock and download"}));
   bindLead("download", {doc: doc.id}, async (saved) => {
     $("#mMain").innerHTML = head + '<div class="ok"><b>Unlocked.</b><span>Your kit is ready. ' + (saved ? "Our partner desk will reach out on WhatsApp with training details." : "We couldn't record your details from this view; message us on WhatsApp so we can send training details.") + '</span></div><div class="doc-actions"><button class="btn btn-flame" id="dlNow" type="button">Download PDF</button>' + docLink(doc) + '</div><p class="err" id="dlMsg" role="status"></p><a class="btn btn-ghost btn-sm" href="' + CONFIG.eventUrl + '" target="_blank" rel="noopener">Not V-D certified yet? Register free for 16 Nov</a>';
     $("#dlNow").addEventListener("click", async () => { const r = await download(doc); $("#dlMsg").textContent = r === "saved" ? "Saved." : r === "cancelled" ? "Download cancelled." : "Use Open PDF to view and save it."; });
@@ -1044,14 +1068,19 @@ renderLib();
 /* Popups: starter kit, notify, LMS, callback */
 const starterSide = '<p class="eyebrow">Free for partners</p><h3>SIF Decoder + starter kit</h3><ul><li>SIF Decoder, Oct 2026: our flagship research</li><li>What is a SIF? (2-page explainer)</li><li>Why get SIF certified (the market story)</li><li>SIF in one picture: history and wealth math</li><li>A seat in the free NISM V-D live batch, 16 Nov</li></ul><div class="proof">SIF assets grew 19× in 11 months to ₹38,287 crore. Clients are already asking.</div>';
 function openStarter(source){
-  store.set("ap_sif_popup", "1");
-  openModal(starterSide, '<h3 id="mTitle">Get the SIF Decoder, free</h3><p class="sub">Our flagship SIF research, three partner one-pagers and your seat in the 16 Nov V-D batch. Takes 20 seconds.</p>' + leadForm({cta: "Send me the kit"}));
-  bindLead(source, {want: "starter-kit"}, (saved) => {
-    const kit = DOCS.filter(d => ["D","01","02","H"].includes(d.id));
-    $("#mMain").innerHTML = '<h3 id="mTitle">Your SIF Decoder and kit are ready</h3><div class="ok"><b>Thank you.</b><span>' + (saved ? "Our partner desk will WhatsApp you the training details." : "We couldn't record your details from this view; message us on WhatsApp for training details.") + '</span></div>' +
-      kit.map(d => '<div class="gate-doc"><span class="ic">PDF</span><span style="flex:1"><b>' + esc(d.t) + '</b></span><button class="btn btn-brand btn-sm" type="button" data-kit="' + d.id + '">Download</button></div>').join("") +
-      '<p class="err" id="dlMsg" role="status"></p><a class="btn btn-flame" href="' + CONFIG.eventUrl + '" target="_blank" rel="noopener">Now save your seat for 16 Nov</a>';
-    $$("[data-kit]").forEach(b => b.addEventListener("click", async () => { const d = DOCS.find(x => x.id === b.dataset.kit); const r = await download(d); $("#dlMsg").innerHTML = r === "saved" ? "Saved." : r === "cancelled" ? "Download cancelled." : 'Open it here: <a href="pdfs/' + esc(d.file) + '" target="_blank" rel="noopener">' + esc(d.t) + '</a>'; }));
+  store.set("ap_sif_popup", String(Date.now()));
+  const thumb = '<div class="pop-thumb"><div class="mini"><i>ASSETPLUS</i>SIF DECODER<i>OCT 2026</i></div><div><h3 id="mTitle">Get the SIF Decoder, free</h3></div></div>';
+  openModal("", '<div class="pop">' + thumb + '<p class="sub">Our 26-page research on every SIF in India, sent to your WhatsApp in a minute.</p>' + leadForm({minimal: true, cta: "Send it on WhatsApp"}) + '<button class="skip" type="button" id="popSkip">No thanks</button></div>', true, true);
+  $("#popSkip").addEventListener("click", closeModal);
+  bindLead(source, {want: "sif-decoder"}, (saved, d) => {
+    const dec = DOCS.find(x => x.id === "D");
+    const waGet = "https://wa.me/" + CONFIG.whatsapp + "?text=" + encodeURIComponent("Hi, please send me the SIF Decoder. I'm " + d.name.trim() + ".");
+    $("#mMain").innerHTML = '<div class="pop"><h3 id="mTitle">You’re in, ' + esc(d.name.trim().split(" ")[0]) + '.</h3><p class="sub">Tap below to get the Decoder on WhatsApp, or download it right here.</p>' +
+      '<a class="btn btn-wa" href="' + waGet + '" target="_blank" rel="noopener">Get it on WhatsApp</a>' +
+      '<button class="btn btn-ghost" type="button" id="decNow">Download PDF here</button><p class="err" id="dlMsg" role="status"></p>' +
+      '<p class="notice">Next step: the free NISM V-D batch starts 16 Nov. <a href="' + CONFIG.eventUrl + '" target="_blank" rel="noopener">Save your seat</a></p>' +
+      (saved ? '' : '<p class="notice">We couldn’t record your details from this view. The WhatsApp button still works.</p>') + '</div>';
+    $("#decNow").addEventListener("click", async () => { const r = await download(dec); $("#dlMsg").innerHTML = r === "saved" ? "Saved." : r === "cancelled" ? "Download cancelled." : '<a href="pdfs/' + esc(dec.file) + '" target="_blank" rel="noopener">Open the PDF</a>'; });
     renderLib();
   });
 }
@@ -1061,7 +1090,7 @@ function simpleLead(kind){
     lms: {t: "Request your LMS access", s: "We'll set up AssetPlus Academy access for NISM V-D lessons, notes and practice questions.", cta: "Request access"},
     callback: {t: "Request a call back", s: "A partner manager will call you on your next working day.", cta: "Call me back"}
   }[kind];
-  openModal("", '<h3 id="mTitle">' + cfg.t + '</h3><p class="sub">' + cfg.s + '</p>' + leadForm({cta: cfg.cta}), true);
+  openModal("", '<h3 id="mTitle">' + cfg.t + '</h3><p class="sub">' + cfg.s + '</p>' + leadForm({minimal: true, cta: cfg.cta}), true, true);
   bindLead(kind, {want: kind}, (saved) => {
     $("#mMain").innerHTML = '<h3 id="mTitle">' + cfg.t + '</h3><div class="ok"><b>Done.</b><span>' + (saved ? "We have your request and will reach out on WhatsApp." : "We couldn't record your request from this view; message us on WhatsApp instead.") + '</span></div>' + (kind === "lms" ? '<a class="btn btn-brand" href="https://academy.assetplus.in" target="_blank" rel="noopener">Open AssetPlus Academy</a>' : '<a class="btn btn-wa" href="' + waHref + '" target="_blank" rel="noopener">Chat on WhatsApp</a>');
   });
@@ -1072,14 +1101,15 @@ document.addEventListener("click", e => {
   if (k === "starter" || k === "decoder") openStarter(k); else simpleLead(k);
 });
 
-/* First-visit popup: after a short delay, or when the visitor reaches the tracker, once per browser */
+/* First-visit popup: 45% scroll, 40 s on page, or exit intent. Once per 7 days; never after sign-up. */
 (function firstVisit(){
-  if (store.get("ap_sif_popup") || savedLead()) return;
+  const last = Number(store.get("ap_sif_popup") || 0);
+  if (savedLead() || (last && Date.now() - last < 7*864e5)) return;
   let shown = false;
   const show = (src) => { if (shown || !overlay.hidden) return; shown = true; openStarter(src); };
-  setTimeout(() => show("popup-timer"), CONFIG.popupDelayMs);
-  const io = new IntersectionObserver(es => { if (es.some(x => x.isIntersecting)) { show("popup-scroll"); io.disconnect(); } });
-  io.observe($("#tracker"));
+  setTimeout(() => show("popup-time"), 40000);
+  const onScroll = () => { const h = document.documentElement; if ((h.scrollTop + innerHeight) / h.scrollHeight > 0.45) { removeEventListener("scroll", onScroll); show("popup-scroll"); } };
+  addEventListener("scroll", onScroll, {passive: true});
   document.addEventListener("mouseout", e => { if (!e.relatedTarget && e.clientY <= 0) show("popup-exit"); });
 })();
 </script>
