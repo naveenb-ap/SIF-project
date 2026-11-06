@@ -552,7 +552,23 @@ td .a { font-size: 12px; color: var(--muted); }
 .event.soon { background: rgba(255,255,255,.08); border: 1px dashed rgba(255,255,255,.35); box-shadow: none; color: var(--on-band-soft); padding: 18px 20px; display: grid; gap: 10px; }
 .event.soon h3 { color: #fff; font-size: 17px; }
 .lms { background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.2); border-radius: 16px; padding: 20px; display: grid; gap: 10px; }
-.lms-img { width: 100%; height: 240px; object-fit: cover; object-position: center 55%; border-radius: 12px; }
+.lms-ui { background: #fff; color: var(--body); border-radius: 14px; padding: 16px; display: grid; gap: 12px; box-shadow: 0 14px 30px rgba(0,10,40,.25); }
+.lu-top { display: flex; justify-content: space-between; align-items: center; }
+.lu-top b { color: var(--ink); font-size: 15px; }
+.lu-pill { font-size: 11px; font-weight: 700; color: var(--brand); background: var(--brand-soft); padding: 3px 9px; border-radius: 999px; }
+.lu-course { display: flex; gap: 12px; align-items: center; background: var(--bg); border: 1px solid var(--line); border-radius: 12px; padding: 10px 12px; }
+.lu-course b { display: block; color: var(--ink); font-size: 14px; }
+.lu-course small { font-size: 12px; color: var(--muted); }
+.lu-play { width: 36px; height: 36px; border-radius: 10px; background: var(--brand); display: grid; place-items: center; flex: none; }
+.lu-play svg { width: 16px; height: 16px; fill: #fff; }
+.lu-bar { height: 8px; border-radius: 4px; background: var(--surface-2); overflow: hidden; }
+.lu-bar i { display: block; height: 100%; width: 62%; background: linear-gradient(90deg, var(--brand), #4C86F0); border-radius: 4px; }
+.lu-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; font-size: 13px; color: var(--body); }
+.lu-list li { display: flex; align-items: center; gap: 10px; }
+.lu-list li::before { content: ""; width: 18px; height: 18px; border-radius: 50%; border: 2px solid var(--line); flex: none; box-sizing: border-box; }
+.lu-list li.done::before { background: #16A34A url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 12.5l4 4 8-9' fill='none' stroke='white' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 11px no-repeat; border-color: #16A34A; }
+.lu-list li.now { color: var(--ink); font-weight: 600; }
+.lu-list li.now::before { border-color: var(--brand); box-shadow: inset 0 0 0 3px #fff; background: var(--brand); }
 .lms h3 { color: #fff; font-size: 18px; }
 .lms p { color: var(--on-band-soft); font-size: 14px; }
 .lms .row { display: flex; flex-wrap: wrap; gap: 10px; }
@@ -883,7 +899,20 @@ input:focus, select:focus { outline: 2px solid var(--brand); border-color: var(-
         <div style="display:flex;flex-wrap:wrap;gap:10px"><button class="btn btn-onband btn-sm" type="button" data-open="notify">Notify me about new batches</button><a class="btn btn-outline-band btn-sm wa-link" href="#" target="_blank" rel="noopener">Ask on WhatsApp</a></div>
       </article>
       <div class="lms">
-        <img class="lms-img" src="img/p-lms.webp" alt="AssetPlus LMS dashboard with NISM V-D video course and progress" loading="lazy">
+        <div class="lms-ui" aria-label="Example of the NISM V-D course in the LMS">
+          <div class="lu-top"><b>My learning</b><span class="lu-pill">NISM V-D</span></div>
+          <div class="lu-course">
+            <span class="lu-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"/></svg></span>
+            <span><b>MF &amp; SIF Distributors</b><small>Video lessons · Notes · Mock tests</small></span>
+          </div>
+          <div class="lu-bar" aria-hidden="true"><i></i></div>
+          <ul class="lu-list">
+            <li class="done">Mutual fund basics</li>
+            <li class="done">SIF framework and strategies</li>
+            <li class="now">Derivatives and long-short</li>
+            <li>Mock tests and revision</li>
+          </ul>
+        </div>
         <h3>Get your LMS access</h3>
         <p>Recorded lessons, chapter notes and practice questions for NISM V-D. Learn at your pace between the live evenings.</p>
         <div class="row">
