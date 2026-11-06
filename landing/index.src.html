@@ -200,6 +200,27 @@ a { color: var(--brand); }
 .hero-line { display: inline-flex; gap: 8px; align-items: center; font-size: 15px; font-weight: 600; color: var(--brand-deep); text-decoration: none; border-bottom: 1px solid var(--brand-tint); padding-bottom: 4px; }
 .hero-line span { color: var(--muted); font-weight: 400; }
 .hero-line:hover { color: var(--brand); border-color: var(--brand); }
+/* Academy-matched hero */
+.ahx { background: #fff; overflow: hidden; }
+.ahx .wrap { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); gap: 32px; align-items: center; padding-block: 48px 0; }
+.ahx-copy { display: grid; justify-items: start; padding-bottom: 72px; }
+.ahx h1 { font-family: "Geist", "Inter", Arial, sans-serif; font-weight: 600; font-size: clamp(44px, 6vw, 72px); line-height: 1.08; letter-spacing: -0.02em; color: #2B4FA8; margin: 0; }
+.ahx-tag { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; margin-top: 14px; font-family: "Inter", Arial, sans-serif; font-size: clamp(16px, 1.6vw, 19px); color: #D63B3B; }
+.ahx-pill { border: 1.5px solid #D63B3B; border-radius: 999px; padding: 5px 14px; }
+.ahx-sub { font-family: "Inter", Arial, sans-serif; font-size: clamp(18px, 1.8vw, 21px); color: #4B5160; margin-top: 40px; max-width: 34ch; line-height: 1.5; }
+.ahx-btn { margin-top: 34px; font-family: "Inter", Arial, sans-serif; font-size: 19px; font-weight: 400; color: #fff; background: #3A5FB8; border: 0; border-radius: 8px; padding: 14px 64px; cursor: pointer; }
+.ahx-btn:hover { background: #2F51A3; }
+.ahx-btn:focus-visible { outline: 3px solid #2B4FA8; outline-offset: 3px; }
+.ahx-vis { position: relative; display: grid; justify-items: center; align-self: center; padding-block: 24px 48px; }
+.ahx-blob { position: absolute; width: 112%; aspect-ratio: 1; left: 50%; top: 50%; transform: translate(-50%, -46%); border-radius: 50%; background: #E3EBFA; }
+.ahx-photo { position: relative; display: block; width: min(380px, 100%); height: auto; aspect-ratio: 702 / 1000; object-fit: cover; object-position: center 20%; border-radius: 200px 200px 24px 24px; }
+@media (max-width: 900px) {
+  .ahx .wrap { grid-template-columns: 1fr; padding-top: 40px; gap: 0; }
+  .ahx-copy { padding-bottom: 36px; }
+  .ahx-vis { padding-block: 8px 36px; }
+  .ahx-photo { width: min(300px, 82%); }
+  .ahx-blob { width: 120%; }
+}
 /* SIF Ready hero (reference layout) */
 .rhero { background: linear-gradient(180deg, #F2F6FE 0%, #F7F9FD 100%); overflow: hidden; }
 .rhero > .wrap:first-child { display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr); gap: 40px; padding-top: 44px; align-items: center; }
@@ -681,7 +702,7 @@ footer .wrap { padding-block: 40px 96px; display: grid; gap: 20px; }
 @keyframes badge-float { 0%, 100% { transform: rotate(1.5deg) translateY(0); } 50% { transform: rotate(1.5deg) translateY(5px); } }
 @keyframes ring { 0% { box-shadow: 0 0 0 0 rgba(224,50,42,.45); } 80%, 100% { box-shadow: 0 0 0 14px rgba(224,50,42,0); } }
 @keyframes shine { from { transform: translateX(-120%) skewX(-20deg); } to { transform: translateX(260%) skewX(-20deg); } }
-.hero-copy { animation: rise-in .5s ease-out both; }
+
 .mock { animation: rise-in .7s .15s ease-out both; }
 .reveal { transition: transform .7s cubic-bezier(.2,.7,.2,1), opacity .7s ease; }
 .reveal.pre { opacity: .5; transform: translateY(14px); }
@@ -987,36 +1008,17 @@ input:focus, select:focus { outline: 2px solid var(--brand); border-color: var(-
 
 <div id="top"></div>
 
-<section class="rhero">
+<section class="ahx">
   <div class="wrap">
-    <div class="rhero-copy">
-      <a class="hero-line" href="#certify">NISM Series V-D <span>·</span> Free live batch from 16 Nov</a>
-      <h1>Become<br><span class="u">SIF Ready</span></h1>
-      <p class="rhero-sub">One exam for mutual funds and SIFs. Free live training, 8 evenings from 16 Nov.</p>
-      <div class="rhero-ctas">
-        <button class="btn btn-flame btn-lg" type="button" data-open="decoder">Register free <span aria-hidden="true">→</span></button>
-        <a class="btn btn-ghost btn-lg" href="#steps">How it works</a>
-      </div>
-      
-      <div class="rhero-stats">
-      <div><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c.8-3.6 3.2-5.5 6-5.5s5.2 1.9 6 5.5"/><circle cx="17" cy="9" r="2.6"/><path d="M16 14.6c2.6.2 4.4 2 5 5.4"/></svg><span><b>3,000+</b>Learners</span></div>
-      <div><svg viewBox="0 0 24 24"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/></svg><span>Trusted by<b>20,000+ distributors</b></span></div>
-      <div><svg viewBox="0 0 24 24"><path d="M12 3.5l2.6 5.4 5.9.8-4.3 4.1 1 5.8L12 16.8 6.8 19.6l1-5.8L3.5 9.7l5.9-.8z"/></svg><span>Top rated platform<b>4.8 <em>★★★★★</em></b></span></div>
+    <div class="ahx-copy">
+      <h1>Become<br>SIF Ready</h1>
+      <div class="ahx-tag"><span>One Exam for MF &amp; SIF</span><span class="ahx-pill">NISM Series V-D</span></div>
+      <p class="ahx-sub">Free live training from 16 Nov. 8 evenings, 6:30 to 8:30 PM.</p>
+      <button class="ahx-btn" type="button" data-open="decoder">Get Started</button>
     </div>
-    </div>
-    <div class="rhero-vis">
-      <div class="rv-frame">
-        <div class="rv-blob" aria-hidden="true"></div>
-        <img class="rv-photo" fetchpriority="high" decoding="async" src="img/hero-vd.webp" alt="A distributor holding his NISM V-D certificate" width="702" height="1200">
-        <div class="rv-card rv-pass" aria-hidden="true">
-          <span class="rv-tick">✓</span>
-          <span><small>Certification</small><b>PASSED</b><em>NISM Series V-D</em></span>
-        </div>
-        
-      <div class="rv-card rv-journey" aria-hidden="true">
-        <b>Your journey to SIF Ready</b>
-        <ol><li class="done"><i>✓</i>Register</li><li class="done"><i>✓</i>Training</li><li class="done"><i>✓</i>V-D exam</li><li><i></i>SIF Ready</li></ol>
-      </div>
+    <div class="ahx-vis">
+      <div class="ahx-blob" aria-hidden="true"></div>
+      <img class="ahx-photo" fetchpriority="high" decoding="async" src="img/hero-vd.webp" alt="A distributor holding his NISM V-D certificate" width="702" height="1200">
     </div>
   </div>
 </section>
