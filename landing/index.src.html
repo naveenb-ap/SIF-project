@@ -207,7 +207,7 @@ a { color: var(--brand); }
 .rhero h1 .u { position: relative; color: var(--brand); display: inline-block; }
 .rhero h1 .u::after { content: ""; position: absolute; left: 4%; right: -2%; bottom: -10px; height: 12px; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 12' preserveAspectRatio='none'%3E%3Cpath d='M3 9 C 80 2, 200 1, 297 6' fill='none' stroke='%231A56DB' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E") center / 100% 100% no-repeat; opacity: .55; }
 .rhero-tag { font-family: var(--font-display); font-size: clamp(22px, 2.4vw, 30px); font-weight: 600; color: var(--brand); margin-top: 24px; letter-spacing: -0.01em; }
-.rhero-sub { font-size: 17px; color: var(--body); max-width: 52ch; margin-top: 12px; }
+.rhero-sub { font-size: clamp(18px, 1.8vw, 21px); color: var(--body); max-width: 40ch; margin-top: 26px; line-height: 1.5; }
 .rhero-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
 .rhero-ctas .btn-flame { background: linear-gradient(180deg, #1F5EE6, #1547C0); box-shadow: 0 10px 22px rgba(26,86,219,.28); }
 .rhero-ctas .btn-ghost { background: #fff; border-color: #C9D3E6; color: var(--ink); }
@@ -316,6 +316,7 @@ a { color: var(--brand); }
 .aband .wrap { padding-block: 64px; display: grid; justify-items: center; text-align: center; gap: 14px; }
 .aband h2 { color: #fff; font-size: clamp(30px, 4vw, 46px); font-weight: 700; letter-spacing: -0.02em; }
 .aband p { color: #D5E0F2; font-size: 18px; }
+.aband-wa { color: #D5E0F2; font-size: 14px; margin-top: 6px; }
 /* Brand hero with live sign-up card */
 .hero3 { background: radial-gradient(800px 400px at 85% 0%, rgba(127,166,238,.22), transparent 60%), linear-gradient(140deg, #0F4185 0%, #0B2F63 100%); color: #fff; }
 .hero3 .wrap { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); gap: 56px; padding-block: 64px 72px; align-items: center; }
@@ -749,9 +750,9 @@ input:focus, select:focus { outline: 2px solid var(--brand); border-color: var(-
     </a>
     <nav class="nav" aria-label="Sections">
       <a href="#steps">How it works</a>
+      <a href="#certify">Batches</a>
       <a href="#bundle">Free bundle</a>
                   <a href="#tracker">Live NAVs</a>
-      <a href="#decoder">SIF Decoder</a>
             <a href="#kit">Partner kit</a>
       <a href="#faq">FAQ</a>
     </nav>
@@ -766,24 +767,17 @@ input:focus, select:focus { outline: 2px solid var(--brand); border-color: var(-
     <div class="rhero-copy">
       <a class="live-pill green" href="#steps"><i aria-hidden="true"></i>Registrations open · Batch starts 16 Nov</a>
       <h1>Become<br><span class="u">SIF Ready</span></h1>
-      <p class="rhero-tag">One exam. Mutual funds and SIFs.</p>
-      <p class="rhero-sub">Get NISM Series V-D certified with free live training from AssetPlus, then start offering SIFs to clients with research, client notes and support.</p>
+      <p class="rhero-sub">One exam for mutual funds and SIFs. Free live training, 8 evenings from 16 Nov.</p>
       <div class="rhero-ctas">
-        <button class="btn btn-flame btn-lg" type="button" data-open="decoder">Get Started <span aria-hidden="true">→</span></button>
-        <a class="btn btn-ghost btn-lg" href="#opportunity"><span class="play" aria-hidden="true">▷</span> Explore the opportunity</a>
+        <button class="btn btn-flame btn-lg" type="button" data-open="decoder">Register free <span aria-hidden="true">→</span></button>
+        <a class="btn btn-ghost btn-lg" href="#steps">How it works</a>
       </div>
-      <ul class="rhero-ben">
-        <li><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="12" rx="2"/><path d="M8 21h8M12 17v4"/><path d="M10 9l5 2-5 2z" fill="currentColor"/></svg><span>Free live<br>training</span></li>
-        <li><svg viewBox="0 0 24 24"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg><span>One exam,<br>MF + SIF</span></li>
-        <li><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c.8-3.6 3.2-5.5 6-5.5s5.2 1.9 6 5.5"/><path d="M16 4.5h5M18.5 2v5"/></svg><span>₹10 lakh+<br>clients</span></li>
-        <li><svg viewBox="0 0 24 24"><path d="M6 3h9l4 4v14H6z"/><path d="M15 3v4h4M9 12h7M9 16h5"/></svg><span>Research &amp;<br>client notes</span></li>
-      </ul>
+      
       <div class="rhero-stats">
       <div><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c.8-3.6 3.2-5.5 6-5.5s5.2 1.9 6 5.5"/><circle cx="17" cy="9" r="2.6"/><path d="M16 14.6c2.6.2 4.4 2 5 5.4"/></svg><span><b>3,000+</b>Learners</span></div>
       <div><svg viewBox="0 0 24 24"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/></svg><span>Trusted by<b>20,000+ distributors</b></span></div>
       <div><svg viewBox="0 0 24 24"><path d="M12 3.5l2.6 5.4 5.9.8-4.3 4.1 1 5.8L12 16.8 6.8 19.6l1-5.8L3.5 9.7l5.9-.8z"/></svg><span>Top rated platform<b>4.8 <em>★★★★★</em></b></span></div>
     </div>
-      <p class="rhero-backed">Backed by Nithin Kamath (Rainmatter by Zerodha), Bhupinder Singh (InCred), Eight Roads and Nexus Venture Partners</p>
     </div>
     <div class="rhero-vis">
       <div class="rv-frame">
@@ -793,16 +787,10 @@ input:focus, select:focus { outline: 2px solid var(--brand); border-color: var(-
           <span class="rv-tick">✓</span>
           <span><small>Certification</small><b>PASSED</b><em>NISM Series V-D</em></span>
         </div>
-        <div class="rv-card rv-growth" aria-hidden="true">
-          <small>SIF assets, ₹ crore</small>
-          <b>₹38,287 cr</b>
-          <svg viewBox="0 0 160 44"><rect x="2" y="36" width="16" height="8" rx="2"/><rect x="24" y="32" width="16" height="12" rx="2"/><rect x="46" y="27" width="16" height="17" rx="2"/><rect x="68" y="21" width="16" height="23" rx="2"/><rect x="90" y="14" width="16" height="30" rx="2"/><rect x="112" y="8" width="16" height="36" rx="2"/><rect x="134" y="0" width="16" height="44" rx="2"/></svg>
-          <span>19× in 11 months</span>
-        </div>
-      </div>
+        
       <div class="rv-card rv-journey" aria-hidden="true">
         <b>Your journey to SIF Ready</b>
-        <ol><li class="done"><i>✓</i>Register</li><li class="done"><i>✓</i>Training</li><li class="done"><i>✓</i>V-D exam</li><li><i>⚑</i>SIF Ready</li></ol>
+        <ol><li class="done"><i>✓</i>Register</li><li class="done"><i>✓</i>Training</li><li class="done"><i>✓</i>V-D exam</li><li><i></i>SIF Ready</li></ol>
       </div>
     </div>
   </div>
@@ -810,29 +798,32 @@ input:focus, select:focus { outline: 2px solid var(--brand); border-color: var(-
 
 
 
-<section class="section bundle-sec" id="bundle">
-  <div class="wrap bundle">
-    <div class="bundle-copy">
-      <span class="free-tag">Free with your seat</span>
-      <h2 class="h2">Sign up and get the SIF starter bundle</h2>
-      <p class="lede">Everything we use to explain SIFs to partners and their clients, in one bundle.</p>
-      <ul class="bundle-list">
-        <li><b>SIF Decoder, Oct 2026</b><span>Our 26-page research on every SIF</span></li>
-        <li><b>15 one-pagers</b><span>Explainers, pitch sheets and client notes</span></li>
-        <li><b>Client notes with your ARN</b><span>Ready to share once you are certified</span></li>
-        <li><b>Daily SIF NAVs</b><span>Every strategy, from AMFI</span></li>
-      </ul>
-      <div class="ctas" style="margin-top:22px"><button class="btn btn-flame btn-lg" type="button" data-open="decoder">Get the free bundle</button></div>
-    </div>
-    <button type="button" class="fan" data-open="decoder" aria-label="Get the free SIF starter bundle">
-      <img class="f1" src="thumbs/01-What-is-a-SIF.jpg" alt="" loading="lazy">
-      <img class="f2" src="thumbs/07a-Persona-FD-Retiree.jpg" alt="" loading="lazy">
-      <img class="f3" src="thumbs/06a-SIF-vs-FD.jpg" alt="" loading="lazy">
-      <img class="f4" src="decoder-cover.jpg" alt="SIF Decoder cover with one-pagers behind it">
-      <span class="fan-badge">FREE</span>
-    </button>
-  </div>
-</section>
+
+
+
+
+
+
+
+
+
+
+<!-- CERTIFY -->
+
+
+<!-- LEARN -->
+
+<!-- TRACKER -->
+
+<!-- HISTORY -->
+
+
+<!-- KIT -->
+
+<!-- 60 DAYS -->
+
+
+<!-- FAQ -->
 
 <section class="section" id="steps">
   <div class="wrap">
@@ -844,43 +835,6 @@ input:focus, select:focus { outline: 2px solid var(--brand); border-color: var(-
   </div>
 </section>
 
-<section class="section" id="features">
-  <div class="wrap">
-    <div class="section-head center"><h2 class="h2">What you get from AssetPlus</h2><p class="lede">Training, research and tools for your SIF practice.</p></div>
-    <div class="feat">
-      <a class="feat-card" href="#decoder"><svg viewBox="0 0 160 120" aria-hidden="true"><rect x="40" y="10" width="84" height="104" rx="8" fill="#0F4185"/><rect x="48" y="20" width="40" height="5" rx="2.5" fill="#FFC4BF"/><text x="48" y="44" font-size="13" font-weight="900" fill="#fff" font-family="Lato,Arial,sans-serif">SIF</text><text x="48" y="58" font-size="13" font-weight="900" fill="#fff" font-family="Lato,Arial,sans-serif">DECODER</text><rect x="52" y="88" width="9" height="16" rx="2" fill="#7FA6EE"/><rect x="65" y="80" width="9" height="24" rx="2" fill="#7FA6EE"/><rect x="78" y="72" width="9" height="32" rx="2" fill="#7FA6EE"/><rect x="91" y="62" width="9" height="42" rx="2" fill="var(--flame)"/><circle cx="122" cy="26" r="16" fill="var(--gold)"/><text x="122" y="30" text-anchor="middle" font-size="10" font-weight="900" fill="#fff" font-family="Lato,Arial,sans-serif">26p</text></svg><h3>SIF Decoder research</h3><p>Our view on SIFs, the framework we use, and a tracker of all strategies.</p></a>
-      <a class="feat-card" href="#tracker"><svg viewBox="0 0 160 120" aria-hidden="true"><rect x="20" y="18" width="120" height="84" rx="10" fill="var(--surface)" stroke="var(--brand-tint)" stroke-width="2"/><path d="M32 82l20-14 18 8 22-24 18 10 18-20" fill="none" stroke="var(--brand)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="128" cy="42" r="5" fill="var(--flame)"/><rect x="32" y="28" width="36" height="6" rx="3" fill="var(--brand-tint)"/><rect x="104" y="88" width="24" height="6" rx="3" fill="var(--pos)"/></svg><h3>Daily SIF NAVs</h3><p>Every strategy's NAV and 1-day change, from AMFI, each evening.</p></a>
-      <a class="feat-card" href="#kit"><svg viewBox="0 0 160 120" aria-hidden="true"><rect x="22" y="14" width="70" height="92" rx="8" fill="var(--surface)" stroke="var(--brand-tint)" stroke-width="2"/><rect x="30" y="24" width="40" height="6" rx="3" fill="var(--brand)"/><rect x="30" y="38" width="54" height="4" rx="2" fill="var(--brand-tint)"/><rect x="30" y="48" width="48" height="4" rx="2" fill="var(--brand-tint)"/><rect x="30" y="58" width="52" height="4" rx="2" fill="var(--brand-tint)"/><rect x="22" y="88" width="70" height="18" rx="0" fill="var(--brand-soft)"/><text x="57" y="100" text-anchor="middle" font-size="8.5" font-weight="900" fill="var(--brand-deep)" font-family="Lato,Arial,sans-serif">YOUR ARN</text><path d="M98 60h22" stroke="var(--flame)" stroke-width="3.5" stroke-linecap="round"/><path d="M114 52l8 8-8 8" fill="none" stroke="var(--flame)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="138" cy="50" r="9" fill="var(--brand)"/><path d="M124 80c2-10 8-14 14-14s12 4 14 14z" fill="var(--brand)"/></svg><h3>Client notes with your ARN</h3><p>Plain-language comparisons with FDs, arbitrage, BAFs and more.</p></a>
-      <a class="feat-card" href="#talk"><svg viewBox="0 0 160 120" aria-hidden="true"><path d="M24 26a10 10 0 0 1 10-10h62a10 10 0 0 1 10 10v30a10 10 0 0 1-10 10H50l-16 12V66h0a10 10 0 0 1-10-10z" fill="var(--brand-soft)" stroke="var(--brand-tint)" stroke-width="2"/><rect x="36" y="30" width="52" height="5" rx="2.5" fill="var(--brand)"/><rect x="36" y="42" width="38" height="5" rx="2.5" fill="var(--brand-tint)"/><path d="M58 64a10 10 0 0 1 10-10h58a10 10 0 0 1 10 10v26a10 10 0 0 1-10 10h-4v12l-16-12H68a10 10 0 0 1-10-10z" fill="#25B23C"/><rect x="70" y="68" width="48" height="5" rx="2.5" fill="#fff"/><rect x="70" y="80" width="32" height="5" rx="2.5" fill="#D9F7DF"/></svg><h3>Help on WhatsApp</h3><p>Batch dates, exam help, empanelment and client cases.</p></a>
-    </div>
-  </div>
-</section>
-
-<section class="section band-paper" id="opportunity">
-  <div class="wrap opp-wrap">
-    <div class="section-head" style="margin:0">
-      <h2 class="h2">The SIF opportunity</h2>
-      <p class="lede">SIF assets grew from ₹2,010 crore to ₹38,287 crore in 11 months. Every SIF sale needs a NISM V-D certified distributor.</p>
-      <div class="opp-cards">
-        <div><b>19×</b><span>growth in SIF assets since the first SIF in Oct 2025</span></div>
-        <div><b>69%</b><span>of SIF money is in hybrid strategies, the conversation for FD and debt clients</span></div>
-        <div><b>₹10 lakh</b><span>minimum per client, so every SIF client is a high-value client</span></div>
-      </div>
-      <a class="btn btn-flame" style="justify-self:start" href="https://academy.assetplus.in/course/nism-series-v-d-mf-sif-distributors-certification-training-16th-november" target="_blank" rel="noopener">Save my seat</a>
-    </div>
-    <div class="opp" aria-label="SIF assets each month">
-      <p class="opp-h">SIF assets at month-end, ₹ crore</p>
-      <svg id="oppChart" viewBox="0 0 460 220" role="img" aria-label="SIF assets rose from 2,010 crore in October 2025 to 38,287 crore in September 2026"></svg>
-      <p class="opp-note">Source: AMFI. 17 SIF brands with assets at end of Sep 2026.</p>
-    </div>
-  </div>
-</section>
-
-<div class="ticker" aria-label="Day change by SIF strategy">
-  <div class="ticker-track" id="ticker"></div>
-</div>
-
-<!-- CERTIFY -->
 <section class="certify" id="certify">
   <div class="wrap">
     <div>
@@ -913,7 +867,26 @@ input:focus, select:focus { outline: 2px solid var(--brand); border-color: var(-
   </div>
 </section>
 
-<!-- LEARN -->
+<section class="section band-paper" id="opportunity">
+  <div class="wrap opp-wrap">
+    <div class="section-head" style="margin:0">
+      <h2 class="h2">The SIF opportunity</h2>
+      <p class="lede">SIF assets grew from ₹2,010 crore to ₹38,287 crore in 11 months. Every SIF sale needs a NISM V-D certified distributor.</p>
+      <div class="opp-cards">
+        <div><b>19×</b><span>growth in SIF assets since the first SIF in Oct 2025</span></div>
+        <div><b>69%</b><span>of SIF money is in hybrid strategies, the conversation for FD and debt clients</span></div>
+        <div><b>₹10 lakh</b><span>minimum per client, so every SIF client is a high-value client</span></div>
+      </div>
+      <a class="btn btn-flame" style="justify-self:start" href="https://academy.assetplus.in/course/nism-series-v-d-mf-sif-distributors-certification-training-16th-november" target="_blank" rel="noopener">Save my seat</a>
+    </div>
+    <div class="opp" aria-label="SIF assets each month">
+      <p class="opp-h">SIF assets at month-end, ₹ crore</p>
+      <svg id="oppChart" viewBox="0 0 460 220" role="img" aria-label="SIF assets rose from 2,010 crore in October 2025 to 38,287 crore in September 2026"></svg>
+      <p class="opp-note">Source: AMFI. 17 SIF brands with assets at end of Sep 2026.</p>
+    </div>
+  </div>
+</section>
+
 <section class="section" id="learn">
   <div class="wrap">
     <div class="section-head">
@@ -962,31 +935,30 @@ input:focus, select:focus { outline: 2px solid var(--brand); border-color: var(-
   </div>
 </section>
 
-<!-- MARKET -->
-<section class="section band-paper" id="market">
-  <div class="wrap">
-    <div class="section-head">
-      <h2 class="h2">SIF assets: ₹2,010 cr to ₹38,287 cr in 11 months</h2>
-      <p class="lede">The first SIF went live on 8 Oct 2025. Net inflows have been positive every month since, and most of the money has gone into hybrid strategies.</p>
+<section class="section bundle-sec band-paper" id="bundle">
+  <div class="wrap bundle">
+    <div class="bundle-copy">
+      <span class="free-tag">Free with your seat</span>
+      <h2 class="h2">Sign up and get the SIF starter bundle</h2>
+      <p class="lede">Everything we use to explain SIFs to partners and their clients, in one bundle.</p>
+      <ul class="bundle-list">
+        <li><b>SIF Decoder, Oct 2026</b><span>Our 26-page research on every SIF</span></li>
+        <li><b>15 one-pagers</b><span>Explainers, pitch sheets and client notes</span></li>
+        <li><b>Client notes with your ARN</b><span>Ready to share once you are certified</span></li>
+        <li><b>Daily SIF NAVs</b><span>Every strategy, from AMFI</span></li>
+      </ul>
+      <div class="ctas" style="margin-top:22px"><button class="btn btn-flame btn-lg" type="button" data-open="decoder">Get the free bundle</button></div>
     </div>
-    <div class="charts">
-      <div class="chart-card">
-        <h3>SIF assets at month-end</h3>
-        <p class="cap">₹ crore, all SIFs, Oct 2025 to Sep 2026</p>
-        <svg id="aumChart" viewBox="0 0 640 300" role="img" aria-label="Bar chart of SIF assets by month"></svg>
-      </div>
-      <div class="chart-card">
-        <h3>Assets by SIF brand</h3>
-        <p class="cap">₹ crore, 30 Sep 2026 · three brands hold 65%</p>
-        <svg id="brandChart" viewBox="0 0 420 430" role="img" aria-label="Horizontal bar chart of SIF assets by brand"></svg>
-      </div>
-    </div>
-    <div class="callout"><b>69% of SIF money is in hybrid strategies</b> (₹26,413 cr vs ₹11,874 cr equity-oriented, end of Sep 2026). </div>
-    <p class="src">Source: AMFI monthly SIF data and AMFI SIF NAVs; AssetPlus SIF Tracker, data to 23 Oct 2026. Magnum's quarter-end figure is not published separately by AMFI and is derived as the month-end total minus other brands.</p>
+    <button type="button" class="fan" data-open="decoder" aria-label="Get the free SIF starter bundle">
+      <img class="f1" src="thumbs/01-What-is-a-SIF.jpg" alt="" loading="lazy">
+      <img class="f2" src="thumbs/07a-Persona-FD-Retiree.jpg" alt="" loading="lazy">
+      <img class="f3" src="thumbs/06a-SIF-vs-FD.jpg" alt="" loading="lazy">
+      <img class="f4" src="decoder-cover.jpg" alt="SIF Decoder cover with one-pagers behind it">
+      <span class="fan-badge">FREE</span>
+    </button>
   </div>
 </section>
 
-<!-- TRACKER -->
 <section class="section" id="tracker">
   <div class="wrap">
     <div class="section-head">
@@ -1012,58 +984,12 @@ input:focus, select:focus { outline: 2px solid var(--brand); border-color: var(-
         <tbody></tbody>
       </table>
     </div>
+    <div style="display:flex;justify-content:center;margin-top:14px"><button class="btn btn-ghost" type="button" id="tkMore">Show all strategies</button></div>
     <p class="tk-note">Source: AMFI SIF NAV (amfiindia.com). Listed by category and brand, not ranked. A 1-day move says nothing about a strategy's quality or future returns. Strategies differ in risk band, liquidity and tax treatment; read each strategy's documents. Not a recommendation.</p>
   </div>
 </section>
 
-<!-- DECODER -->
-<section class="section band-paper" id="decoder">
-  <div class="wrap decoder">
-    <div class="section-head" style="margin:0">
-      <h2 class="h2">SIF Decoder, October 2026</h2>
-      <p class="lede">Our research on SIFs: the basics, our view, the framework we use to evaluate strategies, our coverage, and a performance tracker for all strategies.</p>
-      <div class="filters">
-        <div><b>01 · PEDIGREE</b><span>An established fund house and team with a record in similar strategies</span></div>
-        <div><b>02 · STRATEGY</b><span>A clear strategy and risk-return framework, no style drift</span></div>
-        <div><b>03 · COMMUNICATION</b><span>Regular disclosure of long book, net exposure and derivatives</span></div>
-        <div><b>04 · TRACK RECORD</b><span>Real performance and drawdown management across cycles</span></div>
-      </div>
-      <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:24px">
-        <button class="btn btn-brand" type="button" data-open="decoder">Download the SIF Decoder</button>
-        <span class="pill pill-partner" style="align-self:center">For partners · private circulation</span>
-      </div>
-    </div>
-    <div class="toc" aria-label="Inside the SIF Decoder">
-      <div><span class="n">01</span><b>The Basics</b><span>What SIFs are and the seven strategy categories</span></div>
-      <div><span class="n">02</span><b>Our View</b><span>Coverage stance and where hybrid SIFs fit</span></div>
-      <div><span class="n">03</span><b>Our Framework</b><span>Four filters every strategy must clear</span></div>
-      <div><span class="n">04</span><b>AssetPlus SIF Coverage</b><span>Deep dives on our Early Conviction strategies</span></div>
-      <div><span class="n">05</span><b>Performance Tracker</b><span>All SIF strategies, returns and the AssetPlus view</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- HISTORY -->
-<section class="section" id="story">
-  <div class="wrap">
-    <div class="section-head">
-      <h2 class="h2">How SIFs came about</h2>
-      <p class="lede">SEBI created SIFs for the gap between a ₹500 mutual fund SIP and a ₹50 lakh PMS.</p>
-    </div>
-    <div class="timeline">
-      <div class="tl"><i></i><div class="d">Before 2025</div><h4>The gap</h4><p>MFs from a few hundred rupees, PMS at ₹50 lakh, AIFs at ₹1 crore. Nothing in between.</p></div>
-      <div class="tl"><i></i><div class="d">Jul 2024</div><h4>SEBI proposes</h4><p>A consultation paper suggests a new product run by fund houses, from ₹10 lakh.</p></div>
-      <div class="tl"><i></i><div class="d">Dec 2024</div><h4>Approved</h4><p>SEBI's board approves the SIF framework.</p></div>
-      <div class="tl"><i></i><div class="d">27 Feb 2025</div><h4>The rulebook</h4><p>₹10 lakh minimum, shorts up to 25%, separate SIF brand, risk band 1–5.</p></div>
-      <div class="tl"><i></i><div class="d">8 Oct 2025</div><h4>First SIF live</h4><p>The first strategy publishes its NAV. Hybrids follow within three weeks.</p></div>
-      <div class="tl"><i></i><div class="d">Jul 2026</div><h4>One licence</h4><p>NISM Series V-D covers both mutual funds and SIFs.</p></div>
-      <div class="tl now"><i></i><div class="d">Sep 2026</div><h4>₹38,287 crore</h4><p>Strategies from 17 brands: 19 times the first month.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- KIT -->
-<section class="section" id="kit">
+<section class="section band-paper" id="kit">
   <div class="wrap">
     <div class="section-head">
       <h2 class="h2">Partner kit</h2>
@@ -1088,43 +1014,7 @@ input:focus, select:focus { outline: 2px solid var(--brand); border-color: var(-
   </div>
 </section>
 
-<!-- WEALTH ENGINE -->
-<section class="section band-paper" id="tax">
-  <div class="wrap two" style="align-items:center">
-    <div class="section-head" style="margin:0">
-      <h2 class="h2">How tax timing changes the outcome</h2>
-      <p class="lede">FD interest is taxed every year. Gains on an equity-taxed SIF are taxed when units are sold. Both examples below assume the same 6.5% a year.</p>
-      <p class="fine" style="margin-top:8px">Illustration of tax treatment only, not a forecast or an expected return for any SIF. SIF returns are market-linked and can be lower or negative. 30% slab investor; equity-taxed SIF held over 1 year with the ₹1.25 lakh yearly exemption used once; no surcharge or cess; today's tax rules. Actual tax depends on each strategy's tax category and the investor's situation.</p>
-    </div>
-    <div class="panel">
-      <h3>₹10 lakh after 10 years, after tax</h3>
-      <div class="engine" style="margin-top:16px">
-        <div class="engine-row"><span>6.5% a year, taxed every year at 30% (FD-style)</span><div class="track"><div class="fill" style="width:87.5%"></div></div><span class="amt">₹15,60,400</span></div>
-        <div class="engine-row hl"><span>6.5% a year, taxed once at the end at 12.5%</span><div class="track"><div class="fill" style="width:100%"></div></div><span class="amt">₹17,83,100</span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 60 DAYS -->
-<section class="section" id="plan">
-  <div class="wrap">
-    <div class="section-head">
-      <h2 class="h2">Your first 60 days with SIF</h2>
-      <p class="lede">A simple plan for the two months after you pass V-D. Start with clients who have money they won't need for 2 years.</p>
-    </div>
-    <div class="road">
-      <div><span class="w">Weeks 1–2</span><h4>Prepare</h4><ul><li>Read three strategies' documents</li><li>Sort your book by idle money</li></ul></div>
-      <div><span class="w">Weeks 3–4</span><h4>First talks</h4><ul><li>Start with 5 warm clients</li><li>Use the persona sheets</li></ul></div>
-      <div><span class="w">Weeks 5–6</span><h4>First investments</h4><ul><li>KYC and ₹10 lakh checks</li><li>Explain risk and exit days</li></ul></div>
-      <div><span class="w">Weeks 7–8</span><h4>Review</h4><ul><li>Send each client an update</li><li>Ask for one referral</li></ul></div>
-    </div>
-    <div class="goal"><span><b>20</b>clients screened</span><span><b>2</b>strategies learnt</span><span><b>3</b>conversations a week</span><span><b>2</b>first investments</span></div>
-  </div>
-</section>
-
-<!-- FAQ -->
-<section class="section band-paper" id="faq">
+<section class="section" id="faq">
   <div class="wrap">
     <div class="section-head">
       <h2 class="h2">FAQs</h2>
@@ -1140,26 +1030,12 @@ input:focus, select:focus { outline: 2px solid var(--brand); border-color: var(-
   </div>
 </section>
 
-<!-- WHATSAPP -->
-<section class="wa-band" id="talk">
-  <div class="wrap">
-    <div>
-      <h2>Questions? WhatsApp us</h2>
-      <p>Batch dates, V-D exam help, the partner kit or empanelment. Message us on WhatsApp.</p>
-    </div>
-    <div class="row">
-      <a class="btn btn-wa wa-link" href="#" target="_blank" rel="noopener"><svg class="wa-ic" viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="waG2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5FD467"/><stop offset="1" stop-color="#25B23C"/></linearGradient></defs><path d="M32 3C16.5 3 4 15.4 4 30.8c0 5.2 1.4 10 3.9 14.2L4 60l15.5-4c3.8 2 8 3 12.5 3 15.5 0 28-12.4 28-27.7S47.5 3 32 3Z" fill="#fff"/><path d="M32 7.5C18.9 7.5 8.4 18 8.4 30.8c0 4.8 1.4 9.2 3.9 12.9l-2.5 9.1 9.5-2.4c3.6 2.2 7.9 3.4 12.7 3.4 13.1 0 23.6-10.4 23.6-23.1S45.1 7.5 32 7.5Z" fill="url(#waG2)"/><path d="M24.3 18.6c-.6-1.3-1.2-1.3-1.8-1.3h-1.6c-.5 0-1.4.2-2.2 1-.7.8-2.8 2.7-2.8 6.6s2.9 7.7 3.3 8.2c.4.5 5.6 8.9 13.8 12.1 6.8 2.7 8.2 2.2 9.7 2 1.5-.1 4.8-1.9 5.4-3.8.7-1.9.7-3.5.5-3.8-.2-.3-.7-.5-1.5-.9s-4.8-2.4-5.5-2.6c-.7-.3-1.3-.4-1.8.4-.5.8-2.1 2.6-2.5 3.1-.5.5-.9.6-1.7.2-.8-.4-3.4-1.3-6.5-4-2.4-2.1-4-4.8-4.5-5.6-.5-.8 0-1.2.4-1.6.4-.4.8-.9 1.2-1.4.4-.5.5-.8.8-1.3.3-.5.1-1-.1-1.4-.2-.4-1.8-4.4-2.5-5.9Z" fill="#fff"/></svg>Chat on WhatsApp</a>
-      <span class="wa-num" id="waNum"></span>
-      <button class="btn btn-ghost btn-sm" type="button" data-open="callback">Request a call back</button>
-    </div>
-  </div>
-</section>
-
 <section class="aband">
   <div class="wrap">
     <h2>Become SIF Ready</h2>
-    <p>Free NISM V-D training, live from 16 Nov. Seats are limited for live Q&amp;A.</p>
-    <button class="btn btn-white btn-lg" type="button" data-open="decoder">Get Started Now</button>
+    <p>Free NISM V-D training, live from 16 Nov.</p>
+    <button class="btn btn-white btn-lg" type="button" data-open="decoder">Register free</button>
+    <a class="aband-wa wa-link" href="#" target="_blank" rel="noopener">Questions? WhatsApp us on <span id="waNum"></span></a>
   </div>
 </section>
 
@@ -1249,7 +1125,7 @@ const shortCat = c => c.replace(" Fund","").replace("Long-Short","LS");
 /* WhatsApp */
 const waHref = "https://wa.me/" + CONFIG.whatsapp + "?text=" + encodeURIComponent(CONFIG.whatsappText);
 $$(".wa-link").forEach(a => a.href = waHref);
-$("#waNum").textContent = CONFIG.whatsappDisplay;
+if ($("#waNum")) $("#waNum").textContent = CONFIG.whatsappDisplay;
 
 /* Hero + ticker */
 const rows = DATA.rows;
@@ -1258,7 +1134,7 @@ const avg = rows.reduce((s,r) => s + r.chg, 0) / rows.length;
 [["#nStrat", rows.length], ["#nUp", up + "▲"], ["#nDown", down + "▼"], ["#asof1", DATA.asof]].forEach(([sel, v]) => { const el = $(sel); if (el) el.textContent = v; });
 $("#asof3").textContent = DATA.asof;
 
-(function ticker(){
+(function ticker(){ if (!$("#ticker")) return;
   const items = [...rows].sort((a,b) => a.b.localeCompare(b.b)).map(r => '<span class="tick"><b>' + esc(r.b) + '</b><span>' + esc(shortCat(r.c)) + '</span><span class="c ' + (r.chg>=0?"up":"down") + '">' + (r.chg>=0?"▲ +":"▼ ") + r.chg.toFixed(2) + '%</span></span>').join("");
   $("#ticker").innerHTML = items + items;
 })();
@@ -1287,7 +1163,7 @@ $("#asof3").textContent = DATA.asof;
 })();
 
 /* Charts */
-(function aumChart(){
+(function aumChart(){ if (!$("#aumChart")) return;
   const svg = $("#aumChart"), W = 640, H = 300, L = 54, R = 10, T = 26, B = 34, max = 45000;
   const bw = (W - L - R) / AUM.length;
   let g = "";
@@ -1301,7 +1177,7 @@ $("#asof3").textContent = DATA.asof;
   });
   svg.innerHTML = g;
 })();
-(function brandChart(){
+(function brandChart(){ if (!$("#brandChart")) return;
   const svg = $("#brandChart"), L = 70, W = 420, R = 70, rowH = 24.5, max = 13221;
   let g = "";
   BRANDS.forEach((d,i) => {
@@ -1315,7 +1191,7 @@ $("#asof3").textContent = DATA.asof;
 
 /* Tracker */
 const cats = [...new Set(rows.map(r => r.c))];
-let tkFilter = "All", tkSort = {k:"c", dir:1};
+let tkFilter = "All", tkSort = {k:"c", dir:1}, tkAll = false;
 function renderSummary(){
   const box = $("#tkSum");
   box.innerHTML = cats.map(c => {
@@ -1333,7 +1209,9 @@ function renderTable(){
     if (v === 0) v = a.b.localeCompare(b.b);
     return v * tkSort.dir;
   });
-  $("#tk tbody").innerHTML = list.map(r => {
+  const shown = (tkAll || tkFilter !== "All") ? list : list.slice(0, 8);
+  const more = $("#tkMore"); if (more) { more.hidden = tkFilter !== "All"; more.textContent = tkAll ? "Show fewer" : "Show all " + list.length + " strategies"; }
+  $("#tk tbody").innerHTML = shown.map(r => {
     const w = Math.abs(r.chg)/maxAbs*50;
     const bar = r.chg>=0 ? '<i style="left:50%;width:'+w+'%;background:var(--pos)"></i>' : '<i style="right:50%;width:'+w+'%;background:var(--neg)"></i>';
     return '<tr><td><div class="b">' + esc(r.b) + '</div><div class="a">' + esc(r.amc) + '</div></td><td>' + esc(r.c) + '</td><td>' + esc(r.t) + '</td><td class="r num mono">' + fmt(r.nav, 4) + '</td><td class="r num mono" style="color:var(--muted)">' + fmt(r.prev, 4) + '</td><td class="r"><span class="chg ' + (r.chg>=0?"pos":"neg") + '">' + (r.chg>=0?"+":"") + r.chg.toFixed(2) + '%</span></td><td><div class="bar">' + bar + '</div></td></tr>';
@@ -1342,6 +1220,7 @@ function renderTable(){
 }
 $("#chips").addEventListener("click", e => { const b = e.target.closest(".chip"); if (!b) return; tkFilter = b.dataset.cat; renderChips(); renderTable(); });
 $$("#tk th button").forEach(b => b.addEventListener("click", () => { const k = b.dataset.sort; tkSort = {k, dir: tkSort.k===k ? -tkSort.dir : (k==="chg"||k==="nav" ? -1 : 1)}; renderTable(); }));
+$("#tkMore").addEventListener("click", () => { tkAll = !tkAll; renderTable(); });
 renderSummary(); renderChips(); renderTable();
 
 /* Events + countdown */
@@ -1351,7 +1230,7 @@ renderSummary(); renderChips(); renderTable();
   $("#eventList").innerHTML = list.map((e, i) => {
     const d = new Date(e.start);
     const m = d.toLocaleString("en-IN", {month: "short", timeZone: "Asia/Kolkata"}), day = d.toLocaleString("en-IN", {day: "numeric", timeZone: "Asia/Kolkata"}), wd = d.toLocaleString("en-IN", {weekday: "short", timeZone: "Asia/Kolkata"});
-    return '<article class="event"><div class="event-top"><div class="event-date"><span class="m">' + m + '</span><span class="d">' + day + '</span><span class="y">' + d.getFullYear() + ' · ' + wd + '</span></div><div class="event-body"><span class="pill pill-free" style="justify-self:start">' + esc(e.tag) + '</span><h3>' + esc(e.title) + '</h3><div class="event-meta">' + e.meta.map(x => '<span>' + esc(x) + '</span>').join("") + '</div></div></div><div class="event-actions"><a class="btn btn-flame" href="' + esc(e.url) + '" target="_blank" rel="noopener">Register free</a>' + (e.form ? '<a class="btn btn-ghost" href="' + esc(e.form) + '" target="_blank" rel="noopener">Quick registration form</a>' : '') + '</div>' + (i === 0 ? '<div class="countdown" id="countdown"></div>' : '') + '</article>';
+    return '<article class="event"><div class="event-top"><div class="event-date"><span class="m">' + m + '</span><span class="d">' + day + '</span><span class="y">' + d.getFullYear() + ' · ' + wd + '</span></div><div class="event-body"><span class="pill pill-free" style="justify-self:start">' + esc(e.tag) + '</span><h3>' + esc(e.title) + '</h3><div class="event-meta">' + e.meta.map(x => '<span>' + esc(x) + '</span>').join("") + '</div></div></div><div class="event-actions"><button class="btn btn-flame" type="button" data-open="decoder">Register free</button></div>' + (i === 0 ? '<div class="countdown" id="countdown"></div>' : '') + '</article>';
   }).join("");
   const el = $("#countdown"); if (!el) return;
   const start = new Date(list[0].start).getTime();
@@ -1478,7 +1357,7 @@ function askCertified(leadId, name, deliver){
   $("#cYes").addEventListener("click", () => { updateLead(leadId, {vd: "Certified"}); track("cert_yes"); deliver(true); });
   $("#cNo").addEventListener("click", () => {
     updateLead(leadId, {vd: "Not yet"}); track("cert_no");
-    $("#mMain").innerHTML = '<div class="pop"><h3 id="mTitle">Free NISM V-D batch, 16 Nov</h3><div class="reg-card"><b>NISM Series V-D: MF &amp; SIF Distributors</b><span>8 live evenings · 6:30–8:30 PM · in English · free</span></div><a class="btn btn-flame" id="regGo" href="' + CONFIG.eventUrl + '" target="_blank" rel="noopener">Register free for 16 Nov</a><button class="btn btn-ghost" type="button" id="regSkip">Continue to your download</button><p class="notice">Registration opens in a new tab. Your download waits here.</p></div>';
+    $("#mMain").innerHTML = '<div class="pop"><h3 id="mTitle">Free NISM V-D batch, 16 Nov</h3><div class="reg-card"><b>NISM Series V-D: MF &amp; SIF Distributors</b><span>8 live evenings · 6:30–8:30 PM · in English · free</span></div><a class="btn btn-flame" id="regGo" href="' + CONFIG.eventUrl + '" target="_blank" rel="noopener">Complete my registration</a><button class="btn btn-ghost" type="button" id="regSkip">Get the SIF Decoder</button><p class="notice">Registration opens in a new tab. Your download waits here.</p></div>';
     $("#regGo").addEventListener("click", () => { updateLead(leadId, {eventClicked: true}); track("register_click", {where: "popup"}); setTimeout(() => deliver(false), 400); });
     $("#regSkip").addEventListener("click", () => deliver(false));
   });
@@ -1572,9 +1451,9 @@ const starterSideUnused = '<p class="eyebrow">Free for partners</p><h3>SIF Decod
 function openStarter(source){
   store.set("ap_sif_popup", String(Date.now()));
   track("popup_open", {trigger: source});
-  const thumb = '<div class="pop-thumb"><div class="date"><small>NOV</small><strong>16</strong></div><div><h3 id="mTitle">Register now: free NISM V-D batch</h3></div></div>';
+  const thumb = '<div class="pop-thumb"><div class="date"><small>NOV</small><strong>16</strong></div><div><h3 id="mTitle">Register for the free NISM V-D batch</h3></div></div>';
   const bonus = '<div class="bonus"><img src="decoder-cover.jpg" alt="" width="72" height="41" style="width:72px;height:auto;border-radius:4px;flex:none"><span>You also get the SIF Decoder, our 26-page SIF research.</span></div>';
-  openModal("", '<div class="pop"><span class="steps">Step 1 of 2</span>' + thumb + '<p class="sub">8 live evenings from 16 Nov, 6:30 to 8:30 PM, in English.</p>' + bonus + leadForm({minimal: true, cta: "Register"}) + '<button class="skip" type="button" id="popSkip">No thanks</button></div>', true, true);
+  openModal("", '<div class="pop"><span class="steps">Step 1 of 2</span>' + thumb + '<p class="sub">8 live evenings from 16 Nov, 6:30 to 8:30 PM, in English.</p>' + bonus + leadForm({minimal: true, cta: "Register free"}) + '<button class="skip" type="button" id="popSkip">No thanks</button></div>', true, true);
   $("#popSkip").addEventListener("click", closeModal);
   bindLead(source, {want: "sif-decoder"}, (saved, d) => askCertified(saved, d.name, (certified) => showDecoder(saved, d.name, certified)));
 }
