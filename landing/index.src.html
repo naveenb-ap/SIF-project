@@ -12,23 +12,23 @@
 <style>
 /* Layout: brand-blue masthead with a live "market card", then a single 1180px column of alternating paper/ink bands; data tables scroll in their own boxes. */
 :root {
-  --bg: #F5F7FB;
+  --bg: #F7F9FD;
   --surface: #FFFFFF;
   --surface-2: #EEF2F9;
-  --ink: #1B1F28;
-  --body: #3E4659;
-  --muted: #606C84;
+  --ink: #0A1F44;
+  --body: #33415C;
+  --muted: #5B6B86;
   --line: #DFE4EE;
-  --brand: #2B62C0;
-  --brand-deep: #163A75;
-  --brand-soft: #E8EFFA;
-  --brand-tint: #CFDCF2;
+  --brand: #1A56DB;
+  --brand-deep: #0A1F44;
+  --brand-soft: #EEF4FF;
+  --brand-tint: #D3E1FB;
   --flame: #E0322A;
   --flame-soft: #FDECEA;
   --gold: #B7791F;
   --gold-soft: #FBF3E3;
-  --pos: #1D7A3A;
-  --pos-bg: #E2F3E7;
+  --pos: #15803D;
+  --pos-bg: #E7F6EC;
   --neg: #B3261E;
   --neg-bg: #FCE9E7;
   --band-a: #1F55B3;
@@ -64,7 +64,7 @@ a { color: var(--brand); }
 .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; font: 600 15px/1 var(--font-sans); padding: 14px 20px; border-radius: 10px; border: 1px solid transparent; text-decoration: none; cursor: pointer; transition: transform .15s ease, background .15s ease; white-space: nowrap; }
 .btn:hover { transform: translateY(-1px); }
 .btn-flame { background: var(--brand); color: #fff; }
-.btn-flame:hover { background: #2153AB; }
+.btn-flame:hover { background: #1545B5; }
 .btn-white { background: #fff; color: var(--brand); }
 .btn-outline-blue { background: transparent; color: var(--brand); border-color: var(--brand); }
 .btn-brand { background: var(--brand); color: #fff; }
@@ -196,6 +196,65 @@ a { color: var(--brand); }
 .feat-card svg { width: 100%; max-width: 180px; height: auto; background: var(--brand-soft); border-radius: 12px; padding: 8px; }
 .feat-card h3 { font-size: 17px; }
 .feat-card p { font-size: 14px; color: var(--muted); }
+/* SIF Ready hero (reference layout) */
+.rhero { background: linear-gradient(180deg, #F2F6FE 0%, #F7F9FD 100%); overflow: hidden; }
+.rhero > .wrap:first-child { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); gap: 32px; padding-top: 56px; align-items: center; }
+@media (max-width: 960px) { .rhero > .wrap:first-child { grid-template-columns: 1fr; padding-top: 36px; } }
+.rhero-copy { display: grid; justify-items: start; animation: rise-in .5s ease-out both; }
+.live-pill.green { color: var(--pos); background: var(--pos-bg); border-color: rgba(21,128,61,.25); }
+.live-pill.green i { background: #16A34A; }
+.rhero h1 { font-size: clamp(46px, 6.6vw, 84px); font-weight: 700; letter-spacing: -0.035em; line-height: .98; margin-top: 18px; color: var(--ink); }
+.rhero h1 .u { position: relative; color: var(--brand); display: inline-block; }
+.rhero h1 .u::after { content: ""; position: absolute; left: 4%; right: -2%; bottom: -10px; height: 12px; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 12' preserveAspectRatio='none'%3E%3Cpath d='M3 9 C 80 2, 200 1, 297 6' fill='none' stroke='%231A56DB' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E") center / 100% 100% no-repeat; opacity: .55; }
+.rhero-tag { font-family: var(--font-display); font-size: clamp(22px, 2.4vw, 30px); font-weight: 600; color: var(--brand); margin-top: 24px; letter-spacing: -0.01em; }
+.rhero-sub { font-size: 17px; color: var(--body); max-width: 52ch; margin-top: 12px; }
+.rhero-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.rhero-ctas .btn-flame { background: linear-gradient(180deg, #1F5EE6, #1547C0); box-shadow: 0 10px 22px rgba(26,86,219,.28); }
+.rhero-ctas .btn-ghost { background: #fff; border-color: #C9D3E6; color: var(--ink); }
+.play { color: var(--brand); }
+.rhero-ben { list-style: none; padding: 0; margin: 30px 0 0; display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); width: 100%; max-width: 560px; }
+.rhero-ben li { display: grid; justify-items: center; gap: 8px; text-align: center; font-size: 14px; font-weight: 600; color: var(--ink); padding: 0 8px; border-left: 1px solid var(--line); line-height: 1.25; }
+.rhero-ben li:first-child { border-left: 0; }
+.rhero-ben svg, .rhero-stats svg { width: 44px; height: 44px; padding: 10px; border-radius: 12px; background: var(--brand-soft); fill: none; stroke: var(--brand); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+@media (max-width: 520px) { .rhero-ben { grid-template-columns: repeat(2, minmax(0,1fr)); row-gap: 16px; } .rhero-ben li:nth-child(3) { border-left: 0; } }
+.rhero-vis { position: relative; min-height: 560px; animation: rise-in .6s .1s ease-out both; }
+@media (max-width: 960px) { .rhero-vis { min-height: 0; aspect-ratio: 1 / 1.02; } }
+.rv-blob { position: absolute; left: 12%; right: -4%; top: 14%; bottom: 0; border-radius: 48% 52% 0 0 / 42% 40% 0 0; background: linear-gradient(160deg, #D7E4FD 0%, #BCD0F8 100%); }
+.rv-photo { position: absolute; right: -2%; bottom: 0; height: 100%; width: auto; max-width: 104%; object-fit: cover; object-position: 70% top; -webkit-mask-image: linear-gradient(to left, #000 72%, transparent 100%); mask-image: linear-gradient(to left, #000 72%, transparent 100%); }
+.rv-card { position: absolute; background: #fff; border: 1px solid #E3E9F4; border-radius: 16px; box-shadow: 0 18px 40px rgba(10,31,68,.14); }
+.rv-pass { left: 0; top: 10%; width: 230px; padding: 14px 16px; }
+.rv-pass-top { display: flex; align-items: center; gap: 12px; padding-bottom: 10px; border-bottom: 1px solid var(--line); font-size: 15px; color: var(--ink); font-weight: 600; line-height: 1.15; }
+.rv-pass-top b { color: #16A34A; font-size: 22px; letter-spacing: .01em; }
+.rv-tick { width: 40px; height: 40px; border-radius: 50%; background: #16A34A; color: #fff; display: grid; place-items: center; font-size: 22px; font-weight: 700; flex: none; }
+.rv-pass-bot { display: grid; gap: 2px; padding-top: 10px; font-size: 12.5px; color: var(--muted); }
+.rv-pass-bot b { color: var(--ink); font-size: 14px; }
+.rv-growth { right: 0; top: 0; width: 230px; padding: 14px 16px; display: grid; gap: 6px; font-size: 12px; color: var(--muted); }
+.rv-growth > b { color: var(--ink); font-size: 14px; }
+.rv-growth svg { width: 100%; height: auto; }
+.rv-growth rect { fill: #BFD3FA; } .rv-growth rect:last-of-type { fill: var(--brand); }
+.rv-growth path { stroke: #16A34A; }
+.rv-growth span b { color: var(--ink); }
+.rv-journey { left: 8%; right: 2%; bottom: 4%; padding: 16px 18px; display: grid; gap: 12px; }
+.rv-journey > b { color: var(--ink); font-size: 16px; }
+.rv-journey ol { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); position: relative; }
+.rv-journey ol::before { content: ""; position: absolute; left: 12%; right: 12%; top: 15px; height: 3px; background: linear-gradient(90deg, #16A34A 0 66%, var(--line) 66% 100%); }
+.rv-journey li { display: grid; justify-items: center; gap: 6px; font-size: 13px; font-weight: 600; color: var(--ink); position: relative; }
+.rv-journey li i { width: 32px; height: 32px; border-radius: 50%; display: grid; place-items: center; font-style: normal; background: #fff; border: 2px solid var(--line); color: var(--muted); font-size: 14px; }
+.rv-journey li.done i { background: #16A34A; border-color: #16A34A; color: #fff; }
+@media (max-width: 520px) { .rv-pass { width: 190px; top: 4%; } .rv-growth { display: none; } .rv-journey { left: 0; right: 0; } .rv-journey li { font-size: 11.5px; } }
+.rhero-stats { display: grid; grid-template-columns: repeat(3, auto) minmax(0,1fr); gap: 0; align-items: center; background: #fff; border: 1px solid #E3E9F4; border-radius: 16px; padding: 14px 8px; margin-block: 28px 48px; box-shadow: 0 8px 24px rgba(10,31,68,.06); }
+.rhero-stats > div { display: flex; align-items: center; gap: 12px; padding: 4px 22px; border-right: 1px solid var(--line); }
+.rhero-stats span { display: grid; font-size: 13px; color: var(--muted); }
+.rhero-stats b { font-family: var(--font-display); font-size: 20px; color: var(--ink); font-weight: 700; }
+.rhero-stats em { font-style: normal; color: #F59E0B; font-size: 15px; letter-spacing: 1px; }
+.rhero-stats p { font-size: 12.5px; color: var(--muted); padding: 0 22px; }
+@media (max-width: 960px) { .rhero-stats { grid-template-columns: 1fr; gap: 10px; } .rhero-stats > div { border-right: 0; } }
+/* step photos */
+.jp.has-img { grid-template-columns: minmax(0,1fr) 220px; max-width: none; align-items: center; column-gap: 28px; }
+.jp.has-img > :not(.jp-img) { grid-column: 1; }
+.jp-img { grid-column: 2; grid-row: 1 / span 4; width: 220px; height: 260px; object-fit: cover; object-position: top; border-radius: 14px; }
+.jp.has-img[hidden] { display: none; }
+@media (max-width: 700px) { .jp.has-img { grid-template-columns: 1fr; } .jp-img { grid-column: 1; grid-row: auto; width: 100%; height: 220px; } }
 /* Academy-style hero */
 .ahero { background: linear-gradient(180deg, #EEF3FC 0%, var(--bg) 100%); }
 .ahero .wrap { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr); gap: 48px; padding-block: 72px 64px; align-items: center; }
@@ -681,46 +740,59 @@ input:focus, select:focus { outline: 2px solid var(--brand); border-color: var(-
             <a href="#kit">Partner kit</a>
       <a href="#faq">FAQ</a>
     </nav>
-    <button class="btn btn-flame btn-sm btn-cta" type="button" data-open="decoder">Become a SIF Distributor</button>
+    <button class="btn btn-flame btn-sm btn-cta" type="button" data-open="decoder">Get Started <span aria-hidden="true">→</span></button>
   </div>
 </header>
 
 <div id="top"></div>
 
-<section class="ahero">
+<section class="rhero">
   <div class="wrap">
-    <div class="ahero-copy">
-      <a class="live-pill" href="#steps"><i aria-hidden="true"></i>Registrations open · Batch starts 16 Nov</a>
-      <h1>Become a <span>SIF Distributor</span></h1>
-      <p class="ahero-tag">One exam. Mutual funds and SIFs.</p>
-      <p class="ahero-sub">Get NISM Series V-D certified with free live training from AssetPlus. 8 evenings, 6:30 to 8:30 PM, in English.</p>
-      <div class="ahero-ctas">
-        <button class="btn btn-flame btn-lg glow" type="button" data-open="decoder">Get Started</button>
-        <a class="btn btn-outline-blue btn-lg" href="#opportunity">Explore the opportunity</a>
+    <div class="rhero-copy">
+      <a class="live-pill green" href="#steps"><i aria-hidden="true"></i>Registrations open · Batch starts 16 Nov</a>
+      <h1>Become<br><span class="u">SIF Ready</span></h1>
+      <p class="rhero-tag">One exam. Mutual funds and SIFs.</p>
+      <p class="rhero-sub">Get NISM Series V-D certified with free live training from AssetPlus, then start offering SIFs to clients with research, client notes and support.</p>
+      <div class="rhero-ctas">
+        <button class="btn btn-flame btn-lg" type="button" data-open="decoder">Get Started <span aria-hidden="true">→</span></button>
+        <a class="btn btn-ghost btn-lg" href="#opportunity"><span class="play" aria-hidden="true">▷</span> Explore the opportunity</a>
       </div>
-      <div class="ahero-rating"><span class="stars" aria-hidden="true">★★★★★</span><span><b>4.8</b> · 11k+ app ratings · 3,000+ learners</span></div>
+      <ul class="rhero-ben">
+        <li><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="12" rx="2"/><path d="M8 21h8M12 17v4"/><path d="M10 9l5 2-5 2z" fill="currentColor"/></svg><span>Free live<br>training</span></li>
+        <li><svg viewBox="0 0 24 24"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg><span>One exam,<br>MF + SIF</span></li>
+        <li><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c.8-3.6 3.2-5.5 6-5.5s5.2 1.9 6 5.5"/><path d="M16 4.5h5M18.5 2v5"/></svg><span>₹10 lakh+<br>clients</span></li>
+        <li><svg viewBox="0 0 24 24"><path d="M6 3h9l4 4v14H6z"/><path d="M15 3v4h4M9 12h7M9 16h5"/></svg><span>Research &amp;<br>client notes</span></li>
+      </ul>
     </div>
-    <div class="ahero-vis" aria-hidden="true">
-      <div class="av-blob"></div>
-      <div class="av-cert">
-        <svg viewBox="0 0 320 220"><rect x="6" y="6" width="308" height="208" rx="14" fill="#fff" stroke="#CFDCF2" stroke-width="2"/><rect x="20" y="20" width="280" height="180" rx="8" fill="none" stroke="#E3B262" stroke-width="1.5" stroke-dasharray="4 4"/><text x="160" y="58" text-anchor="middle" font-family="Geist,Inter,Arial" font-size="13" font-weight="700" fill="#606C84" letter-spacing="3">CERTIFICATE</text><text x="160" y="90" text-anchor="middle" font-family="Geist,Inter,Arial" font-size="22" font-weight="700" fill="#1B1F28">NISM Series V-D</text><text x="160" y="114" text-anchor="middle" font-family="Inter,Arial" font-size="12.5" fill="#606C84">Mutual Fund &amp; SIF Distributors</text><rect x="70" y="140" width="110" height="5" rx="2.5" fill="#CFDCF2"/><rect x="70" y="154" width="80" height="5" rx="2.5" fill="#CFDCF2"/><path d="M236 176l-9 34 15-8 15 8-9-34z" fill="#E0322A"/><circle cx="242" cy="162" r="24" fill="#2B62C0"/><circle cx="242" cy="162" r="16" fill="none" stroke="#fff" stroke-width="2.5"/><path d="M234 162l6 6 10-12" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <div class="rhero-vis">
+      <div class="rv-blob" aria-hidden="true"></div>
+      <img class="rv-photo" src="img/hero-woman.jpg" alt="A distributor holding her certificate" width="976" height="1024">
+      <div class="rv-card rv-pass" aria-hidden="true">
+        <div class="rv-pass-top"><span class="rv-tick">✓</span><span>Certification<br><b>PASSED</b></span></div>
+        <div class="rv-pass-bot"><b>NISM-Series-V-D</b><span>Mutual Fund &amp; SIF Distributors</span></div>
       </div>
-      <div class="av-chip c1"><i></i><span><b>16 Nov</b> · Free live batch</span></div>
-      <div class="av-chip c2"><span class="av-big">₹38,287 cr</span><span>SIF assets, Sep 2026</span></div>
-      <div class="av-chip c3"><img src="decoder-cover.jpg" alt=""><span><b>SIF Decoder</b><br>included free</span></div>
+      <div class="rv-card rv-growth" aria-hidden="true">
+        <b>SIF assets, ₹ crore</b>
+        <svg viewBox="0 0 200 70"><rect x="4" y="60" width="18" height="6" rx="2"/><rect x="28" y="57" width="18" height="9" rx="2"/><rect x="52" y="54" width="18" height="12" rx="2"/><rect x="76" y="50" width="18" height="16" rx="2"/><rect x="100" y="42" width="18" height="24" rx="2"/><rect x="124" y="34" width="18" height="32" rx="2"/><rect x="148" y="22" width="18" height="44" rx="2"/><rect x="172" y="8" width="18" height="58" rx="2"/><path d="M8 52 L60 46 L110 34 L160 18 L190 4" fill="none" stroke-width="2.5"/></svg>
+        <span>₹2,010 cr to <b>₹38,287 cr</b> in 11 months</span>
+      </div>
+      <div class="rv-card rv-journey" aria-hidden="true">
+        <b>Your journey to SIF Ready</b>
+        <ol><li class="done"><i>✓</i>Register</li><li class="done"><i>✓</i>Training</li><li class="done"><i>✓</i>V-D exam</li><li><i>⚑</i>SIF Ready</li></ol>
+      </div>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="rhero-stats">
+      <div><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c.8-3.6 3.2-5.5 6-5.5s5.2 1.9 6 5.5"/><circle cx="17" cy="9" r="2.6"/><path d="M16 14.6c2.6.2 4.4 2 5 5.4"/></svg><span><b>3,000+</b>Learners</span></div>
+      <div><svg viewBox="0 0 24 24"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/></svg><span>Trusted by<b>20,000+ distributors</b></span></div>
+      <div><svg viewBox="0 0 24 24"><path d="M12 3.5l2.6 5.4 5.9.8-4.3 4.1 1 5.8L12 16.8 6.8 19.6l1-5.8L3.5 9.7l5.9-.8z"/></svg><span>Top rated platform<b>4.8 <em>★★★★★</em></b></span></div>
+      <p>Backed by Nithin Kamath (Rainmatter by Zerodha), Bhupinder Singh (InCred), Eight Roads and Nexus Venture Partners</p>
     </div>
   </div>
 </section>
 
-<section class="proof" aria-label="About AssetPlus">
-  <div class="wrap">
-    <div><b>20,000+</b><span>Distributors trust AssetPlus</span></div>
-    <div><b>₹7,500 Cr+</b><span>AUM</span></div>
-    <div><b>3,000+</b><span>Learners</span></div>
-    <div><b>4.8</b><span>Rated, 11k+ app ratings</span></div>
-    <div class="wide"><span>Backed by Nithin Kamath (Rainmatter by Zerodha), Bhupinder Singh (InCred), Eight Roads, Nexus Venture Partners</span></div>
-  </div>
-</section>
+
 
 <section class="section bundle-sec" id="bundle">
   <div class="wrap bundle">
@@ -748,10 +820,10 @@ input:focus, select:focus { outline: 2px solid var(--brand); border-color: var(-
 
 <section class="section" id="steps">
   <div class="wrap">
-    <div class="section-head center"><h2 class="h2">How to become a SIF distributor</h2><p class="lede">Six steps, from registration to your first SIF client.</p></div>
+    <div class="section-head center"><h2 class="h2">Your journey to SIF Ready</h2><p class="lede">Six steps, from registration to your first SIF client.</p></div>
     <div class="journey6">
       <div class="jtabs" role="tablist" aria-label="Steps"><button type="button" role="tab" class="jt on" aria-selected="true" data-step="0"><b>1</b>Register</button><button type="button" role="tab" class="jt" aria-selected="false" data-step="1"><b>2</b>Training</button><button type="button" role="tab" class="jt" aria-selected="false" data-step="2"><b>3</b>Certification</button><button type="button" role="tab" class="jt" aria-selected="false" data-step="3"><b>4</b>ARN</button><button type="button" role="tab" class="jt" aria-selected="false" data-step="4"><b>5</b>Empanel</button><button type="button" role="tab" class="jt" aria-selected="false" data-step="5"><b>6</b>Kickstart</button></div>
-      <div class="jpanels"><div class="jp" role="tabpanel" data-panel="0"><span class="jp-n">Step 1 of 6</span><h3>Register for the free batch</h3><p>Save your seat in the free NISM V-D batch starting 16 Nov. It takes a minute.</p><button class="btn btn-flame" type="button" data-open="decoder">Save my seat</button></div><div class="jp" role="tabpanel" data-panel="1" hidden><span class="jp-n">Step 2 of 6</span><h3>Get NISM V-D training</h3><p>8 live evenings, 6:30 to 8:30 PM, in English. Expert trainers, practice tests and recorded sessions.</p><button class="btn btn-flame" type="button" data-open="decoder">Save my seat</button></div><div class="jp" role="tabpanel" data-panel="2" hidden><span class="jp-n">Step 3 of 6</span><h3>Clear the NISM V-D exam</h3><p>One exam covers both mutual funds and SIFs. It replaces the earlier V-A plus XIII route.</p><button class="btn btn-flame" type="button" data-open="decoder">Save my seat</button></div><div class="jp" role="tabpanel" data-panel="3" hidden><span class="jp-n">Step 4 of 6</span><h3>Register for your ARN</h3><p>Apply for your AMFI Registration Number once you pass. Already have an ARN? Your V-D adds SIFs to it.</p><a class="btn btn-flame wa-link" href="#" target="_blank" rel="noopener">Talk to us on WhatsApp</a></div><div class="jp" role="tabpanel" data-panel="4" hidden><span class="jp-n">Step 5 of 6</span><h3>Empanel with AssetPlus</h3><p>Offer SIFs to clients on the AssetPlus platform, with onboarding and operations support.</p><a class="btn btn-flame wa-link" href="#" target="_blank" rel="noopener">Talk to us on WhatsApp</a></div><div class="jp" role="tabpanel" data-panel="5" hidden><span class="jp-n">Step 6 of 6</span><h3>Kickstart your SIF practice</h3><p>Start with the SIF Decoder, six persona pitch sheets and client notes stamped with your ARN.</p><button class="btn btn-flame" type="button" data-open="decoder">Get the free bundle</button></div></div>
+      <div class="jpanels"><div class="jp has-img" role="tabpanel" data-panel="0"><span class="jp-n">Step 1 of 6</span><h3>Register for the free batch</h3><p>Save your seat in the free NISM V-D batch starting 16 Nov. It takes a minute.</p><button class="btn btn-flame" type="button" data-open="decoder">Save my seat</button><img class="jp-img" src="img/step-register.jpg" alt="" loading="lazy"></div><div class="jp has-img" role="tabpanel" data-panel="1" hidden><span class="jp-n">Step 2 of 6</span><h3>Get NISM V-D training</h3><p>8 live evenings, 6:30 to 8:30 PM, in English. Expert trainers, practice tests and recorded sessions.</p><button class="btn btn-flame" type="button" data-open="decoder">Save my seat</button><img class="jp-img" src="img/step-training.jpg" alt="" loading="lazy"></div><div class="jp has-img" role="tabpanel" data-panel="2" hidden><span class="jp-n">Step 3 of 6</span><h3>Clear the NISM V-D exam</h3><p>One exam covers both mutual funds and SIFs. It replaces the earlier V-A plus XIII route.</p><button class="btn btn-flame" type="button" data-open="decoder">Save my seat</button><img class="jp-img" src="img/step-certified.jpg" alt="" loading="lazy"></div><div class="jp has-img" role="tabpanel" data-panel="3" hidden><span class="jp-n">Step 4 of 6</span><h3>Register for your ARN</h3><p>Apply for your AMFI Registration Number once you pass. Already have an ARN? Your V-D adds SIFs to it.</p><a class="btn btn-flame wa-link" href="#" target="_blank" rel="noopener">Talk to us on WhatsApp</a><img class="jp-img" src="img/step-ready.jpg" alt="" loading="lazy"></div><div class="jp has-img" role="tabpanel" data-panel="4" hidden><span class="jp-n">Step 5 of 6</span><h3>Empanel with AssetPlus</h3><p>Offer SIFs to clients on the AssetPlus platform, with onboarding and operations support.</p><a class="btn btn-flame wa-link" href="#" target="_blank" rel="noopener">Talk to us on WhatsApp</a><img class="jp-img" src="img/step-ready.jpg" alt="" loading="lazy"></div><div class="jp has-img" role="tabpanel" data-panel="5" hidden><span class="jp-n">Step 6 of 6</span><h3>Kickstart your SIF practice</h3><p>Start with the SIF Decoder, six persona pitch sheets and client notes stamped with your ARN.</p><button class="btn btn-flame" type="button" data-open="decoder">Get the free bundle</button><img class="jp-img" src="img/step-ready.jpg" alt="" loading="lazy"></div></div>
     </div>
   </div>
 </section>
@@ -1067,7 +1139,7 @@ input:focus, select:focus { outline: 2px solid var(--brand); border-color: var(-
 
 <section class="aband">
   <div class="wrap">
-    <h2>Become a SIF Distributor</h2>
+    <h2>Become SIF Ready</h2>
     <p>Free NISM V-D training, live from 16 Nov. Seats are limited for live Q&amp;A.</p>
     <button class="btn btn-white btn-lg" type="button" data-open="decoder">Get Started Now</button>
   </div>
