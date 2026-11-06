@@ -3,7 +3,7 @@
 <meta name="description" content="Specialised Investment Funds (SIF) for mutual fund distributors: live AMFI data, plain-words explainers, client notes and free NISM Series V-D certification training from AssetPlus.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,500;0,6..72,600;1,6..72,500&family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
 <style>
 /* Layout: brand-blue masthead with a live "market card", then a single 1180px column of alternating paper/ink bands; data tables scroll in their own boxes. */
 :root {
@@ -31,30 +31,12 @@
   --on-band: #FFFFFF;
   --on-band-soft: #C9D8F2;
   --shadow: 0 1px 2px rgba(16,32,72,.06), 0 8px 24px rgba(16,32,72,.08);
-  --font-display: "Newsreader", Georgia, "Times New Roman", serif;
-  --font-sans: "Geist", -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-  --font-mono: "Geist Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-display: "Plus Jakarta Sans", -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --font-sans: "Plus Jakarta Sans", -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
 }
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --bg: #0C1322; --surface: #131D31; --surface-2: #19253C; --ink: #EEF2F9; --body: #C3CCDC; --muted: #97A3BA;
-    --line: #25324C; --brand: #7FA6EE; --brand-deep: #B0C7F3; --brand-soft: #18284A; --brand-tint: #233A66;
-    --flame: #FF6B5F; --flame-soft: #3A1B1A; --gold: #E3B262; --gold-soft: #33280F;
-    --pos: #5FCB80; --pos-bg: #14321E; --neg: #F28B82; --neg-bg: #3A1D1D;
-    --band-a: #1A4791; --band-b: #0B1E42; --on-band: #FFFFFF; --on-band-soft: #C2D3F1;
-    --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.35);
-    color-scheme: dark;
-  }
-}
-:root[data-theme="dark"] {
-  --bg: #0C1322; --surface: #131D31; --surface-2: #19253C; --ink: #EEF2F9; --body: #C3CCDC; --muted: #97A3BA;
-  --line: #25324C; --brand: #7FA6EE; --brand-deep: #B0C7F3; --brand-soft: #18284A; --brand-tint: #233A66;
-  --flame: #FF6B5F; --flame-soft: #3A1B1A; --gold: #E3B262; --gold-soft: #33280F;
-  --pos: #5FCB80; --pos-bg: #14321E; --neg: #F28B82; --neg-bg: #3A1D1D;
-  --band-a: #1A4791; --band-b: #0B1E42; --on-band: #FFFFFF; --on-band-soft: #C2D3F1;
-  --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.35);
-  color-scheme: dark;
-}
+/* Single light theme by choice: AssetPlus brand on white. */
+:root { color-scheme: light; }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition: none !important; } }
@@ -68,8 +50,8 @@ a { color: var(--brand); }
 .num { font-variant-numeric: tabular-nums; }
 .mono { font-family: var(--font-mono); }
 .eyebrow { font-size: 12px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--flame); }
-.h2 { font-family: var(--font-display); font-weight: 600; font-size: clamp(30px, 4.2vw, 46px); letter-spacing: -0.01em; }
-.h2 em { font-style: italic; color: var(--brand); font-weight: 500; }
+.h2 { font-family: var(--font-display); font-weight: 800; font-size: clamp(28px, 3.8vw, 42px); letter-spacing: -0.025em; }
+.h2 em { font-style: normal; color: var(--brand); }
 .lede { font-size: 18px; color: var(--body); max-width: 62ch; }
 .section { padding-block: 72px; }
 .section-head { display: grid; gap: 12px; margin-bottom: 36px; max-width: 760px; }
@@ -91,10 +73,6 @@ a { color: var(--brand); }
 .topbar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 50; background: var(--surface); border-bottom: 1px solid var(--line); }
 .topbar .wrap { display: flex; align-items: center; gap: 20px; padding-block: 12px; }
 .logo { height: 30px; width: auto; display: block; }
-.logo-dark { display: none; }
-@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .logo-light { display: none; } :root:not([data-theme="light"]) .logo-dark { display: block; } }
-:root[data-theme="dark"] .logo-light { display: none; }
-:root[data-theme="dark"] .logo-dark { display: block; }
 .brandmark { display: flex; align-items: center; gap: 10px; text-decoration: none; }
 .brandmark span { font-size: 12px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); border-left: 1px solid var(--line); padding-left: 10px; }
 .nav { display: flex; gap: 22px; margin-left: auto; }
@@ -104,44 +82,57 @@ a { color: var(--brand); }
 @media (max-width: 980px) { .nav { display: none; } .topbar .btn-cta { margin-left: auto; } .brandmark span { display: none; } }
 
 /* event ribbon */
-.ribbon { background: var(--ink); color: var(--bg); font-size: 14px; }
+.ribbon { background: #0F4185; color: #fff; font-size: 14px; }
 .ribbon .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 8px 16px; padding-block: 9px; text-align: center; }
 .ribbon a { color: inherit; font-weight: 600; }
-.ribbon b { color: var(--gold); }
-@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .ribbon { background: #E8EEF9; color: #0C1322; } :root:not([data-theme="light"]) .ribbon b { color: #8A5A10; } }
-:root[data-theme="dark"] .ribbon { background: #E8EEF9; color: #0C1322; }
-:root[data-theme="dark"] .ribbon b { color: #8A5A10; }
+.ribbon b { color: #FFD9A0; }
 
-/* hero */
-.hero { background: radial-gradient(1200px 500px at 85% -10%, rgba(255,255,255,.12), transparent 60%), linear-gradient(135deg, var(--band-a), var(--band-b)); color: var(--on-band); }
-.hero .wrap { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 48px; padding-block: 64px 72px; align-items: center; }
-.hero h1 { color: var(--on-band); font-family: var(--font-display); font-weight: 600; font-size: clamp(38px, 5.6vw, 64px); letter-spacing: -0.015em; line-height: 1.05; }
-.hero h1 em { font-style: italic; font-weight: 500; color: #FFD9A0; }
-.hero .sub { color: var(--on-band-soft); font-size: 19px; max-width: 54ch; margin-top: 20px; }
+/* hero: white, one message, the Decoder as the visual */
+.hero { background: linear-gradient(180deg, var(--brand-soft) 0%, var(--bg) 100%); border-bottom: 1px solid var(--line); }
+.hero .wrap { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); gap: 56px; padding-block: 72px 64px; align-items: center; }
+.hero .kicker { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; color: var(--brand); background: var(--surface); border: 1px solid var(--brand-tint); padding: 6px 12px 6px 6px; border-radius: 999px; }
+.hero .kicker b { background: var(--flame); color: #fff; font-size: 11px; letter-spacing: .06em; padding: 3px 8px; border-radius: 999px; }
+.hero h1 { font-size: clamp(38px, 5.4vw, 62px); font-weight: 800; letter-spacing: -0.035em; line-height: 1.04; margin-top: 18px; color: var(--ink); }
+.hero h1 span { color: var(--brand); }
+.hero .sub { font-size: 19px; color: var(--body); max-width: 50ch; margin-top: 18px; }
 .hero .ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
-.hero .trust { display: flex; flex-wrap: wrap; gap: 8px 22px; margin-top: 28px; font-size: 13px; color: var(--on-band-soft); }
-.hero .trust span::before { content: "✓"; margin-right: 6px; color: #9FE2B4; font-weight: 700; }
-@media (max-width: 900px) { .hero .wrap { grid-template-columns: 1fr; padding-block: 44px 52px; gap: 32px; } }
-
-.mcard { background: var(--surface); color: var(--body); border-radius: 18px; box-shadow: 0 20px 50px rgba(5,15,40,.35); overflow: hidden; }
-.mcard-head { display: flex; justify-content: space-between; align-items: center; gap: 8px; padding: 16px 20px; border-bottom: 1px solid var(--line); }
-.mcard-head b { color: var(--ink); font-size: 14px; }
-.live { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; color: var(--muted); }
-.live i { width: 8px; height: 8px; border-radius: 50%; background: var(--pos); box-shadow: 0 0 0 0 rgba(29,122,58,.5); animation: pulse 2s infinite; }
-@keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(29,122,58,.45); } 70% { box-shadow: 0 0 0 8px rgba(29,122,58,0); } 100% { box-shadow: 0 0 0 0 rgba(29,122,58,0); } }
-.mcard-big { padding: 20px 20px 6px; }
-.mcard-big .v { font-family: var(--font-display); font-size: 48px; font-weight: 600; color: var(--ink); line-height: 1; }
-.mcard-big .l { font-size: 13px; color: var(--muted); margin-top: 6px; }
-.spark { display: block; width: 100%; height: 70px; margin-top: 8px; }
-.mcard-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); border-top: 1px solid var(--line); }
-.mcard-grid div { padding: 14px 16px; border-right: 1px solid var(--line); }
-.mcard-grid div:last-child { border-right: 0; }
-.mcard-grid .v { font-size: 22px; font-weight: 700; color: var(--ink); }
-.mcard-grid .l { font-size: 12px; color: var(--muted); }
-.updown { display: flex; gap: 6px; align-items: baseline; }
+.hero .trust { display: flex; flex-wrap: wrap; gap: 8px 20px; margin-top: 24px; font-size: 13px; color: var(--muted); }
+.hero .trust span::before { content: "✓"; margin-right: 6px; color: var(--pos); font-weight: 800; }
+@media (max-width: 900px) { .hero .wrap { grid-template-columns: 1fr; padding-block: 44px; gap: 36px; } }
+.cover { position: relative; justify-self: center; width: min(440px, 100%); }
+.cover-card { background: #0F4185; color: #fff; border-radius: 16px; padding: 30px 28px 26px; box-shadow: 0 30px 60px rgba(15,65,133,.28), 0 6px 14px rgba(15,65,133,.16); aspect-ratio: 16 / 11; display: grid; align-content: space-between; transform: rotate(-2deg); max-width: 100%; }
+.cover-card .tag { font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: #FFC4BF; }
+.cover-card .cv-title { display: block; color: #fff; font-size: clamp(34px, 4.4vw, 46px); font-weight: 800; letter-spacing: -0.02em; line-height: 1; }
+.cover-card .rule-line { height: 1px; background: rgba(255,255,255,.35); margin: 14px 0 10px; }
+.cover-card p { color: #D5E0F2; font-size: 14px; }
+.cover-card .mo { font-size: 12px; font-weight: 700; letter-spacing: .35em; color: #fff; margin-top: 10px; }
+.cover-badge { position: absolute; right: -8px; bottom: -22px; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 12px 16px; box-shadow: var(--shadow); display: grid; gap: 2px; transform: rotate(1.5deg); }
+.cover-badge b { color: var(--ink); font-size: 15px; }
+.cover-badge span { color: var(--muted); font-size: 12px; }
+.cover-badge .num { color: var(--brand); font-size: 22px; font-weight: 800; }
+@media (max-width: 480px) { .cover-badge { right: 0; } }
+/* stats strip */
+.stats { background: var(--surface); border-bottom: 1px solid var(--line); }
+.stats .wrap { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); padding-block: 22px; gap: 16px; }
+.stats .s { display: grid; gap: 2px; border-left: 3px solid var(--brand-tint); padding-left: 14px; }
+.stats .s .v { font-size: 26px; font-weight: 800; color: var(--ink); letter-spacing: -0.02em; }
+.stats .s .l { font-size: 13px; color: var(--muted); }
+@media (max-width: 760px) { .stats .wrap { grid-template-columns: repeat(2, minmax(0,1fr)); } }
 .up { color: var(--pos); } .down { color: var(--neg); }
-.mcard-foot { padding: 10px 20px 14px; font-size: 12px; color: var(--muted); border-top: 1px solid var(--line); background: var(--surface-2); }
-
+/* decoder section */
+.decoder { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 40px; align-items: start; }
+@media (max-width: 900px) { .decoder { grid-template-columns: 1fr; } }
+.toc { display: grid; gap: 0; background: var(--surface); border: 1px solid var(--line); border-radius: 16px; overflow: hidden; }
+.toc div { display: grid; grid-template-columns: 44px minmax(0,1fr); gap: 4px 12px; padding: 16px 20px; border-bottom: 1px solid var(--line); }
+.toc div:last-child { border-bottom: 0; }
+.toc .n { font-family: var(--font-mono); color: var(--muted); font-size: 13px; padding-top: 3px; grid-row: span 2; }
+.toc b { color: var(--ink); font-size: 16px; }
+.toc span { font-size: 14px; color: var(--muted); }
+.filters { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 12px; margin-top: 22px; }
+@media (max-width: 480px) { .filters { grid-template-columns: 1fr; } }
+.filters div { background: var(--brand-soft); border-radius: 12px; padding: 14px 16px; }
+.filters b { display: block; font-size: 12px; letter-spacing: .12em; color: var(--brand); }
+.filters span { font-size: 14px; color: var(--body); }
 /* ticker */
 .ticker { background: var(--surface); border-bottom: 1px solid var(--line); overflow: hidden; }
 .ticker-track { display: flex; gap: 28px; width: max-content; padding-block: 12px; animation: marquee 80s linear infinite; }
@@ -169,7 +160,7 @@ a { color: var(--brand); }
 @media (max-width: 860px) { .rules { grid-template-columns: repeat(2, minmax(0,1fr)); } }
 @media (max-width: 480px) { .rules { grid-template-columns: 1fr; } }
 .rule { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 18px; }
-.rule .v { font-family: var(--font-display); font-size: 30px; font-weight: 600; color: var(--brand); line-height: 1.1; }
+.rule .v { font-size: 26px; font-weight: 800; letter-spacing: -0.02em; color: var(--brand); line-height: 1.1; }
 .rule .l { font-size: 14px; margin-top: 6px; }
 
 /* market */
@@ -234,10 +225,10 @@ td .a { font-size: 12px; color: var(--muted); }
 @media (max-width: 900px) { .certify .wrap { grid-template-columns: 1fr; padding-block: 52px; } }
 .certify .eyebrow { color: #FFC4BF; }
 .certify h2 { color: #fff; }
-.certify .h2 em { color: #FFD9A0; }
+.certify .h2 em { color: #FFD9A0; font-style: normal; }
 .certify .lede { color: var(--on-band-soft); margin-top: 14px; }
 .quote { margin-top: 24px; border-left: 3px solid #FFD9A0; padding-left: 18px; }
-.quote p { font-family: var(--font-display); font-style: italic; font-size: 24px; color: #fff; line-height: 1.3; }
+.quote p { font-weight: 700; font-size: 22px; color: #fff; line-height: 1.35; }
 .quote span { display: block; font-size: 13px; color: var(--on-band-soft); margin-top: 8px; }
 .licence { display: grid; grid-template-columns: minmax(0,1fr) auto minmax(0,1fr); gap: 12px; align-items: center; margin-top: 28px; }
 .licence div { background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.18); border-radius: 12px; padding: 14px; font-size: 14px; color: var(--on-band-soft); }
@@ -251,7 +242,7 @@ td .a { font-size: 12px; color: var(--muted); }
 .event-top { display: grid; grid-template-columns: 110px minmax(0,1fr); }
 .event-date { background: var(--flame); color: #fff; display: grid; place-content: center; text-align: center; padding: 18px 8px; }
 .event-date .m { font-size: 13px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; }
-.event-date .d { font-family: var(--font-display); font-size: 46px; font-weight: 600; line-height: 1; }
+.event-date .d { font-size: 44px; font-weight: 800; line-height: 1; }
 .event-date .y { font-size: 12px; opacity: .85; }
 .event-body { padding: 18px 20px; display: grid; gap: 8px; }
 .event-body h3 { font-size: 18px; }
@@ -285,7 +276,7 @@ td .a { font-size: 12px; color: var(--muted); }
 .doc-no { font-family: var(--font-mono); font-size: 12px; color: var(--muted); }
 .doc h3 { font-size: 17px; }
 .doc p { font-size: 14px; color: var(--muted); }
-.doc .q { font-family: var(--font-display); font-style: italic; color: var(--body); font-size: 15px; }
+.doc .q { font-style: normal; font-weight: 500; color: var(--body); font-size: 15px; }
 .doc-actions { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
 .doc-actions .meta { font-size: 12px; color: var(--muted); margin-left: auto; }
 .picker { background: var(--brand-soft); border: 1px solid var(--brand-tint); border-radius: 14px; padding: 18px; margin-bottom: 18px; display: grid; gap: 12px; }
@@ -300,7 +291,7 @@ td .a { font-size: 12px; color: var(--muted); }
 .road h4 { font-size: 17px; margin: 4px 0 8px; }
 .road ul { margin: 0; padding-left: 18px; font-size: 14px; color: var(--body); display: grid; gap: 4px; }
 .goal { display: flex; flex-wrap: wrap; gap: 10px 26px; margin-top: 18px; font-size: 15px; }
-.goal b { font-family: var(--font-display); font-size: 28px; color: var(--brand); margin-right: 6px; }
+.goal b { font-size: 28px; font-weight: 800; color: var(--brand); margin-right: 6px; }
 
 /* tax engine */
 .engine { display: grid; gap: 12px; }
@@ -323,7 +314,7 @@ details .ans { padding-bottom: 18px; color: var(--body); font-size: 15px; displa
 /* whatsapp band */
 .wa-band { background: var(--surface); border-block: 1px solid var(--line); }
 .wa-band .wrap { padding-block: 48px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 20px; }
-.wa-band h2 { font-family: var(--font-display); font-size: clamp(26px, 3.4vw, 36px); }
+.wa-band h2 { font-size: clamp(24px, 3vw, 32px); font-weight: 800; letter-spacing: -0.02em; }
 .wa-band p { color: var(--muted); margin-top: 6px; }
 .wa-band .row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
 .wa-num { font-family: var(--font-mono); font-size: 14px; color: var(--muted); user-select: all; }
@@ -356,7 +347,7 @@ footer .wrap { padding-block: 40px 96px; display: grid; gap: 20px; }
 @media (max-width: 720px) { .modal { grid-template-columns: 1fr; } .modal .modal-side { display: none; } }
 .modal-side { background: linear-gradient(160deg, var(--band-a), var(--band-b)); color: var(--on-band); padding: 28px; display: grid; gap: 14px; align-content: start; }
 .modal-side .eyebrow { color: #FFC4BF; }
-.modal-side h3 { color: #fff; font-family: var(--font-display); font-size: 30px; font-weight: 600; }
+.modal-side h3 { color: #fff; font-size: 26px; font-weight: 800; letter-spacing: -0.02em; }
 .modal-side ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; font-size: 14px; color: var(--on-band-soft); }
 .modal-side li { padding-left: 24px; position: relative; }
 .modal-side li::before { content: "✓"; position: absolute; left: 0; color: #9FE2B4; font-weight: 700; }
@@ -392,13 +383,12 @@ input:focus, select:focus { outline: 2px solid var(--brand); border-color: var(-
   <div class="wrap">
     <a class="brandmark" href="#top" aria-label="AssetPlus SIF Partner Hub, home">
       <img class="logo logo-light" src="logo-light.png" alt="AssetPlus">
-      <img class="logo logo-dark" src="logo-dark.png" alt="AssetPlus">
       <span>SIF Partner Hub</span>
     </a>
     <nav class="nav" aria-label="Sections">
       <a href="#learn">What is a SIF</a>
-      <a href="#market">Market</a>
-      <a href="#tracker">Live NAVs</a>
+            <a href="#tracker">Live NAVs</a>
+      <a href="#decoder">SIF Decoder</a>
       <a href="#certify">Get certified</a>
       <a href="#kit">Partner kit</a>
       <a href="#faq">FAQ</a>
@@ -417,34 +407,36 @@ input:focus, select:focus { outline: 2px solid var(--brand); border-color: var(-
 <section class="hero">
   <div class="wrap">
     <div>
-      <p class="eyebrow" style="color:#FFC4BF">For mutual fund distributors</p>
-      <h1 style="margin-top:12px">Your clients' FD money is looking for a <em>middle path.</em> SIFs are it.</h1>
-      <p class="sub">Specialised Investment Funds grew from ₹2,010 crore to ₹38,287 crore in 11 months. Every sale needs a NISM V-D certified partner. Learn the product, get certified free, and take ready-made client notes to your next meeting.</p>
+      <span class="kicker"><b>NEW</b>SIF Decoder · October 2026 is out</span>
+      <h1>Sell SIFs with <span>conviction.</span></h1>
+      <p class="sub">Get NISM V-D certified free, read our flagship SIF research, and walk into your next client meeting with notes they understand.</p>
       <div class="ctas">
-        <a class="btn btn-onband" href="https://academy.assetplus.in/course/nism-series-v-d-mf-sif-distributors-certification-training-16th-november" target="_blank" rel="noopener">Register for free V-D training</a>
-        <button class="btn btn-outline-band" type="button" data-open="starter">Get the free SIF starter kit</button>
+        <a class="btn btn-flame" href="https://academy.assetplus.in/course/nism-series-v-d-mf-sif-distributors-certification-training-16th-november" target="_blank" rel="noopener">Get certified free</a>
+        <button class="btn btn-ghost" type="button" data-open="decoder">Get the SIF Decoder</button>
       </div>
-      <div class="trust">
-        <span>Official AMFI data</span>
-        <span>15 ready one-pagers</span>
-        <span>Live classes in English</span>
-        <span>AMFI-registered MFD · ARN-114376</span>
-      </div>
+      <div class="trust"><span>Free live V-D batch from 16 Nov</span><span>Official AMFI data</span><span>ARN-114376</span></div>
     </div>
-    <aside class="mcard" aria-label="SIF market today">
-      <div class="mcard-head"><b>SIF market snapshot</b><span class="live"><i></i>AMFI NAV <span id="asof1"></span></span></div>
-      <div class="mcard-big">
-        <div class="v num">₹38,287 cr</div>
-        <div class="l">SIF assets at end of Sep 2026 · 19× in 11 months</div>
-        <svg class="spark" id="spark" viewBox="0 0 300 70" preserveAspectRatio="none" role="img" aria-label="SIF assets each month from Oct 2025 to Sep 2026, rising from 2,010 to 38,287 crore"></svg>
-      </div>
-      <div class="mcard-grid">
-        <div><div class="v num" id="nStrat">37</div><div class="l">strategies live</div></div>
-        <div><div class="v num">17</div><div class="l">SIF brands with assets</div></div>
-        <div><div class="updown"><span class="v num up" id="nUp">–</span><span class="v num down" id="nDown" style="font-size:16px">–</span></div><div class="l">up / down on the day</div></div>
-      </div>
-      <div class="mcard-foot" id="mfoot">Average 1-day NAV change across strategies.</div>
-    </aside>
+    <div class="cover">
+      <button type="button" data-open="decoder" class="cover-card" style="border:0;text-align:left;cursor:pointer;font:inherit" aria-label="Get the SIF Decoder, October 2026">
+        <span class="tag">AssetPlus flagship research</span>
+        <span>
+          <span class="cv-title">SIF DECODER</span>
+          <span class="rule-line" style="display:block"></span>
+          <p>Specialized Investment Funds: basics, our view, our framework, coverage and the full performance tracker.</p>
+          <span class="mo" style="display:block">OCTOBER 2026</span>
+        </span>
+      </button>
+      <div class="cover-badge"><span>SIF assets, Sep 2026</span><span class="num">₹38,287 cr</span><span>19× in 11 months</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="stats" aria-label="SIF market today">
+  <div class="wrap">
+    <div class="s"><span class="v num">₹38,287 cr</span><span class="l">SIF assets, end of Sep 2026</span></div>
+    <div class="s"><span class="v num" id="nStrat">37</span><span class="l">strategies with a live NAV</span></div>
+    <div class="s"><span class="v num"><span class="up" id="nUp">–</span> <span class="down" id="nDown">–</span></span><span class="l">up / down on <span id="asof1"></span></span></div>
+    <div class="s"><span class="v num">16 Nov</span><span class="l">next free NISM V-D batch</span></div>
   </div>
 </section>
 
@@ -558,8 +550,36 @@ input:focus, select:focus { outline: 2px solid var(--brand); border-color: var(-
   </div>
 </section>
 
+<!-- DECODER -->
+<section class="section band-paper" id="decoder">
+  <div class="wrap decoder">
+    <div class="section-head" style="margin:0">
+      <p class="eyebrow">Flagship research</p>
+      <h2 class="h2">The <em>SIF Decoder.</em> Our view, in 26 pages.</h2>
+      <p class="lede">Every SIF strategy, how we evaluate them, where hybrid SIFs fit against the mutual fund categories your clients already hold, and the strategies that earned AssetPlus coverage.</p>
+      <div class="filters">
+        <div><b>01 · PEDIGREE</b><span>An established fund house and team with a record in similar strategies</span></div>
+        <div><b>02 · STRATEGY</b><span>A clear strategy and risk-return framework, no style drift</span></div>
+        <div><b>03 · COMMUNICATION</b><span>Regular disclosure of long book, net exposure and derivatives</span></div>
+        <div><b>04 · TRACK RECORD</b><span>Real performance and drawdown management across cycles</span></div>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:24px">
+        <button class="btn btn-brand" type="button" data-open="decoder">Download the SIF Decoder</button>
+        <span class="pill pill-partner" style="align-self:center">For partners · private circulation</span>
+      </div>
+    </div>
+    <div class="toc" aria-label="Inside the SIF Decoder">
+      <div><span class="n">01</span><b>The Basics</b><span>What SIFs are and the seven strategy categories</span></div>
+      <div><span class="n">02</span><b>Our View</b><span>Coverage stance and where hybrid SIFs fit</span></div>
+      <div><span class="n">03</span><b>Our Framework</b><span>Four filters every strategy must clear</span></div>
+      <div><span class="n">04</span><b>AssetPlus SIF Coverage</b><span>Deep dives on our Early Conviction strategies</span></div>
+      <div><span class="n">05</span><b>Performance Tracker</b><span>All SIF strategies, returns and the AssetPlus view</span></div>
+    </div>
+  </div>
+</section>
+
 <!-- HISTORY -->
-<section class="section band-paper" id="story">
+<section class="section" id="story">
   <div class="wrap">
     <div class="section-head">
       <p class="eyebrow">Where SIF came from</p>
@@ -625,8 +645,8 @@ input:focus, select:focus { outline: 2px solid var(--brand); border-color: var(-
   <div class="wrap">
     <div class="section-head">
       <p class="eyebrow">Partner kit</p>
-      <h2 class="h2">Fifteen one-pagers. <em>From first read to first client.</em></h2>
-      <p class="lede">Every piece uses official AMFI data to 23 Oct 2026, a real-life story and plain words. Partner notes are for you. Client notes are written for your clients and carry full disclosures.</p>
+      <h2 class="h2">Everything you need, <em>from first read to first client.</em></h2>
+      <p class="lede">The SIF Decoder plus 15 one-pagers. Every piece uses official AMFI data to 23 Oct 2026, a real-life story and plain words. Partner notes are for you. Client notes are written for your clients and carry full disclosures.</p>
     </div>
     <div class="journey">
       <div class="step on"><span class="n">Step 1</span><h4>Understand SIF</h4><p>What it is, where it came from, how the market grew.</p></div>
@@ -745,7 +765,7 @@ input:focus, select:focus { outline: 2px solid var(--brand); border-color: var(-
 
 <div class="mbar">
   <a class="btn btn-flame" href="https://academy.assetplus.in/course/nism-series-v-d-mf-sif-distributors-certification-training-16th-november" target="_blank" rel="noopener">Get certified free</a>
-  <button class="btn btn-ghost" type="button" data-open="starter">Free kit</button>
+  <button class="btn btn-ghost" type="button" data-open="decoder">SIF Decoder</button>
 </div>
 
 <div class="overlay" id="overlay" hidden>
@@ -774,6 +794,7 @@ const DATA = {"asof":"05 Nov 2026","prev":"04 Nov 2026","rows":[{"b":"DynaSIF","
 const AUM = [["Oct 25",2010],["Nov 25",2932],["Dec 25",4892],["Jan 26",6564],["Feb 26",9711],["Mar 26",10620],["Apr 26",12329],["May 26",13814],["Jun 26",17858],["Jul 26",23177],["Aug 26",31175],["Sep 26",38287]];
 const BRANDS = [["Altiva",13221],["iSIF",6146],["Magnum",5591],["qsif",3814],["Infinity",3041],["RedHex",1523],["DynaSIF",1132],["Titanium",878],["Apex",699],["Prism",478],["Platinum",386],["SUMMIT",378],["Arudha",292],["Diviniti",246],["Sapphire",212],["Arthaya",131],["WSIF",119]];
 const DOCS = [
+  {id:"D", tab:"learn", aud:"partner", file:"AssetPlus-SIF-Decoder-Oct-2026.pdf", t:"SIF Decoder · Oct 2026", d:"Our flagship research: basics, our view, our evaluation framework, coverage and the performance tracker.", q:"", pages:26},
   {id:"01", tab:"learn", aud:"partner", file:"01-What-is-a-SIF.pdf", t:"What is a SIF?", d:"The idea, the kinds, and how they did. Explain a SIF the way you explain a SIP.", q:"Anand, Pune: \"I need to explain a SIF in one breath.\"", pages:2},
   {id:"02", tab:"learn", aud:"partner", file:"02-Why-Get-SIF-Certified.pdf", t:"Why get SIF certified", d:"The new licence, the market, and where SIF fits in your book.", q:"Meena, Chennai: \"I lost him on a licence.\"", pages:1},
   {id:"H", tab:"learn", aud:"partner", file:"SIF-History-Why-and-Wealth.pdf", t:"SIF in one picture", d:"Where SIF came from, why it belongs in portfolios, and the two engines of wealth.", q:"", pages:1},
@@ -814,13 +835,7 @@ $("#nUp").textContent = up + "▲";
 $("#nDown").textContent = down + "▼";
 $("#asof1").textContent = DATA.asof;
 $("#asof3").textContent = DATA.asof;
-$("#mfoot").innerHTML = "Average 1-day NAV change across " + rows.length + " strategies: <b class='" + (avg>=0?"up":"down") + "'>" + (avg>=0?"+":"") + avg.toFixed(2) + "%</b> (" + esc(DATA.prev) + " → " + esc(DATA.asof) + ").";
-(function spark(){
-  const svg = $("#spark"), max = 40000, w = 300, h = 70;
-  const pts = AUM.map((d,i) => [i*(w/(AUM.length-1)), h - 4 - (d[1]/max)*(h-10)]);
-  const line = pts.map((p,i) => (i?"L":"M") + p[0].toFixed(1) + " " + p[1].toFixed(1)).join(" ");
-  svg.innerHTML = '<path d="' + line + ' L300 70 L0 70 Z" fill="var(--brand-soft)"/><path d="' + line + '" fill="none" stroke="var(--brand)" stroke-width="2.5" vector-effect="non-scaling-stroke"/>';
-})();
+
 (function ticker(){
   const items = [...rows].sort((a,b) => a.b.localeCompare(b.b)).map(r => '<span class="tick"><b>' + esc(r.b) + '</b><span>' + esc(shortCat(r.c)) + '</span><span class="c ' + (r.chg>=0?"up":"down") + '">' + (r.chg>=0?"▲ +":"▼ ") + r.chg.toFixed(2) + '%</span></span>').join("");
   $("#ticker").innerHTML = items + items;
@@ -1017,7 +1032,7 @@ function renderLib(){
   const lead = savedLead();
   const list = DOCS.filter(d => d.tab === curTab && (!curHold || d.hold === curHold));
   $("#lib").setAttribute("aria-labelledby", "tab-" + curTab);
-  $("#lib").innerHTML = list.map(d => '<article class="doc"><div class="doc-top"><span class="doc-no">' + (d.id.length<=3 ? "Note " + esc(d.id) : "Research") + '</span><span class="pill ' + (d.aud==="client"?"pill-client":"pill-partner") + '">' + (d.aud==="client"?"Client-shareable":"Partners only") + '</span></div><h3>' + esc(d.t) + '</h3><div style="display:grid;gap:8px"><p>' + esc(d.d) + '</p>' + (d.q ? '<p class="q">' + esc(d.q) + '</p>' : '') + '</div><div class="doc-actions"><button class="btn btn-brand btn-sm" type="button" data-doc="' + esc(d.id) + '">' + (lead ? "Download" : "Get PDF") + '</button><span class="meta">' + d.pages + ' p · PDF</span></div></article>').join("");
+  $("#lib").innerHTML = list.map(d => '<article class="doc"><div class="doc-top"><span class="doc-no">' + (d.id.length<=3 ? "Note " + esc(d.id) : d.id==="D" ? "Flagship research" : "Research") + '</span><span class="pill ' + (d.aud==="client"?"pill-client":"pill-partner") + '">' + (d.aud==="client"?"Client-shareable":"Partners only") + '</span></div><h3>' + esc(d.t) + '</h3><div style="display:grid;gap:8px"><p>' + esc(d.d) + '</p>' + (d.q ? '<p class="q">' + esc(d.q) + '</p>' : '') + '</div><div class="doc-actions"><button class="btn btn-brand btn-sm" type="button" data-doc="' + esc(d.id) + '">' + (lead ? "Download" : "Get PDF") + '</button><span class="meta">' + d.pages + ' p · PDF</span></div></article>').join("");
   $("#picker").hidden = curTab !== "client";
 }
 $("#pickChips").innerHTML = ["All", ...DOCS.filter(d=>d.hold).map(d=>d.hold)].map(h => '<button class="chip" type="button" aria-pressed="' + (h==="All") + '" data-hold="' + esc(h) + '">' + esc(h) + '</button>').join("");
@@ -1027,13 +1042,13 @@ $("#lib").addEventListener("click", e => { const b = e.target.closest("[data-doc
 renderLib();
 
 /* Popups: starter kit, notify, LMS, callback */
-const starterSide = '<p class="eyebrow">Free for partners</p><h3>The SIF starter kit</h3><ul><li>What is a SIF? (2-page explainer)</li><li>Why get SIF certified (the market story)</li><li>SIF in one picture: history and wealth math</li><li>A seat in the free NISM V-D live batch, 16 Nov</li></ul><div class="proof">SIF assets grew 19× in 11 months to ₹38,287 crore. Clients are already asking.</div>';
+const starterSide = '<p class="eyebrow">Free for partners</p><h3>SIF Decoder + starter kit</h3><ul><li>SIF Decoder, Oct 2026: our flagship research</li><li>What is a SIF? (2-page explainer)</li><li>Why get SIF certified (the market story)</li><li>SIF in one picture: history and wealth math</li><li>A seat in the free NISM V-D live batch, 16 Nov</li></ul><div class="proof">SIF assets grew 19× in 11 months to ₹38,287 crore. Clients are already asking.</div>';
 function openStarter(source){
   store.set("ap_sif_popup", "1");
-  openModal(starterSide, '<h3 id="mTitle">Get the SIF starter kit, free</h3><p class="sub">Three partner one-pagers plus your seat in the 16 Nov V-D batch. Takes 20 seconds.</p>' + leadForm({cta: "Send me the kit"}));
+  openModal(starterSide, '<h3 id="mTitle">Get the SIF Decoder, free</h3><p class="sub">Our flagship SIF research, three partner one-pagers and your seat in the 16 Nov V-D batch. Takes 20 seconds.</p>' + leadForm({cta: "Send me the kit"}));
   bindLead(source, {want: "starter-kit"}, (saved) => {
-    const kit = DOCS.filter(d => ["01","02","H"].includes(d.id));
-    $("#mMain").innerHTML = '<h3 id="mTitle">Your starter kit is ready</h3><div class="ok"><b>Thank you.</b><span>' + (saved ? "Our partner desk will WhatsApp you the training details." : "We couldn't record your details from this view; message us on WhatsApp for training details.") + '</span></div>' +
+    const kit = DOCS.filter(d => ["D","01","02","H"].includes(d.id));
+    $("#mMain").innerHTML = '<h3 id="mTitle">Your SIF Decoder and kit are ready</h3><div class="ok"><b>Thank you.</b><span>' + (saved ? "Our partner desk will WhatsApp you the training details." : "We couldn't record your details from this view; message us on WhatsApp for training details.") + '</span></div>' +
       kit.map(d => '<div class="gate-doc"><span class="ic">PDF</span><span style="flex:1"><b>' + esc(d.t) + '</b></span><button class="btn btn-brand btn-sm" type="button" data-kit="' + d.id + '">Download</button></div>').join("") +
       '<p class="err" id="dlMsg" role="status"></p><a class="btn btn-flame" href="' + CONFIG.eventUrl + '" target="_blank" rel="noopener">Now save your seat for 16 Nov</a>';
     $$("[data-kit]").forEach(b => b.addEventListener("click", async () => { const d = DOCS.find(x => x.id === b.dataset.kit); const r = await download(d); $("#dlMsg").innerHTML = r === "saved" ? "Saved." : r === "cancelled" ? "Download cancelled." : 'Open it here: <a href="pdfs/' + esc(d.file) + '" target="_blank" rel="noopener">' + esc(d.t) + '</a>'; }));
@@ -1054,7 +1069,7 @@ function simpleLead(kind){
 document.addEventListener("click", e => {
   const b = e.target.closest("[data-open]"); if (!b) return;
   const k = b.dataset.open;
-  if (k === "starter") openStarter("button"); else simpleLead(k);
+  if (k === "starter" || k === "decoder") openStarter(k); else simpleLead(k);
 });
 
 /* First-visit popup: after a short delay, or when the visitor reaches the tracker, once per browser */
