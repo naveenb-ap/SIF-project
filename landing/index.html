@@ -192,6 +192,61 @@ a { color: var(--brand); }
 .feat-card svg { width: 100%; max-width: 180px; height: auto; background: var(--brand-soft); border-radius: 12px; padding: 8px; }
 .feat-card h3 { font-size: 17px; }
 .feat-card p { font-size: 14px; color: var(--muted); }
+/* SaaS hero */
+.hero2 { background: radial-gradient(900px 420px at 50% -60px, var(--brand-soft), transparent 70%), var(--bg); border-bottom: 0; }
+.hero2 .wrap { display: grid; grid-template-columns: 1fr; gap: 44px; padding-block: 64px 56px; justify-items: center; text-align: center; }
+.hero-copy { display: grid; justify-items: center; gap: 0; max-width: 780px; }
+.hero2 h1 { font-size: clamp(36px, 5.6vw, 64px); font-weight: 900; letter-spacing: -0.02em; line-height: 1.05; margin-top: 22px; color: var(--ink); }
+.hero2 .sub { font-size: clamp(17px, 1.6vw, 20px); color: var(--body); max-width: 60ch; margin-top: 18px; }
+.hero-form { margin-top: 28px; display: flex; align-items: center; gap: 0; width: min(520px, 100%); background: var(--surface); border: 1.5px solid var(--brand-tint); border-radius: 14px; padding: 6px; box-shadow: 0 10px 30px rgba(15,65,133,.10); }
+.hero-form:focus-within { border-color: var(--brand); }
+.hero-form .cc { padding: 0 10px 0 12px; font-weight: 700; color: var(--muted); border-right: 1px solid var(--line); }
+.hero-form input { border: 0; background: transparent; flex: 1; min-width: 0; padding: 12px; font-size: 16px; outline: none; }
+.hero-form .btn { flex: none; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.err.center { text-align: center; margin-top: 8px; }
+.hero-meta { font-size: 14px; color: var(--muted); margin-top: 4px; }
+.social { display: flex; align-items: center; gap: 12px; margin-top: 18px; font-size: 14px; color: var(--muted); flex-wrap: wrap; justify-content: center; }
+.social strong { color: var(--ink); }
+.avatars { display: flex; }
+.avatars b { width: 32px; height: 32px; border-radius: 50%; color: #fff; font-size: 11px; font-weight: 900; display: grid; place-items: center; border: 2px solid var(--bg); margin-left: -8px; }
+.avatars b:first-child { margin-left: 0; }
+@media (max-width: 520px) { .hero-form { flex-wrap: wrap; } .hero-form .cc { display: none; } .hero-form .btn { width: 100%; } }
+.mock { width: min(1080px, 100%); background: var(--surface); border: 1px solid var(--line); border-radius: 16px; box-shadow: 0 30px 70px rgba(15,40,90,.14), 0 4px 12px rgba(15,40,90,.06); overflow: hidden; text-align: left; }
+.mock-bar { display: flex; align-items: center; gap: 6px; padding: 10px 14px; background: var(--surface-2); border-bottom: 1px solid var(--line); }
+.mock-bar i { width: 10px; height: 10px; border-radius: 50%; background: var(--line); }
+.mock-bar i:nth-child(1) { background: #F1706A; } .mock-bar i:nth-child(2) { background: #F5C451; } .mock-bar i:nth-child(3) { background: #5FC777; }
+.mock-bar span { margin-left: 10px; font-size: 12px; color: var(--muted); background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 3px 12px; }
+.mock-grid { display: grid; grid-template-columns: 1fr 1.15fr 1.1fr; grid-template-areas: "seat dec nav" "note dec nav"; gap: 14px; padding: 18px; background: var(--bg); }
+.mc-seat { grid-area: seat; } .mc-dec { grid-area: dec; } .mc-nav { grid-area: nav; } .mc-note { grid-area: note; }
+@media (max-width: 900px) { .mock-grid { grid-template-columns: 1fr 1fr; grid-template-areas: "seat dec" "note dec" "nav nav"; } }
+@media (max-width: 600px) { .mock-grid { grid-template-columns: 1fr; grid-template-areas: "seat" "dec" "nav" "note"; } }
+.mc { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 14px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.mc h4 { font-size: 16px; }
+.mc p { font-size: 13px; color: var(--muted); }
+.mc-h { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.mc-tag { font-size: 11px; font-weight: 900; letter-spacing: .06em; text-transform: uppercase; padding: 3px 8px; border-radius: 6px; }
+.mc-tag.red { background: var(--flame-soft); color: var(--flame); }
+.mc-tag.blue { background: var(--brand-soft); color: var(--brand); }
+.mc-tag.green { background: var(--pos-bg); color: var(--pos); }
+.mc-tag.gold { background: var(--gold-soft); color: var(--gold); justify-self: start; }
+.mc-ok { font-size: 12px; font-weight: 700; color: var(--pos); }
+.mc-ok::before { content: "✓ "; }
+.mc-free { font-size: 12px; font-weight: 900; color: var(--pos); }
+.mc-date { font-size: 12px; color: var(--muted); }
+.sessions { display: grid; grid-template-columns: repeat(8, 1fr); gap: 4px; margin-top: 4px; }
+.sessions i { height: 8px; border-radius: 4px; background: var(--surface-2); border: 1px solid var(--line); }
+.sessions i.on { background: var(--flame); border-color: var(--flame); }
+.mc-foot { display: flex; justify-content: space-between; font-size: 12px; color: var(--muted); border-top: 1px solid var(--line); padding-top: 8px; margin-top: 4px; }
+.mc-dec img { width: 100%; height: auto; border-radius: 6px; display: block; }
+.mc-nav table { min-width: 0; font-size: 12.5px; }
+.mc-nav td { padding: 6px 4px; border-bottom: 1px solid var(--line); }
+.mc-nav tr:last-child td { border-bottom: 0; }
+.mc-small { font-size: 12px; }
+.mc-note { grid-template-columns: 64px minmax(0,1fr); align-items: center; gap: 12px; }
+.mc-note img { width: 64px; height: auto; border-radius: 4px; border: 1px solid var(--line); }
+.stamp { display: inline-block; background: var(--brand-soft); color: var(--brand-deep) !important; padding: 4px 10px; border-radius: 6px; font-size: 12px !important; }
+
 /* stats strip */
 .stats { background: var(--surface); border-bottom: 1px solid var(--line); }
 .stats .wrap { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); padding-block: 22px; gap: 16px; }
@@ -442,7 +497,8 @@ footer .wrap { padding-block: 40px 96px; display: grid; gap: 20px; }
 @keyframes badge-float { 0%, 100% { transform: rotate(1.5deg) translateY(0); } 50% { transform: rotate(1.5deg) translateY(5px); } }
 @keyframes ring { 0% { box-shadow: 0 0 0 0 rgba(224,50,42,.45); } 80%, 100% { box-shadow: 0 0 0 14px rgba(224,50,42,0); } }
 @keyframes shine { from { transform: translateX(-120%) skewX(-20deg); } to { transform: translateX(260%) skewX(-20deg); } }
-.hero .wrap > div:first-child, .hero-creative { animation: rise-in .5s ease-out both; }
+.hero-copy { animation: rise-in .5s ease-out both; }
+.mock { animation: rise-in .7s .15s ease-out both; }
 .reveal { transition: transform .7s cubic-bezier(.2,.7,.2,1), opacity .7s ease; }
 .reveal.pre { opacity: .5; transform: translateY(14px); }
 .doc, .rule, .road > div, .event, .panel { transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease; }
@@ -550,19 +606,56 @@ input:focus, select:focus { outline: 2px solid var(--brand); border-color: var(-
   </div>
 </div>
 
-<section class="hero">
+<section class="hero hero2">
   <div class="wrap">
-    <div>
-      <a class="live-pill" href="#how"><i aria-hidden="true"></i>Registrations open · Batch starts 16 Nov</a>
-      <h1>Become a SIF Distributor</h1>
-      <p class="tagline">One exam for mutual funds and SIFs</p>
-      <p class="sub">Free NISM Series V-D training, live online from 16 Nov. 8 evenings, 6:30 to 8:30 PM, in English.</p>
-      <div class="ctas">
-        <a class="btn btn-flame btn-lg glow" href="https://academy.assetplus.in/course/nism-series-v-d-mf-sif-distributors-certification-training-16th-november" target="_blank" rel="noopener">Get certified · Save my seat</a>
-        <a class="btn-link" href="#certify">See batch details</a>
+    <div class="hero-copy">
+      <a class="live-pill" href="#how"><i aria-hidden="true"></i>Registrations open · Batch from 16 Nov</a>
+      <h1>Become a SIF distributor in 8 evenings</h1>
+      <p class="sub">Free NISM Series V-D training, live online. Then start your SIF practice with the SIF Decoder, client notes with your ARN, and daily NAVs.</p>
+      <form class="hero-form" id="heroForm" novalidate>
+        <label class="sr" for="hf-mobile">WhatsApp number</label>
+        <span class="cc">+91</span>
+        <input id="hf-mobile" name="mobile" inputmode="numeric" autocomplete="tel" placeholder="Your WhatsApp number">
+        <button class="btn btn-flame glow" type="submit">Get certified free</button>
+      </form>
+      <p class="err center" id="hf-err" role="alert"></p>
+      <p class="hero-meta">Free · 8 live evenings · 6:30 to 8:30 PM · English</p>
+      <div class="social">
+        <span class="avatars" aria-hidden="true"><b style="background:#2B62C0">RK</b><b style="background:#E0322A">MS</b><b style="background:#1D7A3A">AP</b><b style="background:#B7791F">VN</b></span>
+        <span><strong>3,000+ learners</strong> · Rated 4.8 by 11k+ users</span>
       </div>
     </div>
-    <a class="hero-creative" href="https://academy.assetplus.in/course/nism-series-v-d-mf-sif-distributors-certification-training-16th-november" target="_blank" rel="noopener" aria-label="Free NISM V-D online training from 16 Nov 2026. Register free."><img src="vd-batch-16nov.jpg" alt="AssetPlus free NISM V-D online training from 16 Nov 2026, 6:30 to 8:30 PM, 8 evenings, live in English" width="900" height="900"></a>
+
+    <div class="mock" aria-label="What you get: your seat, research, NAVs and client notes">
+      <div class="mock-bar"><i></i><i></i><i></i><span>assetplus · SIF Partner Hub</span></div>
+      <div class="mock-grid">
+        <div class="mc mc-seat">
+          <div class="mc-h"><span class="mc-tag red">Your seat</span><span class="mc-ok">Saved</span></div>
+          <h4>NISM Series V-D</h4>
+          <p>MF &amp; SIF Distributors · Batch 16 Nov</p>
+          <div class="sessions" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+          <div class="mc-foot"><span id="mockCountdown">Starts 16 Nov, 6:30 PM</span><span>8 sessions</span></div>
+        </div>
+        <div class="mc mc-dec">
+          <div class="mc-h"><span class="mc-tag blue">Research</span><span class="mc-free">Free</span></div>
+          <img src="decoder-cover.jpg" alt="SIF Decoder, October 2026" width="1000" height="563">
+          <p><b>SIF Decoder</b> · Oct 2026 · 26 pages</p>
+        </div>
+        <div class="mc mc-nav">
+          <div class="mc-h"><span class="mc-tag green">SIF NAVs</span><span class="mc-date" id="mockAsof"></span></div>
+          <table aria-label="Sample of daily SIF NAVs"><tbody id="mockNav"></tbody></table>
+          <p class="mc-small" id="mockNavSum"></p>
+        </div>
+        <div class="mc mc-note">
+          <img src="thumbs/06a-SIF-vs-FD.jpg" alt="" width="104" height="146">
+          <div>
+            <span class="mc-tag gold">Client note</span>
+            <h4>SIF vs Bank FD</h4>
+            <p class="stamp">Shared by <b>Your Name</b> | <b>ARN-XXXXXX</b></p>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -1035,6 +1128,18 @@ $("#asof3").textContent = DATA.asof;
   svg.innerHTML = g;
 })();
 
+/* Hero mock data */
+(function mock(){
+  const pick = [...rows].sort((a, b) => b.chg - a.chg);
+  const sample = [pick[0], pick[3], pick[Math.floor(pick.length / 2)], pick[pick.length - 1]];
+  $("#mockNav").innerHTML = sample.map(r => '<tr><td><b>' + esc(r.b) + '</b> <span style="color:var(--muted)">' + esc(shortCat(r.c)) + '</span></td><td class="r num">' + fmt(r.nav, 2) + '</td><td class="r num ' + (r.chg >= 0 ? "up" : "down") + '">' + (r.chg >= 0 ? "+" : "") + r.chg.toFixed(2) + '%</td></tr>').join("");
+  $("#mockAsof").textContent = DATA.asof;
+  $("#mockNavSum").textContent = rows.length + " strategies · " + up + " up, " + down + " down";
+  const el = $("#mockCountdown"), start = new Date(CONFIG.eventStart).getTime();
+  const tick = () => { const ms = start - Date.now(); if (ms <= 0) { el.textContent = "Batch in progress"; return; } const d = Math.floor(ms / 864e5), h = Math.floor(ms % 864e5 / 36e5); el.textContent = "Starts in " + d + "d " + h + "h"; };
+  tick(); setInterval(tick, 60000);
+})();
+
 /* Charts */
 (function aumChart(){
   const svg = $("#aumChart"), W = 640, H = 300, L = 54, R = 10, T = 26, B = 34, max = 45000;
@@ -1376,6 +1481,18 @@ document.addEventListener("click", e => {
   below.forEach(el => io.observe(el));
   setTimeout(() => below.forEach(el => el.classList.remove("pre")), 6000);
 })();
+
+/* Hero form: one field, then the short sign-up with the number filled in */
+$("#heroForm").addEventListener("submit", e => {
+  e.preventDefault();
+  const m = $("#hf-mobile").value.replace(/\D/g, "").replace(/^91(?=\d{10}$)/, "");
+  if (!/^[6-9]\d{9}$/.test(m)) { $("#hf-err").textContent = "Enter a valid 10-digit mobile number."; return; }
+  $("#hf-err").textContent = "";
+  track("hero_form", {});
+  openStarter("hero-form");
+  const f = $("#lf-mobile"); if (f) f.value = m;
+  const n = $("#lf-name"); if (n) n.focus();
+});
 
 /* First-visit popup: 45% scroll, 40 s on page, or exit intent. Once per 7 days; never after sign-up. */
 (function firstVisit(){
