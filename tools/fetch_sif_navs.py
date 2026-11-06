@@ -1,7 +1,7 @@
 """Pull every SIF strategy's NAV from AMFI and compute the 1-day change.
 
 Writes landing/sifdata.json (one row per strategy, direct growth where available)
-and rebuilds landing/index.html from landing/index.src.html.
+and rebuilds landing/index.html (via tools/build_page.py).
 
 Usage: python3 tools/fetch_sif_navs.py [YYYY-MM-DD previous date]
 """
@@ -57,5 +57,8 @@ rows = sorted(best.values(), key=lambda r: (r["c"], r["b"]))
 data = {"asof": asof.strftime("%d %b %Y"), "prev": prev_day.strftime("%d %b %Y"), "rows": rows}
 (ROOT / "landing/sifdata.json").write_text(json.dumps(data, separators=(",", ":")))
 src = (ROOT / "landing/index.src.html").read_text()
-(ROOT / "landing/index.html").write_text(src.replace("__SIFDATA__", json.dumps(data, separators=(",", ":"))))
+import importlib.util, sys
+sys.path.insert(0, str(ROOT / "tools"))
+import build_page
+build_page.build()
 print(f"{len(rows)} strategies, {data['prev']} -> {data['asof']}")

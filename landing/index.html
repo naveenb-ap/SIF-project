@@ -786,6 +786,57 @@ input:focus, select:focus { outline: 2px solid var(--brand); border-color: var(-
 .gate-doc { display: flex; gap: 12px; align-items: center; background: var(--surface-2); border-radius: 12px; padding: 12px; font-size: 14px; }
 .gate-doc .ic { width: 38px; height: 46px; border-radius: 6px; background: var(--flame); color: #fff; display: grid; place-items: center; font: 700 11px var(--font-mono); flex: none; }
 
+/* ===== SIF Pulse section ===== */
+.pz-kpis { display: grid; grid-template-columns: repeat(5, minmax(0,1fr)); gap: 0; background: var(--surface); border: 1px solid var(--line); border-radius: 16px; margin-bottom: 18px; overflow: hidden; }
+.pz-kpis > div { padding: 16px 18px; border-right: 1px solid var(--line); display: grid; gap: 2px; }
+.pz-kpis > div:last-child { border-right: 0; }
+.pz-kpis .l { font-size: 11.5px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+.pz-kpis b { font-family: var(--font-display); font-size: 24px; color: var(--ink); font-weight: 700; font-variant-numeric: tabular-nums; }
+.pz-kpis .s { font-size: 12.5px; color: var(--muted); }
+.pz-two { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 18px; margin-bottom: 18px; }
+.pz-card { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 20px 22px; min-width: 0; margin-bottom: 18px; }
+.pz-two .pz-card { margin-bottom: 0; }
+.pz-card h3 { font-size: 17px; }
+.pz-card h3 small { font-size: 12px; font-weight: 400; color: var(--muted); font-family: var(--font-sans); }
+.pz-cap { font-size: 13px; color: var(--muted); margin: 4px 0 14px; }
+.pz-cat { padding: 10px 0; border-top: 1px solid var(--line); }
+.pz-cat:first-child { border-top: 0; padding-top: 0; }
+.pz-cat-h { display: flex; justify-content: space-between; gap: 10px; margin-bottom: 8px; }
+.pz-cat-h b { color: var(--ink); font-size: 14.5px; }
+.pz-cat-h small { display: block; font-size: 12px; color: var(--muted); }
+.pz-cat-h .num { text-align: right; }
+.pz-bar { height: 8px; border-radius: 4px; background: var(--surface-2); overflow: hidden; }
+.pz-bar i { display: block; height: 100%; background: var(--brand); border-radius: 4px; }
+.pz-stack { display: flex; height: 26px; border-radius: 8px; overflow: hidden; margin-bottom: 14px; }
+.pz-stack i { display: block; height: 100%; }
+.pz-legend { display: grid; gap: 8px; }
+.pz-legend div { display: grid; grid-template-columns: 12px minmax(0,1fr) auto; gap: 10px; align-items: center; font-size: 13.5px; color: var(--muted); }
+.pz-legend i { width: 12px; height: 12px; border-radius: 3px; }
+.pz-legend b { color: var(--ink); }
+.pz-legend .num { color: var(--ink); font-weight: 600; }
+.pz-uni-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 12px; }
+.pz-search input { width: 260px; max-width: 100%; padding: 9px 12px; }
+.pz-chips { margin-bottom: 12px; }
+#pzT { min-width: 860px; }
+#pzT th button { all: unset; cursor: pointer; }
+#pzT th[aria-sort="ascending"] button::after { content: " ↑"; } #pzT th[aria-sort="descending"] button::after { content: " ↓"; }
+.pz-name b { display: block; color: var(--ink); font-weight: 600; }
+.pz-name small { font-size: 12px; color: var(--muted); }
+.pz-pill { font-size: 11.5px; font-weight: 600; color: var(--brand); background: var(--brand-soft); padding: 3px 9px; border-radius: 999px; white-space: nowrap; }
+.pz-ret.up { color: var(--pos); } .pz-ret.down { color: var(--neg); } .pz-ret.na { color: var(--muted); }
+.pz-si { display: inline-block; font-weight: 700; font-size: 13px; padding: 3px 8px; border-radius: 6px; }
+.pz-si.up { background: var(--pos-bg); color: var(--pos); } .pz-si.down { background: var(--neg-bg); color: var(--neg); }
+.pz-foot { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-top: 12px; font-size: 13px; color: var(--muted); flex-wrap: wrap; }
+.pz-lb { list-style: none; margin: 12px 0 0; padding: 0; display: grid; }
+.pz-lb li { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 10px 0; border-top: 1px solid var(--line); }
+.pz-lb li:first-child { border-top: 0; }
+.pz-lb b { display: block; color: var(--ink); font-size: 14px; }
+.pz-lb small { font-size: 12px; color: var(--muted); }
+.pz-breadth { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 6px; }
+.pz-breadth i { width: 16px; height: 16px; border-radius: 4px; }
+.pz-breadth i.up { background: var(--pos); } .pz-breadth i.down { background: var(--neg); opacity: .75; }
+@media (max-width: 960px) { .pz-kpis { grid-template-columns: repeat(3, minmax(0,1fr)); } .pz-kpis > div:nth-child(3) { border-right: 0; } .pz-kpis > div:nth-child(-n+3) { border-bottom: 1px solid var(--line); } .pz-two { grid-template-columns: 1fr; } }
+
 /* ===== Phone layout ===== */
 .pulse-link { white-space: normal; text-align: left; }
 @media (max-width: 640px) {
@@ -869,6 +920,24 @@ input:focus, select:focus { outline: 2px solid var(--brand); border-color: var(-
   #tk td:nth-child(2) { font-size: 12px; color: var(--muted); }
   #tk .cf { display: none; } #tk .cs { display: inline; }
 
+  /* SIF Pulse on phones */
+  .pz-kpis { display: flex; overflow-x: auto; scrollbar-width: none; border-radius: 14px; }
+  .pz-kpis::-webkit-scrollbar { display: none; }
+  .pz-kpis > div { flex: none; min-width: 150px; border-bottom: 0 !important; border-right: 1px solid var(--line) !important; }
+  .pz-kpis b { font-size: 20px; }
+  .pz-card { padding: 16px; }
+  .pz-search input { width: 100%; }
+  .pz-search { width: 100%; }
+  #pzChips { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; }
+  #pzChips::-webkit-scrollbar { display: none; }
+  #pzChips .chip { flex: none; }
+  #pzT { min-width: 0; font-size: 13px; }
+  #pzT th:nth-child(2), #pzT td:nth-child(2), #pzT th:nth-child(3), #pzT td:nth-child(3), #pzT th:nth-child(4), #pzT td:nth-child(4), #pzT th:nth-child(7), #pzT td:nth-child(7), #pzT th:nth-child(8), #pzT td:nth-child(8) { display: none; }
+  #pzT th, #pzT td { padding: 10px 6px; }
+  .pz-name b { font-size: 13px; }
+  .pz-si { font-size: 12px; padding: 2px 6px; }
+  .pz-breadth i { width: 13px; height: 13px; }
+
   /* partner kit: compact horizontal tickets */
   #kit .journey { display: none; }
   .tabs { flex-wrap: nowrap; overflow-x: auto; margin-inline: -16px; padding-inline: 16px; scrollbar-width: none; }
@@ -905,7 +974,7 @@ input:focus, select:focus { outline: 2px solid var(--brand); border-color: var(-
       <a href="#steps">How it works</a>
       <a href="#certify">Batches</a>
       <a href="#bundle">Free bundle</a>
-                  <a href="https://claude.ai/artifact/E4opRsHH4bNToUxFUnBETX" target="_blank" rel="noopener">SIF Pulse</a>
+                  <a href="#pulse">SIF Pulse</a>
             <a href="#kit">Partner kit</a>
       <a href="#faq">FAQ</a>
     </nav>
@@ -1125,34 +1194,71 @@ input:focus, select:focus { outline: 2px solid var(--brand); border-color: var(-
   </div>
 </section>
 
-<section class="section" id="tracker">
+<section class="section" id="pulse">
   <div class="wrap">
     <div class="section-head">
-      <h2 class="h2">SIF NAVs</h2>
-      <a class="btn btn-ghost pulse-link" style="justify-self:start" href="https://claude.ai/artifact/E4opRsHH4bNToUxFUnBETX" target="_blank" rel="noopener">Open the full SIF Pulse: returns, AUM and leaders →</a>
-      <p class="lede">NAVs for all SIF strategies from AMFI, updated every evening, with the change from the previous business day. One line per strategy (direct plan, growth option where available).</p>
+      <h2 class="h2">SIF Pulse</h2>
+      <p class="lede">Live market data for every SIF strategy, from AMFI. <span id="pzAsof"></span></p>
     </div>
-    <div class="tk-sum" id="tkSum"></div>
-    <div class="tk-bar">
-      <div class="chips" id="chips" role="group" aria-label="Filter by category"></div>
-      <span class="tk-note" id="tkAsof" style="margin:0"></span>
+
+    <div class="pz-kpis">
+      <div><span class="l">SIF assets, Sep 2026</span><b>₹38,287 cr</b><span class="s">19× since Oct 2025</span></div>
+      <div><span class="l">Net inflow, Sep</span><b>₹7,578 cr</b><span class="s">−1.6% vs August</span></div>
+      <div><span class="l">Investor folios</span><b>1,56,483</b><span class="s">+30,944 in September</span></div>
+      <div><span class="l">Live strategies</span><b id="pzN">–</b><span class="s"><span id="pzUp">–</span> up today</span></div>
+      <div><span class="l">SIF brands</span><b id="pzB">–</b><span class="s">fund houses with a live SIF</span></div>
     </div>
-    <div class="table-box">
-      <table id="tk">
-        <thead><tr>
-          <th><button type="button" data-sort="b">SIF brand ↕</button></th>
-          <th><button type="button" data-sort="c">Strategy ↕</button></th>
-          <th>Type</th>
-          <th class="r"><button type="button" data-sort="nav">NAV ₹ ↕</button></th>
-          <th class="r">Previous</th>
-          <th class="r"><button type="button" data-sort="chg">1-day change ↕</button></th>
-          <th>Move</th>
-        </tr></thead>
-        <tbody></tbody>
-      </table>
+
+    <div class="pz-two">
+      <div class="pz-card">
+        <h3>Assets by category</h3>
+        <p class="pz-cap" id="pzCatCap"></p>
+        <div id="pzCats"></div>
+      </div>
+      <div class="pz-card">
+        <h3>Share by SIF brand</h3>
+        <p class="pz-cap" id="pzBrandCap"></p>
+        <div class="pz-stack" id="pzStack" role="img"></div>
+        <div class="pz-legend" id="pzLegend"></div>
+      </div>
     </div>
-    <div style="display:flex;justify-content:center;margin-top:14px"><button class="btn btn-ghost" type="button" id="tkMore">Show all strategies</button></div>
-    <p class="tk-note">Source: AMFI SIF NAV (amfiindia.com). Listed by category and brand, not ranked. A 1-day move says nothing about a strategy's quality or future returns. Strategies differ in risk band, liquidity and tax treatment; read each strategy's documents. Not a recommendation.</p>
+
+    <div class="pz-card pz-uni">
+      <div class="pz-uni-head">
+        <h3>Every live SIF strategy</h3>
+        <label class="pz-search" for="pzQ"><span class="sr">Search strategies</span><input id="pzQ" type="search" placeholder="Search strategy, brand or AMC"></label>
+      </div>
+      <div class="chips pz-chips" id="pzChips" role="group" aria-label="Filter by category"></div>
+      <div class="table-box">
+        <table id="pzT">
+          <thead><tr>
+            <th data-k="name"><button type="button">Strategy</button></th>
+            <th data-k="cat"><button type="button">Category</button></th>
+            <th data-k="aum" class="r"><button type="button">Avg AUM ₹ cr</button></th>
+            <th data-k="nav" class="r"><button type="button">NAV ₹</button></th>
+            <th data-k="d1" class="r"><button type="button">1D</button></th>
+            <th data-k="m1" class="r"><button type="button">1M</button></th>
+            <th data-k="m3" class="r"><button type="button">3M</button></th>
+            <th data-k="m6" class="r"><button type="button">6M</button></th>
+            <th data-k="si" class="r"><button type="button">Since launch</button></th>
+          </tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <div class="pz-foot"><span id="pzCount"></span><button class="btn btn-ghost btn-sm" type="button" id="pzMore">Show all strategies</button></div>
+    </div>
+
+    <div class="pz-two">
+      <div class="pz-card"><h3>Leaders since launch <small>3+ months old</small></h3><ol class="pz-lb" id="pzLead"></ol></div>
+      <div class="pz-card"><h3>Laggards since launch <small>3+ months old</small></h3><ol class="pz-lb" id="pzLag"></ol></div>
+    </div>
+    <div class="pz-card">
+      <h3>One-month breadth</h3>
+      <p class="pz-cap" id="pzBreadthTxt"></p>
+      <div class="pz-breadth" id="pzBreadth" role="img"></div>
+    </div>
+
+    <p class="tk-note">Source: AMFI SIF APIs (amfiindia.com). NAV and returns on the Regular plan, growth option; 1D on the Direct plan. Returns are absolute, not annualised; since-launch is measured from the allotment price. “–” means the strategy launched after the start of that period. Strategy AUM is AMFI’s quarterly average. Industry assets, flows and folios are from AMFI’s monthly SIF data for September 2026. Listed for information only, not ranked or recommended; a short-term move says nothing about a strategy’s quality or future returns.</p>
   </div>
 </section>
 
@@ -1259,6 +1365,7 @@ const EVENTS = [
   {start: "2026-11-16T18:30:00+05:30", title: "NISM Series V-D: MF & SIF Distributors Certification Training", meta: ["8 evenings", "6:30–8:30 PM IST", "Live, in English"], tag: "Free · Live online", url: "https://academy.assetplus.in/course/nism-series-v-d-mf-sif-distributors-certification-training-16th-november", form: "https://forms.assetplusacademy.in/assetplus1/form/NISMVDTrainingRegistration/formperma/mkcLBJZUfEPHkfNPt1nQ_AjuyhTUu_iPgxJlLD834jI?utm_source=b2b&utm_medium=partners&utm_campaign=vd_guided_training_16_11_2026"}
 ];
 const DATA = {"asof":"05 Nov 2026","prev":"04 Nov 2026","rows":[{"b":"DynaSIF","amc":"360 ONE","c":"Active Asset Allocator Long-Short Fund","t":"Interval","nav":10.5075,"prev":10.4525,"chg":0.53},{"b":"SUMMIT","amc":"Invesco","c":"Active Asset Allocator Long-Short Fund","t":"Interval","nav":10.02,"prev":10.01,"chg":0.1},{"b":"Titanium","amc":"Tata","c":"Active Asset Allocator Long-Short Fund","t":"Interval","nav":10.0855,"prev":10.0908,"chg":-0.05},{"b":"iSIF","amc":"ICICI Prudential","c":"Active Asset Allocator Long-Short Fund","t":"Interval","nav":10.4486,"prev":10.4036,"chg":0.43},{"b":"qsif","amc":"Quant","c":"Active Asset Allocator Long-Short Fund","t":"Interval","nav":12.9558,"prev":12.9448,"chg":0.08},{"b":"Altiva","amc":"Edelweiss","c":"Equity Ex-Top 100 Long-Short Fund","t":"Open-ended","nav":10.4909,"prev":10.3093,"chg":1.76},{"b":"Apex","amc":"Aditya Birla Sun Life","c":"Equity Ex-Top 100 Long-Short Fund","t":"Open-ended","nav":10.06,"prev":10.05,"chg":0.1},{"b":"DynaSIF","amc":"360 ONE","c":"Equity Ex-Top 100 Long-Short Fund","t":"Open-ended","nav":11.1677,"prev":10.9869,"chg":1.65},{"b":"Magnum","amc":"SBI","c":"Equity Ex-Top 100 Long-Short Fund","t":"Open-ended","nav":9.9183,"prev":9.7726,"chg":1.49},{"b":"WSIF","amc":"The Wealth Company","c":"Equity Ex-Top 100 Long-Short Fund","t":"Open-ended","nav":10.5405,"prev":10.4006,"chg":1.35},{"b":"iSIF","amc":"ICICI Prudential","c":"Equity Ex-Top 100 Long-Short Fund","t":"Open-ended","nav":10.24,"prev":10.15,"chg":0.89},{"b":"qsif","amc":"Quant","c":"Equity Ex-Top 100 Long-Short Fund","t":"Open-ended","nav":11.6112,"prev":11.4835,"chg":1.11},{"b":"Altiva","amc":"Edelweiss","c":"Equity Long-Short Fund","t":"Open-ended","nav":10.6667,"prev":10.4585,"chg":1.99},{"b":"Apex","amc":"Aditya Birla Sun Life","c":"Equity Long-Short Fund","t":"Open-ended","nav":10.38,"prev":10.23,"chg":1.47},{"b":"Arthaya","amc":"Union","c":"Equity Long-Short Fund","t":"Open-ended","nav":10.1207,"prev":9.9065,"chg":2.16},{"b":"Arudha","amc":"Bandhan","c":"Equity Long-Short Fund","t":"Open-ended","nav":10.396,"prev":10.304,"chg":0.89},{"b":"Diviniti","amc":"ITI","c":"Equity Long-Short Fund","t":"Open-ended","nav":903.7095,"prev":890.1641,"chg":1.52},{"b":"DynaSIF","amc":"360 ONE","c":"Equity Long-Short Fund","t":"Open-ended","nav":10.4396,"prev":10.3007,"chg":1.35},{"b":"MSIF","amc":"Mahindra Manulife","c":"Equity Long-Short Fund","t":"Open-ended","nav":10.2654,"prev":10.1706,"chg":0.93},{"b":"SUMMIT","amc":"Invesco","c":"Equity Long-Short Fund","t":"Open-ended","nav":10.75,"prev":10.55,"chg":1.9},{"b":"Sapphire","amc":"Franklin Templeton","c":"Equity Long-Short Fund","t":"Open-ended","nav":1006.4214,"prev":986.4481,"chg":2.02},{"b":"Titanium","amc":"Tata","c":"Equity Long-Short Fund","t":"Open-ended","nav":10.5994,"prev":10.4696,"chg":1.24},{"b":"WSIF","amc":"The Wealth Company","c":"Equity Long-Short Fund","t":"Open-ended","nav":10.5767,"prev":10.4064,"chg":1.64},{"b":"iSIF","amc":"ICICI Prudential","c":"Equity Long-Short Fund","t":"Open-ended","nav":10.72,"prev":10.7,"chg":0.19},{"b":"qsif","amc":"Quant","c":"Equity Long-Short Fund","t":"Open-ended","nav":11.3549,"prev":11.2628,"chg":0.82},{"b":"Altiva","amc":"Edelweiss","c":"Hybrid Long-Short Fund","t":"Interval","nav":11.0849,"prev":11.0695,"chg":0.14},{"b":"Apex","amc":"Aditya Birla Sun Life","c":"Hybrid Long-Short Fund","t":"Interval","nav":10.9512,"prev":10.8816,"chg":0.64},{"b":"Arudha","amc":"Bandhan","c":"Hybrid Long-Short Fund","t":"Interval","nav":10.467,"prev":10.457,"chg":0.1},{"b":"Infinity","amc":"Kotak Mahindra","c":"Hybrid Long-Short Fund","t":"Interval","nav":10.528,"prev":10.493,"chg":0.33},{"b":"Magnum","amc":"SBI","c":"Hybrid Long-Short Fund","t":"Interval","nav":10.4924,"prev":10.4442,"chg":0.46},{"b":"Platinum","amc":"Mirae Asset","c":"Hybrid Long-Short Fund","t":"Interval","nav":10.237,"prev":10.19,"chg":0.46},{"b":"Prism","amc":"Jio BlackRock","c":"Hybrid Long-Short Fund","t":"Interval","nav":10.2989,"prev":10.2801,"chg":0.18},{"b":"RedHex","amc":"HSBC","c":"Hybrid Long-Short Fund","t":"Interval","nav":10.291,"prev":10.2602,"chg":0.3},{"b":"Titanium","amc":"Tata","c":"Hybrid Long-Short Fund","t":"Interval","nav":10.4473,"prev":10.3029,"chg":1.4},{"b":"iSIF","amc":"ICICI Prudential","c":"Hybrid Long-Short Fund","t":"Interval","nav":10.7443,"prev":10.5553,"chg":1.79},{"b":"qsif","amc":"Quant","c":"Hybrid Long-Short Fund","t":"Interval","nav":12.986,"prev":12.9353,"chg":0.39},{"b":"qsif","amc":"Quant","c":"Sector Rotation Long-Short Fund","t":"Open-ended","nav":10.5911,"prev":10.5994,"chg":-0.08}]};
+const PULSE = {"asof":"2026-11-05","aumPeriod":"July - September 2026","funds":[{"name":"Altiva Hybrid Long-Short","brand":"Altiva","amc":"Edelweiss","cat":"Hybrid Long-Short","aum":8322,"nav":10.9764,"launch":"2025-10-01","sd":"SIF-11","m1":0.16,"m3":0.15,"m6":4.03,"si":9.76},{"name":"Magnum Hybrid Long-Short","brand":"Magnum","amc":"SBI","cat":"Hybrid Long-Short","aum":3899,"nav":10.4166,"launch":"2025-10-01","sd":"SIF-13","m1":0.79,"m3":-0.73,"m6":1.77,"si":4.17},{"name":"iSIF Equity Ex-Top 100 Long-Short","brand":"iSIF","amc":"ICICI Prudential","cat":"Equity Ex-Top 100","aum":2334,"nav":10.24,"launch":"2026-01-16","sd":"SIF-33","m1":0.1,"m3":-1.92,"m6":1.79,"si":2.4},{"name":"Infinity Hybrid Long-Short","brand":"Infinity","amc":"Kotak Mahindra","cat":"Hybrid Long-Short","aum":1473,"nav":10.488,"launch":"2026-06-15","sd":"SIF-146","m1":1.19,"m3":2.82,"m6":null,"si":4.88},{"name":"iSIF Hybrid Long-Short","brand":"iSIF","amc":"ICICI Prudential","cat":"Hybrid Long-Short","aum":1221,"nav":10.6323,"launch":"2026-01-16","sd":"SIF-35","m1":2.38,"m3":-0.04,"m6":5.78,"si":6.32},{"name":"Altiva Equity Ex-Top 100 Long-Short","brand":"Altiva","amc":"Edelweiss","cat":"Equity Ex-Top 100","aum":1131,"nav":10.4238,"launch":"2026-05-18","sd":"SIF-122","m1":-2.18,"m3":-5.37,"m6":null,"si":4.24},{"name":"RedHex Hybrid Long-Short","brand":"RedHex","amc":"HSBC","cat":"Hybrid Long-Short","aum":966,"nav":10.266,"launch":"2026-06-02","sd":"SIF-128","m1":0.41,"m3":1.41,"m6":null,"si":2.66},{"name":"iSIF Active Asset Allocator Long-Short","brand":"iSIF","amc":"ICICI Prudential","cat":"Active Asset Allocator","aum":875,"nav":10.3878,"launch":"2026-05-19","sd":"SIF-124","m1":1.28,"m3":0.42,"m6":null,"si":3.88},{"name":"qSIF Equity Long-Short","brand":"qSIF","amc":"Quant","cat":"Equity Long-Short","aum":830,"nav":11.1789,"launch":"2025-09-17","sd":"SIF-3","m1":2.6,"m3":1.35,"m6":9.24,"si":11.79},{"name":"qSIF Equity Ex-Top 100 Long-Short","brand":"qSIF","amc":"Quant","cat":"Equity Ex-Top 100","aum":643,"nav":11.4535,"launch":"2025-10-24","sd":"SIF-25","m1":1.27,"m3":0.32,"m6":13.72,"si":14.54},{"name":"Titanium Hybrid Long-Short","brand":"Titanium","amc":"Tata","cat":"Hybrid Long-Short","aum":578,"nav":10.2792,"launch":"2025-11-24","sd":"SIF-29","m1":3.99,"m3":0.88,"m6":2.81,"si":2.79},{"name":"Magnum Equity Ex-Top 100 Long-Short","brand":"Magnum","amc":"SBI","cat":"Equity Ex-Top 100","aum":526,"nav":9.8938,"launch":"2026-08-07","sd":"SIF-157","m1":0.15,"m3":null,"m6":null,"si":-1.06},{"name":"iSIF Equity Long-Short","brand":"iSIF","amc":"ICICI Prudential","cat":"Equity Long-Short","aum":518,"nav":10.65,"launch":"2026-05-19","sd":"SIF-126","m1":-0.19,"m3":0.09,"m6":null,"si":6.5},{"name":"DynaSIF Equity Long-Short","brand":"DynaSIF","amc":"360 ONE","cat":"Equity Long-Short","aum":383,"nav":10.3312,"launch":"2026-02-06","sd":"SIF-55","m1":1.41,"m3":-4.01,"m6":-0.8,"si":3.31},{"name":"qSIF Active Asset Allocator Long-Short","brand":"qSIF","amc":"Quant","cat":"Active Asset Allocator","aum":372,"nav":12.8479,"launch":"2026-04-02","sd":"SIF-93","m1":-0.15,"m3":11.45,"m6":27.16,"si":28.48},{"name":"Platinum Hybrid Long-Short","brand":"Platinum","amc":"Mirae Asset","cat":"Hybrid Long-Short","aum":327,"nav":10.181,"launch":"2026-05-20","sd":"SIF-136","m1":1.2,"m3":-0.25,"m6":null,"si":1.81},{"name":"qSIF Hybrid Long-Short","brand":"qSIF","amc":"Quant","cat":"Hybrid Long-Short","aum":321,"nav":12.7804,"launch":"2025-09-25","sd":"SIF-7","m1":0.51,"m3":17.01,"m6":21.04,"si":27.8},{"name":"Titanium Equity Long-Short","brand":"Titanium","amc":"Tata","cat":"Equity Long-Short","aum":301,"nav":10.5036,"launch":"2026-04-27","sd":"SIF-102","m1":2.91,"m3":-0.43,"m6":null,"si":5.04},{"name":"Diviniti Equity Long-Short","brand":"Diviniti","amc":"ITI","cat":"Equity Long-Short","aum":300,"nav":891.2614,"launch":"2025-11-10","sd":"SIF-21","m1":1.79,"m3":-5.41,"m6":-6.01,"si":-10.87},{"name":"DynaSIF Active Asset Allocator Long-Short","brand":"DynaSIF","amc":"360 ONE","cat":"Active Asset Allocator","aum":265,"nav":10.4225,"launch":"2026-03-06","sd":"SIF-87","m1":0.24,"m3":-0.56,"m6":2.12,"si":4.22},{"name":"Prism Hybrid Long-Short","brand":"Prism","amc":"Jio BlackRock","cat":"Hybrid Long-Short","aum":227,"nav":10.2625,"launch":"2026-06-29","sd":"SIF-138","m1":0.43,"m3":1.66,"m6":null,"si":2.62},{"name":"Summit Equity Long-Short","brand":"Summit","amc":"Invesco","cat":"Equity Long-Short","aum":218,"nav":10.69,"launch":"2026-07-02","sd":"SIF-150","m1":3.89,"m3":3.48,"m6":null,"si":6.9},{"name":"Sapphire Equity Long-Short","brand":"Sapphire","amc":"Franklin Templeton","cat":"Equity Long-Short","aum":208,"nav":1006.4214,"launch":"2026-04-10","sd":"SIF-95","m1":3.92,"m3":-1.98,"m6":-0.85,"si":0.64},{"name":"DynaSIF Equity Ex-Top 100 Long-Short","brand":"DynaSIF","amc":"360 ONE","cat":"Equity Ex-Top 100","aum":205,"nav":11.0873,"launch":"2026-06-05","sd":"SIF-143","m1":-1.83,"m3":2.24,"m6":null,"si":10.87},{"name":"Apex Hybrid Long-Short","brand":"Apex","amc":"Aditya Birla Sun Life","cat":"Hybrid Long-Short","aum":170,"nav":10.8739,"launch":"2026-03-06","sd":"SIF-80","m1":1.21,"m3":2.27,"m6":7.77,"si":8.74},{"name":"Arudha Hybrid Long-Short","brand":"Arudha","amc":"Bandhan","cat":"Hybrid Long-Short","aum":133,"nav":10.429,"launch":"2026-01-09","sd":"SIF-40","m1":0.3,"m3":0.71,"m6":2.83,"si":4.29},{"name":"Arthaya Equity Long-Short","brand":"Arthaya","amc":"Union","cat":"Equity Long-Short","aum":131,"nav":10.0624,"launch":"2026-05-04","sd":"SIF-114","m1":3.48,"m3":-1.06,"m6":null,"si":0.62},{"name":"Arudha Equity Long-Short","brand":"Arudha","amc":"Bandhan","cat":"Equity Long-Short","aum":118,"nav":10.299,"launch":"2026-03-05","sd":"SIF-62","m1":2.08,"m3":-2.35,"m6":0.02,"si":2.99},{"name":"Apex Equity Ex-Top 100 Long-Short","brand":"Apex","amc":"Aditya Birla Sun Life","cat":"Equity Ex-Top 100","aum":77,"nav":10.03,"launch":"2026-08-10","sd":"SIF-156","m1":0.2,"m3":null,"m6":null,"si":0.3},{"name":"WSIF Equity Ex-Top 100 Long-Short","brand":"WSIF","amc":"The Wealth Company","cat":"Equity Ex-Top 100","aum":57,"nav":10.4105,"launch":"2026-04-15","sd":"SIF-105","m1":0.55,"m3":-4.34,"m6":null,"si":4.11},{"name":"qSIF Sector Rotation Long-Short","brand":"qSIF","amc":"Quant","cat":"Sector Rotation","aum":49,"nav":10.5115,"launch":"2026-04-27","sd":"SIF-117","m1":1.83,"m3":3.84,"m6":null,"si":5.12},{"name":"Apex Equity Long-Short","brand":"Apex","amc":"Aditya Birla Sun Life","cat":"Equity Long-Short","aum":39,"nav":10.34,"launch":"2026-08-10","sd":"SIF-154","m1":4.34,"m3":null,"m6":null,"si":3.4},{"name":"WSIF Equity Long-Short","brand":"WSIF","amc":"The Wealth Company","cat":"Equity Long-Short","aum":36,"nav":10.4687,"launch":"2026-04-15","sd":"SIF-111","m1":3.52,"m3":-2.73,"m6":null,"si":4.69},{"name":"Altiva Equity Long-Short","brand":"Altiva","amc":"Edelweiss","cat":"Equity Long-Short","aum":8,"nav":10.6492,"launch":"2026-09-10","sd":"SIF-161","m1":5.39,"m3":null,"m6":null,"si":6.49},{"name":"MSIF Equity Long-Short","brand":"MSIF","amc":"Mahindra Manulife","cat":"Equity Long-Short","aum":null,"nav":10.2565,"launch":"2026-09-30","sd":"SIF-174","m1":null,"m3":null,"m6":null,"si":2.57},{"name":"Summit Active Asset Allocator Long-Short","brand":"Summit","amc":"Invesco","cat":"Active Asset Allocator","aum":null,"nav":10.02,"launch":"2026-10-12","sd":"SIF-177","m1":null,"m3":null,"m6":null,"si":0.2},{"name":"Titanium Active Asset Allocator Long-Short","brand":"Titanium","amc":"Tata","cat":"Active Asset Allocator","aum":null,"nav":10.0766,"launch":"2026-09-23","sd":"SIF-169","m1":null,"m3":null,"m6":null,"si":0.77}],"cats":[{"name":"Hybrid Long-Short","n":11,"aum":17637},{"name":"Equity Ex-Top 100","n":7,"aum":4973},{"name":"Equity Long-Short","n":13,"aum":3090},{"name":"Active Asset Allocator","n":5,"aum":1512},{"name":"Sector Rotation","n":1,"aum":49}],"periodDates":{"m1":"2026-10-06","m3":"2026-08-06","m6":"2026-05-07"}};
 const AUM = [["Oct 25",2010],["Nov 25",2932],["Dec 25",4892],["Jan 26",6564],["Feb 26",9711],["Mar 26",10620],["Apr 26",12329],["May 26",13814],["Jun 26",17858],["Jul 26",23177],["Aug 26",31175],["Sep 26",38287]];
 const BRANDS = [["Altiva",13221],["iSIF",6146],["Magnum",5591],["qsif",3814],["Infinity",3041],["RedHex",1523],["DynaSIF",1132],["Titanium",878],["Apex",699],["Prism",478],["Platinum",386],["SUMMIT",378],["Arudha",292],["Diviniti",246],["Sapphire",212],["Arthaya",131],["WSIF",119]];
 const DOCS = [
@@ -1356,39 +1463,77 @@ $("#asof3").textContent = DATA.asof;
   svg.innerHTML = g;
 })();
 
-/* Tracker */
-const cats = [...new Set(rows.map(r => r.c))];
-let tkFilter = "All", tkSort = {k:"c", dir:1}, tkAll = false;
-function renderSummary(){
-  const box = $("#tkSum");
-  box.innerHTML = cats.map(c => {
-    const rs = rows.filter(r => r.c === c), a = rs.reduce((s,r)=>s+r.chg,0)/rs.length;
-    return '<div><div class="l">' + esc(shortCat(c)) + ' · ' + rs.length + '</div><div class="v num ' + (a>=0?"up":"down") + '">' + (a>=0?"+":"") + a.toFixed(2) + '%</div></div>';
-  }).join("");
-}
-function renderChips(){
-  $("#chips").innerHTML = ["All", ...cats].map(c => '<button type="button" class="chip" aria-pressed="' + (c===tkFilter) + '" data-cat="' + esc(c) + '">' + esc(c==="All"?"All "+rows.length:shortCat(c)) + '</button>').join("");
-}
-function renderTable(){
-  const maxAbs = Math.max(...rows.map(r => Math.abs(r.chg)));
-  const list = rows.filter(r => tkFilter==="All" || r.c===tkFilter).sort((a,b) => {
-    const k = tkSort.k; let v = (typeof a[k]==="number") ? a[k]-b[k] : String(a[k]).localeCompare(String(b[k]));
-    if (v === 0) v = a.b.localeCompare(b.b);
-    return v * tkSort.dir;
-  });
-  const shown = (tkAll || tkFilter !== "All") ? list : list.slice(0, 8);
-  const more = $("#tkMore"); if (more) { more.hidden = tkFilter !== "All"; more.textContent = tkAll ? "Show fewer" : "Show all " + list.length + " strategies"; }
-  $("#tk tbody").innerHTML = shown.map(r => {
-    const w = Math.abs(r.chg)/maxAbs*50;
-    const bar = r.chg>=0 ? '<i style="left:50%;width:'+w+'%;background:var(--pos)"></i>' : '<i style="right:50%;width:'+w+'%;background:var(--neg)"></i>';
-    return '<tr><td><div class="b">' + esc(r.b) + '</div><div class="a">' + esc(r.amc) + '</div></td><td><span class="cf">' + esc(r.c) + '</span><span class="cs">' + esc(shortCat(r.c)) + '</span></td><td>' + esc(r.t) + '</td><td class="r num mono">' + fmt(r.nav, 4) + '</td><td class="r num mono" style="color:var(--muted)">' + fmt(r.prev, 4) + '</td><td class="r"><span class="chg ' + (r.chg>=0?"pos":"neg") + '">' + (r.chg>=0?"+":"") + r.chg.toFixed(2) + '%</span></td><td><div class="bar">' + bar + '</div></td></tr>';
-  }).join("");
-  $("#tkAsof").textContent = "NAV " + DATA.asof + " vs " + DATA.prev + " · " + list.length + " strategies";
-}
-$("#chips").addEventListener("click", e => { const b = e.target.closest(".chip"); if (!b) return; tkFilter = b.dataset.cat; renderChips(); renderTable(); });
-$$("#tk th button").forEach(b => b.addEventListener("click", () => { const k = b.dataset.sort; tkSort = {k, dir: tkSort.k===k ? -tkSort.dir : (k==="chg"||k==="nav" ? -1 : 1)}; renderTable(); }));
-$("#tkMore").addEventListener("click", () => { tkAll = !tkAll; renderTable(); });
-renderSummary(); renderChips(); renderTable();
+/* SIF Pulse */
+(function pulse(){
+  if (!$("#pulse")) return;
+  const P = PULSE, F = P.funds.map(f => ({...f}));
+  const pct = v => v == null ? "–" : (v > 0 ? "+" : v < 0 ? "−" : "") + Math.abs(v).toFixed(2) + "%";
+  const cls = v => v == null ? "na" : v > 0 ? "up" : v < 0 ? "down" : "";
+  const day = new Date(P.asof + "T00:00:00").toLocaleDateString("en-IN", {day: "numeric", month: "short", year: "numeric"});
+  // 1-day change from the daily NAV board, matched on brand + category
+  const norm = s => String(s).toLowerCase().replace(/[^a-z0-9]/g, "");
+  const catKey = c => norm(c).replace(/longshort|fund|ls$/g, "").replace(/ls$/, "");
+  const dmap = {};
+  DATA.rows.forEach(r => { dmap[norm(r.b) + "|" + catKey(shortCat(r.c))] = r.chg; });
+  F.forEach(f => { f.d1 = dmap[norm(f.brand === "qSIF" ? "qsif" : f.brand) + "|" + catKey(f.cat)]; if (f.d1 === undefined) f.d1 = null; });
+  const upToday = F.filter(f => f.d1 > 0).length;
+  $("#pzAsof").textContent = "NAV as of " + day + ". Average AUM for " + P.aumPeriod + ".";
+  $("#pzN").textContent = F.length;
+  $("#pzUp").textContent = upToday + " of " + F.filter(f => f.d1 != null).length;
+  const brands = {};
+  F.forEach(f => { if (f.aum) { brands[f.brand] = brands[f.brand] || {aum: 0, amc: f.amc}; brands[f.brand].aum += f.aum; } });
+  const bl = Object.entries(brands).sort((a, b) => b[1].aum - a[1].aum);
+  $("#pzB").textContent = new Set(F.map(f => f.brand)).size;
+  const tot = bl.reduce((s, b) => s + b[1].aum, 0);
+
+  // categories
+  const cmax = Math.max(...P.cats.map(c => c.aum));
+  $("#pzCatCap").textContent = "Average AUM, " + P.aumPeriod + ", ₹ crore";
+  $("#pzCats").innerHTML = P.cats.map(c => '<div class="pz-cat"><div class="pz-cat-h"><span><b>' + esc(c.name) + '</b><small>' + c.n + ' strateg' + (c.n === 1 ? 'y' : 'ies') + '</small></span><span class="num"><b>' + c.aum.toLocaleString("en-IN") + '</b><small>' + (c.aum / tot * 100).toFixed(1) + '%</small></span></div><div class="pz-bar"><i style="width:' + (c.aum / cmax * 100).toFixed(1) + '%"></i></div></div>').join("");
+
+  // brand stack
+  const shades = ["#0A1F44", "#1A56DB", "#4C86F0", "#7FA6EE", "#A9C3F2", "#C9D9F7"];
+  const top = bl.slice(0, 6), rest = bl.slice(6), restAum = rest.reduce((s, b) => s + b[1].aum, 0);
+  const segs = top.map((b, i) => ({label: b[0], sub: b[1].amc, aum: b[1].aum, color: shades[i]})).concat([{label: "Other " + rest.length + " brands", sub: "", aum: restAum, color: "#E3E9F4"}]);
+  $("#pzBrandCap").textContent = top[0][0] + " holds " + (top[0][1].aum / tot * 100).toFixed(0) + "% of SIF assets; the top three brands hold " + (top.slice(0, 3).reduce((s, b) => s + b[1].aum, 0) / tot * 100).toFixed(0) + "%.";
+  $("#pzStack").innerHTML = segs.map(g => '<i style="width:' + (g.aum / tot * 100).toFixed(2) + '%;background:' + g.color + '" title="' + esc(g.label) + ' ' + (g.aum / tot * 100).toFixed(1) + '%"></i>').join("");
+  $("#pzStack").setAttribute("aria-label", "Share by brand: " + segs.map(g => g.label + " " + (g.aum / tot * 100).toFixed(1) + "%").join(", "));
+  $("#pzLegend").innerHTML = segs.map(g => '<div><i style="background:' + g.color + '"></i><span><b>' + esc(g.label) + '</b>' + (g.sub ? ' · ' + esc(g.sub) : '') + '</span><span class="num">' + (g.aum / tot * 100).toFixed(1) + '%</span></div>').join("");
+
+  // universe table
+  const catList = ["All", ...P.cats.map(c => c.name)];
+  let cur = "All", sk = "aum", sd = -1, all = false;
+  $("#pzChips").innerHTML = catList.map(c => '<button type="button" class="chip" aria-pressed="' + (c === "All") + '" data-c="' + esc(c) + '">' + esc(c === "All" ? "All " + F.length : c) + '</button>').join("");
+  $("#pzChips").addEventListener("click", e => { const b = e.target.closest(".chip"); if (!b) return; cur = b.dataset.c; $$("#pzChips .chip").forEach(x => x.setAttribute("aria-pressed", x === b)); draw(); });
+  $("#pzQ").addEventListener("input", draw);
+  $$("#pzT th").forEach(th => th.querySelector("button").addEventListener("click", () => { const k = th.dataset.k; if (sk === k) sd = -sd; else { sk = k; sd = (k === "name" || k === "cat") ? 1 : -1; } draw(); }));
+  $("#pzMore").addEventListener("click", () => { all = !all; draw(); });
+  const rc = v => '<td class="r num"><span class="pz-ret ' + cls(v) + '">' + pct(v) + '</span></td>';
+  function draw(){
+    const q = $("#pzQ").value.trim().toLowerCase();
+    let rows = F.filter(f => (cur === "All" || f.cat === cur) && (!q || (f.name + " " + f.brand + " " + f.amc).toLowerCase().includes(q)));
+    rows.sort((a, b) => { const x = a[sk], y = b[sk]; if (x == null && y == null) return 0; if (x == null) return 1; if (y == null) return -1; return typeof x === "string" ? x.localeCompare(y) * sd : (x - y) * sd; });
+    const n = rows.length, show = (all || q || cur !== "All") ? rows : rows.slice(0, 10);
+    $("#pzT tbody").innerHTML = show.map(f => '<tr><td class="pz-name"><b>' + esc(f.name) + '</b><small>' + esc(f.amc) + '</small></td><td><span class="pz-pill">' + esc(f.cat) + '</span></td><td class="r num">' + (f.aum == null ? "–" : f.aum.toLocaleString("en-IN")) + '</td><td class="r num">' + f.nav.toLocaleString("en-IN", {minimumFractionDigits: 2, maximumFractionDigits: 2}) + '</td>' + rc(f.d1) + rc(f.m1) + rc(f.m3) + rc(f.m6) + '<td class="r num"><span class="pz-si ' + cls(f.si) + '">' + pct(f.si) + '</span></td></tr>').join("") || '<tr><td colspan="9">No strategy matches “' + esc($("#pzQ").value) + '”.</td></tr>';
+    $("#pzCount").textContent = "Showing " + show.length + " of " + n + " strategies";
+    $("#pzMore").hidden = q || cur !== "All";
+    $("#pzMore").textContent = all ? "Show fewer" : "Show all " + F.length + " strategies";
+    $$("#pzT th").forEach(th => th.setAttribute("aria-sort", th.dataset.k === sk ? (sd === 1 ? "ascending" : "descending") : "none"));
+  }
+  draw();
+
+  // leaders / laggards, strategies with a 3-month record
+  const ranked = F.filter(f => f.m3 != null).sort((a, b) => b.si - a.si);
+  const li = f => '<li><span><b>' + esc(f.name) + '</b><small>' + esc(f.cat) + ' · ' + esc(f.amc) + '</small></span><span class="pz-si ' + cls(f.si) + '">' + pct(f.si) + '</span></li>';
+  $("#pzLead").innerHTML = ranked.slice(0, 5).map(li).join("");
+  $("#pzLag").innerHTML = ranked.slice(-5).reverse().map(li).join("");
+
+  // breadth
+  const m = F.filter(f => f.m1 != null).sort((a, b) => b.m1 - a.m1), ups = m.filter(f => f.m1 > 0).length, med = m.length ? m[Math.floor(m.length / 2)].m1 : 0;
+  $("#pzBreadthTxt").textContent = ups + " of " + m.length + " strategies with a one-month record were up to " + day + ". The median strategy " + (med >= 0 ? "rose " : "fell ") + Math.abs(med).toFixed(2) + "%.";
+  $("#pzBreadth").setAttribute("aria-label", ups + " up, " + (m.length - ups) + " down over one month");
+  $("#pzBreadth").innerHTML = m.map(f => '<i class="' + (f.m1 > 0 ? "up" : "down") + '" title="' + esc(f.name) + ': ' + pct(f.m1) + '"></i>').join("");
+})();
 
 /* Events + countdown */
 (function events(){
