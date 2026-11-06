@@ -6,6 +6,7 @@
 <meta property="og:description" content="Everything a mutual fund distributor needs to bring Specialised Investment Funds to clients: flagship SIF research, every strategy's NAV from AMFI, client notes and free V-D certification.">
 <meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">[{"@context": "https://schema.org", "@type": "Organization", "name": "AssetPlus", "legalName": "Valueplus Technologies Pvt. Ltd.", "url": "https://www.assetplus.in", "description": "AMFI-registered Mutual Fund Distributor, ARN-114376"}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Who can invest in a SIF?", "acceptedAnswer": {"@type": "Answer", "text": "Resident and eligible investors who put in at least ₹10 lakh across a fund house's SIF strategies, subject to SEBI rules and each strategy's documents."}}, {"@type": "Question", "name": "What do I need to distribute SIFs?", "acceptedAnswer": {"@type": "Answer", "text": "A valid ARN and the NISM Series V-D certification (MF and SIF distributors), plus empanelment with the fund house."}}, {"@type": "Question", "name": "How is a SIF taxed?", "acceptedAnswer": {"@type": "Answer", "text": "SIF units are taxed like mutual fund units. The rate depends on the strategy's tax category and how long the investor holds."}}, {"@type": "Question", "name": "Can clients take money out any day?", "acceptedAnswer": {"@type": "Answer", "text": "Not always. Many hybrid and asset-allocator SIFs are interval funds that redeem only on set days."}}, {"@type": "Question", "name": "How is a SIF different from PMS?", "acceptedAnswer": {"@type": "Answer", "text": "A SIF is a pooled fund under the mutual fund rules from ₹10 lakh with daily NAV; PMS starts at ₹50 lakh and is taxed on each trade."}}]}, {"@context": "https://schema.org", "@type": "EducationEvent", "name": "NISM Series V-D: MF & SIF Distributors Certification Training", "startDate": "2026-11-16T18:30:00+05:30", "eventAttendanceMode": "https://schema.org/OnlineEventAttendanceMode", "eventStatus": "https://schema.org/EventScheduled", "location": {"@type": "VirtualLocation", "url": "https://academy.assetplus.in/course/nism-series-v-d-mf-sif-distributors-certification-training-16th-november"}, "isAccessibleForFree": true, "inLanguage": "en", "organizer": {"@type": "Organization", "name": "AssetPlus", "url": "https://www.assetplus.in"}}]</script>
+<link rel="preload" as="image" href="img/hero-vd.webp" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap">
@@ -702,6 +703,32 @@ tbody tr:hover { background: var(--brand-soft); }
 .reg-card { background: var(--flame-soft); border-radius: 14px; padding: 16px; display: grid; gap: 8px; }
 .reg-card b { color: var(--ink); font-size: 16px; }
 .reg-card span { font-size: 14px; color: var(--body); }
+@media (max-width: 640px) {
+  .overlay.sheet .modal { max-height: 92vh; overflow-y: auto; }
+  .modal-main { padding: 20px 18px 18px; gap: 10px; }
+  .pop { gap: 10px; }
+  .pop .steps, .pop > .sub, .pop .skip { display: none; }
+  .pop h3 { font-size: 19px; }
+  .pop-thumb { gap: 10px; }
+  .pop-thumb .date { width: 48px; padding: 6px 2px; }
+  .pop-thumb .date strong { font-size: 22px; }
+  .bonus { padding: 8px 10px; font-size: 13px; }
+  .bonus img { display: none; }
+  form { gap: 9px; }
+  input, select { padding: 10px 11px; font-size: 16px; }
+  .noarn, .check { font-size: 12px; }
+  .x { top: 8px; right: 8px; width: 32px; height: 32px; }
+  .choice button { padding: 12px; }
+}
+/* phone nudge instead of a full-screen pop-up */
+.nudge { position: fixed; left: max(12px, env(safe-area-inset-left, 0px)); right: max(12px, env(safe-area-inset-right, 0px)); bottom: calc(76px + env(safe-area-inset-bottom, 0px)); z-index: 66; background: #fff; border: 1px solid var(--line); border-radius: 14px; box-shadow: 0 14px 34px rgba(10,31,68,.22); display: flex; align-items: center; gap: 10px; padding: 10px 10px 10px 12px; animation: rise-in .35s ease-out both; }
+.nudge .nd { width: 38px; border-radius: 8px; background: var(--flame); color: #fff; display: grid; place-items: center; line-height: 1; padding: 5px 0; flex: none; }
+.nudge .nd small { font-size: 9px; font-weight: 700; letter-spacing: .08em; } .nudge .nd strong { font-size: 17px; }
+.nudge p { flex: 1; min-width: 0; font-size: 13px; color: var(--ink); line-height: 1.3; }
+.nudge p span { display: block; color: var(--muted); font-size: 12px; }
+.nudge .btn { padding: 9px 12px; font-size: 13px; }
+.nudging .fab { display: none; }
+.nudge .nx { all: unset; cursor: pointer; color: var(--muted); font-size: 18px; padding: 2px 4px; }
 /* modal */
 .overlay { position: fixed; inset: 0; z-index: 100; background: rgba(8,16,36,.62); display: grid; place-items: center; padding: max(16px, env(safe-area-inset-top, 0px)) max(16px, env(safe-area-inset-right, 0px)) max(16px, env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px)); overflow-y: auto; }
 .modal { width: min(820px, 100%); background: var(--surface); border-radius: 20px; overflow: hidden; display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); box-shadow: 0 30px 80px rgba(0,0,0,.4); position: relative; animation: rise .35s ease; }
@@ -782,7 +809,7 @@ input:focus, select:focus { outline: 2px solid var(--brand); border-color: var(-
     <div class="rhero-vis">
       <div class="rv-frame">
         <div class="rv-blob" aria-hidden="true"></div>
-        <img class="rv-photo" src="img/hero-vd.jpg" alt="A distributor holding his NISM V-D certificate" width="702" height="1200">
+        <img class="rv-photo" fetchpriority="high" decoding="async" src="img/hero-vd.webp" alt="A distributor holding his NISM V-D certificate" width="702" height="1200">
         <div class="rv-card rv-pass" aria-hidden="true">
           <span class="rv-tick">✓</span>
           <span><small>Certification</small><b>PASSED</b><em>NISM Series V-D</em></span>
@@ -830,7 +857,7 @@ input:focus, select:focus { outline: 2px solid var(--brand); border-color: var(-
     <div class="section-head center"><h2 class="h2">Your journey to SIF Ready</h2><p class="lede">Six steps, from registration to your first SIF client.</p></div>
     <div class="journey6">
       <div class="jtabs" role="tablist" aria-label="Steps"><button type="button" role="tab" class="jt on" aria-selected="true" data-step="0"><b>1</b>Register</button><button type="button" role="tab" class="jt" aria-selected="false" data-step="1"><b>2</b>Training</button><button type="button" role="tab" class="jt" aria-selected="false" data-step="2"><b>3</b>Certification</button><button type="button" role="tab" class="jt" aria-selected="false" data-step="3"><b>4</b>ARN</button><button type="button" role="tab" class="jt" aria-selected="false" data-step="4"><b>5</b>Empanel</button><button type="button" role="tab" class="jt" aria-selected="false" data-step="5"><b>6</b>Kickstart</button></div>
-      <div class="jpanels"><div class="jp has-img" role="tabpanel" data-panel="0"><span class="jp-n">Step 1 of 6</span><h3>Register for the free batch</h3><p>Save your seat in the free NISM V-D batch starting 16 Nov. It takes a minute.</p><button class="btn btn-flame" type="button" data-open="decoder">Save my seat</button><img class="jp-img" src="img/p-student.jpg" alt="" loading="lazy" style="object-position:center 28%"></div><div class="jp has-img" role="tabpanel" data-panel="1" hidden><span class="jp-n">Step 2 of 6</span><h3>Get NISM V-D training</h3><p>8 live evenings, 6:30 to 8:30 PM, in English. Expert trainers, practice tests and recorded sessions.</p><button class="btn btn-flame" type="button" data-open="decoder">Save my seat</button><img class="jp-img" src="img/p-live.jpg" alt="" loading="lazy" style="object-position:center 55%"></div><div class="jp has-img" role="tabpanel" data-panel="2" hidden><span class="jp-n">Step 3 of 6</span><h3>Clear the NISM V-D exam</h3><p>One exam covers both mutual funds and SIFs. It replaces the earlier V-A plus XIII route.</p><button class="btn btn-flame" type="button" data-open="decoder">Save my seat</button><img class="jp-img" src="img/p-mock.jpg" alt="" loading="lazy" style="object-position:center 45%"></div><div class="jp has-img" role="tabpanel" data-panel="3" hidden><span class="jp-n">Step 4 of 6</span><h3>Register for your ARN</h3><p>Apply for your AMFI Registration Number once you pass. Already have an ARN? Your V-D adds SIFs to it.</p><a class="btn btn-flame wa-link" href="#" target="_blank" rel="noopener">Talk to us on WhatsApp</a><img class="jp-img" src="img/p-learner.jpg" alt="" loading="lazy" style="object-position:center 30%"></div><div class="jp has-img" role="tabpanel" data-panel="4" hidden><span class="jp-n">Step 5 of 6</span><h3>Empanel with AssetPlus</h3><p>Offer SIFs to clients on the AssetPlus platform, with onboarding and operations support.</p><a class="btn btn-flame wa-link" href="#" target="_blank" rel="noopener">Talk to us on WhatsApp</a><img class="jp-img" src="img/p-app.jpg" alt="" loading="lazy" style="object-position:center 45%"></div><div class="jp has-img" role="tabpanel" data-panel="5" hidden><span class="jp-n">Step 6 of 6</span><h3>Kickstart your SIF practice</h3><p>Start with the SIF Decoder, six persona pitch sheets and client notes stamped with your ARN.</p><button class="btn btn-flame" type="button" data-open="decoder">Get the free bundle</button><img class="jp-img" src="img/p-pro.jpg" alt="" loading="lazy" style="object-position:center 25%"></div></div>
+      <div class="jpanels"><div class="jp has-img" role="tabpanel" data-panel="0"><span class="jp-n">Step 1 of 6</span><h3>Register for the free batch</h3><p>Save your seat in the free NISM V-D batch starting 16 Nov. It takes a minute.</p><button class="btn btn-flame" type="button" data-open="decoder">Save my seat</button><img class="jp-img" src="img/p-student.webp" alt="" loading="lazy" style="object-position:center 28%"></div><div class="jp has-img" role="tabpanel" data-panel="1" hidden><span class="jp-n">Step 2 of 6</span><h3>Get NISM V-D training</h3><p>8 live evenings, 6:30 to 8:30 PM, in English. Expert trainers, practice tests and recorded sessions.</p><button class="btn btn-flame" type="button" data-open="decoder">Save my seat</button><img class="jp-img" src="img/p-live.webp" alt="" loading="lazy" style="object-position:center 55%"></div><div class="jp has-img" role="tabpanel" data-panel="2" hidden><span class="jp-n">Step 3 of 6</span><h3>Clear the NISM V-D exam</h3><p>One exam covers both mutual funds and SIFs. It replaces the earlier V-A plus XIII route.</p><button class="btn btn-flame" type="button" data-open="decoder">Save my seat</button><img class="jp-img" src="img/p-mock.webp" alt="" loading="lazy" style="object-position:center 45%"></div><div class="jp has-img" role="tabpanel" data-panel="3" hidden><span class="jp-n">Step 4 of 6</span><h3>Register for your ARN</h3><p>Apply for your AMFI Registration Number once you pass. Already have an ARN? Your V-D adds SIFs to it.</p><a class="btn btn-flame wa-link" href="#" target="_blank" rel="noopener">Talk to us on WhatsApp</a><img class="jp-img" src="img/p-learner.webp" alt="" loading="lazy" style="object-position:center 30%"></div><div class="jp has-img" role="tabpanel" data-panel="4" hidden><span class="jp-n">Step 5 of 6</span><h3>Empanel with AssetPlus</h3><p>Offer SIFs to clients on the AssetPlus platform, with onboarding and operations support.</p><a class="btn btn-flame wa-link" href="#" target="_blank" rel="noopener">Talk to us on WhatsApp</a><img class="jp-img" src="img/p-app.webp" alt="" loading="lazy" style="object-position:center 45%"></div><div class="jp has-img" role="tabpanel" data-panel="5" hidden><span class="jp-n">Step 6 of 6</span><h3>Kickstart your SIF practice</h3><p>Start with the SIF Decoder, six persona pitch sheets and client notes stamped with your ARN.</p><button class="btn btn-flame" type="button" data-open="decoder">Get the free bundle</button><img class="jp-img" src="img/p-pro.webp" alt="" loading="lazy" style="object-position:center 25%"></div></div>
     </div>
   </div>
 </section>
@@ -840,7 +867,7 @@ input:focus, select:focus { outline: 2px solid var(--brand); border-color: var(-
     <div>
       <h2 class="h2">Why get SIF certified</h2>
       <p class="lede">You need NISM Series V-D to offer SIFs. It is one exam for both mutual funds and SIFs. Our live batch prepares you for it over 8 evenings.</p>
-      <div class="cert-pics"><img style="object-position:center 72%" src="img/p-notes.jpg" alt="NISM V-D study notes, mock tests, practice questions and quick revision" loading="lazy"><img style="object-position:center 48%" src="img/p-ready.jpg" alt="Exam readiness at 92 percent" loading="lazy"></div>
+      <div class="cert-pics"><img style="object-position:center 72%" src="img/p-notes.webp" alt="NISM V-D study notes, mock tests, practice questions and quick revision" loading="lazy"><img style="object-position:center 48%" src="img/p-ready.webp" alt="Exam readiness at 92 percent" loading="lazy"></div>
       <ul class="can">
         <li>Offer SIFs to clients investing ₹10 lakh or more</li>
         <li>Discuss SIFs with clients holding FDs, arbitrage or debt funds</li>
@@ -856,7 +883,7 @@ input:focus, select:focus { outline: 2px solid var(--brand); border-color: var(-
         <div style="display:flex;flex-wrap:wrap;gap:10px"><button class="btn btn-onband btn-sm" type="button" data-open="notify">Notify me about new batches</button><a class="btn btn-outline-band btn-sm wa-link" href="#" target="_blank" rel="noopener">Ask on WhatsApp</a></div>
       </article>
       <div class="lms">
-        <img class="lms-img" src="img/p-lms.jpg" alt="AssetPlus LMS dashboard with NISM V-D video course and progress" loading="lazy">
+        <img class="lms-img" src="img/p-lms.webp" alt="AssetPlus LMS dashboard with NISM V-D video course and progress" loading="lazy">
         <h3>Get your LMS access</h3>
         <p>Recorded lessons, chapter notes and practice questions for NISM V-D. Learn at your pace between the live evenings.</p>
         <div class="row">
@@ -950,10 +977,10 @@ input:focus, select:focus { outline: 2px solid var(--brand); border-color: var(-
       <div class="ctas" style="margin-top:22px"><button class="btn btn-flame btn-lg" type="button" data-open="decoder">Get the free bundle</button></div>
     </div>
     <button type="button" class="fan" data-open="decoder" aria-label="Get the free SIF starter bundle">
-      <img class="f1" src="thumbs/01-What-is-a-SIF.jpg" alt="" loading="lazy">
-      <img class="f2" src="thumbs/07a-Persona-FD-Retiree.jpg" alt="" loading="lazy">
-      <img class="f3" src="thumbs/06a-SIF-vs-FD.jpg" alt="" loading="lazy">
-      <img class="f4" src="decoder-cover.jpg" alt="SIF Decoder cover with one-pagers behind it">
+      <img class="f1" src="thumbs/01-What-is-a-SIF.webp" alt="" loading="lazy">
+      <img class="f2" src="thumbs/07a-Persona-FD-Retiree.webp" alt="" loading="lazy">
+      <img class="f3" src="thumbs/06a-SIF-vs-FD.webp" alt="" loading="lazy">
+      <img loading="lazy" decoding="async" class="f4" src="decoder-cover.webp" alt="SIF Decoder cover with one-pagers behind it">
       <span class="fan-badge">FREE</span>
     </button>
   </div>
@@ -1437,7 +1464,7 @@ function renderLib(){
   const lead = savedLead();
   const list = DOCS.filter(d => d.tab === curTab && (!curHold || d.hold === curHold));
   $("#lib").setAttribute("aria-labelledby", "tab-" + curTab);
-  $("#lib").innerHTML = list.map(d => '<article class="ticket"><button type="button" class="ticket-img" data-doc="' + esc(d.id) + '" aria-label="Get ' + esc(d.t) + '"><img loading="lazy" src="thumbs/' + esc(d.file.replace(/\.pdf$/, ".jpg")) + '" alt="First page of ' + esc(d.t) + '"></button><div class="ticket-cut" aria-hidden="true"></div><div class="ticket-stub"><div class="ticket-top"><span class="ticket-no">' + (/^\d/.test(d.id) ? "Note " + esc(d.id) : d.id === "D" ? "Flagship research" : "Research") + '</span><span class="pill ' + (d.aud === "client" ? "pill-client" : "pill-partner") + '">' + (d.aud === "client" ? "Client-shareable" : "Partners only") + '</span></div><h3>' + esc(d.t) + '</h3><p>' + esc(d.d) + '</p><div class="ticket-foot"><span class="meta">' + d.pages + (d.pages > 1 ? " pages" : " page") + ' · PDF</span><button class="btn btn-brand btn-sm" type="button" data-doc="' + esc(d.id) + '">' + (lead ? "Download" : "Get PDF") + '</button></div></div></article>').join("");
+  $("#lib").innerHTML = list.map(d => '<article class="ticket"><button type="button" class="ticket-img" data-doc="' + esc(d.id) + '" aria-label="Get ' + esc(d.t) + '"><img loading="lazy" src="thumbs/' + esc(d.file.replace(/\.pdf$/, ".webp")) + '" alt="First page of ' + esc(d.t) + '"></button><div class="ticket-cut" aria-hidden="true"></div><div class="ticket-stub"><div class="ticket-top"><span class="ticket-no">' + (/^\d/.test(d.id) ? "Note " + esc(d.id) : d.id === "D" ? "Flagship research" : "Research") + '</span><span class="pill ' + (d.aud === "client" ? "pill-client" : "pill-partner") + '">' + (d.aud === "client" ? "Client-shareable" : "Partners only") + '</span></div><h3>' + esc(d.t) + '</h3><p>' + esc(d.d) + '</p><div class="ticket-foot"><span class="meta">' + d.pages + (d.pages > 1 ? " pages" : " page") + ' · PDF</span><button class="btn btn-brand btn-sm" type="button" data-doc="' + esc(d.id) + '">' + (lead ? "Download" : "Get PDF") + '</button></div></div></article>').join("");
   $("#picker").hidden = curTab !== "client";
 }
 $("#pickChips").innerHTML = ["All", ...DOCS.filter(d=>d.hold).map(d=>d.hold)].map(h => '<button class="chip" type="button" aria-pressed="' + (h==="All") + '" data-hold="' + esc(h) + '">' + esc(h) + '</button>').join("");
@@ -1452,7 +1479,7 @@ function openStarter(source){
   store.set("ap_sif_popup", String(Date.now()));
   track("popup_open", {trigger: source});
   const thumb = '<div class="pop-thumb"><div class="date"><small>NOV</small><strong>16</strong></div><div><h3 id="mTitle">Register for the free NISM V-D batch</h3></div></div>';
-  const bonus = '<div class="bonus"><img src="decoder-cover.jpg" alt="" width="72" height="41" style="width:72px;height:auto;border-radius:4px;flex:none"><span>You also get the SIF Decoder, our 26-page SIF research.</span></div>';
+  const bonus = '<div class="bonus"><img loading="lazy" decoding="async" src="decoder-cover.webp" alt="" width="72" height="41" style="width:72px;height:auto;border-radius:4px;flex:none"><span>You also get the SIF Decoder, our 26-page SIF research.</span></div>';
   openModal("", '<div class="pop"><span class="steps">Step 1 of 2</span>' + thumb + '<p class="sub">8 live evenings from 16 Nov, 6:30 to 8:30 PM, in English.</p>' + bonus + leadForm({minimal: true, cta: "Register free"}) + '<button class="skip" type="button" id="popSkip">No thanks</button></div>', true, true);
   $("#popSkip").addEventListener("click", closeModal);
   bindLead(source, {want: "sif-decoder"}, (saved, d) => askCertified(saved, d.name, (certified) => showDecoder(saved, d.name, certified)));
@@ -1536,14 +1563,26 @@ document.addEventListener("click", e => {
 })();
 document.addEventListener("click", e => { const b = e.target.closest('[data-open="decoder-after"]'); if (b) { e.stopPropagation(); const l = savedLead() || {}; openModal("", "", true, true); showDecoder(null, l.name || "", l.vd === "Certified"); } }, true);
 
+/* Phones get a small nudge bar; larger screens get the pop-up */
+function showNudge(src){
+  if ($("#nudge")) return;
+  const n = document.createElement("div");
+  n.className = "nudge"; n.id = "nudge"; n.setAttribute("role", "dialog"); n.setAttribute("aria-label", "Free NISM V-D batch");
+  n.innerHTML = '<span class="nd"><small>NOV</small><strong>16</strong></span><p>Free NISM V-D batch<span>8 live evenings · Free</span></p><button class="btn btn-flame" type="button" id="ndGo">Register</button><button class="nx" type="button" id="ndX" aria-label="Close">\u00d7</button>';
+  document.body.appendChild(n); document.body.classList.add("nudging");
+  track("nudge_shown", {trigger: src});
+  $("#ndGo").addEventListener("click", () => { n.remove(); document.body.classList.remove("nudging"); openStarter("nudge"); });
+  $("#ndX").addEventListener("click", () => { n.remove(); document.body.classList.remove("nudging"); store.set("ap_sif_popup", String(Date.now())); });
+}
 /* First-visit popup: 45% scroll, 40 s on page, or exit intent. Once per 7 days; never after sign-up. */
 (function firstVisit(){
   const last = Number(store.get("ap_sif_popup") || 0);
   if (savedLead() || (last && Date.now() - last < 7*864e5)) return;
   let shown = false;
-  const show = (src) => { if (shown || !overlay.hidden) return; shown = true; openStarter(src); };
+  const phone = matchMedia("(max-width: 640px)").matches;
+  const show = (src) => { if (shown || !overlay.hidden) return; shown = true; phone ? showNudge(src) : openStarter(src); };
   setTimeout(() => show("popup-time"), 40000);
-  const onScroll = () => { const h = document.documentElement; if ((h.scrollTop + innerHeight) / h.scrollHeight > 0.45) { removeEventListener("scroll", onScroll); show("popup-scroll"); } };
+  const onScroll = () => { const h = document.scrollingElement || document.documentElement; if ((scrollY + innerHeight) / h.scrollHeight > 0.45) { removeEventListener("scroll", onScroll); show("popup-scroll"); } };
   addEventListener("scroll", onScroll, {passive: true});
   document.addEventListener("mouseout", e => { if (!e.relatedTarget && e.clientY <= 0) show("popup-exit"); });
 })();
