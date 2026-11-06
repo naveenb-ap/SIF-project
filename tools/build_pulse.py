@@ -181,6 +181,24 @@ def build_html(data):
         ("A tough October for long-short equity", headline),
         ("<span class=\"asof\">To 26 Oct 2026</span>", "<span class=\"asof\">To %s</span>" % asof_txt),
     ]
+    tot = sum(f["aum"] or 0 for f in funds) or 1
+    top5 = sum(sorted([f["aum"] or 0 for f in funds], reverse=True)[:5]) / tot * 100
+    brands = {}
+    for f in funds:
+        brands[f["brand"]] = brands.get(f["brand"], 0) + (f["aum"] or 0)
+    bl = sorted(brands.items(), key=lambda x: -x[1])
+    b1 = bl[0][1] / tot * 100
+    b3 = sum(v for _, v in bl[:3]) / tot * 100
+    hyb = next((c["aum"] for c in cats if c["name"] == "Hybrid Long-Short"), 0) / tot * 100
+    frac = lambda x: "about a third" if 30 <= x < 37 else "about two-thirds" if 62 <= x < 70 else "about half" if 45 <= x < 55 else "%.0f%%" % x
+    reps += [
+        ("Hybrid long-short holds almost two-thirds", "Hybrid long-short holds %.0f%% of SIF money" % hyb),
+        ('<span class="asof">30 Sep 2026 · AMFI</span>', '<span class="asof">Average AUM, %s · AMFI</span>' % data["aumPeriod"]),
+        ("Five strategies hold 59% of all SIF money", "Five strategies hold %.0f%% of all SIF money" % top5),
+        ("Share of strategy AUM, Sep 2026", "Share of average AUM, %s" % data["aumPeriod"]),
+        ("Altiva (Edelweiss) alone is a third of the market; the top three brands (Altiva, iSIF and Magnum) hold about two-thirds.",
+         "%s (%s) alone holds %.0f%% of the market; the top three brands (%s) hold %.0f%%." % (bl[0][0], AMC.get(bl[0][0], ""), b1, ", ".join(x for x, _ in bl[:3]), b3)),
+    ]
     for a, b in reps:
         src = src.replace(a, b)
     src = re.sub(r"<p><b style=\"color:var\(--ink\)\">Sources\.</b>.*?</p>",

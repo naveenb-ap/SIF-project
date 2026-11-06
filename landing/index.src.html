@@ -479,7 +479,7 @@ a { color: var(--brand); }
 .chip[aria-pressed="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
 .tk-sum { display: grid; grid-template-columns: repeat(5, minmax(0,1fr)); gap: 10px; margin-bottom: 16px; }
 @media (max-width: 900px) { .tk-sum { grid-template-columns: repeat(2, minmax(0,1fr)); } }
-.tk-sum div { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; }
+.tk-sum > div { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; }
 .tk-sum .l { font-size: 12px; color: var(--muted); }
 .tk-sum .v { font-size: 20px; font-weight: 700; }
 .table-box { overflow-x: auto; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; }
@@ -498,6 +498,7 @@ td .a { font-size: 12px; color: var(--muted); }
 .bar { height: 6px; border-radius: 3px; background: var(--surface-2); position: relative; width: 120px; }
 .bar i { position: absolute; top: 0; bottom: 0; border-radius: 3px; }
 .tk-note { font-size: 12px; color: var(--muted); margin-top: 12px; }
+#tk .cs { display: none; }
 
 /* timeline */
 .timeline { display: grid; grid-template-columns: repeat(7, minmax(0,1fr)); gap: 0; position: relative; }
@@ -784,6 +785,115 @@ input:focus, select:focus { outline: 2px solid var(--brand); border-color: var(-
 .fine { font-size: 11px; color: var(--muted); }
 .gate-doc { display: flex; gap: 12px; align-items: center; background: var(--surface-2); border-radius: 12px; padding: 12px; font-size: 14px; }
 .gate-doc .ic { width: 38px; height: 46px; border-radius: 6px; background: var(--flame); color: #fff; display: grid; place-items: center; font: 700 11px var(--font-mono); flex: none; }
+
+/* ===== Phone layout ===== */
+.pulse-link { white-space: normal; text-align: left; }
+@media (max-width: 640px) {
+  .section { padding-block: 48px; }
+  .section-head { margin-bottom: 20px; gap: 8px; }
+  .h2 { font-size: 27px; }
+  .lede { font-size: 16px; }
+  .btn-lg { padding: 14px 18px; font-size: 16px; }
+
+  /* hero */
+  .rhero > .wrap:first-child { padding-top: 24px; gap: 20px; }
+  .rhero h1 { font-size: 46px; margin-top: 14px; }
+  .rhero h1 .u::after { bottom: -6px; height: 9px; }
+  .rhero-sub { font-size: 17px; margin-top: 18px; }
+  .rhero-ctas { display: grid; grid-template-columns: 1fr 1fr; width: 100%; gap: 10px; margin-top: 20px; }
+  .rhero-ctas .btn { width: 100%; padding-inline: 10px; }
+  .rhero-stats { grid-template-columns: repeat(3, minmax(0,1fr)); padding: 12px 4px; margin-top: 18px; }
+  .rhero-stats > div { flex-direction: column; align-items: flex-start; gap: 2px; padding: 2px 10px; border-right: 1px solid var(--line); }
+  .rhero-stats > div:last-child { border-right: 0; }
+  .rhero-stats svg { display: none; }
+  .rhero-stats span { font-size: 11px; }
+  .rhero-stats b { font-size: 16px; }
+  .rhero-stats em { font-size: 11px; letter-spacing: 0; }
+  .rhero { padding-bottom: 28px; }
+  .rv-frame { width: min(270px, 74%); }
+  .rv-pass { left: -20%; top: 6%; }
+  .rv-journey { margin-top: 14px; padding: 12px 10px; gap: 10px; }
+  .rv-journey > b { font-size: 14px; }
+  .rv-journey li { font-size: 10.5px; white-space: nowrap; }
+  .rv-journey li i { width: 28px; height: 28px; font-size: 12px; }
+  .rv-journey ol::before { top: 13px; }
+
+  /* six steps: one swipeable row of chips, photo above the text */
+  .journey6 { gap: 14px; }
+  .jtabs { display: flex; overflow-x: auto; gap: 8px; scroll-snap-type: x mandatory; padding-bottom: 4px; scrollbar-width: none; }
+  .jtabs::-webkit-scrollbar { display: none; }
+  .jt { flex: none; scroll-snap-align: start; padding: 10px 14px; font-size: 14px; }
+  .jpanels { padding: 16px; min-height: 0; }
+  .jp.has-img { row-gap: 10px; }
+  .jp-img { order: -1; height: 200px !important; width: 100% !important; }
+  .jp h3 { font-size: 22px; }
+  .jp p { font-size: 15px; }
+
+  /* certification band */
+  .certify .wrap { padding-block: 44px; gap: 28px; }
+  .cert-pics img { height: 170px; }
+  .event-top { grid-template-columns: 1fr; }
+  .event-date { display: flex; gap: 8px; align-items: baseline; justify-content: flex-start; padding: 10px 18px; }
+  .event-date .d { font-size: 22px; }
+  .event-date .m, .event-date .y { font-size: 12px; }
+  .event-body { padding: 14px 18px; }
+  .event-actions { padding: 0 18px 16px; }
+  .event-actions .btn { width: 100%; }
+  .countdown { padding: 12px 18px; }
+  .countdown span[style] { margin-left: 0 !important; width: 100%; }
+  .event.soon > div { display: grid !important; grid-template-columns: 1fr 1fr; }
+  .event.soon .btn { width: 100%; padding-inline: 8px; white-space: normal; text-align: center; }
+
+  /* opportunity */
+  .opp-cards div { grid-template-columns: 104px minmax(0,1fr); gap: 10px; }
+  .opp-cards b { font-size: 22px; }
+  .opp-cards span { font-size: 14px; }
+
+  /* what is a SIF */
+  .panel { padding: 20px; }
+  .rules { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .rule { padding: 14px; }
+  .rule .v { font-size: 20px; }
+  .rule .l { font-size: 13px; }
+
+  /* NAV board */
+  .tk-sum { display: flex; overflow-x: auto; gap: 10px; margin-inline: -16px; padding-inline: 16px; scrollbar-width: none; }
+  .tk-sum::-webkit-scrollbar { display: none; }
+  .tk-sum > div { flex: none; min-width: 140px; }
+  #chips { flex-wrap: nowrap; overflow-x: auto; margin-inline: -16px; padding-inline: 16px; scrollbar-width: none; }
+  #chips::-webkit-scrollbar { display: none; }
+  #chips .chip { flex: none; }
+  #tk { min-width: 0; font-size: 13px; }
+  #tk th:nth-child(3), #tk td:nth-child(3), #tk th:nth-child(5), #tk td:nth-child(5), #tk th:nth-child(7), #tk td:nth-child(7) { display: none; }
+  #tk th, #tk td { padding: 10px 8px; }
+  #tk td:nth-child(2) { font-size: 12px; color: var(--muted); }
+  #tk .cf { display: none; } #tk .cs { display: inline; }
+
+  /* partner kit: compact horizontal tickets */
+  #kit .journey { display: none; }
+  .tabs { flex-wrap: nowrap; overflow-x: auto; margin-inline: -16px; padding-inline: 16px; scrollbar-width: none; }
+  .tabs::-webkit-scrollbar { display: none; }
+  .tab { flex: none; }
+  .lib { gap: 12px; }
+  .ticket { grid-template-columns: 96px minmax(0,1fr); grid-template-rows: auto; }
+  .ticket-img { aspect-ratio: auto; height: 132px; align-self: start; border-radius: 13px 0 0 13px; }
+  .ticket { align-items: start; }
+  .ticket-cut { display: none; }
+  .ticket-stub { padding: 12px; gap: 6px; }
+  .ticket h3 { font-size: 15px; }
+  .ticket p { display: none; }
+  .ticket-top .pill { font-size: 10.5px; padding: 3px 8px; }
+  .picker { padding: 14px; }
+  #pickChips { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; }
+  #pickChips .chip { flex: none; }
+
+  /* bundle */
+  .fan { width: 100%; }
+
+  /* closing band + footer */
+  .aband .wrap { padding-block: 44px; }
+  footer .wrap { padding-block: 28px 96px; }
+}
 </style>
 
 <header class="topbar">
@@ -1019,7 +1129,7 @@ input:focus, select:focus { outline: 2px solid var(--brand); border-color: var(-
   <div class="wrap">
     <div class="section-head">
       <h2 class="h2">SIF NAVs</h2>
-      <a class="btn btn-ghost" style="justify-self:start" href="https://claude.ai/artifact/E4opRsHH4bNToUxFUnBETX" target="_blank" rel="noopener">Open the full SIF Pulse: returns, AUM and leaders →</a>
+      <a class="btn btn-ghost pulse-link" style="justify-self:start" href="https://claude.ai/artifact/E4opRsHH4bNToUxFUnBETX" target="_blank" rel="noopener">Open the full SIF Pulse: returns, AUM and leaders →</a>
       <p class="lede">NAVs for all SIF strategies from AMFI, updated every evening, with the change from the previous business day. One line per strategy (direct plan, growth option where available).</p>
     </div>
     <div class="tk-sum" id="tkSum"></div>
@@ -1271,7 +1381,7 @@ function renderTable(){
   $("#tk tbody").innerHTML = shown.map(r => {
     const w = Math.abs(r.chg)/maxAbs*50;
     const bar = r.chg>=0 ? '<i style="left:50%;width:'+w+'%;background:var(--pos)"></i>' : '<i style="right:50%;width:'+w+'%;background:var(--neg)"></i>';
-    return '<tr><td><div class="b">' + esc(r.b) + '</div><div class="a">' + esc(r.amc) + '</div></td><td>' + esc(r.c) + '</td><td>' + esc(r.t) + '</td><td class="r num mono">' + fmt(r.nav, 4) + '</td><td class="r num mono" style="color:var(--muted)">' + fmt(r.prev, 4) + '</td><td class="r"><span class="chg ' + (r.chg>=0?"pos":"neg") + '">' + (r.chg>=0?"+":"") + r.chg.toFixed(2) + '%</span></td><td><div class="bar">' + bar + '</div></td></tr>';
+    return '<tr><td><div class="b">' + esc(r.b) + '</div><div class="a">' + esc(r.amc) + '</div></td><td><span class="cf">' + esc(r.c) + '</span><span class="cs">' + esc(shortCat(r.c)) + '</span></td><td>' + esc(r.t) + '</td><td class="r num mono">' + fmt(r.nav, 4) + '</td><td class="r num mono" style="color:var(--muted)">' + fmt(r.prev, 4) + '</td><td class="r"><span class="chg ' + (r.chg>=0?"pos":"neg") + '">' + (r.chg>=0?"+":"") + r.chg.toFixed(2) + '%</span></td><td><div class="bar">' + bar + '</div></td></tr>';
   }).join("");
   $("#tkAsof").textContent = "NAV " + DATA.asof + " vs " + DATA.prev + " · " + list.length + " strategies";
 }

@@ -202,6 +202,11 @@ footer a { color: var(--brand); }
   .chart-box { height: 260px; }
 }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+
+/* phone refinements */
+@media (max-width: 640px) {
+  .flow-table th, .flow-table td, table:not(#uni) th, table:not(#uni) td { padding-left: 8px !important; padding-right: 8px !important; font-size: 13px; }
+}
 </style>
 
 <div class="topbar">
@@ -261,8 +266,8 @@ footer a { color: var(--brand); }
 
   <section aria-labelledby="h-cat">
     <div class="sec-head">
-      <div><p class="eyebrow">Where the money sits</p><h2 id="h-cat">Hybrid long-short holds almost two-thirds</h2></div>
-      <span class="asof">30 Sep 2026 · AMFI</span>
+      <div><p class="eyebrow">Where the money sits</p><h2 id="h-cat">Hybrid long-short holds 65% of SIF money</h2></div>
+      <span class="asof">Average AUM, July - September 2026 · AMFI</span>
     </div>
     <div class="grid-2b">
       <div class="panel" id="catBars" aria-label="AUM by category"></div>
@@ -288,11 +293,11 @@ footer a { color: var(--brand); }
 
   <section aria-labelledby="h-conc">
     <div class="sec-head">
-      <div><p class="eyebrow">Concentration</p><h2 id="h-conc">Five strategies hold 59% of all SIF money</h2></div>
-      <span class="asof">Share of strategy AUM, Sep 2026</span>
+      <div><p class="eyebrow">Concentration</p><h2 id="h-conc">Five strategies hold 63% of all SIF money</h2></div>
+      <span class="asof">Share of average AUM, July - September 2026</span>
     </div>
     <div class="panel">
-      <p style="font-size:14.5px">Share of assets by SIF brand. Altiva (Edelweiss) alone is a third of the market; the top three brands (Altiva, iSIF and Magnum) hold about two-thirds.</p>
+      <p style="font-size:14.5px">Share of assets by SIF brand. Altiva (Edelweiss) alone holds 35% of the market; the top three brands (Altiva, iSIF, Magnum) hold 69%.</p>
       <div class="stack" id="brandStack" role="img" aria-label="Stacked bar of SIF assets by brand"></div>
       <div class="stack-legend" id="brandLegend"></div>
     </div>
