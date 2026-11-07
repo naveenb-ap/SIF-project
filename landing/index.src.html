@@ -286,6 +286,61 @@ a { color: var(--brand); }
 .ticket { transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease; }
 .ticket:hover { transform: translateY(-4px); }
 @media (prefers-reduced-motion: reduce) { .mv *, .mv .stg > * { transition: none !important; transform: none !important; opacity: 1 !important; } .jp:not([hidden]) { animation: none; } }
+/* SIF tools: calculator + quiz */
+.pz-play { background: linear-gradient(135deg, #2B4FA8, #1B3A80); border-radius: 18px; padding: 22px; margin-bottom: 18px; color: #fff; }
+.pp-tabs { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 18px; }
+.pp-tab { all: unset; cursor: pointer; padding: 10px 16px; border-radius: 999px; font-weight: 600; font-size: 14.5px; color: #D5E0F2; border: 1px solid rgba(255,255,255,.25); transition: background .2s, color .2s; }
+.pp-tab[aria-selected="true"] { background: #fff; color: #2B4FA8; border-color: #fff; }
+.pp-tab:focus-visible { outline: 3px solid #fff; outline-offset: 2px; }
+.pp-panel:not([hidden]) { animation: rise-in .4s ease-out both; }
+.pc-grid { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 18px; }
+.pc-in { display: grid; gap: 14px; align-content: start; }
+.pc-in label { color: #D5E0F2; font-weight: 500; font-size: 14px; display: grid; gap: 8px; }
+.pc-in label b { color: #fff; font-size: 22px; font-family: var(--font-display); font-weight: 700; }
+.pc-in select { background: #fff; color: var(--ink); border: 0; }
+input[type=range]#pcAmt { -webkit-appearance: none; appearance: none; height: 8px; border-radius: 4px; background: linear-gradient(90deg, #fff var(--p, 0%), rgba(255,255,255,.25) var(--p, 0%)); padding: 0; border: 0; }
+#pcAmt::-webkit-slider-thumb { -webkit-appearance: none; width: 24px; height: 24px; border-radius: 50%; background: #fff; border: 4px solid #F5B942; cursor: pointer; box-shadow: 0 2px 8px rgba(0,0,0,.25); }
+#pcAmt::-moz-range-thumb { width: 18px; height: 18px; border-radius: 50%; background: #fff; border: 4px solid #F5B942; cursor: pointer; }
+.pc-scale { display: flex; justify-content: space-between; font-size: 12px; color: #C9D8F2; margin-top: -8px; }
+.pc-per { display: flex; gap: 6px; flex-wrap: wrap; }
+.pc-per button { all: unset; cursor: pointer; padding: 8px 12px; border-radius: 10px; font-size: 13px; font-weight: 600; background: rgba(255,255,255,.12); color: #fff; }
+.pc-per button[aria-pressed="true"] { background: #F5B942; color: #1B2A4A; }
+.pc-per button:disabled { opacity: .35; cursor: not-allowed; }
+.pc-out { background: #fff; color: var(--ink); border-radius: 14px; padding: 18px; display: grid; gap: 4px; align-content: start; }
+.pc-l { font-size: 13px; color: var(--muted); }
+.pc-v { font-family: var(--font-display); font-size: clamp(30px, 4vw, 40px); font-weight: 700; color: #2B4FA8; font-variant-numeric: tabular-nums; }
+.pc-g { font-size: 15px; font-weight: 600; }
+.pc-g.up { color: var(--pos); } .pc-g.down { color: var(--neg); }
+.pc-bars { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; align-items: end; height: 96px; margin-top: 12px; }
+.pc-bars div { display: grid; gap: 4px; justify-items: center; align-content: end; height: 100%; font-size: 11px; color: var(--muted); }
+.pc-bars i { display: block; width: 100%; max-width: 46px; border-radius: 6px 6px 2px 2px; background: #C7D8FB; transition: height .5s cubic-bezier(.2,.7,.2,1); }
+.pc-bars i.neg { background: #F6C3BF; } .pc-bars .on i { background: #2B4FA8; } .pc-bars .on i.neg { background: var(--neg); }
+.pc-bars b { font-size: 11.5px; color: var(--ink); }
+.pc-fine { font-size: 12.5px; color: var(--muted); margin-top: 8px; }
+.pc-disc { font-size: 11.5px; color: #C9D8F2; margin-top: 14px; line-height: 1.5; }
+.qz { display: grid; gap: 14px; max-width: 720px; }
+.qz-top { display: flex; justify-content: space-between; align-items: center; gap: 10px; font-size: 13px; color: #C9D8F2; }
+.qz-dots { display: flex; gap: 6px; }
+.qz-dots i { width: 26px; height: 6px; border-radius: 3px; background: rgba(255,255,255,.25); }
+.qz-dots i.ok { background: #5FD48A; } .qz-dots i.no { background: #FF8A80; } .qz-dots i.now { background: #fff; }
+.qz h3 { color: #fff; font-size: clamp(19px, 2.2vw, 24px); }
+.qz-opts { display: grid; gap: 8px; }
+.qz-opts button { all: unset; cursor: pointer; background: #fff; color: var(--ink); border-radius: 12px; padding: 13px 16px; font-weight: 500; border: 2px solid transparent; transition: transform .15s, border-color .15s; }
+.qz-opts button:hover:not(:disabled) { transform: translateX(4px); }
+.qz-opts button:focus-visible { outline: 3px solid #F5B942; }
+.qz-opts button.ok { border-color: #22A05A; background: #E7F6EC; } .qz-opts button.no { border-color: #E04A3F; background: #FCE9E7; }
+.qz-opts button:disabled { cursor: default; }
+.qz-why { background: rgba(255,255,255,.12); border-radius: 12px; padding: 12px 14px; font-size: 14px; color: #EAF0FA; }
+.qz-next { justify-self: start; }
+.qz-res { display: grid; gap: 12px; justify-items: start; }
+.qz-badge { display: flex; align-items: center; gap: 14px; }
+.qz-medal { flex: none; width: 72px; height: 72px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #FFE29A, #F5B942 60%, #D99A1E); display: grid; place-items: center; font-family: var(--font-display); font-weight: 800; font-size: 22px; color: #5B3A00; box-shadow: 0 8px 20px rgba(0,0,0,.25); animation: pop .5s cubic-bezier(.2,1.4,.4,1) both; }
+@keyframes pop { from { transform: scale(.3) rotate(-20deg); opacity: 0; } to { transform: none; opacity: 1; } }
+.qz-badge b { display: block; font-size: 22px; color: #fff; font-family: var(--font-display); }
+.qz-badge span { color: #D5E0F2; font-size: 14px; }
+.qz-res .row { display: flex; gap: 10px; flex-wrap: wrap; }
+@media (max-width: 760px) { .pc-grid { grid-template-columns: 1fr; } .pz-play { padding: 16px; } }
+@media (prefers-reduced-motion: reduce) { .qz-medal, .pp-panel:not([hidden]) { animation: none; } .pc-bars i { transition: none; } }
 /* SIF Ready hero (reference layout) */
 .rhero { background: linear-gradient(180deg, #F2F6FE 0%, #F7F9FD 100%); overflow: hidden; }
 .rhero > .wrap:first-child { display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr); gap: 40px; padding-top: 44px; align-items: center; }
@@ -1336,6 +1391,40 @@ input:focus, select:focus { outline: 2px solid var(--brand); border-color: var(-
       <div class="pz-breadth" id="pzBreadth" role="img"></div>
     </div>
 
+
+    <div class="pz-play" id="play">
+      <div class="pp-tabs" role="tablist" aria-label="SIF tools">
+        <button type="button" role="tab" class="pp-tab" aria-selected="true" data-pp="calc" id="pp-tab-calc">What would it be worth?</button>
+        <button type="button" role="tab" class="pp-tab" aria-selected="false" data-pp="quiz" id="pp-tab-quiz">How SIF Ready are you?</button>
+      </div>
+
+      <div class="pp-panel" data-pp-panel="calc" role="tabpanel" aria-labelledby="pp-tab-calc">
+        <div class="pc-grid">
+          <div class="pc-in">
+            <label for="pcAmt">Amount invested <b id="pcAmtV">₹10,00,000</b>
+              <input id="pcAmt" type="range" min="10" max="100" step="5" value="10" aria-valuetext="10 lakh rupees">
+            </label>
+            <div class="pc-scale"><span>₹10 lakh</span><span>₹1 crore</span></div>
+            <label for="pcFund">Strategy
+              <select id="pcFund"></select>
+            </label>
+            <div class="pc-per" role="group" aria-label="Period" id="pcPer"></div>
+          </div>
+          <div class="pc-out" aria-live="polite">
+            <span class="pc-l">Value today</span>
+            <b class="pc-v" id="pcVal">–</b>
+            <span class="pc-g" id="pcGain"></span>
+            <div class="pc-bars" id="pcBars" aria-hidden="true"></div>
+            <p class="pc-fine" id="pcFine"></p>
+          </div>
+        </div>
+        <p class="pc-disc">Based on actual AMFI NAVs, Regular plan, growth option, before tax and exit load. Past performance may or may not be sustained in future and is not a forecast. SIFs need a minimum of ₹10 lakh per investor and carry higher risk, including loss of capital. For distributor education, not a recommendation.</p>
+      </div>
+
+      <div class="pp-panel" data-pp-panel="quiz" role="tabpanel" aria-labelledby="pp-tab-quiz" hidden>
+        <div class="qz" id="qz"></div>
+      </div>
+    </div>
     <p class="tk-note">Source: AMFI SIF APIs (amfiindia.com). NAV and returns on the Regular plan, growth option; 1D on the Direct plan. Returns are absolute, not annualised; since-launch is measured from the allotment price. “–” means the strategy launched after the start of that period. Strategy AUM is AMFI’s quarterly average. Industry assets, flows and folios are from AMFI’s monthly SIF data for September 2026. Listed for information only, not ranked or recommended; a short-term move says nothing about a strategy’s quality or future returns.</p>
   </div>
 </section>
@@ -1986,6 +2075,77 @@ function showNudge(src){
   }), {rootMargin: "0px 0px -12% 0px"});
   $$(".mv").forEach(el => io.observe(el));
   setTimeout(() => $$(".mv").forEach(el => el.classList.add("in")), 8000);
+})();
+
+/* SIF tools: "what would it be worth" calculator and the SIF Ready quiz */
+(function sifTools(){
+  if (!$("#play")) return;
+  $$(".pp-tab").forEach(t => t.addEventListener("click", () => {
+    $$(".pp-tab").forEach(x => x.setAttribute("aria-selected", x === t));
+    $$(".pp-panel").forEach(pn => pn.hidden = pn.dataset.ppPanel !== t.dataset.pp);
+    track("tool_tab", {tab: t.dataset.pp});
+  }));
+
+  // calculator
+  const F = PULSE.funds.filter(f => f.si != null).sort((a, b) => (b.aum || 0) - (a.aum || 0));
+  const per = [["m1", "1 month"], ["m3", "3 months"], ["m6", "6 months"], ["si", "Since launch"]];
+  let pk = "si";
+  $("#pcFund").innerHTML = F.map((f, i) => '<option value="' + i + '">' + esc(f.name) + ' · ' + esc(f.amc) + '</option>').join("");
+  $("#pcPer").innerHTML = per.map(([k, l]) => '<button type="button" data-k="' + k + '" aria-pressed="' + (k === pk) + '">' + l + '</button>').join("");
+  const inr = n => "₹" + Math.round(n).toLocaleString("en-IN");
+  const lakh = n => n >= 100 ? "₹1 crore" : "₹" + n + " lakh";
+  function calc(){
+    const f = F[+$("#pcFund").value], amtL = +$("#pcAmt").value, amt = amtL * 1e5;
+    $("#pcAmt").style.setProperty("--p", ((amtL - 10) / 90 * 100) + "%");
+    $("#pcAmtV").textContent = inr(amt); $("#pcAmt").setAttribute("aria-valuetext", lakh(amtL) + " rupees");
+    $$("#pcPer button").forEach(b => { b.disabled = f[b.dataset.k] == null; b.setAttribute("aria-pressed", b.dataset.k === pk); });
+    if (f[pk] == null) { pk = "si"; return calc(); }
+    const r = f[pk], val = amt * (1 + r / 100), gain = val - amt;
+    $("#pcVal").textContent = inr(val);
+    $("#pcGain").textContent = (gain >= 0 ? "+" : "−") + inr(Math.abs(gain)).slice(0) + " (" + (r >= 0 ? "+" : "−") + Math.abs(r).toFixed(2) + "%)";
+    $("#pcGain").className = "pc-g " + (gain >= 0 ? "up" : "down");
+    const since = f.launch ? new Date(f.launch + "T00:00:00").toLocaleDateString("en-IN", {day: "numeric", month: "short", year: "numeric"}) : "launch";
+    const from = pk === "si" ? "launch on " + since : (PULSE.periodDates && PULSE.periodDates[pk] ? new Date(PULSE.periodDates[pk] + "T00:00:00").toLocaleDateString("en-IN", {day: "numeric", month: "short", year: "numeric"}) : "");
+    $("#pcFine").textContent = "If " + inr(amt) + " went into " + f.name + " at " + from + ", valued at NAV ₹" + f.nav.toLocaleString("en-IN", {maximumFractionDigits: 4}) + ".";
+    const vals = per.map(([k]) => f[k]), mx = Math.max(1, ...vals.filter(v => v != null).map(Math.abs));
+    $("#pcBars").innerHTML = per.map(([k, l], i) => { const v = vals[i]; return '<div class="' + (k === pk ? "on" : "") + '"><b>' + (v == null ? "–" : (v >= 0 ? "+" : "−") + Math.abs(v).toFixed(1) + "%") + '</b><i class="' + (v < 0 ? "neg" : "") + '" style="height:' + (v == null ? 2 : Math.max(4, Math.abs(v) / mx * 60)) + 'px"></i>' + l.replace(" months", "M").replace(" month", "M").replace("Since launch", "Launch") + '</div>'; }).join("");
+  }
+  $("#pcAmt").addEventListener("input", calc);
+  $("#pcFund").addEventListener("change", () => { calc(); track("calc_fund", {}); });
+  $("#pcPer").addEventListener("click", e => { const b = e.target.closest("button"); if (!b || b.disabled) return; pk = b.dataset.k; calc(); });
+  calc();
+
+  // quiz
+  const Q = [
+    {q: "What is the minimum a client must invest in SIFs?", o: ["₹1 lakh", "₹10 lakh", "₹50 lakh"], a: 1, w: "₹10 lakh per investor (PAN) across a fund house's SIF strategies. That makes every SIF client a high-value client."},
+    {q: "How much unhedged short exposure can a SIF take?", o: ["Up to 10%", "Up to 25%", "Up to 50%"], a: 1, w: "Up to 25% of net assets through derivatives. This is the key difference from a mutual fund."},
+    {q: "Which certification lets you distribute both mutual funds and SIFs?", o: ["NISM Series V-D", "NISM Series XXI-A", "NISM Series VIII"], a: 0, w: "NISM Series V-D covers both. Our free live batch prepares you for it."},
+    {q: "How is a SIF's risk shown to investors?", o: ["The usual riskometer only", "A risk band from Level 1 to 5", "It isn't disclosed"], a: 1, w: "Every SIF strategy shows a risk band from Level 1 (lowest) to Level 5."},
+    {q: "When can clients redeem from an interval SIF?", o: ["Any business day", "Only on set redemption days", "Only at maturity"], a: 1, w: "Interval strategies redeem only on scheduled days, so check each strategy's redemption calendar."},
+  ];
+  let qi = 0, score = 0, res = [];
+  const box = $("#qz");
+  function dots(){ return '<div class="qz-dots">' + Q.map((_, i) => '<i class="' + (res[i] === true ? "ok" : res[i] === false ? "no" : i === qi ? "now" : "") + '"></i>').join("") + '</div>'; }
+  function ask(){
+    const x = Q[qi];
+    box.innerHTML = '<div class="qz-top"><span>Question ' + (qi + 1) + ' of ' + Q.length + '</span>' + dots() + '</div><h3>' + esc(x.q) + '</h3><div class="qz-opts">' + x.o.map((o, i) => '<button type="button" data-i="' + i + '">' + esc(o) + '</button>').join("") + '</div>';
+    $$(".qz-opts button", box).forEach(b => b.addEventListener("click", () => answer(+b.dataset.i)));
+  }
+  function answer(i){
+    const x = Q[qi], ok = i === x.a; if (ok) score++; res[qi] = ok;
+    $$(".qz-opts button", box).forEach((b, j) => { b.disabled = true; if (j === x.a) b.classList.add("ok"); else if (j === i) b.classList.add("no"); });
+    box.querySelector(".qz-dots").outerHTML = dots();
+    box.insertAdjacentHTML("beforeend", '<p class="qz-why">' + (ok ? "Correct. " : "Not quite. ") + esc(x.w) + '</p><button class="btn btn-onband qz-next" type="button">' + (qi < Q.length - 1 ? "Next question →" : "See my score") + '</button>');
+    box.querySelector(".qz-next").addEventListener("click", () => { qi++; qi < Q.length ? ask() : done(); });
+    box.querySelector(".qz-next").focus();
+  }
+  function done(){
+    track("quiz_done", {score});
+    const msg = score === 5 ? ["SIF Ready!", "You know the rules. Make it official with NISM V-D."] : score >= 3 ? ["Almost SIF Ready", "A few gaps. The free live batch covers all of this."] : ["Getting started", "No problem. 8 live evenings take you from basics to the V-D exam."];
+    box.innerHTML = '<div class="qz-res"><div class="qz-badge"><div class="qz-medal">' + score + '/5</div><div><b>' + msg[0] + '</b><span>' + msg[1] + '</span></div></div><div class="row"><button class="btn btn-onband" type="button" data-open="decoder">Register free for 16 Nov</button><button class="btn btn-outline-band" type="button" id="qzAgain">Try again</button><a class="btn btn-outline-band" href="https://wa.me/?text=' + encodeURIComponent("I scored " + score + "/5 on the AssetPlus SIF Ready quiz. Free NISM V-D training starts 16 Nov: " + location.href.split("#")[0]) + '" target="_blank" rel="noopener">Share your score</a></div></div>';
+    $("#qzAgain").addEventListener("click", () => { qi = 0; score = 0; res = []; ask(); });
+  }
+  ask();
 })();
 
 /* First-visit popup: 45% scroll, 40 s on page, or exit intent. Once per 7 days; never after sign-up. */
