@@ -38,11 +38,11 @@
   --body: #33415C;
   --muted: #5B6B86;
   --line: #DFE4EE;
-  --brand: #1A56DB;
-  --brand-deep: #0A1F44;
+  --brand: #2B4FA8;
+  --brand-deep: #1B3A80;
   --brand-soft: #EEF4FF;
   --brand-tint: #D3E1FB;
-  --flame: #E0322A;
+  --flame: #D63B3B;
   --flame-soft: #FDECEA;
   --gold: #B7791F;
   --gold-soft: #FBF3E3;
@@ -50,8 +50,8 @@
   --pos-bg: #E7F6EC;
   --neg: #B3261E;
   --neg-bg: #FCE9E7;
-  --band-a: #1F55B3;
-  --band-b: #102D60;
+  --band-a: #2B4FA8;
+  --band-b: #1B3A80;
   --on-band: #FFFFFF;
   --on-band-soft: #C9D8F2;
   --shadow: 0 1px 2px rgba(16,32,72,.06), 0 8px 24px rgba(16,32,72,.08);
@@ -75,15 +75,15 @@ a { color: var(--brand); }
 .num { font-variant-numeric: tabular-nums; }
 .mono { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
 .eyebrow { font-size: 12px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--flame); }
-.h2 { font-family: var(--font-display); font-weight: 600; font-size: clamp(28px, 3.4vw, 40px); letter-spacing: -0.02em; }
+.h2 { color: var(--brand); font-family: var(--font-display); font-weight: 600; font-size: clamp(28px, 3.4vw, 40px); letter-spacing: -0.02em; }
 .h2 em { font-style: normal; color: var(--brand); }
 .lede { font-size: 18px; color: var(--body); max-width: 62ch; }
 .section { padding-block: 72px; }
 .section-head { display: grid; gap: 10px; margin-bottom: 28px; max-width: 760px; }
 .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; font: 600 15px/1 var(--font-sans); padding: 14px 20px; border-radius: 10px; border: 1px solid transparent; text-decoration: none; cursor: pointer; transition: transform .15s ease, background .15s ease; white-space: nowrap; }
 .btn:hover { transform: translateY(-1px); }
-.btn-flame { background: var(--brand); color: #fff; }
-.btn-flame:hover { background: #1545B5; }
+.btn-flame { background: #3A5FB8; color: #fff; }
+.btn-flame:hover { background: #2F51A3; }
 .btn-white { background: #fff; color: var(--brand); }
 .btn-outline-blue { background: transparent; color: var(--brand); border-color: var(--brand); }
 .btn-brand { background: var(--brand); color: #fff; }
@@ -181,7 +181,7 @@ a { color: var(--brand); }
 .glow { animation: glow 2.2s ease-in-out infinite; }
 .bundle { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 48px; align-items: center; }
 @media (max-width: 900px) { .bundle { grid-template-columns: 1fr; } }
-.free-tag { display: inline-block; font-size: 13px; font-weight: 900; color: var(--pos); background: var(--pos-bg); padding: 5px 12px; border-radius: 999px; justify-self: start; }
+.free-tag { display: inline-block; font-size: 14px; font-weight: 500; color: #D63B3B; border: 1.5px solid #D63B3B; padding: 4px 12px; border-radius: 999px; justify-self: start; }
 .bundle-copy { display: grid; gap: 12px; }
 .bundle-list { list-style: none; margin: 6px 0 0; padding: 0; display: grid; gap: 12px; }
 .bundle-list li { display: grid; grid-template-columns: 26px minmax(0,1fr); column-gap: 10px; }
@@ -348,6 +348,43 @@ input[type=range]#pcAmt { -webkit-appearance: none; appearance: none; height: 8p
 .qz-res .row { display: flex; gap: 10px; flex-wrap: wrap; }
 @media (max-width: 760px) { .pc-grid { grid-template-columns: 1fr; } .pz-play { padding: 16px; } }
 @media (prefers-reduced-motion: reduce) { .qz-medal, .pp-panel:not([hidden]) { animation: none; } .pc-bars i { transition: none; } }
+/* trust strip */
+.trust { background: #F4F7FD; border-block: 1px solid var(--line); }
+.trust .wrap { padding-block: 28px; display: grid; gap: 14px; }
+.tr-row { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 0; }
+.tr-row > div { display: grid; gap: 2px; padding: 0 18px; border-left: 1px solid var(--line); }
+.tr-row > div:first-child { border-left: 0; padding-left: 0; }
+.tr-row b { font-family: var(--font-display); font-size: 26px; font-weight: 700; color: var(--brand); }
+.tr-row span { font-size: 13.5px; color: var(--muted); }
+.tr-back { font-size: 14px; color: var(--muted); }
+.tr-back b { color: var(--ink); font-weight: 600; }
+.tr-proof { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px 22px; font-size: 13.5px; color: var(--body); }
+.tr-proof li { display: flex; gap: 8px; align-items: center; }
+.tr-ic { width: 22px; height: 22px; border-radius: 6px; background: #fff; border: 1px solid var(--line); display: grid; place-items: center; color: var(--brand); font-size: 12px; }
+@media (max-width: 760px) { .tr-row { grid-template-columns: 1fr 1fr; row-gap: 14px; } .tr-row > div:nth-child(3) { border-left: 0; padding-left: 0; } .tr-row b { font-size: 21px; } }
+/* share blocks */
+.shr { display: grid; gap: 8px; margin-top: 14px; }
+.shr-t { font-size: 13.5px; color: var(--muted); }
+.shr-b { display: flex; gap: 8px; flex-wrap: wrap; }
+.shr-b a, .shr-b button { all: unset; cursor: pointer; font-size: 13.5px; font-weight: 600; padding: 8px 14px; border-radius: 999px; border: 1px solid var(--line); background: #fff; color: var(--ink); }
+.shr-b .shr-wa { color: #128C4A; border-color: #BFE6CF; }
+.shr-b .shr-li { color: #0A66C2; border-color: #C7DBF2; }
+.shr-b a:hover, .shr-b button:hover { border-color: var(--brand); }
+.shr-b :focus-visible { outline: 3px solid var(--brand); outline-offset: 2px; }
+.shr-in { font-size: 13px; padding: 8px 10px; width: 100%; }
+.aband .shr-t { color: #D5E0F2; text-align: center; } .aband .shr-b { justify-content: center; }
+/* badge maker */
+.bd-grid { display: grid; grid-template-columns: minmax(0,1fr) minmax(0, 340px); gap: 22px; align-items: start; }
+.bd-in { display: grid; gap: 14px; }
+.bd-lede { color: #D5E0F2; font-size: 15px; }
+.bd-in label { color: #D5E0F2; font-size: 14px; font-weight: 500; display: grid; gap: 6px; }
+.bd-in input:not([type=radio]) { background: #fff; color: var(--ink); border: 0; }
+.bd-st { display: grid; gap: 8px; }
+.bd-st label { display: flex; gap: 10px; align-items: center; background: rgba(255,255,255,.1); border-radius: 10px; padding: 10px 12px; cursor: pointer; color: #fff; }
+.bd-st input { width: 18px; height: 18px; accent-color: #F5B942; }
+.bd-act { display: flex; gap: 8px; flex-wrap: wrap; }
+#bdCv { width: 100%; max-width: 340px; height: auto; aspect-ratio: 1; border-radius: 14px; background: #fff; box-shadow: 0 16px 36px rgba(0,0,0,.3); justify-self: center; }
+@media (max-width: 760px) { .bd-grid { grid-template-columns: 1fr; } }
 /* SIF Ready hero (reference layout) */
 .rhero { background: linear-gradient(180deg, #F2F6FE 0%, #F7F9FD 100%); overflow: hidden; }
 .rhero > .wrap:first-child { display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr); gap: 40px; padding-top: 44px; align-items: center; }
@@ -460,7 +497,7 @@ input[type=range]#pcAmt { -webkit-appearance: none; appearance: none; height: 8p
 @media (max-width: 860px) { .jt { padding: 10px; font-size: 13px; gap: 8px; } .jt b { width: 24px; height: 24px; font-size: 12px; } }
 .jpanels { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 34px; display: grid; align-content: center; min-height: 280px; background-image: radial-gradient(420px 220px at 100% 100%, var(--brand-soft), transparent 70%); }
 .jp { display: grid; gap: 14px; justify-items: start; max-width: 560px; }
-.jp-n { font-size: 13px; font-weight: 600; color: #FF9900; }
+.jp-n { font-size: 13px; font-weight: 600; color: #D63B3B; }
 .jp h3 { font-size: clamp(24px, 2.6vw, 32px); color: var(--brand-deep); }
 .jp p { font-size: 17px; color: var(--muted); }
 /* closing band */
@@ -1147,6 +1184,7 @@ input:focus, select:focus { outline: 2px solid var(--brand); border-color: var(-
       <p class="ahx-sub">Get certified in 8 live evenings, free, and start offering SIFs to your ₹10 lakh+ clients.</p>
       <button class="ahx-btn" type="button" data-open="decoder">Get Started</button>
       <p class="ahx-note">Batch starts 16 Nov · 6:30 to 8:30 PM · Live in English</p>
+      <div id="heroShare"></div>
     </div>
     <div class="ahx-vis">
       <div class="ahx-blob" aria-hidden="true"></div>
@@ -1157,6 +1195,23 @@ input:focus, select:focus { outline: 2px solid var(--brand); border-color: var(-
     </div>
   </div>
 </section>
+<section class="trust" aria-label="Why partners trust AssetPlus">
+  <div class="wrap">
+    <div class="tr-row">
+      <div><b>20,000+</b><span>distributors on AssetPlus</span></div>
+      <div><b>₹7,500 Cr+</b><span>assets on the platform</span></div>
+      <div><b>4.8 ★</b><span>app rating, 11k+ reviews</span></div>
+      <div><b>ARN-114376</b><span>AMFI-registered distributor</span></div>
+    </div>
+    <p class="tr-back">Backed by <b>Rainmatter</b> (Zerodha) · <b>InCred</b> · <b>Eight Roads</b> · <b>Nexus Venture Partners</b></p>
+    <ul class="tr-proof">
+      <li><span class="tr-ic">◎</span>SIF data straight from AMFI, refreshed every evening</li>
+      <li><span class="tr-ic">§</span>Content follows SEBI’s SIF framework and AMFI disclosure norms</li>
+      <li><span class="tr-ic">✎</span>Training mapped to the NISM Series V-D syllabus</li>
+    </ul>
+  </div>
+</section>
+
 
 
 
@@ -1192,7 +1247,7 @@ input:focus, select:focus { outline: 2px solid var(--brand); border-color: var(-
     <div class="section-head center"><h2 class="h2">Your journey to SIF Ready</h2><p class="lede">Six steps, from registration to your first SIF client.</p></div>
     <div class="journey6">
       <div class="jtabs" role="tablist" aria-label="Steps"><button type="button" role="tab" class="jt on" aria-selected="true" data-step="0"><b>1</b>Register</button><button type="button" role="tab" class="jt" aria-selected="false" data-step="1"><b>2</b>Training</button><button type="button" role="tab" class="jt" aria-selected="false" data-step="2"><b>3</b>Certification</button><button type="button" role="tab" class="jt" aria-selected="false" data-step="3"><b>4</b>ARN</button><button type="button" role="tab" class="jt" aria-selected="false" data-step="4"><b>5</b>Empanel</button><button type="button" role="tab" class="jt" aria-selected="false" data-step="5"><b>6</b>Kickstart</button></div>
-      <div class="jpanels"><div class="jp has-img" role="tabpanel" data-panel="0"><span class="jp-n">Step 1 of 6</span><h3>Register for the free batch</h3><p>Save your seat in the free NISM V-D batch starting 16 Nov. It takes a minute.</p><button class="btn btn-flame" type="button" data-open="decoder">Save my seat</button><img class="jp-img" src="img/p-student.webp" alt="" loading="lazy" style="object-position:62% 40%"></div><div class="jp has-img" role="tabpanel" data-panel="1" hidden><span class="jp-n">Step 2 of 6</span><h3>Get NISM V-D training</h3><p>8 live evenings, 6:30 to 8:30 PM, in English. Expert trainers, practice tests and recorded sessions.</p><button class="btn btn-flame" type="button" data-open="decoder">Save my seat</button><img class="jp-img" src="img/p-live.webp" alt="" loading="lazy" style="object-position:center 55%"></div><div class="jp has-img" role="tabpanel" data-panel="2" hidden><span class="jp-n">Step 3 of 6</span><h3>Clear the NISM V-D exam</h3><p>One exam covers both mutual funds and SIFs. It replaces the earlier V-A plus XIII route.</p><button class="btn btn-flame" type="button" data-open="decoder">Save my seat</button><img class="jp-img" src="img/p-mock.webp" alt="" loading="lazy" style="object-position:center 45%"></div><div class="jp has-img" role="tabpanel" data-panel="3" hidden><span class="jp-n">Step 4 of 6</span><h3>Register for your ARN</h3><p>Apply for your AMFI Registration Number once you pass. Already have an ARN? Your V-D adds SIFs to it.</p><a class="btn btn-flame wa-link" href="#" target="_blank" rel="noopener">Talk to us on WhatsApp</a><img class="jp-img" src="img/p-learner.webp" alt="" loading="lazy" style="object-position:center 30%"></div><div class="jp has-img" role="tabpanel" data-panel="4" hidden><span class="jp-n">Step 5 of 6</span><h3>Empanel with AssetPlus</h3><p>Offer SIFs to clients on the AssetPlus platform, with onboarding and operations support.</p><a class="btn btn-flame wa-link" href="#" target="_blank" rel="noopener">Talk to us on WhatsApp</a><img class="jp-img" src="img/p-app.webp" alt="" loading="lazy" style="object-position:center 78%"></div><div class="jp has-img" role="tabpanel" data-panel="5" hidden><span class="jp-n">Step 6 of 6</span><h3>Kickstart your SIF practice</h3><p>Start with the SIF Decoder, six persona pitch sheets and client notes stamped with your ARN.</p><button class="btn btn-flame" type="button" data-open="decoder">Get the free bundle</button><img class="jp-img" src="img/p-pro-crop.webp" alt="" loading="lazy" style="object-position:center 20%"></div></div>
+      <div class="jpanels"><div class="jp has-img" role="tabpanel" data-panel="0"><span class="jp-n">Step 1 of 6</span><h3>Register for the free batch</h3><p>Save your seat in the free NISM V-D batch starting 16 Nov. It takes a minute.</p><button class="btn btn-flame" type="button" data-open="decoder">Get Started</button><img class="jp-img" src="img/p-student.webp" alt="" loading="lazy" style="object-position:62% 40%"></div><div class="jp has-img" role="tabpanel" data-panel="1" hidden><span class="jp-n">Step 2 of 6</span><h3>Get NISM V-D training</h3><p>8 live evenings, 6:30 to 8:30 PM, in English. Expert trainers, practice tests and recorded sessions.</p><button class="btn btn-flame" type="button" data-open="decoder">Get Started</button><img class="jp-img" src="img/p-live.webp" alt="" loading="lazy" style="object-position:center 55%"></div><div class="jp has-img" role="tabpanel" data-panel="2" hidden><span class="jp-n">Step 3 of 6</span><h3>Clear the NISM V-D exam</h3><p>One exam covers both mutual funds and SIFs. It replaces the earlier V-A plus XIII route.</p><button class="btn btn-flame" type="button" data-open="decoder">Get Started</button><img class="jp-img" src="img/p-mock.webp" alt="" loading="lazy" style="object-position:center 45%"></div><div class="jp has-img" role="tabpanel" data-panel="3" hidden><span class="jp-n">Step 4 of 6</span><h3>Register for your ARN</h3><p>Apply for your AMFI Registration Number once you pass. Already have an ARN? Your V-D adds SIFs to it.</p><a class="btn btn-flame wa-link" href="#" target="_blank" rel="noopener">Talk to us on WhatsApp</a><img class="jp-img" src="img/p-learner.webp" alt="" loading="lazy" style="object-position:center 30%"></div><div class="jp has-img" role="tabpanel" data-panel="4" hidden><span class="jp-n">Step 5 of 6</span><h3>Empanel with AssetPlus</h3><p>Offer SIFs to clients on the AssetPlus platform, with onboarding and operations support.</p><a class="btn btn-flame wa-link" href="#" target="_blank" rel="noopener">Talk to us on WhatsApp</a><img class="jp-img" src="img/p-app.webp" alt="" loading="lazy" style="object-position:center 78%"></div><div class="jp has-img" role="tabpanel" data-panel="5" hidden><span class="jp-n">Step 6 of 6</span><h3>Kickstart your SIF practice</h3><p>Start with the SIF Decoder, six persona pitch sheets and client notes stamped with your ARN.</p><button class="btn btn-flame" type="button" data-open="decoder">Get the free bundle</button><img class="jp-img" src="img/p-pro-crop.webp" alt="" loading="lazy" style="object-position:center 20%"></div></div>
     </div>
   </div>
 </section>
@@ -1252,7 +1307,7 @@ input:focus, select:focus { outline: 2px solid var(--brand); border-color: var(-
         <div><b>69%</b><span>of SIF money is in hybrid strategies, the conversation for FD and debt clients</span></div>
         <div><b>₹10 lakh</b><span>minimum per client, so every SIF client is a high-value client</span></div>
       </div>
-      <a class="btn btn-flame" style="justify-self:start" href="https://academy.assetplus.in/course/nism-series-v-d-mf-sif-distributors-certification-training-16th-november" target="_blank" rel="noopener">Save my seat</a>
+      <button class="btn btn-flame" style="justify-self:start" type="button" data-open="decoder">Get Started</button>
     </div>
     <div class="opp" aria-label="SIF assets each month">
       <p class="opp-h">SIF assets at month-end, ₹ crore</p>
@@ -1322,7 +1377,7 @@ input:focus, select:focus { outline: 2px solid var(--brand); border-color: var(-
         <li><b>Client notes with your ARN</b><span>Ready to share once you are certified</span></li>
         <li><b>Daily SIF NAVs</b><span>Every strategy, from AMFI</span></li>
       </ul>
-      <div class="ctas" style="margin-top:22px"><button class="btn btn-flame btn-lg" type="button" data-open="decoder">Get the free bundle</button></div>
+      <div class="ctas" style="margin-top:22px"><button class="btn btn-flame btn-lg" type="button" data-open="decoder">Get the SIF Decoder free</button></div>
     </div>
     <button type="button" class="fan" data-open="decoder" aria-label="Get the free SIF starter bundle">
       <img class="f1" src="thumbs/01-What-is-a-SIF.webp" alt="" loading="lazy">
@@ -1403,6 +1458,7 @@ input:focus, select:focus { outline: 2px solid var(--brand); border-color: var(-
       <div class="pp-tabs" role="tablist" aria-label="SIF tools">
         <button type="button" role="tab" class="pp-tab" aria-selected="true" data-pp="calc" id="pp-tab-calc">What would it be worth?</button>
         <button type="button" role="tab" class="pp-tab" aria-selected="false" data-pp="quiz" id="pp-tab-quiz">How SIF Ready are you?</button>
+        <button type="button" role="tab" class="pp-tab" aria-selected="false" data-pp="badge" id="pp-tab-badge">Get your SIF Ready badge</button>
       </div>
 
       <div class="pp-panel" data-pp-panel="calc" role="tabpanel" aria-labelledby="pp-tab-calc">
@@ -1426,6 +1482,26 @@ input:focus, select:focus { outline: 2px solid var(--brand); border-color: var(-
           </div>
         </div>
         <p class="pc-disc">Based on actual AMFI NAVs, Regular plan, growth option, before tax and exit load. Past performance may or may not be sustained in future and is not a forecast. SIFs need a minimum of ₹10 lakh per investor and carry higher risk, including loss of capital. For distributor education, not a recommendation.</p>
+      </div>
+
+      <div class="pp-panel" data-pp-panel="badge" role="tabpanel" aria-labelledby="pp-tab-badge" hidden>
+        <div class="bd-grid">
+          <div class="bd-in">
+            <p class="bd-lede">Make a badge for LinkedIn or your WhatsApp status and tell your clients you are getting SIF Ready.</p>
+            <label for="bdName">Your name<input id="bdName" maxlength="32" placeholder="e.g. Meena Iyer"></label>
+            <div class="bd-st" role="radiogroup" aria-label="Your status">
+              <label><input type="radio" name="bdSt" value="prep" checked><span>Joining the 16 Nov V-D batch</span></label>
+              <label><input type="radio" name="bdSt" value="done"><span>I hold NISM V-D</span></label>
+            </div>
+            <div class="bd-act">
+              <button class="btn btn-onband" type="button" id="bdDl">Download badge</button>
+              <a class="btn btn-outline-band" id="bdWa" target="_blank" rel="noopener" data-share="whatsapp">Share on WhatsApp</a>
+              <a class="btn btn-outline-band" id="bdLi" target="_blank" rel="noopener" data-share="linkedin">Share on LinkedIn</a>
+            </div>
+            <p class="err" id="bdMsg" role="status" style="color:#FFD9A0"></p>
+          </div>
+          <canvas id="bdCv" width="1080" height="1080" aria-label="Preview of your SIF Ready badge"></canvas>
+        </div>
       </div>
 
       <div class="pp-panel" data-pp-panel="quiz" role="tabpanel" aria-labelledby="pp-tab-quiz" hidden>
@@ -1481,7 +1557,8 @@ input:focus, select:focus { outline: 2px solid var(--brand); border-color: var(-
   <div class="wrap">
     <h2>Become SIF Ready</h2>
     <p>Free NISM V-D training, live from 16 Nov.</p>
-    <button class="btn btn-white btn-lg" type="button" data-open="decoder">Register free</button>
+    <button class="btn btn-white btn-lg" type="button" data-open="decoder">Get Started</button>
+    <div id="bandShare"></div>
     <a class="aband-wa wa-link" href="#" target="_blank" rel="noopener">Questions? WhatsApp us on <span id="waNum"></span></a>
   </div>
 </section>
@@ -1735,7 +1812,7 @@ const ATTR = (function(){
   let a = null; try { a = JSON.parse(sessionStorage.getItem("ap_sif_attr") || "null"); } catch(e){}
   if (!a) {
     const q = new URLSearchParams(location.search || (location.hash.includes("utm_") ? location.hash.slice(1) : ""));
-    a = {utm_source: q.get("utm_source")||"", utm_medium: q.get("utm_medium")||"", utm_campaign: q.get("utm_campaign")||"", utm_content: q.get("utm_content")||"", referrer: document.referrer||"", landedAt: new Date().toISOString()};
+    a = {utm_source: q.get("utm_source")||"", utm_medium: q.get("utm_medium")||"", utm_campaign: q.get("utm_campaign")||"", utm_content: q.get("utm_content")||"", ref: q.get("ref")||"", referrer: document.referrer||"", landedAt: new Date().toISOString()};
     try { sessionStorage.setItem("ap_sif_attr", JSON.stringify(a)); } catch(e){}
   }
   return a;
@@ -1757,10 +1834,12 @@ async function saveLead(lead){
   store.set("ap_sif_lead", JSON.stringify({name: lead.name, mobile: lead.mobile, arn: lead.arn, vd: lead.vd, city: lead.city}));
   const db = await getDb();
   const id = "L" + Date.now().toString(36) + Math.random().toString(36).slice(2,7);
+  store.set("ap_sif_lid", id);
   if (!db) {
     // Hosted outside Claude (e.g. Vercel): send to the site's own lead endpoint
     try { const r = await fetch("/api/lead", {method: "POST", headers: {"Content-Type": "application/json"}, body: JSON.stringify({id, ...lead, ...ATTR, visit: VISIT, at: new Date().toISOString(), page: location.href})}); return r.ok ? id : false; } catch(e){ return false; }
   }
+  store.set("ap_sif_lid", id);
   try { await db.doc("leads/" + id).set({...lead, ...ATTR, visit: VISIT, at: new Date().toISOString(), page: "sif-partner-hub"}); track("lead", {source: lead.source, doc: lead.doc||""}); return id; } catch(e){ return false; }
 }
 async function updateLead(id, fields){
@@ -1873,6 +1952,30 @@ async function stampPdf(bytes, lead){
   return await pdf.save();
 }
 
+/* Sharing: every share link carries the sharer's referral code */
+function shareLink(medium){
+  const base = location.href.split("#")[0].split("?")[0];
+  const ref = store.get("ap_sif_lid") || "";
+  return base + "?utm_source=partner-share&utm_medium=" + medium + (ref ? "&ref=" + encodeURIComponent(ref) : "");
+}
+const SHARE_TEXT = "Free NISM V-D training for mutual fund distributors: 8 live evenings from 16 Nov, plus AssetPlus's SIF Decoder research. Become SIF Ready: ";
+function shareBlock(title, text){
+  const t = text || SHARE_TEXT;
+  return '<div class="shr"><p class="shr-t">' + esc(title || "Know a distributor who should be SIF Ready?") + '</p><div class="shr-b">' +
+    '<a class="shr-wa" href="https://wa.me/?text=' + encodeURIComponent(t + shareLink("whatsapp")) + '" target="_blank" rel="noopener" data-share="whatsapp">WhatsApp</a>' +
+    '<a class="shr-li" href="https://www.linkedin.com/sharing/share-offsite/?url=' + encodeURIComponent(shareLink("linkedin")) + '" target="_blank" rel="noopener" data-share="linkedin">LinkedIn</a>' +
+    '<button type="button" class="shr-cp" data-share="copy">Copy link</button></div></div>';
+}
+document.addEventListener("click", async e => {
+  const b = e.target.closest("[data-share]"); if (!b) return;
+  track("share", {via: b.dataset.share});
+  if (b.dataset.share === "copy") {
+    const url = shareLink("copy");
+    try { await navigator.clipboard.writeText(url); b.textContent = "Link copied"; }
+    catch (err) { b.outerHTML = '<input class="shr-in" readonly value="' + esc(url) + '" onclick="this.select()">'; }
+  }
+});
+
 /* Downloads */
 async function download(doc){
   const dl = await getDownloads();
@@ -1971,7 +2074,7 @@ function showDecoder(saved, name, certified){
       '<a class="btn btn-wa" href="' + waGet + '" target="_blank" rel="noopener">Get it on WhatsApp</a>' +
       '<button class="btn btn-ghost" type="button" id="decNow">Download PDF here</button><p class="err" id="dlMsg" role="status"></p>' +
       (certified ? '<p class="notice">Your client notes (06a–06e) are unlocked too. <a href="#kit" id="toKit">Open the partner kit</a></p>' : '<p class="notice">Seat not saved yet? <a href="' + CONFIG.eventUrl + '" target="_blank" rel="noopener">Register free for 16 Nov</a></p>') +
-      (saved ? '' : '<p class="notice">We couldn’t record your details from this view. The WhatsApp button still works.</p>') + '</div>';
+      (saved ? '' : '<p class="notice">We couldn’t record your details from this view. The WhatsApp button still works.</p>') + shareBlock("Bring a colleague to the 16 Nov batch") + '</div>';
     $("#decNow").addEventListener("click", async () => { const r = await download(dec); $("#dlMsg").innerHTML = r === "saved" ? "Saved." : r === "cancelled" ? "Download cancelled." : '<a href="pdfs/' + esc(dec.file) + '" target="_blank" rel="noopener">Open the PDF</a>'; });
     const tk = $("#toKit"); if (tk) tk.addEventListener("click", closeModal);
     renderLib();
@@ -2149,10 +2252,53 @@ function showNudge(src){
   function done(){
     track("quiz_done", {score});
     const msg = score === 5 ? ["SIF Ready!", "You know the rules. Make it official with NISM V-D."] : score >= 3 ? ["Almost SIF Ready", "A few gaps. The free live batch covers all of this."] : ["Getting started", "No problem. 8 live evenings take you from basics to the V-D exam."];
-    box.innerHTML = '<div class="qz-res"><div class="qz-badge"><div class="qz-medal">' + score + '/5</div><div><b>' + msg[0] + '</b><span>' + msg[1] + '</span></div></div><div class="row"><button class="btn btn-onband" type="button" data-open="decoder">Register free for 16 Nov</button><button class="btn btn-outline-band" type="button" id="qzAgain">Try again</button><a class="btn btn-outline-band" href="https://wa.me/?text=' + encodeURIComponent("I scored " + score + "/5 on the AssetPlus SIF Ready quiz. Free NISM V-D training starts 16 Nov: " + location.href.split("#")[0]) + '" target="_blank" rel="noopener">Share your score</a></div></div>';
+    box.innerHTML = '<div class="qz-res"><div class="qz-badge"><div class="qz-medal">' + score + '/5</div><div><b>' + msg[0] + '</b><span>' + msg[1] + '</span></div></div><div class="row"><button class="btn btn-onband" type="button" data-open="decoder">Register free for 16 Nov</button><button class="btn btn-outline-band" type="button" id="qzAgain">Try again</button><a class="btn btn-outline-band" data-share="whatsapp" href="https://wa.me/?text=' + encodeURIComponent("I scored " + score + "/5 on the AssetPlus SIF Ready quiz. How SIF Ready are you? " + shareLink("quiz")) + '" target="_blank" rel="noopener">Challenge a colleague</a></div></div>';
     $("#qzAgain").addEventListener("click", () => { qi = 0; score = 0; res = []; ask(); });
   }
   ask();
+})();
+
+/* SIF Ready badge maker */
+(function badge(){
+  const cv = $("#bdCv"); if (!cv) return;
+  const ctx = cv.getContext("2d"), logo = new Image(); logo.src = "logo-light.png";
+  const font = (w, s) => w + " " + s + "px Geist, Inter, Arial, sans-serif";
+  function draw(){
+    const name = ($("#bdName").value.trim() || "Your Name").slice(0, 32), done = document.querySelector('input[name=bdSt]:checked').value === "done";
+    ctx.fillStyle = "#fff"; ctx.fillRect(0, 0, 1080, 1080);
+    ctx.fillStyle = "#E3EBFA"; ctx.beginPath(); ctx.arc(860, 230, 330, 0, Math.PI * 2); ctx.fill();
+    ctx.fillStyle = "#2B4FA8"; ctx.fillRect(0, 900, 1080, 180);
+    if (logo.complete && logo.naturalWidth) { const w = 340, h = w * logo.naturalHeight / logo.naturalWidth; ctx.drawImage(logo, 80, 80, w, h); }
+    // medal
+    ctx.save(); ctx.translate(840, 250);
+    const g = ctx.createRadialGradient(-30, -40, 20, 0, 0, 150); g.addColorStop(0, "#FFE29A"); g.addColorStop(.6, "#F5B942"); g.addColorStop(1, "#D99A1E");
+    ctx.fillStyle = g; ctx.beginPath(); ctx.arc(0, 0, 140, 0, Math.PI * 2); ctx.fill();
+    ctx.strokeStyle = "rgba(255,255,255,.7)"; ctx.lineWidth = 8; ctx.beginPath(); ctx.arc(0, 0, 110, 0, Math.PI * 2); ctx.stroke();
+    ctx.fillStyle = "#5B3A00"; ctx.textAlign = "center"; ctx.font = font("800", 52); ctx.fillText("SIF", 0, -6); ctx.font = font("700", 40); ctx.fillText("READY", 0, 44);
+    ctx.restore(); ctx.textAlign = "left";
+    ctx.fillStyle = "#D63B3B"; ctx.font = font("500", 40); ctx.fillText(done ? "Certified · NISM Series V-D" : "Joining the 16 Nov batch", 80, 470);
+    ctx.fillStyle = "#2B4FA8"; ctx.font = font("600", 104); ctx.fillText(done ? "I'm" : "I'm getting", 80, 600); ctx.fillText("SIF Ready", 80, 715);
+    ctx.fillStyle = "#1B1F28"; ctx.font = font("600", 56); ctx.fillText(name, 80, 830);
+    ctx.fillStyle = "#fff"; ctx.font = font("500", 36); ctx.fillText(done ? "Offering mutual funds and SIFs" : "Free NISM V-D training with AssetPlus", 80, 1000);
+  }
+  const shareTxt = () => (document.querySelector('input[name=bdSt]:checked').value === "done" ? "I'm SIF Ready: NISM Series V-D certified to offer mutual funds and SIFs. " : "I'm getting SIF Ready with the free NISM V-D batch from AssetPlus, starting 16 Nov. Join me: ");
+  function links(){ $("#bdWa").href = "https://wa.me/?text=" + encodeURIComponent(shareTxt() + shareLink("badge")); $("#bdLi").href = "https://www.linkedin.com/sharing/share-offsite/?url=" + encodeURIComponent(shareLink("badge-linkedin")); }
+  $("#bdName").addEventListener("input", draw); $$('input[name=bdSt]').forEach(r => r.addEventListener("change", () => { draw(); links(); }));
+  logo.onload = draw; draw(); links();
+  $("#bdDl").addEventListener("click", () => cv.toBlob(async blob => {
+    track("badge_download", {});
+    const fname = "SIF-Ready-" + ($("#bdName").value.trim().replace(/[^A-Za-z0-9]+/g, "-") || "badge") + ".png";
+    const dl = await getDownloads();
+    if (dl) { try { await dl.save({filename: fname, data: blob}); $("#bdMsg").textContent = "Saved. Post it with the share buttons."; return; } catch (e) { if (e && e.code === "cancelled") return; } }
+    const a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = fname; document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(() => URL.revokeObjectURL(a.href), 4000); $("#bdMsg").textContent = "Downloaded. Post it with the share buttons.";
+  }, "image/png"));
+})();
+
+/* Share blocks on the page */
+(function shareSpots(){
+  const h = $("#heroShare"); if (h) h.innerHTML = shareBlock("Know a distributor? Send them this free batch");
+  const b = $("#bandShare"); if (b) b.innerHTML = shareBlock("Tell your network");
 })();
 
 /* First-visit popup: 45% scroll, 40 s on page, or exit intent. Once per 7 days; never after sign-up. */
