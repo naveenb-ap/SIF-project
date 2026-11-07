@@ -24,3 +24,7 @@ The repo is Vercel-ready: `vercel.json` serves `landing/` as a static site and `
 - `tools/build_page.py` writes `landing/site.html`, a full HTML document (lang, title, description, Open Graph, Course/Event/FAQ structured data) that Vercel serves at `/`.
 - Set the `SITE_URL` environment variable when building (e.g. `SITE_URL=https://sif.assetplus.in/ python3 tools/build_page.py`) to add the canonical URL, absolute share-image links and `sitemap.xml`.
 - `og-image.jpg` is the 1200×630 share image; `robots.txt` keeps `/pdfs/` out of search.
+
+### Batches and analytics
+- Add new batches to `EVENTS` in `index.src.html`. Two days after the last listed batch starts, the page switches by itself to "Join the waitlist" copy and sign-ups are tagged `waitlist`.
+- Paste IDs into `CONFIG.ga4`, `CONFIG.metaPixel` and `CONFIG.linkedinPartner` to switch on GA4, Meta Pixel and LinkedIn Insight. Every funnel step (pop-up, lead, register click, download, share, quiz, calculator, badge) is forwarded; leads fire GA4 `generate_lead` and Meta `Lead`.

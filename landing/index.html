@@ -378,6 +378,13 @@ input[type=range]#pcAmt { -webkit-appearance: none; appearance: none; height: 8p
 .bd-act { display: flex; gap: 8px; flex-wrap: wrap; }
 #bdCv { width: 100%; max-width: 340px; height: auto; aspect-ratio: 1; border-radius: 14px; background: #fff; box-shadow: 0 16px 36px rgba(0,0,0,.3); justify-self: center; }
 @media (max-width: 760px) { .bd-grid { grid-template-columns: 1fr; } }
+.cmp { margin-top: 32px; }
+.cmp-h { font-size: 20px; color: var(--brand); margin-bottom: 12px; }
+.cmp-t { min-width: 720px; font-size: 14px; }
+.cmp-t th[scope=row] { color: var(--ink); font-weight: 600; text-transform: none; letter-spacing: 0; font-size: 13.5px; background: var(--surface); position: static; }
+.cmp-t thead th { text-align: left; }
+.cmp-t .hl { background: var(--brand-soft); color: var(--brand-deep); font-weight: 600; }
+.cmp-t thead th.hl { background: var(--brand); color: #fff; }
 /* SIF Ready hero (reference layout) */
 .rhero { background: linear-gradient(180deg, #F2F6FE 0%, #F7F9FD 100%); overflow: hidden; }
 .rhero > .wrap:first-child { display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr); gap: 40px; padding-top: 44px; align-items: center; }
@@ -1176,14 +1183,14 @@ input:focus, select:focus { outline: 2px solid var(--brand); border-color: var(-
       <div class="ahx-tag"><span>One exam. Two products.</span><span class="ahx-pill">NISM Series V-D</span></div>
       <p class="ahx-sub">Get certified in 8 live evenings, free, and start offering SIFs to your ₹10 lakh+ clients.</p>
       <button class="ahx-btn" type="button" data-open="decoder">Get Started</button>
-      <p class="ahx-note">Batch starts 16 Nov · 6:30 to 8:30 PM · Live in English</p>
+      <p class="ahx-note" data-closed="Next batch opening soon · Join the waitlist">Batch starts 16 Nov · 6:30 to 8:30 PM · Live in English</p>
       <div id="heroShare"></div>
     </div>
     <div class="ahx-vis">
       <div class="ahx-blob" aria-hidden="true"></div>
       <img class="ahx-photo" fetchpriority="high" decoding="async" src="img/hero-vd.webp" alt="A distributor holding his NISM V-D certificate" width="702" height="1200">
       <div class="ahx-q q1" aria-hidden="true"><b>“One licence, both products”</b><span>NISM V-D covers MF and SIF</span></div>
-      <div class="ahx-q q2" aria-hidden="true"><b>“Classes start 16 Nov”</b><span>8 live evenings · Free</span></div>
+      <div class="ahx-q q2" aria-hidden="true"><b data-closed="“Next batch opening soon”">“Classes start 16 Nov”</b><span data-closed="Join the waitlist · Free">8 live evenings · Free</span></div>
       <div class="ahx-q q3" aria-hidden="true"><b>“₹38,287 cr and growing”</b><span>SIF assets in 11 months · AMFI</span></div>
     </div>
   </div>
@@ -1240,7 +1247,7 @@ input:focus, select:focus { outline: 2px solid var(--brand); border-color: var(-
     <div class="section-head center"><h2 class="h2">Your journey to SIF Ready</h2><p class="lede">Six steps, from registration to your first SIF client.</p></div>
     <div class="journey6">
       <div class="jtabs" role="tablist" aria-label="Steps"><button type="button" role="tab" class="jt on" aria-selected="true" data-step="0"><b>1</b>Register</button><button type="button" role="tab" class="jt" aria-selected="false" data-step="1"><b>2</b>Training</button><button type="button" role="tab" class="jt" aria-selected="false" data-step="2"><b>3</b>Certification</button><button type="button" role="tab" class="jt" aria-selected="false" data-step="3"><b>4</b>ARN</button><button type="button" role="tab" class="jt" aria-selected="false" data-step="4"><b>5</b>Empanel</button><button type="button" role="tab" class="jt" aria-selected="false" data-step="5"><b>6</b>Kickstart</button></div>
-      <div class="jpanels"><div class="jp has-img" role="tabpanel" data-panel="0"><span class="jp-n">Step 1 of 6</span><h3>Register for the free batch</h3><p>Save your seat in the free NISM V-D batch starting 16 Nov. It takes a minute.</p><button class="btn btn-flame" type="button" data-open="decoder">Get Started</button><img class="jp-img" src="img/p-student.webp" alt="" loading="lazy" style="object-position:62% 40%"></div><div class="jp has-img" role="tabpanel" data-panel="1" hidden><span class="jp-n">Step 2 of 6</span><h3>Get NISM V-D training</h3><p>8 live evenings, 6:30 to 8:30 PM, in English. Expert trainers, practice tests and recorded sessions.</p><button class="btn btn-flame" type="button" data-open="decoder">Get Started</button><img class="jp-img" src="img/p-live.webp" alt="" loading="lazy" style="object-position:center 55%"></div><div class="jp has-img" role="tabpanel" data-panel="2" hidden><span class="jp-n">Step 3 of 6</span><h3>Clear the NISM V-D exam</h3><p>One exam covers both mutual funds and SIFs. It replaces the earlier V-A plus XIII route.</p><button class="btn btn-flame" type="button" data-open="decoder">Get Started</button><img class="jp-img" src="img/p-mock.webp" alt="" loading="lazy" style="object-position:center 45%"></div><div class="jp has-img" role="tabpanel" data-panel="3" hidden><span class="jp-n">Step 4 of 6</span><h3>Register for your ARN</h3><p>Apply for your AMFI Registration Number once you pass. Already have an ARN? Your V-D adds SIFs to it.</p><a class="btn btn-flame wa-link" href="#" target="_blank" rel="noopener">Talk to us on WhatsApp</a><img class="jp-img" src="img/p-learner.webp" alt="" loading="lazy" style="object-position:center 30%"></div><div class="jp has-img" role="tabpanel" data-panel="4" hidden><span class="jp-n">Step 5 of 6</span><h3>Empanel with AssetPlus</h3><p>Offer SIFs to clients on the AssetPlus platform, with onboarding and operations support.</p><a class="btn btn-flame wa-link" href="#" target="_blank" rel="noopener">Talk to us on WhatsApp</a><img class="jp-img" src="img/p-app.webp" alt="" loading="lazy" style="object-position:center 78%"></div><div class="jp has-img" role="tabpanel" data-panel="5" hidden><span class="jp-n">Step 6 of 6</span><h3>Kickstart your SIF practice</h3><p>Start with the SIF Decoder, six persona pitch sheets and client notes stamped with your ARN.</p><button class="btn btn-flame" type="button" data-open="decoder">Get the free bundle</button><img class="jp-img" src="img/p-pro-crop.webp" alt="" loading="lazy" style="object-position:center 20%"></div></div>
+      <div class="jpanels"><div class="jp has-img" role="tabpanel" data-panel="0"><span class="jp-n">Step 1 of 6</span><h3>Register for the free batch</h3><p data-closed="Join the waitlist for the next free NISM V-D batch. It takes a minute.">Save your seat in the free NISM V-D batch starting 16 Nov. It takes a minute.</p><button class="btn btn-flame" type="button" data-open="decoder">Get Started</button><img class="jp-img" src="img/p-student.webp" alt="" loading="lazy" style="object-position:62% 40%"></div><div class="jp has-img" role="tabpanel" data-panel="1" hidden><span class="jp-n">Step 2 of 6</span><h3>Get NISM V-D training</h3><p>8 live evenings, 6:30 to 8:30 PM, in English. Expert trainers, practice tests and recorded sessions.</p><button class="btn btn-flame" type="button" data-open="decoder">Get Started</button><img class="jp-img" src="img/p-live.webp" alt="" loading="lazy" style="object-position:center 55%"></div><div class="jp has-img" role="tabpanel" data-panel="2" hidden><span class="jp-n">Step 3 of 6</span><h3>Clear the NISM V-D exam</h3><p>One exam covers both mutual funds and SIFs. It replaces the earlier V-A plus XIII route.</p><button class="btn btn-flame" type="button" data-open="decoder">Get Started</button><img class="jp-img" src="img/p-mock.webp" alt="" loading="lazy" style="object-position:center 45%"></div><div class="jp has-img" role="tabpanel" data-panel="3" hidden><span class="jp-n">Step 4 of 6</span><h3>Register for your ARN</h3><p>Apply for your AMFI Registration Number once you pass. Already have an ARN? Your V-D adds SIFs to it.</p><a class="btn btn-flame wa-link" href="#" target="_blank" rel="noopener">Talk to us on WhatsApp</a><img class="jp-img" src="img/p-learner.webp" alt="" loading="lazy" style="object-position:center 30%"></div><div class="jp has-img" role="tabpanel" data-panel="4" hidden><span class="jp-n">Step 5 of 6</span><h3>Empanel with AssetPlus</h3><p>Offer SIFs to clients on the AssetPlus platform, with onboarding and operations support.</p><a class="btn btn-flame wa-link" href="#" target="_blank" rel="noopener">Talk to us on WhatsApp</a><img class="jp-img" src="img/p-app.webp" alt="" loading="lazy" style="object-position:center 78%"></div><div class="jp has-img" role="tabpanel" data-panel="5" hidden><span class="jp-n">Step 6 of 6</span><h3>Kickstart your SIF practice</h3><p>Start with the SIF Decoder, six persona pitch sheets and client notes stamped with your ARN.</p><button class="btn btn-flame" type="button" data-open="decoder">Get the free bundle</button><img class="jp-img" src="img/p-pro-crop.webp" alt="" loading="lazy" style="object-position:center 20%"></div></div>
     </div>
   </div>
 </section>
@@ -1354,6 +1361,24 @@ input:focus, select:focus { outline: 2px solid var(--brand); border-color: var(-
       <div class="rule"><div class="v">Daily NAV</div><div class="l">Published to AMFI every business day, like a mutual fund</div></div>
       <div class="rule"><div class="v">Set exit days</div><div class="l">Many strategies are interval funds: money comes out only on scheduled days</div></div>
       <div class="rule"><div class="v">NISM V-D</div><div class="l">The certification a distributor needs to offer SIFs, along with an ARN</div></div>
+    </div>
+
+    <div class="cmp">
+      <h3 class="cmp-h">SIF vs mutual fund vs PMS vs AIF</h3>
+      <div class="table-box">
+        <table class="cmp-t">
+          <thead><tr><th></th><th>Mutual fund</th><th class="hl">SIF</th><th>PMS</th><th>AIF</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Minimum investment</th><td>From a few hundred rupees</td><td class="hl">₹10 lakh per investor</td><td>₹50 lakh</td><td>₹1 crore</td></tr>
+            <tr><th scope="row">Structure</th><td>Pooled fund</td><td class="hl">Pooled fund under mutual fund rules, separate SIF brand</td><td>Securities held in your own account</td><td>Pooled fund (Category I, II or III)</td></tr>
+            <tr><th scope="row">Short positions</th><td>For hedging only</td><td class="hl">Unhedged shorts up to 25% via derivatives</td><td>As per mandate</td><td>Category III can</td></tr>
+            <tr><th scope="row">Valuation</th><td>Daily NAV</td><td class="hl">Daily NAV</td><td>Portfolio value</td><td>Periodic NAV</td></tr>
+            <tr><th scope="row">Tax event</th><td>When units are sold</td><td class="hl">When units are sold</td><td>On each trade in your account</td><td>Depends on category</td></tr>
+            <tr><th scope="row">SEBI rules</th><td>MF Regulations</td><td class="hl">MF Regulations, SIF framework (Feb 2025)</td><td>PMS Regulations</td><td>AIF Regulations</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="tk-note">Simplified for education. Tax depends on the product, holding period and the investor; read each product's documents.</p>
     </div>
   </div>
 </section>
@@ -1483,7 +1508,7 @@ input:focus, select:focus { outline: 2px solid var(--brand); border-color: var(-
             <p class="bd-lede">Make a badge for LinkedIn or your WhatsApp status and tell your clients you are getting SIF Ready.</p>
             <label for="bdName">Your name<input id="bdName" maxlength="32" placeholder="e.g. Meena Iyer"></label>
             <div class="bd-st" role="radiogroup" aria-label="Your status">
-              <label><input type="radio" name="bdSt" value="prep" checked><span>Joining the 16 Nov V-D batch</span></label>
+              <label><input type="radio" name="bdSt" value="prep" checked><span data-closed="Joining the next V-D batch">Joining the 16 Nov V-D batch</span></label>
               <label><input type="radio" name="bdSt" value="done"><span>I hold NISM V-D</span></label>
             </div>
             <div class="bd-act">
@@ -1513,7 +1538,7 @@ input:focus, select:focus { outline: 2px solid var(--brand); border-color: var(-
     </div>
     <div class="journey">
       <div class="step on"><h4>Understand SIF</h4><p>What it is, where it came from, how the market grew.</p></div>
-      <div class="step on"><h4>Get certified</h4><p>NISM V-D, free live training from 16 Nov.</p></div>
+      <div class="step on"><h4>Get certified</h4><p data-closed="NISM V-D, free live training. Next batch soon.">NISM V-D, free live training from 16 Nov.</p></div>
       <div class="step on"><h4>Find the clients</h4><p>Six persona pitch sheets and a 60-day plan.</p></div>
       <div class="step on"><h4>Send client notes</h4><p>Five comparisons against what clients hold today.</p></div>
     </div>
@@ -1537,7 +1562,7 @@ input:focus, select:focus { outline: 2px solid var(--brand); border-color: var(-
     </div>
     <div class="faq">
       <details><summary>Who can invest in a SIF?</summary><div class="ans"><p>Resident and eligible investors who put in at least ₹10 lakh across a fund house's SIF strategies, subject to SEBI rules and each strategy's documents. Accredited investors may have different rules.</p></div></details>
-      <details><summary>What do I need to distribute SIFs?</summary><div class="ans"><p>A valid ARN and the NISM Series V-D certification (MF and SIF distributors), plus empanelment with the fund house. AssetPlus runs free live training for V-D starting 16 Nov 2026.</p></div></details>
+      <details><summary>What do I need to distribute SIFs?</summary><div class="ans"><p>A valid ARN and the NISM Series V-D certification (MF and SIF distributors), plus empanelment with the fund house. <span data-closed="AssetPlus runs free live training for V-D; join the waitlist for the next batch.">AssetPlus runs free live training for V-D starting 16 Nov 2026.</span></p></div></details>
       <details><summary>How is a SIF taxed?</summary><div class="ans"><p>SIF units are taxed like mutual fund units. The rate depends on the strategy's tax category and on how long the client holds. For an equity-taxed strategy, gains after 12 months are taxed at 12.5% with a ₹1.25 lakh yearly exemption; before 12 months, at 20%. Other strategies are taxed at the client's slab rate. One month can change the bill.</p></div></details>
       <details><summary>Can clients take money out any day?</summary><div class="ans"><p>Not always. Many hybrid and asset-allocator SIFs are interval funds that redeem only on set days, with notice periods. Check each strategy's redemption schedule before investing.</p></div></details>
       <details><summary>How is a SIF different from PMS?</summary><div class="ans"><p>A SIF is a pooled fund under the mutual fund rules, from ₹10 lakh, with daily NAV and tax only when units are sold. PMS starts at ₹50 lakh, holds securities in the client's own account and is taxed on each trade.</p></div></details>
@@ -1549,7 +1574,7 @@ input:focus, select:focus { outline: 2px solid var(--brand); border-color: var(-
 <section class="aband">
   <div class="wrap">
     <h2>Become SIF Ready</h2>
-    <p>Free NISM V-D training, live from 16 Nov.</p>
+    <p data-closed="Free NISM V-D training. Join the waitlist for the next batch.">Free NISM V-D training, live from 16 Nov.</p>
     <button class="btn btn-white btn-lg" type="button" data-open="decoder">Get Started</button>
     <div id="bandShare"></div>
     <a class="aband-wa wa-link" href="#" target="_blank" rel="noopener">Questions? WhatsApp us on <span id="waNum"></span></a>
@@ -1603,12 +1628,28 @@ const CONFIG = {
   whatsappText: "Hi AssetPlus, I'm a mutual fund distributor and I'd like to know more about SIFs.",
   eventUrl: "https://academy.assetplus.in/course/nism-series-v-d-mf-sif-distributors-certification-training-16th-november",
   eventStart: "2026-11-16T18:30:00+05:30",
+  // Analytics: paste IDs to switch on. Every funnel step from track() is forwarded.
+  ga4: "",          // e.g. "G-XXXXXXX"
+  metaPixel: "",    // e.g. "123456789012345"
+  linkedinPartner: "", // LinkedIn Insight Tag partner ID
+
   popupDelayMs: 40000
 };
+/* Batch state: the page switches to a waitlist once the last listed batch is under way (see BD below) */
 const EVENTS = [
   // Add new certification batches here; the first upcoming one gets the countdown.
   {start: "2026-11-16T18:30:00+05:30", title: "NISM Series V-D: MF & SIF Distributors Certification Training", meta: ["8 evenings", "6:30–8:30 PM IST", "Live, in English"], tag: "Free · Live online", url: "https://academy.assetplus.in/course/nism-series-v-d-mf-sif-distributors-certification-training-16th-november", form: "https://forms.assetplusacademy.in/assetplus1/form/NISMVDTrainingRegistration/formperma/mkcLBJZUfEPHkfNPt1nQ_AjuyhTUu_iPgxJlLD834jI?utm_source=b2b&utm_medium=partners&utm_campaign=vd_guided_training_16_11_2026"}
 ];
+
+const BD = (function(){
+  const now = Date.now(), lateJoin = 2 * 864e5;
+  const next = EVENTS.map(e => ({...e, t: new Date(e.start).getTime()})).filter(e => e.t + lateJoin > now).sort((a, b) => a.t - b.t)[0];
+  if (!next) return {open: false, short: "next batch", from: "", cta: "Join the waitlist", sub: "New batch dates are coming soon. Join the waitlist and we will WhatsApp you first.", mon: "NEXT", day: "V-D", batch: "next V-D batch", startingC: "", url: ""};
+  const d = new Date(next.t), o = {timeZone: "Asia/Kolkata"};
+  const day = d.toLocaleString("en-IN", {...o, day: "numeric"}), mon = d.toLocaleString("en-IN", {...o, month: "short"});
+  const lbl = day + " " + mon;
+  return {open: true, short: lbl, from: " from " + lbl, cta: "Register free for " + lbl, sub: "8 live evenings from " + lbl + ", 6:30 to 8:30 PM, in English.", mon: mon.toUpperCase(), day: day, batch: lbl + " batch", startingC: ", starting " + lbl, url: next.url};
+})();
 const DATA = {"asof":"06 Nov 2026","prev":"05 Nov 2026","rows":[{"b":"DynaSIF","amc":"360 ONE","c":"Active Asset Allocator Long-Short Fund","t":"Interval","nav":10.5075,"prev":10.5075,"chg":0.0},{"b":"SUMMIT","amc":"Invesco","c":"Active Asset Allocator Long-Short Fund","t":"Interval","nav":10.02,"prev":10.02,"chg":0.0},{"b":"Titanium","amc":"Tata","c":"Active Asset Allocator Long-Short Fund","t":"Interval","nav":10.0855,"prev":10.0855,"chg":0.0},{"b":"iSIF","amc":"ICICI Prudential","c":"Active Asset Allocator Long-Short Fund","t":"Interval","nav":10.4486,"prev":10.4486,"chg":0.0},{"b":"qsif","amc":"Quant","c":"Active Asset Allocator Long-Short Fund","t":"Interval","nav":12.9558,"prev":12.9558,"chg":0.0},{"b":"Altiva","amc":"Edelweiss","c":"Equity Ex-Top 100 Long-Short Fund","t":"Open-ended","nav":10.4446,"prev":10.4909,"chg":-0.44},{"b":"Apex","amc":"Aditya Birla Sun Life","c":"Equity Ex-Top 100 Long-Short Fund","t":"Open-ended","nav":10,"prev":10.06,"chg":-0.6},{"b":"DynaSIF","amc":"360 ONE","c":"Equity Ex-Top 100 Long-Short Fund","t":"Open-ended","nav":11.1219,"prev":11.1677,"chg":-0.41},{"b":"Magnum","amc":"SBI","c":"Equity Ex-Top 100 Long-Short Fund","t":"Open-ended","nav":9.8088,"prev":9.9183,"chg":-1.1},{"b":"WSIF","amc":"The Wealth Company","c":"Equity Ex-Top 100 Long-Short Fund","t":"Open-ended","nav":10.5136,"prev":10.5405,"chg":-0.26},{"b":"iSIF","amc":"ICICI Prudential","c":"Equity Ex-Top 100 Long-Short Fund","t":"Open-ended","nav":10.21,"prev":10.24,"chg":-0.29},{"b":"qsif","amc":"Quant","c":"Equity Ex-Top 100 Long-Short Fund","t":"Open-ended","nav":11.5821,"prev":11.6112,"chg":-0.25},{"b":"Altiva","amc":"Edelweiss","c":"Equity Long-Short Fund","t":"Open-ended","nav":10.8158,"prev":10.6667,"chg":1.4},{"b":"Apex","amc":"Aditya Birla Sun Life","c":"Equity Long-Short Fund","t":"Open-ended","nav":10.4,"prev":10.38,"chg":0.19},{"b":"Arthaya","amc":"Union","c":"Equity Long-Short Fund","t":"Open-ended","nav":10.2925,"prev":10.1207,"chg":1.7},{"b":"Arudha","amc":"Bandhan","c":"Equity Long-Short Fund","t":"Open-ended","nav":10.478,"prev":10.396,"chg":0.79},{"b":"Diviniti","amc":"ITI","c":"Equity Long-Short Fund","t":"Open-ended","nav":912.968,"prev":903.7095,"chg":1.02},{"b":"DynaSIF","amc":"360 ONE","c":"Equity Long-Short Fund","t":"Open-ended","nav":10.4888,"prev":10.4396,"chg":0.47},{"b":"MSIF","amc":"Mahindra Manulife","c":"Equity Long-Short Fund","t":"Open-ended","nav":10.3227,"prev":10.2654,"chg":0.56},{"b":"SUMMIT","amc":"Invesco","c":"Equity Long-Short Fund","t":"Open-ended","nav":10.81,"prev":10.75,"chg":0.56},{"b":"Sapphire","amc":"Franklin Templeton","c":"Equity Long-Short Fund","t":"Open-ended","nav":1014.3093,"prev":1006.4214,"chg":0.78},{"b":"Titanium","amc":"Tata","c":"Equity Long-Short Fund","t":"Open-ended","nav":10.642,"prev":10.5994,"chg":0.4},{"b":"WSIF","amc":"The Wealth Company","c":"Equity Long-Short Fund","t":"Open-ended","nav":10.5602,"prev":10.5767,"chg":-0.16},{"b":"iSIF","amc":"ICICI Prudential","c":"Equity Long-Short Fund","t":"Open-ended","nav":10.67,"prev":10.72,"chg":-0.47},{"b":"qsif","amc":"Quant","c":"Equity Long-Short Fund","t":"Open-ended","nav":11.3703,"prev":11.3549,"chg":0.14},{"b":"Altiva","amc":"Edelweiss","c":"Hybrid Long-Short Fund","t":"Interval","nav":11.0857,"prev":11.0849,"chg":0.01},{"b":"Apex","amc":"Aditya Birla Sun Life","c":"Hybrid Long-Short Fund","t":"Interval","nav":10.9608,"prev":10.9512,"chg":0.09},{"b":"Arudha","amc":"Bandhan","c":"Hybrid Long-Short Fund","t":"Interval","nav":10.476,"prev":10.467,"chg":0.09},{"b":"Infinity","amc":"Kotak Mahindra","c":"Hybrid Long-Short Fund","t":"Interval","nav":10.536,"prev":10.528,"chg":0.08},{"b":"Magnum","amc":"SBI","c":"Hybrid Long-Short Fund","t":"Interval","nav":10.5173,"prev":10.4924,"chg":0.24},{"b":"Platinum","amc":"Mirae Asset","c":"Hybrid Long-Short Fund","t":"Interval","nav":10.268,"prev":10.237,"chg":0.3},{"b":"Prism","amc":"Jio BlackRock","c":"Hybrid Long-Short Fund","t":"Interval","nav":10.3052,"prev":10.2989,"chg":0.06},{"b":"RedHex","amc":"HSBC","c":"Hybrid Long-Short Fund","t":"Interval","nav":10.3001,"prev":10.291,"chg":0.09},{"b":"Titanium","amc":"Tata","c":"Hybrid Long-Short Fund","t":"Interval","nav":10.5256,"prev":10.4473,"chg":0.75},{"b":"iSIF","amc":"ICICI Prudential","c":"Hybrid Long-Short Fund","t":"Interval","nav":10.7712,"prev":10.7443,"chg":0.25},{"b":"qsif","amc":"Quant","c":"Hybrid Long-Short Fund","t":"Interval","nav":12.9316,"prev":12.986,"chg":-0.42},{"b":"qsif","amc":"Quant","c":"Sector Rotation Long-Short Fund","t":"Open-ended","nav":10.6844,"prev":10.5911,"chg":0.88}]};
 const PULSE = {"asof":"2026-11-06","aumPeriod":"July - September 2026","funds":[{"name":"Altiva Hybrid Long-Short","brand":"Altiva","amc":"Edelweiss","cat":"Hybrid Long-Short","aum":8322,"nav":10.977,"launch":"2025-10-01","sd":"SIF-11","m1":0.3,"m3":0.08,"m6":4.02,"si":9.77},{"name":"Magnum Hybrid Long-Short","brand":"Magnum","amc":"SBI","cat":"Hybrid Long-Short","aum":3899,"nav":10.4411,"launch":"2025-10-01","sd":"SIF-13","m1":1.27,"m3":-0.49,"m6":1.98,"si":4.41},{"name":"iSIF Equity Ex-Top 100 Long-Short","brand":"iSIF","amc":"ICICI Prudential","cat":"Equity Ex-Top 100","aum":2334,"nav":10.21,"launch":"2026-01-16","sd":"SIF-33","m1":-0.39,"m3":-2.2,"m6":1.49,"si":2.1},{"name":"Infinity Hybrid Long-Short","brand":"Infinity","amc":"Kotak Mahindra","cat":"Hybrid Long-Short","aum":1473,"nav":10.495,"launch":"2026-06-15","sd":"SIF-146","m1":1.22,"m3":2.8,"m6":null,"si":4.95},{"name":"iSIF Hybrid Long-Short","brand":"iSIF","amc":"ICICI Prudential","cat":"Hybrid Long-Short","aum":1221,"nav":10.6585,"launch":"2026-01-16","sd":"SIF-35","m1":3.06,"m3":0.09,"m6":6.37,"si":6.58},{"name":"Altiva Equity Ex-Top 100 Long-Short","brand":"Altiva","amc":"Edelweiss","cat":"Equity Ex-Top 100","aum":1131,"nav":10.3774,"launch":"2026-05-18","sd":"SIF-122","m1":-2.59,"m3":-5.95,"m6":null,"si":3.77},{"name":"RedHex Hybrid Long-Short","brand":"RedHex","amc":"HSBC","cat":"Hybrid Long-Short","aum":966,"nav":10.2748,"launch":"2026-06-02","sd":"SIF-128","m1":0.49,"m3":1.48,"m6":null,"si":2.75},{"name":"iSIF Active Asset Allocator Long-Short","brand":"iSIF","amc":"ICICI Prudential","cat":"Active Asset Allocator","aum":875,"nav":10.3878,"launch":"2026-05-19","sd":"SIF-124","m1":1.42,"m3":0.12,"m6":null,"si":3.88},{"name":"qSIF Equity Long-Short","brand":"qSIF","amc":"Quant","cat":"Equity Long-Short","aum":830,"nav":11.1935,"launch":"2025-09-17","sd":"SIF-3","m1":2.86,"m3":0.62,"m6":9.43,"si":11.94},{"name":"qSIF Equity Ex-Top 100 Long-Short","brand":"qSIF","amc":"Quant","cat":"Equity Ex-Top 100","aum":643,"nav":11.4243,"launch":"2025-10-24","sd":"SIF-25","m1":1.75,"m3":-0.67,"m6":13.72,"si":14.24},{"name":"Titanium Hybrid Long-Short","brand":"Titanium","amc":"Tata","cat":"Hybrid Long-Short","aum":578,"nav":10.3557,"launch":"2025-11-24","sd":"SIF-29","m1":4.73,"m3":1.77,"m6":3.93,"si":3.56},{"name":"Magnum Equity Ex-Top 100 Long-Short","brand":"Magnum","amc":"SBI","cat":"Equity Ex-Top 100","aum":526,"nav":9.7843,"launch":"2026-08-07","sd":"SIF-157","m1":-1.03,"m3":null,"m6":null,"si":-2.16},{"name":"iSIF Equity Long-Short","brand":"iSIF","amc":"ICICI Prudential","cat":"Equity Long-Short","aum":518,"nav":10.6,"launch":"2026-05-19","sd":"SIF-126","m1":-0.47,"m3":-0.47,"m6":null,"si":6.0},{"name":"DynaSIF Equity Long-Short","brand":"DynaSIF","amc":"360 ONE","cat":"Equity Long-Short","aum":383,"nav":10.3795,"launch":"2026-02-06","sd":"SIF-55","m1":1.87,"m3":-3.41,"m6":-0.61,"si":3.79},{"name":"qSIF Active Asset Allocator Long-Short","brand":"qSIF","amc":"Quant","cat":"Active Asset Allocator","aum":372,"nav":12.8479,"launch":"2026-04-02","sd":"SIF-93","m1":-0.28,"m3":11.18,"m6":27.29,"si":28.48},{"name":"Platinum Hybrid Long-Short","brand":"Platinum","amc":"Mirae Asset","cat":"Hybrid Long-Short","aum":327,"nav":10.211,"launch":"2026-05-20","sd":"SIF-136","m1":1.74,"m3":0.01,"m6":null,"si":2.11},{"name":"qSIF Hybrid Long-Short","brand":"qSIF","amc":"Quant","cat":"Hybrid Long-Short","aum":321,"nav":12.7263,"launch":"2025-09-25","sd":"SIF-7","m1":-1.03,"m3":15.65,"m6":20.44,"si":27.26},{"name":"Titanium Equity Long-Short","brand":"Titanium","amc":"Tata","cat":"Equity Long-Short","aum":301,"nav":10.5453,"launch":"2026-04-27","sd":"SIF-102","m1":3.44,"m3":-0.05,"m6":null,"si":5.45},{"name":"Diviniti Equity Long-Short","brand":"Diviniti","amc":"ITI","cat":"Equity Long-Short","aum":300,"nav":900.3562,"launch":"2025-11-10","sd":"SIF-21","m1":3.36,"m3":-4.51,"m6":-4.5,"si":-9.96},{"name":"DynaSIF Active Asset Allocator Long-Short","brand":"DynaSIF","amc":"360 ONE","cat":"Active Asset Allocator","aum":265,"nav":10.4225,"launch":"2026-03-06","sd":"SIF-87","m1":0.27,"m3":-0.49,"m6":2.08,"si":4.22},{"name":"Prism Hybrid Long-Short","brand":"Prism","amc":"Jio BlackRock","cat":"Hybrid Long-Short","aum":227,"nav":10.2684,"launch":"2026-06-29","sd":"SIF-138","m1":0.57,"m3":1.6,"m6":null,"si":2.68},{"name":"Summit Equity Long-Short","brand":"Summit","amc":"Invesco","cat":"Equity Long-Short","aum":218,"nav":10.76,"launch":"2026-07-02","sd":"SIF-150","m1":4.87,"m3":4.47,"m6":null,"si":7.6},{"name":"Sapphire Equity Long-Short","brand":"Sapphire","amc":"Franklin Templeton","cat":"Equity Long-Short","aum":208,"nav":1014.3093,"launch":"2026-04-10","sd":"SIF-95","m1":5.17,"m3":-1.5,"m6":0.45,"si":1.43},{"name":"DynaSIF Equity Ex-Top 100 Long-Short","brand":"DynaSIF","amc":"360 ONE","cat":"Equity Ex-Top 100","aum":205,"nav":11.0413,"launch":"2026-06-05","sd":"SIF-143","m1":-2.75,"m3":2.11,"m6":null,"si":10.41},{"name":"Apex Hybrid Long-Short","brand":"Apex","amc":"Aditya Birla Sun Life","cat":"Hybrid Long-Short","aum":170,"nav":10.8831,"launch":"2026-03-06","sd":"SIF-80","m1":1.28,"m3":2.35,"m6":7.97,"si":8.83},{"name":"Arudha Hybrid Long-Short","brand":"Arudha","amc":"Bandhan","cat":"Hybrid Long-Short","aum":133,"nav":10.439,"launch":"2026-01-09","sd":"SIF-40","m1":0.41,"m3":0.75,"m6":2.91,"si":4.39},{"name":"Arthaya Equity Long-Short","brand":"Arthaya","amc":"Union","cat":"Equity Long-Short","aum":131,"nav":10.2329,"launch":"2026-05-04","sd":"SIF-114","m1":5.22,"m3":1.16,"m6":null,"si":2.33},{"name":"Arudha Equity Long-Short","brand":"Arudha","amc":"Bandhan","cat":"Equity Long-Short","aum":118,"nav":10.38,"launch":"2026-03-05","sd":"SIF-62","m1":3.07,"m3":-1.52,"m6":1.13,"si":3.8},{"name":"Apex Equity Ex-Top 100 Long-Short","brand":"Apex","amc":"Aditya Birla Sun Life","cat":"Equity Ex-Top 100","aum":77,"nav":9.97,"launch":"2026-08-10","sd":"SIF-156","m1":-0.8,"m3":null,"m6":null,"si":-0.3},{"name":"WSIF Equity Ex-Top 100 Long-Short","brand":"WSIF","amc":"The Wealth Company","cat":"Equity Ex-Top 100","aum":57,"nav":10.3834,"launch":"2026-04-15","sd":"SIF-105","m1":0.19,"m3":-3.91,"m6":null,"si":3.83},{"name":"qSIF Sector Rotation Long-Short","brand":"qSIF","amc":"Quant","cat":"Sector Rotation","aum":49,"nav":10.6036,"launch":"2026-04-27","sd":"SIF-117","m1":3.14,"m3":4.47,"m6":null,"si":6.04},{"name":"Apex Equity Long-Short","brand":"Apex","amc":"Aditya Birla Sun Life","cat":"Equity Long-Short","aum":39,"nav":10.37,"launch":"2026-08-10","sd":"SIF-154","m1":4.64,"m3":null,"m6":null,"si":3.7},{"name":"WSIF Equity Long-Short","brand":"WSIF","amc":"The Wealth Company","cat":"Equity Long-Short","aum":36,"nav":10.4518,"launch":"2026-04-15","sd":"SIF-111","m1":3.78,"m3":-2.37,"m6":null,"si":4.52},{"name":"Altiva Equity Long-Short","brand":"Altiva","amc":"Edelweiss","cat":"Equity Long-Short","aum":8,"nav":10.7976,"launch":"2026-09-10","sd":"SIF-161","m1":7.42,"m3":null,"m6":null,"si":7.98},{"name":"MSIF Equity Long-Short","brand":"MSIF","amc":"Mahindra Manulife","cat":"Equity Long-Short","aum":null,"nav":10.3132,"launch":"2026-09-30","sd":"SIF-174","m1":null,"m3":null,"m6":null,"si":3.13},{"name":"Summit Active Asset Allocator Long-Short","brand":"Summit","amc":"Invesco","cat":"Active Asset Allocator","aum":null,"nav":10.02,"launch":"2026-10-12","sd":"SIF-177","m1":null,"m3":null,"m6":null,"si":0.2},{"name":"Titanium Active Asset Allocator Long-Short","brand":"Titanium","amc":"Tata","cat":"Active Asset Allocator","aum":null,"nav":10.0766,"launch":"2026-09-23","sd":"SIF-169","m1":null,"m3":null,"m6":null,"si":0.77}],"cats":[{"name":"Hybrid Long-Short","n":11,"aum":17637},{"name":"Equity Ex-Top 100","n":7,"aum":4973},{"name":"Equity Long-Short","n":13,"aum":3090},{"name":"Active Asset Allocator","n":5,"aum":1512},{"name":"Sector Rotation","n":1,"aum":49}],"periodDates":{"m1":"2026-10-07","m3":"2026-08-07","m6":"2026-05-08"}};
 const AUM = [["Oct 25",2010],["Nov 25",2932],["Dec 25",4892],["Jan 26",6564],["Feb 26",9711],["Mar 26",10620],["Apr 26",12329],["May 26",13814],["Jun 26",17858],["Jul 26",23177],["Aug 26",31175],["Sep 26",38287]];
@@ -1812,8 +1853,35 @@ const ATTR = (function(){
 })();
 const VISIT = Math.random().toString(36).slice(2,10);
 async function track(type, data){
+  sendAnalytics(type, data || {});
   const db = await getDb(); if (!db) return;
   try { await db.doc("events/" + Date.now().toString(36) + VISIT + Math.random().toString(36).slice(2,5)).set({type, visit: VISIT, at: new Date().toISOString(), src: ATTR.utm_source||"direct", ...(data||{})}); } catch(e){}
+}
+
+/* Analytics loaders (only when IDs are set) */
+const AN = {ga: false, fb: false, li: false};
+(function analytics(){
+  const add = src => { const sc = document.createElement("script"); sc.async = true; sc.src = src; document.head.appendChild(sc); };
+  if (CONFIG.ga4) {
+    window.dataLayer = window.dataLayer || []; window.gtag = function(){ dataLayer.push(arguments); };
+    gtag("js", new Date()); gtag("config", CONFIG.ga4); add("https://www.googletagmanager.com/gtag/js?id=" + CONFIG.ga4); AN.ga = true;
+  }
+  if (CONFIG.metaPixel) {
+    const f = window.fbq = function(){ f.callMethod ? f.callMethod.apply(f, arguments) : f.queue.push(arguments); };
+    f.push = f; f.loaded = true; f.version = "2.0"; f.queue = []; add("https://connect.facebook.net/en_US/fbevents.js");
+    fbq("init", CONFIG.metaPixel); fbq("track", "PageView"); AN.fb = true;
+  }
+  if (CONFIG.linkedinPartner) {
+    window._linkedin_data_partner_ids = [CONFIG.linkedinPartner]; add("https://snap.licdn.com/li.lms-analytics/insight.min.js"); AN.li = true;
+  }
+})();
+const GA_MAP = {lead: "generate_lead", register_click: "sign_up", download: "file_download", share: "share", quiz_done: "quiz_complete", popup_open: "popup_open", calc_fund: "calculator_use", badge_download: "badge_download"};
+function sendAnalytics(type, data){
+  try {
+    if (AN.ga) gtag("event", GA_MAP[type] || type, {...data, source: ATTR.utm_source || "direct", ref: ATTR.ref || ""});
+    if (AN.fb) { if (type === "lead") fbq("track", "Lead"); else if (type === "register_click") fbq("track", "CompleteRegistration"); else fbq("trackCustom", type, data); }
+    if (AN.li && type === "lead" && window.lintrk) lintrk("track", {conversion_id: 0});
+  } catch(e){}
 }
 
 /* Lead store */
@@ -1920,7 +1988,8 @@ function askCertified(leadId, name, deliver){
   $("#cYes").addEventListener("click", () => { updateLead(leadId, {vd: "Certified"}); track("cert_yes"); deliver(true); });
   $("#cNo").addEventListener("click", () => {
     updateLead(leadId, {vd: "Not yet"}); track("cert_no");
-    $("#mMain").innerHTML = '<div class="pop"><h3 id="mTitle">Free NISM V-D batch, 16 Nov</h3><div class="reg-card"><b>NISM Series V-D: MF &amp; SIF Distributors</b><span>8 live evenings · 6:30–8:30 PM · in English · free</span></div><a class="btn btn-flame" id="regGo" href="' + CONFIG.eventUrl + '" target="_blank" rel="noopener">Complete my registration</a><button class="btn btn-ghost" type="button" id="regSkip">Get the SIF Decoder</button><p class="notice">Registration opens in a new tab. Your download waits here.</p></div>';
+    if (!BD.open) { updateLead(leadId, {waitlist: true}); deliver(false); return; }
+    $("#mMain").innerHTML = '<div class="pop"><h3 id="mTitle">Free NISM V-D batch, ' + BD.short + '</h3><div class="reg-card"><b>NISM Series V-D: MF &amp; SIF Distributors</b><span>8 live evenings · 6:30–8:30 PM · in English · free</span></div><a class="btn btn-flame" id="regGo" href="' + CONFIG.eventUrl + '" target="_blank" rel="noopener">Complete my registration</a><button class="btn btn-ghost" type="button" id="regSkip">Get the SIF Decoder</button><p class="notice">Registration opens in a new tab. Your download waits here.</p></div>';
     $("#regGo").addEventListener("click", () => { updateLead(leadId, {eventClicked: true}); track("register_click", {where: "popup"}); setTimeout(() => deliver(false), 400); });
     $("#regSkip").addEventListener("click", () => deliver(false));
   });
@@ -1951,7 +2020,7 @@ function shareLink(medium){
   const ref = store.get("ap_sif_lid") || "";
   return base + "?utm_source=partner-share&utm_medium=" + medium + (ref ? "&ref=" + encodeURIComponent(ref) : "");
 }
-const SHARE_TEXT = "Free NISM V-D training for mutual fund distributors: 8 live evenings from 16 Nov, plus AssetPlus's SIF Decoder research. Become SIF Ready: ";
+const SHARE_TEXT = "Free NISM V-D training for mutual fund distributors: 8 live evenings" + BD.from + ", plus AssetPlus's SIF Decoder research. Become SIF Ready: ";
 function shareBlock(title, text){
   const t = text || SHARE_TEXT;
   return '<div class="shr"><p class="shr-t">' + esc(title || "Know a distributor who should be SIF Ready?") + '</p><div class="shr-b">' +
@@ -2016,7 +2085,7 @@ function gate(doc){
     '</ul>';
   const head = '<h3 id="mTitle">Download “' + esc(doc.t) + '”</h3><div class="gate-doc"><span class="ic">PDF</span><span><b>' + esc(doc.id.length<=3?doc.id+" · ":"") + esc(doc.t) + '</b><br><span class="fine">' + doc.pages + ' page' + (doc.pages>1?"s":"") + ' · data to 23 Oct 2026 · ' + (client ? "stamped with your name and ARN" : "partners only") + '</span></span></div>';
   if (client && lead && lead.vd && lead.vd !== "Certified") {
-    openModal(side, head + '<div class="reg-card"><b>Client notes are for V-D certified partners</b><span>Get certified free in 8 live evenings from 16 Nov, then share these notes with your clients.</span></div><a class="btn btn-flame" href="' + CONFIG.eventUrl + '" target="_blank" rel="noopener">Register free for 16 Nov</a><button class="btn btn-ghost" type="button" id="iAmCert">I’m already certified</button>');
+    openModal(side, head + '<div class="reg-card"><b>Client notes are for V-D certified partners</b><span>Get certified free in 8 live evenings' + BD.from + ', then share these notes with your clients.</span></div><a class="btn btn-flame" href="' + CONFIG.eventUrl + '" target="_blank" rel="noopener">' + BD.cta + '</a><button class="btn btn-ghost" type="button" id="iAmCert">I’m already certified</button>');
     $("#iAmCert").addEventListener("click", () => { const l = savedLead(); store.set("ap_sif_lead", JSON.stringify({...l, vd: ""})); gate(doc); });
     return;
   }
@@ -2054,9 +2123,9 @@ const starterSideUnused = '<p class="eyebrow">Free for partners</p><h3>SIF Decod
 function openStarter(source){
   store.set("ap_sif_popup", String(Date.now()));
   track("popup_open", {trigger: source});
-  const thumb = '<div class="pop-thumb"><div class="date"><small>NOV</small><strong>16</strong></div><div><h3 id="mTitle">Register for the free NISM V-D batch</h3></div></div>';
+  const thumb = '<div class="pop-thumb"><div class="date"><small>' + BD.mon + '</small><strong>' + BD.day + '</strong></div><div><h3 id="mTitle">' + (BD.open ? "Register for the free NISM V-D batch" : "Join the waitlist for the next NISM V-D batch") + '</h3></div></div>';
   const bonus = '<div class="bonus"><img loading="lazy" decoding="async" src="decoder-cover.webp" alt="" width="72" height="41" style="width:72px;height:auto;border-radius:4px;flex:none"><span>You also get the SIF Decoder, our 26-page SIF research.</span></div>';
-  openModal("", '<div class="pop"><span class="steps">Step 1 of 2</span>' + thumb + '<p class="sub">8 live evenings from 16 Nov, 6:30 to 8:30 PM, in English.</p>' + bonus + leadForm({minimal: true, cta: "Register free"}) + '<button class="skip" type="button" id="popSkip">No thanks</button></div>', true, true);
+  openModal("", '<div class="pop"><span class="steps">Step 1 of 2</span>' + thumb + '<p class="sub">' + BD.sub + '</p>' + bonus + leadForm({minimal: true, cta: BD.open ? "Register free" : "Join the waitlist"}) + '<button class="skip" type="button" id="popSkip">No thanks</button></div>', true, true);
   $("#popSkip").addEventListener("click", closeModal);
   bindLead(source, {want: "sif-decoder"}, (saved, d) => askCertified(saved, d.name, (certified) => showDecoder(saved, d.name, certified)));
 }
@@ -2066,8 +2135,8 @@ function showDecoder(saved, name, certified){
     $("#mMain").innerHTML = '<div class="pop"><h3 id="mTitle">Thanks, ' + esc(String(name).trim().split(" ")[0]) + '</h3><p class="sub">Get the SIF Decoder on WhatsApp or download it here.</p>' +
       '<a class="btn btn-wa" href="' + waGet + '" target="_blank" rel="noopener">Get it on WhatsApp</a>' +
       '<button class="btn btn-ghost" type="button" id="decNow">Download PDF here</button><p class="err" id="dlMsg" role="status"></p>' +
-      (certified ? '<p class="notice">Your client notes (06a–06e) are unlocked too. <a href="#kit" id="toKit">Open the partner kit</a></p>' : '<p class="notice">Seat not saved yet? <a href="' + CONFIG.eventUrl + '" target="_blank" rel="noopener">Register free for 16 Nov</a></p>') +
-      (saved ? '' : '<p class="notice">We couldn’t record your details from this view. The WhatsApp button still works.</p>') + shareBlock("Bring a colleague to the 16 Nov batch") + '</div>';
+      (certified ? '<p class="notice">Your client notes (06a–06e) are unlocked too. <a href="#kit" id="toKit">Open the partner kit</a></p>' : '<p class="notice">Seat not saved yet? <a href="' + (BD.url || CONFIG.eventUrl) + '" target="_blank" rel="noopener">' + BD.cta + '</a></p>') +
+      (saved ? '' : '<p class="notice">We couldn’t record your details from this view. The WhatsApp button still works.</p>') + shareBlock("Bring a colleague to the " + BD.batch) + '</div>';
     $("#decNow").addEventListener("click", async () => { const r = await download(dec); $("#dlMsg").innerHTML = r === "saved" ? "Saved." : r === "cancelled" ? "Download cancelled." : '<a href="pdfs/' + esc(dec.file) + '" target="_blank" rel="noopener">Open the PDF</a>'; });
     const tk = $("#toKit"); if (tk) tk.addEventListener("click", closeModal);
     renderLib();
@@ -2132,7 +2201,7 @@ document.addEventListener("click", e => {
     const btn = f.querySelector("button[type=submit]"); btn.disabled = true; btn.textContent = "Saving\u2026";
     store.set("ap_sif_popup", String(Date.now()));
     const id = await saveLead({name, mobile, city: "", arn: noArn ? "" : arn.toUpperCase().replace(/^(\d)/, "ARN-$1"), noArn, vd: "", consent: true, source: "hero-card", want: "seat"});
-    $("#seatCard").innerHTML = '<div class="h3-card-top"><span class="h3-date"><small>NOV</small><strong>16</strong></span><span><b>NISM Series V-D</b><br>MF &amp; SIF Distributors \u00b7 Free</span></div><div class="h3-done"><h2>Thanks, ' + esc(name.split(" ")[0]) + '</h2><p>One last step: confirm your seat on the course page. We\u2019ll send batch details on WhatsApp.</p><a class="btn btn-flame btn-lg" href="' + CONFIG.eventUrl + '" target="_blank" rel="noopener">Confirm my seat</a><button class="btn btn-ghost" type="button" data-open="decoder-after">Get the SIF Decoder</button></div>';
+    $("#seatCard").innerHTML = '<div class="h3-card-top"><span class="h3-date"><small>' + BD.mon + '</small><strong>' + BD.day + '</strong></span><span><b>NISM Series V-D</b><br>MF &amp; SIF Distributors \u00b7 Free</span></div><div class="h3-done"><h2>Thanks, ' + esc(name.split(" ")[0]) + '</h2><p>One last step: confirm your seat on the course page. We\u2019ll send batch details on WhatsApp.</p><a class="btn btn-flame btn-lg" href="' + CONFIG.eventUrl + '" target="_blank" rel="noopener">Confirm my seat</a><button class="btn btn-ghost" type="button" data-open="decoder-after">Get the SIF Decoder</button></div>';
     openModal("", "", true, true);
     askCertified(id, name, certified => showDecoder(id, name, certified));
   });
@@ -2144,7 +2213,7 @@ function showNudge(src){
   if ($("#nudge")) return;
   const n = document.createElement("div");
   n.className = "nudge"; n.id = "nudge"; n.setAttribute("role", "dialog"); n.setAttribute("aria-label", "Free NISM V-D batch");
-  n.innerHTML = '<span class="nd"><small>NOV</small><strong>16</strong></span><p>Free NISM V-D batch<span>8 live evenings · Free</span></p><button class="btn btn-flame" type="button" id="ndGo">Register</button><button class="nx" type="button" id="ndX" aria-label="Close">\u00d7</button>';
+  n.innerHTML = '<span class="nd"><small>' + BD.mon + '</small><strong>' + BD.day + '</strong></span><p>Free NISM V-D batch<span>8 live evenings · Free</span></p><button class="btn btn-flame" type="button" id="ndGo">Register</button><button class="nx" type="button" id="ndX" aria-label="Close">\u00d7</button>';
   document.body.appendChild(n); document.body.classList.add("nudging");
   track("nudge_shown", {trigger: src});
   $("#ndGo").addEventListener("click", () => { n.remove(); document.body.classList.remove("nudging"); openStarter("nudge"); });
@@ -2245,7 +2314,7 @@ function showNudge(src){
   function done(){
     track("quiz_done", {score});
     const msg = score === 5 ? ["SIF Ready!", "You know the rules. Make it official with NISM V-D."] : score >= 3 ? ["Almost SIF Ready", "A few gaps. The free live batch covers all of this."] : ["Getting started", "No problem. 8 live evenings take you from basics to the V-D exam."];
-    box.innerHTML = '<div class="qz-res"><div class="qz-badge"><div class="qz-medal">' + score + '/5</div><div><b>' + msg[0] + '</b><span>' + msg[1] + '</span></div></div><div class="row"><button class="btn btn-onband" type="button" data-open="decoder">Register free for 16 Nov</button><button class="btn btn-outline-band" type="button" id="qzAgain">Try again</button><a class="btn btn-outline-band" data-share="whatsapp" href="https://wa.me/?text=' + encodeURIComponent("I scored " + score + "/5 on the AssetPlus SIF Ready quiz. How SIF Ready are you? " + shareLink("quiz")) + '" target="_blank" rel="noopener">Challenge a colleague</a></div></div>';
+    box.innerHTML = '<div class="qz-res"><div class="qz-badge"><div class="qz-medal">' + score + '/5</div><div><b>' + msg[0] + '</b><span>' + msg[1] + '</span></div></div><div class="row"><button class="btn btn-onband" type="button" data-open="decoder">' + BD.cta + '</button><button class="btn btn-outline-band" type="button" id="qzAgain">Try again</button><a class="btn btn-outline-band" data-share="whatsapp" href="https://wa.me/?text=' + encodeURIComponent("I scored " + score + "/5 on the AssetPlus SIF Ready quiz. How SIF Ready are you? " + shareLink("quiz")) + '" target="_blank" rel="noopener">Challenge a colleague</a></div></div>';
     $("#qzAgain").addEventListener("click", () => { qi = 0; score = 0; res = []; ask(); });
   }
   ask();
@@ -2269,12 +2338,12 @@ function showNudge(src){
     ctx.strokeStyle = "rgba(255,255,255,.7)"; ctx.lineWidth = 8; ctx.beginPath(); ctx.arc(0, 0, 110, 0, Math.PI * 2); ctx.stroke();
     ctx.fillStyle = "#5B3A00"; ctx.textAlign = "center"; ctx.font = font("800", 52); ctx.fillText("SIF", 0, -6); ctx.font = font("700", 40); ctx.fillText("READY", 0, 44);
     ctx.restore(); ctx.textAlign = "left";
-    ctx.fillStyle = "#D63B3B"; ctx.font = font("500", 40); ctx.fillText(done ? "Certified · NISM Series V-D" : "Joining the 16 Nov batch", 80, 470);
+    ctx.fillStyle = "#D63B3B"; ctx.font = font("500", 40); ctx.fillText(done ? "Certified · NISM Series V-D" : "Joining the " + BD.batch, 80, 470);
     ctx.fillStyle = "#2B4FA8"; ctx.font = font("600", 104); ctx.fillText(done ? "I'm" : "I'm getting", 80, 600); ctx.fillText("SIF Ready", 80, 715);
     ctx.fillStyle = "#1B1F28"; ctx.font = font("600", 56); ctx.fillText(name, 80, 830);
     ctx.fillStyle = "#fff"; ctx.font = font("500", 36); ctx.fillText(done ? "Offering mutual funds and SIFs" : "Free NISM V-D training with AssetPlus", 80, 1000);
   }
-  const shareTxt = () => (document.querySelector('input[name=bdSt]:checked').value === "done" ? "I'm SIF Ready: NISM Series V-D certified to offer mutual funds and SIFs. " : "I'm getting SIF Ready with the free NISM V-D batch from AssetPlus, starting 16 Nov. Join me: ");
+  const shareTxt = () => (document.querySelector('input[name=bdSt]:checked').value === "done" ? "I'm SIF Ready: NISM Series V-D certified to offer mutual funds and SIFs. " : "I'm getting SIF Ready with the free NISM V-D batch from AssetPlus, " + BD.startingC + ". Join me: ");
   function links(){ $("#bdWa").href = "https://wa.me/?text=" + encodeURIComponent(shareTxt() + shareLink("badge")); $("#bdLi").href = "https://www.linkedin.com/sharing/share-offsite/?url=" + encodeURIComponent(shareLink("badge-linkedin")); }
   $("#bdName").addEventListener("input", draw); $$('input[name=bdSt]').forEach(r => r.addEventListener("change", () => { draw(); links(); }));
   logo.onload = draw; draw(); links();
@@ -2286,6 +2355,12 @@ function showNudge(src){
     const a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = fname; document.body.appendChild(a); a.click(); a.remove();
     setTimeout(() => URL.revokeObjectURL(a.href), 4000); $("#bdMsg").textContent = "Downloaded. Post it with the share buttons.";
   }, "image/png"));
+})();
+
+/* When no batch is open, swap date copy for waitlist copy */
+(function batchCopy(){
+  if (BD.open) return;
+  $$("[data-closed]").forEach(el => el.textContent = el.dataset.closed);
 })();
 
 /* Share blocks on the page */
