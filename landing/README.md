@@ -48,3 +48,7 @@ Replace `BASE` with the live URL. Every link carries UTM tags, so sign-ups show 
 3. Leads arrive in Netlify → Site → Forms → `sif-lead` (enable form detection once in Site settings → Forms; set email notifications there).
 4. To update data: rebuild and drag the folder onto the same site's Deploys page.
 Same folder also works on Cloudflare Pages (Upload assets) or any static host; there, leads need the Vercel function or a webhook instead.
+
+### Partner dashboard page
+`landing/pulse-embed.html` is a self-contained SIF Pulse page (all strategies, launch date, 1D to 12M and since launch, filters, search, sort, disclosures). It is rebuilt with the nightly data. Host it next to the site (it is in the drag-and-drop package as `/pulse-embed.html`) and open it or embed it in the partner dashboard:
+`<iframe src="https://YOUR-SITE/pulse-embed.html" style="width:100%;height:900px;border:0" title="SIF Pulse"></iframe>`

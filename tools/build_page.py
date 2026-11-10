@@ -17,6 +17,8 @@ import json
 import os
 import pathlib
 import re
+import sys
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 SITE_URL = os.environ.get("SITE_URL", "").strip()
@@ -92,6 +94,8 @@ def build():
     body = prerender(body, json.loads(nav), pulse)
 
     (ROOT / "landing/index.html").write_text(body.replace("__SITEURL__", ""))
+    import build_embed
+    build_embed.build()
 
     # full document for public hosting: move <title>, <meta>, <link> and JSON-LD into <head>
     site = body.replace("__SITEURL__", SITE_URL)

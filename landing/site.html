@@ -560,6 +560,11 @@ input[type=range]#pcAmt { -webkit-appearance: none; appearance: none; height: 8p
 @media (max-width: 640px) { .fb { grid-template-columns: 96px minmax(0,1fr) 76px; font-size: 12px; } .middle-row { grid-template-columns: 1fr 1fr; } .middle-row div { padding: 10px 8px; } .topbar .btn-cta span { display: none; } .topbar .wrap { gap: 10px; } }
 .metaphor .tag { color: #D63B3B !important; }
 @media (prefers-reduced-motion: reduce) { .nav-live, .m-pulse, .m-pulse i, .umb *, .middle-row .sif::after { animation: none !important; } .mv .middle-row > div, .mv .cmp-t tbody tr { opacity: 1; transform: none; } }
+.dl-row { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.next2 { display: grid; gap: 8px; margin-top: 4px; }
+.next2-h { font-size: 13px; font-weight: 700; color: var(--ink); }
+.next2 .reg-card { padding: 12px 14px; }
+@media (max-width: 420px) { .dl-row { grid-template-columns: 1fr; } }
 /* SIF Ready hero (reference layout) */
 .rhero { background: linear-gradient(180deg, #F2F6FE 0%, #F7F9FD 100%); overflow: hidden; }
 .rhero > .wrap:first-child { display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr); gap: 40px; padding-top: 44px; align-items: center; }
@@ -1625,9 +1630,9 @@ input:focus, select:focus { outline: 2px solid var(--brand); border-color: var(-
           <div class="fb"><span>Nifty 50</span><i style="--w:100%"></i><b>−₹1,13,000</b></div>
           <div class="fb"><span>Balanced advantage</span><i style="--w:59%"></i><b>−₹66,900</b></div>
           <div class="fb sif"><span>Middle hybrid SIF</span><i style="--w:17%"></i><b>−₹19,200</b></div>
-          <p class="fall-n">Past performance may or may not be sustained in future.</p>
+          <p class="fall-n">Source: AssetPlus calculations on AMFI mutual fund and SIF NAVs (Regular plans, growth option) and NSE Indices, for 1 to 31 March 2026, before tax. Balanced advantage = category average. Middle hybrid SIF = the median of the three hybrid SIFs with a full year of NAVs. Past performance may or may not be sustained in future.</p>
         </div>
-        <div class="callout" style="margin-top:8px;display:none">In March 2026 the Nifty fell 11.3%. On ₹10 lakh, the middle hybrid SIF lost <b>₹19,200</b>. A balanced advantage fund lost ₹66,900. The Nifty 50 lost ₹1,13,000.</div>
+        <div class="callout" style="display:none">In March 2026 the Nifty fell 11.3%. On ₹10 lakh, the middle hybrid SIF lost <b>₹19,200</b>. A balanced advantage fund lost ₹66,900. The Nifty 50 lost ₹1,13,000.</div>
       </div>
       <div class="panel">
         <span class="metaphor"><span class="tag">Where it fits</span></span>
@@ -1689,7 +1694,7 @@ input:focus, select:focus { outline: 2px solid var(--brand); border-color: var(-
       <h2 class="h2">Sign up and get the SIF starter bundle</h2>
       <p class="lede">Everything we use to explain SIFs to partners and their clients, in one bundle.</p>
       <ul class="bundle-list">
-        <li><b>SIF Decoder, Oct 2026</b><span>Our 26-page research on every SIF</span></li>
+        <li><b>SIF Decoder, Nov 2026</b><span>Our 27-page research on every SIF, for ARN holders</span></li>
         <li><b>15 one-pagers</b><span>Explainers, pitch sheets and client notes</span></li>
         <li><b>Client notes with your ARN</b><span>Ready to share once you are certified</span></li>
         <li><b>Daily SIF NAVs</b><span>Every strategy, from AMFI</span></li>
@@ -1845,7 +1850,7 @@ const PULSE = {"asof":"2026-11-09","aumPeriod":"July - September 2026","funds":[
 const AUM = [["Oct 25",2010],["Nov 25",2932],["Dec 25",4892],["Jan 26",6564],["Feb 26",9711],["Mar 26",10620],["Apr 26",12329],["May 26",13814],["Jun 26",17858],["Jul 26",23177],["Aug 26",31175],["Sep 26",38287]];
 const BRANDS = [["Altiva",13221],["iSIF",6146],["Magnum",5591],["qsif",3814],["Infinity",3041],["RedHex",1523],["DynaSIF",1132],["Titanium",878],["Apex",699],["Prism",478],["Platinum",386],["SUMMIT",378],["Arudha",292],["Diviniti",246],["Sapphire",212],["Arthaya",131],["WSIF",119]];
 const DOCS = [
-  {id:"D", tab:"learn", aud:"partner", file:"AssetPlus-SIF-Decoder-Oct-2026.pdf", t:"SIF Decoder · Oct 2026", d:"Our flagship research: basics, our view, our evaluation framework, coverage and the performance tracker.", q:"", pages:26},
+  {id:"D", tab:"learn", aud:"partner", file:"AssetPlus-SIF-Decoder-Nov-2026.pdf", t:"SIF Decoder · Nov 2026", d:"Our flagship research: basics, our view, our evaluation framework, coverage and the performance tracker.", q:"", pages:27},
   {id:"01", tab:"learn", aud:"partner", file:"01-What-is-a-SIF.pdf", t:"What is a SIF?", d:"The idea, the kinds, and how they did. Explain a SIF the way you explain a SIP.", q:"Anand, Pune: \"I need to explain a SIF in one breath.\"", pages:2},
   {id:"02", tab:"learn", aud:"partner", file:"02-Why-Get-SIF-Certified.pdf", t:"Why get SIF certified", d:"The new licence, the market, and where SIF fits in your book.", q:"Meena, Chennai: \"I lost him on a licence.\"", pages:1},
   {id:"H", tab:"learn", aud:"partner", file:"SIF-History-Why-and-Wealth.pdf", t:"SIF in one picture", d:"Where SIF came from, why it belongs in portfolios, and the two engines of wealth.", q:"", pages:1},
@@ -2175,7 +2180,7 @@ function leadForm(opts){
     '<label for="lf-name">Your name<input id="lf-name" name="name" autocomplete="name" required value="' + esc(prev.name||"") + '"></label>' +
     '<label for="lf-mobile">WhatsApp number<input id="lf-mobile" name="mobile" inputmode="numeric" autocomplete="tel" placeholder="10-digit mobile" required value="' + esc(prev.mobile||"") + '"></label>' +
     '<label for="lf-arn">ARN<input id="lf-arn" name="arn" placeholder="ARN-123456" autocapitalize="characters" required value="' + esc(prev.arn||"") + '"></label>' +
-    '<label class="noarn" for="lf-noarn"><input type="checkbox" id="lf-noarn" name="noarn">I don’t have an ARN yet</label>' +
+    (opts.arnOnly ? '' : '<label class="noarn" for="lf-noarn"><input type="checkbox" id="lf-noarn" name="noarn">I don’t have an ARN yet</label>') +
     '<label class="check" for="lf-consent"><input type="checkbox" id="lf-consent" name="consent"><span>Yes, AssetPlus may contact me on WhatsApp about SIFs and training. I can opt out any time.</span></label>' +
     '<p class="err" id="lf-err" role="alert"></p>' +
     '<button class="btn btn-flame" type="submit">' + esc(opts.cta) + '</button>' +
@@ -2208,7 +2213,7 @@ function bindLead(source, extra, onDone){
     if (!/^[6-9]\d{9}$/.test(mobile)) return err.textContent = "Enter a valid 10-digit Indian mobile number.";
     if (f.city && !d.city) return err.textContent = "Enter your city.";
     const noArn = !!(f.noarn && f.noarn.checked);
-    if (f.arn.required && !noArn && !/^(ARN-?)?\d{3,7}$/i.test((d.arn||"").trim())) return err.textContent = "Enter your ARN, for example ARN-123456, or tick \u201cI don\u2019t have an ARN yet\u201d.";
+    if (f.arn.required && !noArn && !/^(ARN-?)?\d{3,7}$/i.test((d.arn||"").trim())) return err.textContent = (f.noarn ? "Enter your ARN, for example ARN-123456, or tick \u201cI don\u2019t have an ARN yet\u201d." : "Enter your ARN, for example ARN-123456. The SIF Decoder is for AMFI-registered distributors.");
     if (f.vd && !d.vd) return err.textContent = "Choose your NISM V-D status.";
     if (f.vdok && !f.vdok.checked) return err.textContent = "Client notes can only be shared by V-D certified partners. Tick the box, or register for the free training first.";
     if (f.consent && !f.consent.checked) return err.textContent = "Tick the box so we can send it to you on WhatsApp.";
@@ -2278,6 +2283,11 @@ document.addEventListener("click", async e => {
   }
 });
 
+function showDecoderFromKit(lead){
+  openModal("", '<div class="pop"></div>', true, true);
+  showDecoder(true, lead.name || "", lead.vd === "Certified" ? true : null);
+}
+
 /* Downloads */
 async function download(doc){
   const dl = await getDownloads();
@@ -2319,6 +2329,12 @@ const dlText = r => r === "saved" ? "Saved." : r === "cancelled" ? "Download can
 
 function gate(doc){
   const lead = savedLead();
+  if (doc.id === "D") {
+    if (lead && lead.arn) { showDecoderFromKit(lead); return; }
+    openModal("", '<div class="pop pd"><img src="decoder-cover.webp" alt="SIF Decoder, November 2026" class="pd-cover" width="1000" height="563"><span class="pd-free">Free for ARN holders · 27 pages</span><h3 id="mTitle">Download the SIF Decoder</h3>' + leadForm({minimal: true, arnOnly: true, cta: "Download the Decoder"}) + '</div>', true, true);
+    bindLead("download", {doc: "D", want: "sif-decoder"}, (saved, d) => showDecoder(saved, d.name, null));
+    return;
+  }
   const client = doc.aud === "client";
   const side = '<p class="eyebrow">' + (client ? "Client note" : "Partner kit") + '</p><h3>' + (client ? "Client notes" : "Partner kit") + '</h3><ul>' +
     (client ? '<li>Plain words your client understands</li><li>Official AMFI data with full disclosures</li><li>Your name and ARN printed on the note</li><li>Share only with eligible clients</li>' : '<li>Real-life stories from distributors like you</li><li>Conversation scripts and numbers to show</li><li>Free NISM V-D training from 16 Nov</li>') +
@@ -2365,7 +2381,7 @@ function openStarter(source){
   track("popup_open", {trigger: source});
   if (/^popup-|^nudge/.test(source)) return openDecoderFirst(source);
   const thumb = '<div class="pop-thumb"><div class="date"><small>' + BD.mon + '</small><strong>' + BD.day + '</strong></div><div><h3 id="mTitle">' + (BD.open ? "Register for the free NISM V-D batch" : "Join the waitlist for the next NISM V-D batch") + '</h3></div></div>';
-  const bonus = '<div class="bonus"><img loading="lazy" decoding="async" src="decoder-cover.webp" alt="" width="72" height="41" style="width:72px;height:auto;border-radius:4px;flex:none"><span>You also get the SIF Decoder, our 26-page SIF research.</span></div>';
+  const bonus = '<div class="bonus"><img loading="lazy" decoding="async" src="decoder-cover.webp" alt="" width="72" height="41" style="width:72px;height:auto;border-radius:4px;flex:none"><span>ARN holders also get the SIF Decoder, our 27-page SIF research.</span></div>';
   openModal("", '<div class="pop"><span class="steps">Step 1 of 2</span>' + thumb + '<p class="sub">' + BD.sub + '</p>' + bonus + leadForm({minimal: true, cta: BD.open ? "Register free" : "Join the waitlist"}) + '<button class="skip" type="button" id="popSkip">No thanks</button></div>', true, true);
   $("#popSkip").addEventListener("click", closeModal);
   bindLead(source, {want: "sif-decoder"}, (saved, d) => askCertified(saved, d.name, (certified) => showDecoder(saved, d.name, certified)));
@@ -2378,21 +2394,31 @@ function webinarInvite(){
 }
 /* Auto pop-up: lead with the SIF Decoder, then push certification (or the webinar for certified partners) */
 function openDecoderFirst(source){
-  const cover = '<img src="decoder-cover.webp" alt="SIF Decoder, October 2026" class="pd-cover" width="1000" height="563">';
-  openModal("", '<div class="pop pd">' + cover + '<span class="pd-free">Free · 26 pages</span><h3 id="mTitle">Get the SIF Decoder</h3><p class="sub">AssetPlus research on every SIF in India: the strategies, how we evaluate them, and a tracker of all of them.</p>' +
-    leadForm({minimal: true, cta: "Send me the Decoder"}) + '<button class="skip" type="button" id="popSkip">Not now</button></div>', true, true);
+  const cover = '<img src="decoder-cover.webp" alt="SIF Decoder, November 2026" class="pd-cover" width="1000" height="563">';
+  openModal("", '<div class="pop pd">' + cover + '<span class="pd-free">Free for ARN holders · 27 pages</span><h3 id="mTitle">Get the SIF Decoder</h3><p class="sub">AssetPlus research on every SIF in India: the strategies, how we evaluate them, and a tracker of all of them.</p>' +
+    leadForm({minimal: true, arnOnly: true, cta: "Download the Decoder"}) + '<p class="notice">For AMFI-registered distributors. Enter your ARN to download.</p><button class="skip" type="button" id="popSkip">Not now</button></div>', true, true);
   $("#popSkip").addEventListener("click", closeModal);
-  bindLead(source, {want: "sif-decoder"}, (saved, d) => askCertified(saved, d.name, certified => showDecoder(saved, d.name, certified)));
+  bindLead(source, {want: "sif-decoder"}, (saved, d) => showDecoder(saved, d.name, null));
 }
 function showDecoder(saved, name, certified){
-    const dec = DOCS.find(x => x.id === "D");
+    const dec = DOCS.find(x => x.id === "D"), lead = savedLead() || {}, first = esc(String(name).trim().split(" ")[0]);
+    if (!lead.arn) {
+      $("#mMain").innerHTML = '<div class="pop"><h3 id="mTitle">Thanks, ' + first + '</h3><p class="sub">' + (BD.open ? "Your request for the free NISM V-D batch is in. We will WhatsApp you the details." : "You are on the waitlist for the next NISM V-D batch. We will WhatsApp you first.") + '</p>' +
+        (BD.open ? '<a class="btn btn-flame" href="' + (BD.url || CONFIG.eventUrl) + '" target="_blank" rel="noopener">Complete my registration</a>' : '') +
+        '<p class="notice">The SIF Decoder is for ARN holders. Once you have your ARN, come back and download it.</p>' + shareBlock("Bring a colleague to the " + BD.batch) + '</div>';
+      return;
+    }
     const waGet = "https://wa.me/" + CONFIG.whatsapp + "?text=" + encodeURIComponent("Hi, please send me the SIF Decoder. I'm " + String(name).trim() + ".");
-    $("#mMain").innerHTML = '<div class="pop"><h3 id="mTitle">Thanks, ' + esc(String(name).trim().split(" ")[0]) + '</h3><p class="sub">Get the SIF Decoder on WhatsApp or download it here.</p>' +
-      '<a class="btn btn-wa" href="' + waGet + '" target="_blank" rel="noopener">Get it on WhatsApp</a>' +
-      '<button class="btn btn-ghost" type="button" id="decNow">Download PDF here</button><p class="err" id="dlMsg" role="status"></p>' +
-      (certified ? webinarInvite() + '<p class="notice">Your client notes (06a–06e) are unlocked too. <a href="#kit" id="toKit">Open the partner kit</a></p>' : '<p class="notice">Seat not saved yet? <a href="' + (BD.url || CONFIG.eventUrl) + '" target="_blank" rel="noopener">' + BD.cta + '</a></p>') +
-      (saved ? '' : '<p class="notice">We couldn’t record your details from this view. The WhatsApp button still works.</p>') + shareBlock("Bring a colleague to the " + BD.batch) + '</div>';
-    $("#decNow").addEventListener("click", async () => { const r = await download(dec); $("#dlMsg").innerHTML = r === "saved" ? "Saved." : r === "cancelled" ? "Download cancelled." : '<a href="pdfs/' + esc(dec.file) + '" target="_blank" rel="noopener">Open the PDF</a>'; });
+    const push = certified === true ? webinarInvite()
+      : certified === false ? ''
+      : '<div class="next2"><p class="next2-h">What next?</p>' +
+        (BD.open ? '<div class="reg-card"><b>Not NISM V-D certified yet?</b><span>Free live batch' + BD.from + ', 8 evenings.</span><a class="btn btn-flame" href="' + (BD.url || CONFIG.eventUrl) + '" target="_blank" rel="noopener" onclick="track(\'register_click\',{where:\'decoder-done\'})">Register free</a></div>' : '') +
+        webinarInvite().replace("You’re invited:", "Already certified? Join the") + '</div>';
+    $("#mMain").innerHTML = '<div class="pop"><h3 id="mTitle">Your SIF Decoder is downloading</h3><p class="sub">Thanks, ' + first + '. If it does not start, open it below or get it on WhatsApp.</p>' +
+      '<div class="dl-row"><a class="btn btn-flame" href="pdfs/' + esc(dec.file) + '" target="_blank" rel="noopener" id="decOpen">Open the PDF</a><a class="btn btn-wa" href="' + waGet + '" target="_blank" rel="noopener">Get it on WhatsApp</a></div><p class="err" id="dlMsg" role="status"></p>' +
+      push + (certified === true ? '<p class="notice">Your client notes (06a–06e) are unlocked too. <a href="#kit" id="toKit">Open the partner kit</a></p>' : '') +
+      (saved ? '' : '<p class="notice">We couldn’t record your details from this view. The WhatsApp button still works.</p>') + '</div>';
+    download(dec).then(r => { if (r === "nostamp" || r === "link") $("#dlMsg").textContent = "Use Open the PDF to read and save it."; });
     const tk = $("#toKit"); if (tk) tk.addEventListener("click", closeModal);
     renderLib();
 }

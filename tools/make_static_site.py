@@ -16,7 +16,7 @@ fields = ["id","update","name","mobile","city","arn","noArn","vd","consent","sou
 form = '<form name="sif-lead" data-netlify="true" netlify-honeypot="bot-field" hidden>' + '<input name="bot-field">' + "".join('<input name="%s">' % f for f in fields) + "</form>"
 html = html.replace("<body>\n", "<body>\n" + form + "\n", 1)
 (OUT / "index.html").write_text(html)
-for name in ["decoder-cover.webp", "logo-light.png", "og-image.jpg", "robots.txt"] + (["sitemap.xml"] if (ROOT / "landing/sitemap.xml").exists() else []):
+for name in ["decoder-cover.webp", "logo-light.png", "og-image.jpg", "robots.txt", "pulse-embed.html"] + (["sitemap.xml"] if (ROOT / "landing/sitemap.xml").exists() else []):
     shutil.copy2(ROOT / "landing" / name, OUT / name)
 for d in ["img", "thumbs", "pdfs"]:
     shutil.copytree(ROOT / "landing" / d, OUT / d)
