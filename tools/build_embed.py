@@ -33,7 +33,7 @@ TEMPLATE = r'''<!doctype html>
 <title>SIF Pulse | AssetPlus Partner</title><meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@600;700&family=Inter:wght@400;500;600&display=swap">
 <style>
-:root{--ink:#1B1F28;--body:#33415C;--muted:#5B6B86;--line:#E3E9F4;--bg:#F7F9FD;--brand:#2B4FA8;--soft:#EEF4FF;--pos:#15803D;--posbg:#E7F6EC;--neg:#B3261E;--negbg:#FCE9E7;--red:#D63B3B}
+:root{--ink:#1B1F28;--body:#33415C;--muted:#5B6B86;--line:#E1E6EC;--bg:#F5F8FB;--brand:#0A4E9B;--soft:#E7EEF6;--pos:#0A4E9B;--posbg:#E7EEF6;--neg:#E41F26;--negbg:#FDE9EA;--red:#E41F26}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--body);font:14px/1.5 Inter,"Segoe UI",Arial,sans-serif}
 .w{max-width:1180px;margin:0 auto;padding:20px max(16px,env(safe-area-inset-left,0px))}
 h1{font:700 24px Geist,Inter,sans-serif;color:var(--brand);margin:0}
@@ -50,7 +50,7 @@ h1{font:700 24px Geist,Inter,sans-serif;color:var(--brand);margin:0}
 input{font:inherit;padding:8px 12px;border:1px solid var(--line);border-radius:10px;width:240px;max-width:100%}
 .tb{overflow-x:auto;background:#fff;border:1px solid var(--line);border-radius:14px}
 table{border-collapse:collapse;width:100%;min-width:980px}th,td{padding:10px 9px;border-bottom:1px solid var(--line);text-align:left;white-space:nowrap}td.n{white-space:normal;min-width:180px}
-th{font-size:11.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);background:#F1F4FA;position:sticky;top:0}
+th{font-size:11.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);background:#F2F6FA;position:sticky;top:0}
 th button{all:unset;cursor:pointer}td.r,th.r{text-align:right}tr:last-child td{border-bottom:0}
 .n b{display:block;color:var(--ink);font-weight:600}.n small{color:var(--muted);font-size:12px}
 .p{font-size:11.5px;color:var(--brand);background:var(--soft);padding:2px 8px;border-radius:999px}
