@@ -2008,10 +2008,10 @@ $("#asof3").textContent = DATA.asof;
   const cal = e => "https://calendar.google.com/calendar/render?action=TEMPLATE&text=" + encodeURIComponent("AssetPlus: " + e.title) + "&dates=" + iso(e.t) + "/" + iso(e.te) + "&details=" + encodeURIComponent((e.aud === "new" ? "Session 1 of 8. " : "") + "Register: " + e.url) + "&location=Online";
   const card = (e, i) => {
     const d = new Date(e.t), live = e.t <= now;
-    const cta = e.aud === "new" ? '<button class="btn btn-flame" type="button" data-open="decoder">' + esc(BD.open ? (e.cta || "Register free") : "Join the waitlist") + '</button>'
+    const cta = e.aud === "new" ? (BD.open ? '<a class="btn btn-flame" href="' + esc(e.url) + '" target="_blank" rel="noopener">' + esc(e.cta || "Register free") + '</a>' : '<button class="btn btn-flame" type="button" data-open="waitlist">Join the waitlist</button>')
                                 : '<a class="btn btn-flame" href="' + esc(e.url) + '" target="_blank" rel="noopener" data-ev="' + i + '">' + esc(e.cta || "Register") + '</a>';
-    const img = e.aud === "new" ? '<button type="button" class="c2-img" data-open="decoder" aria-label="' + esc(e.title) + '">' : '<a class="c2-img" href="' + esc(e.url) + '" target="_blank" rel="noopener" data-ev="' + i + '" aria-label="' + esc(e.title) + '">';
-    return '<article class="c2-card" data-aud="' + e.aud + '">' + img + '<img src="' + esc(e.img || "img/batch-diwali.webp") + '" alt="" loading="lazy" style="object-fit:' + (e.imgFit || "cover") + '">' + (e.aud === "new" ? '</button>' : '</a>') +
+    const img = e.aud === "new" && !BD.open ? '<button type="button" class="c2-img" data-open="waitlist" aria-label="' + esc(e.title) + '">' : '<a class="c2-img" href="' + esc(e.url) + '" target="_blank" rel="noopener" data-ev="' + i + '" aria-label="' + esc(e.title) + '">';
+    return '<article class="c2-card" data-aud="' + e.aud + '">' + img + '<img src="' + esc(e.img || "img/batch-diwali.webp") + '" alt="" loading="lazy" style="object-fit:' + (e.imgFit || "cover") + '">' + (e.aud === "new" && !BD.open ? '</button>' : '</a>') +
       '<div class="c2-body"><div class="c2-kind"><span class="k">' + esc(e.kind || "Event") + '</span><span class="a">' + (e.aud === "new" ? "For new partners" : "For certified partners") + '</span></div>' +
       '<h4>' + esc(e.title) + '</h4>' +
       '<div class="c2-when"><span class="c2-dt"><small>' + d.toLocaleString("en-IN", {...tz, month: "short"}).toUpperCase() + '</small><strong>' + d.toLocaleString("en-IN", {...tz, day: "numeric"}) + '</strong></span><span><b>' + esc((e.meta || []).slice(0, 2).join(" · ")) + '</b><span>' + esc((e.meta || []).slice(2).join(" · ") || e.tag || "") + '</span></span></div>' +
@@ -2376,7 +2376,7 @@ const starterSideUnused = '<p class="eyebrow">Free for partners</p><h3>SIF Decod
 function openStarter(source){
   store.set("ap_sif_popup", String(Date.now()));
   track("popup_open", {trigger: source});
-  if (/^popup-|^nudge/.test(source)) return openDecoderFirst(source);
+  if (source !== "waitlist") return openDecoderFirst(source);
   const thumb = '<div class="pop-thumb"><div class="date"><small>' + BD.mon + '</small><strong>' + BD.day + '</strong></div><div><h3 id="mTitle">' + (BD.open ? "Register for the free NISM V-D batch" : "Join the waitlist for the next NISM V-D batch") + '</h3></div></div>';
   const bonus = '<div class="bonus"><img loading="lazy" decoding="async" src="decoder-cover.webp" alt="" width="72" height="41" style="width:72px;height:auto;border-radius:4px;flex:none"><span>ARN holders also get the SIF Decoder, our 27-page SIF research.</span></div>';
   openModal("", '<div class="pop"><span class="steps">Step 1 of 2</span>' + thumb + '<p class="sub">' + BD.sub + '</p>' + bonus + leadForm({minimal: true, cta: BD.open ? "Register free" : "Join the waitlist"}) + '<button class="skip" type="button" id="popSkip">No thanks</button></div>', true, true);
@@ -2389,11 +2389,21 @@ function webinarInvite(){
   const d = new Date(w.start).toLocaleDateString("en-IN", {weekday: "short", day: "numeric", month: "short", timeZone: "Asia/Kolkata"});
   return '<div class="reg-card"><b>You\u2019re invited: ' + esc(w.title) + '</b><span>' + d + ' · ' + esc((w.meta || [])[1] || "") + (w.speaker ? ' · ' + esc(w.speaker.split(",")[0]) : '') + '</span><a class="btn btn-flame" href="' + esc(w.url) + '" target="_blank" rel="noopener" onclick="track(\'register_click\',{where:\'popup-webinar\'})">Register on Zoom</a></div>';
 }
+function openNextStep(source){
+  store.set("ap_sif_popup", String(Date.now()));
+  track("popup_open", {trigger: source + "-next"});
+  const lead = savedLead() || {};
+  const reg = BD.open && lead.vd !== "Certified" ? '<div class="reg-card"><b>Not NISM V-D certified yet?</b><span>Free live batch' + BD.from + ', 8 evenings.</span><a class="btn btn-flame" href="' + (BD.url || CONFIG.eventUrl) + '" target="_blank" rel="noopener" onclick="track(\'register_click\',{where:\'popup-next\'})">Register free</a></div>' : '';
+  const web = webinarInvite().replace("You\u2019re invited:", reg ? "Already certified? Join the" : "You\u2019re invited:");
+  if (!reg && !web) return;
+  openModal("", '<div class="pop"><h3 id="mTitle">Your next step to SIF Ready</h3><p class="sub">Your SIF Decoder stays in the partner kit below.</p><div class="next2">' + reg + web + '</div><button class="skip" type="button" id="popSkip">Not now</button></div>', true, true);
+  $("#popSkip").addEventListener("click", closeModal);
+}
 /* Auto pop-up: lead with the SIF Decoder, then push certification (or the webinar for certified partners) */
 function openDecoderFirst(source){
   const cover = '<img src="decoder-cover.webp" alt="SIF Decoder, November 2026" class="pd-cover" width="1000" height="563">';
   openModal("", '<div class="pop pd">' + cover + '<span class="pd-free">Free for ARN holders · 27 pages</span><h3 id="mTitle">Get the SIF Decoder</h3><p class="sub">AssetPlus research on every SIF in India. Enter your ARN and the PDF downloads straight away.</p>' +
-    leadForm({arnField: true, cta: "Download the Decoder"}) + '<p class="notice">For AMFI-registered distributors.</p><button class="skip" type="button" id="popSkip">Not now</button></div>', true, true);
+    leadForm({arnField: true, cta: "Download the Decoder"}) + '<p class="notice">For AMFI-registered distributors.' + (BD.open ? ' No ARN yet? <a href="' + (BD.url || CONFIG.eventUrl) + '" target="_blank" rel="noopener" onclick="track(\'register_click\',{where:\'popup-noarn\'})">Register for the free NISM V-D batch</a>' : '') + '</p><button class="skip" type="button" id="popSkip">Not now</button></div>', true, true);
   $("#popSkip").addEventListener("click", closeModal);
   bindLead(source, {want: "sif-decoder"}, (saved, d) => showDecoder(saved, d.name, null));
 }
@@ -2435,8 +2445,7 @@ document.addEventListener("click", e => {
   if (a && a.href.includes("wa.me")) track("whatsapp_click");
   const b = e.target.closest("[data-open]"); if (!b) return;
   const k = b.dataset.open;
-  if (k === "decoder-arn") { store.set("ap_sif_popup", String(Date.now())); track("popup_open", {trigger: "bundle"}); openDecoderFirst("bundle"); }
-  else if (k === "starter" || k === "decoder") openStarter(k); else simpleLead(k);
+  if (k === "starter" || k === "decoder" || k === "decoder-arn" || k === "waitlist") openStarter(k === "decoder-arn" ? "bundle" : k); else simpleLead(k);
 });
 
 /* Motion: count up the headline numbers, reveal sections as they arrive */
@@ -2657,11 +2666,12 @@ function showNudge(src){
 /* First-visit popup: 45% scroll, 40 s on page, or exit intent. Once per 7 days; never after sign-up. */
 (function firstVisit(){
   if (location.hash === "#register") { setTimeout(() => openStarter("link"), 400); return; }
-  const last = Number(store.get("ap_sif_popup") || 0), lead = savedLead();
-  if ((lead && lead.vd === "Certified") || (last && Date.now() - last < 864e5)) return;
+  let seen = null; try { seen = sessionStorage.getItem("ap_sif_pop_s"); sessionStorage.setItem("ap_sif_pop_s", "1"); } catch(e){}
+  if (seen) return;
+  const lead = savedLead();
   let shown = false;
   const phone = matchMedia("(max-width: 640px)").matches;
-  const show = (src) => { if (shown || !overlay.hidden) return; shown = true; openStarter(src); };
+  const show = (src) => { if (shown || !overlay.hidden) return; shown = true; if (lead && lead.arn) openNextStep(src); else openStarter(src); };
   setTimeout(() => show("popup-time"), 2000);
   const onScroll = () => { const h = document.scrollingElement || document.documentElement; if ((scrollY + innerHeight) / h.scrollHeight > 0.3) { removeEventListener("scroll", onScroll); show("popup-scroll"); } };
   addEventListener("scroll", onScroll, {passive: true});
