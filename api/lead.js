@@ -12,7 +12,9 @@ module.exports = async (req, res) => {
   const lead = {};
   for (const k of FIELDS) if (body[k] !== undefined) lead[k] = typeof body[k] === "string" ? body[k].slice(0, 300) : body[k];
   if (!lead.update) {
-    if (!lead.name || !/^[6-9]\d{9}$/.test(String(lead.mobile || ""))) return res.status(400).json({ ok: false, error: "Invalid name or mobile" });
+    const okMobile = lead.name && /^[6-9]\d{9}$/.test(String(lead.mobile || ""));
+    const okArn = /^ARN-?\d{3,7}$/i.test(String(lead.arn || ""));
+    if (!okMobile && !okArn) return res.status(400).json({ ok: false, error: "Need name and mobile, or an ARN" });
   }
   lead.receivedAt = new Date().toISOString();
   const hook = process.env.LEAD_WEBHOOK_URL;

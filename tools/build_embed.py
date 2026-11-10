@@ -74,7 +74,7 @@ const D=__DATA__;const $=s=>document.querySelector(s);const esc=t=>String(t).rep
 const pct=v=>v==null?"–":(v>0?"+":v<0?"−":"")+Math.abs(v).toFixed(2)+"%";const cl=v=>v==null?"na":v>0?"up":v<0?"dn":"";
 const F=D.funds;const tot=F.reduce((s,f)=>s+(f.aum||0),0);
 $("#aum").textContent=D.aum;
-$("#k").innerHTML=[[F.length,"live strategies"],[new Set(F.map(f=>f.brand)).size,"SIF brands"],["₹"+tot.toLocaleString("en-IN")+" cr","strategy average AUM"],[F.filter(f=>f.d1>0).length+" of "+F.filter(f=>f.d1!=null).length,"up on the day"]].map(([v,l])=>"<div><b>"+v+"</b><span>"+l+"</span></div>").join("");
+$("#k").innerHTML=[[F.length,"live strategies"],[new Set(F.map(f=>f.brand)).size,"SIF brands with a live NAV"],["₹"+tot.toLocaleString("en-IN")+" cr","strategy average AUM"],[F.filter(f=>f.d1>0).length+" of "+F.filter(f=>f.d1!=null).length,"up on the day"]].map(([v,l])=>"<div><b>"+v+"</b><span>"+l+"</span></div>").join("");
 let cur="All",sk="aum",sd=-1;const cats=["All",...D.cats.map(c=>c.name)];
 $("#chips").innerHTML=cats.map(c=>'<button class="chip" aria-pressed="'+(c==="All")+'" data-c="'+esc(c)+'">'+esc(c)+"</button>").join("");
 $("#chips").onclick=e=>{const b=e.target.closest(".chip");if(!b)return;cur=b.dataset.c;document.querySelectorAll(".chip").forEach(x=>x.setAttribute("aria-pressed",x===b));draw();};
