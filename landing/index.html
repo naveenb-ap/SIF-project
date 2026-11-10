@@ -398,7 +398,7 @@ input[type=range]#pcAmt { -webkit-appearance: none; appearance: none; height: 8p
 .c2-ev-head h3 { font-size: 22px; color: var(--brand); }
 .c2-tabs { display: flex; gap: 6px; background: #fff; border: 1px solid var(--line); border-radius: 999px; padding: 4px; }
 .c2-tab { all: unset; cursor: pointer; padding: 8px 16px; border-radius: 999px; font-weight: 600; font-size: 14px; color: var(--body); }
-.c2-tab[aria-selected="true"] { background: #3A5FB8; color: #fff; }
+.c2-tab[aria-selected="true"], .c2-tab[aria-pressed="true"] { background: #3A5FB8; color: #fff; }
 .c2-tab:focus-visible { outline: 3px solid var(--brand); outline-offset: 2px; }
 .c2-panel:not([hidden]) { animation: rise-in .4s ease-out both; }
 .c2-feat { display: grid; grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr); gap: 28px; align-items: center; }
@@ -458,6 +458,44 @@ input[type=range]#pcAmt { -webkit-appearance: none; appearance: none; height: 8p
   .c2-lms-m p { font-size: 14px; color: var(--muted); }
 }
 @media (prefers-reduced-motion: reduce) { .c2-live i, .c2-panel:not([hidden]) { animation: none; } }
+/* event rail */
+.c2-rail-wrap { position: relative; }
+.c2-rail { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(300px, 380px); gap: 18px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; padding: 4px 4px 14px; scrollbar-width: none; }
+.c2-rail::-webkit-scrollbar { display: none; }
+.c2-rail:focus-visible { outline: 3px solid var(--brand); outline-offset: 4px; border-radius: 16px; }
+.c2-card { scroll-snap-align: start; background: #fff; border: 1px solid var(--line); border-radius: 18px; overflow: hidden; display: grid; grid-template-rows: auto 1fr; box-shadow: 0 10px 26px rgba(27,62,120,.08); transition: transform .2s, box-shadow .2s; }
+.c2-card:hover { transform: translateY(-4px); box-shadow: 0 18px 36px rgba(27,62,120,.15); }
+.c2-card[hidden] { display: none; }
+.c2-img { all: unset; cursor: pointer; display: block; aspect-ratio: 16 / 9; background: linear-gradient(135deg, #10308A, #1B3A80); }
+.c2-img img { width: 100%; height: 100%; display: block; }
+.c2-img:focus-visible { outline: 3px solid var(--brand); outline-offset: -3px; }
+.c2-body { padding: 16px 18px 18px; display: grid; gap: 10px; align-content: start; }
+.c2-kind { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+.c2-kind span { font-size: 12px; font-weight: 600; padding: 3px 10px; border-radius: 999px; }
+.c2-kind .k { color: #D63B3B; border: 1.5px solid #D63B3B; }
+.c2-kind .a { color: var(--brand); background: var(--brand-soft); }
+.c2-body h4 { font-family: var(--font-display); font-size: 18px; color: var(--ink); line-height: 1.3; }
+.c2-when { display: flex; gap: 12px; align-items: center; }
+.c2-dt { width: 54px; border-radius: 12px; background: #D63B3B; color: #fff; display: grid; place-items: center; line-height: 1; padding: 7px 0; flex: none; }
+.c2-dt small { font-size: 10.5px; font-weight: 700; letter-spacing: .06em; } .c2-dt strong { font-size: 22px; font-family: var(--font-display); }
+.c2-when b { display: block; color: var(--ink); font-size: 14px; } .c2-when > span:last-child span { font-size: 13px; color: var(--muted); }
+.c2-dt, .c2-dt small, .c2-dt strong { color: #fff; }
+.c2-spk { font-size: 13px; color: var(--muted); }
+.c2-spk b { color: var(--ink); font-weight: 600; }
+.c2-cd { font-size: 13px; color: var(--brand); font-weight: 600; font-variant-numeric: tabular-nums; }
+.c2-btns { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 4px; }
+.c2-btns .btn { padding: 11px 16px; font-size: 14px; }
+.c2-nav { position: absolute; top: 34%; z-index: 2; width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--line); background: #fff; color: var(--brand); font-size: 24px; line-height: 1; cursor: pointer; box-shadow: 0 6px 16px rgba(27,62,120,.15); }
+.c2-nav.prev { left: -14px; } .c2-nav.next { right: -14px; }
+.c2-nav[disabled] { opacity: 0; pointer-events: none; }
+.c2-rail-foot { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; margin-top: 4px; }
+.c2-dots { display: flex; gap: 6px; } .c2-dots i { width: 8px; height: 8px; border-radius: 4px; background: var(--brand-tint); transition: width .2s, background .2s; } .c2-dots i.on { width: 22px; background: var(--brand); }
+.c2-more { font-size: 13.5px; color: var(--muted); }
+.c2-link { all: unset; cursor: pointer; color: var(--brand); font-weight: 600; text-decoration: underline; }
+.c2-lms2 { margin-top: 20px; display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; background: var(--bg); border: 1px solid var(--line); border-radius: 16px; padding: 16px 20px; }
+.c2-lms2 b { display: block; font-family: var(--font-display); font-size: 17px; color: var(--ink); }
+.c2-lms2 span { font-size: 14px; color: var(--muted); }
+@media (max-width: 640px) { .c2-rail { grid-auto-columns: 84%; gap: 12px; } .c2-nav { display: none; } .c2-lms2 .btn { width: 100%; } }
 /* SIF Ready hero (reference layout) */
 .rhero { background: linear-gradient(180deg, #F2F6FE 0%, #F7F9FD 100%); overflow: hidden; }
 .rhero > .wrap:first-child { display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr); gap: 40px; padding-top: 44px; align-items: center; }
@@ -1342,58 +1380,23 @@ input:focus, select:focus { outline: 2px solid var(--brand); border-color: var(-
     <div class="c2-ev">
       <div class="c2-ev-head">
         <h3>Batches and events</h3>
-        <div class="c2-tabs" role="tablist" aria-label="Events">
-          <button type="button" role="tab" class="c2-tab" aria-selected="true" data-c2="new" id="c2-tab-new">Get certified</button>
-          <button type="button" role="tab" class="c2-tab" aria-selected="false" data-c2="cert" id="c2-tab-cert">For certified partners</button>
+        <div class="c2-tabs" role="group" aria-label="Filter events">
+          <button type="button" class="c2-tab" aria-pressed="true" data-f="all">All</button>
+          <button type="button" class="c2-tab" aria-pressed="false" data-f="new">Get certified</button>
+          <button type="button" class="c2-tab" aria-pressed="false" data-f="certified">Certified</button>
         </div>
       </div>
-
-      <div class="c2-panel" data-c2-panel="new" role="tabpanel" aria-labelledby="c2-tab-new">
-        <div class="c2-feat">
-          <button type="button" class="c2-poster" data-open="decoder" aria-label="Register free for the NISM V-D batch"><img src="img/batch-diwali.webp" alt="This Diwali, add one more light to your practice: free NISM V-D online training from 16 Nov 2026, 6:30 to 8:30 PM, 8 evenings, live in English" width="720" height="720" loading="lazy"></button>
-          <div class="c2-info">
-            <span class="c2-live"><i aria-hidden="true"></i><span data-closed="Next batch opening soon">Registrations open</span></span>
-            <h4>NISM Series V-D: MF &amp; SIF Distributors Certification Training</h4>
-            <ul class="c2-facts">
-              <li><b id="c2Date">16 Nov 2026</b><span>Starts</span></li>
-              <li><b>6:30–8:30 PM</b><span>IST</span></li>
-              <li><b>8 evenings</b><span>Live online</span></li>
-              <li><b>Free</b><span>In English</span></li>
-            </ul>
-            <div class="c2-cd-row"><div class="c2-count" id="c2Count" aria-label="Time to batch start"></div><img class="c2-cal" src="img/batch-calendar.webp" alt="Upcoming batch calendar: 16 Nov, NISM Series V-D, free, live online" width="510" height="469" loading="lazy"></div>
-            <div class="c2-act">
-              <button class="btn btn-flame btn-lg" type="button" data-open="decoder" id="c2Reg">Register free</button>
-              <a class="btn btn-ghost" id="c2Cal" target="_blank" rel="noopener">Add to calendar</a>
-            </div>
-          </div>
-        </div>
-        <div id="eventList" hidden></div>
+      <div class="c2-rail-wrap">
+        <button type="button" class="c2-nav prev" aria-label="Previous events">‹</button>
+        <div class="c2-rail" id="c2Rail" tabindex="0" aria-label="Upcoming batches and events"></div>
+        <button type="button" class="c2-nav next" aria-label="More events">›</button>
       </div>
-
-      <div class="c2-panel" data-c2-panel="cert" role="tabpanel" aria-labelledby="c2-tab-cert" hidden>
-        <div class="c2-certev">
-          <div class="c2-certev-copy">
-            <h4>SIF sessions for certified partners</h4>
-            <p>Already hold NISM V-D? Join AssetPlus sessions on SIF strategies, client conversations and the SIF Decoder. Dates are shared on WhatsApp with registered partners.</p>
-            <div id="c2CertList" class="c2-list"></div>
-            <div class="c2-act">
-              <button class="btn btn-flame" type="button" data-open="notify">Notify me about sessions</button>
-              <a class="btn btn-ghost wa-link" href="#" target="_blank" rel="noopener">Ask on WhatsApp</a>
-            </div>
-          </div>
-          <img class="c2-tab-img" src="img/lms-tablet.webp" alt="NISM V-D course progress in the AssetPlus learning app" width="631" height="476" loading="lazy">
-        </div>
-      </div>
+      <div class="c2-rail-foot"><span id="c2Dots" class="c2-dots" aria-hidden="true"></span><span class="c2-more">More batches and SIF sessions are announced here and on WhatsApp. <button type="button" class="c2-link" data-open="notify">Notify me</button></span></div>
     </div>
 
-    <div class="c2-lms">
-      <button type="button" class="c2-lms-banner" data-open="lms" aria-label="Request LMS access: recorded lessons, chapter notes and practice questions for NISM V-D"><img src="img/lms-banner.webp" alt="" width="868" height="476" loading="lazy"></button>
-      <div class="c2-lms-m">
-        <img src="img/lms-tablet.webp" alt="NISM V-D course progress in the AssetPlus learning app" width="631" height="476" loading="lazy">
-        <h4>Get your LMS access</h4>
-        <p>Recorded lessons, chapter notes and practice questions for NISM V-D. Learn at your pace between the live evenings.</p>
-        <button class="btn btn-flame" type="button" data-open="lms">Request LMS access</button>
-      </div>
+    <div class="c2-lms2">
+      <div><b>Get your LMS access</b><span>Recorded lessons, chapter notes and practice questions for NISM V-D, between the live evenings.</span></div>
+      <button class="btn btn-flame" type="button" data-open="lms">Request LMS access</button>
     </div>
   </div>
 </section>
@@ -1740,12 +1743,13 @@ const CONFIG = {
 const EVENTS = [
   // Add new certification batches here; the first upcoming one gets the countdown.
   // audience: "new" (default) shows under Get certified; "certified" shows under For certified partners
-  {start: "2026-11-16T18:30:00+05:30", audience: "new", title: "NISM Series V-D: MF & SIF Distributors Certification Training", meta: ["8 evenings", "6:30–8:30 PM IST", "Live, in English"], tag: "Free · Live online", url: "https://academy.assetplus.in/course/nism-series-v-d-mf-sif-distributors-certification-training-16th-november", form: "https://forms.assetplusacademy.in/assetplus1/form/NISMVDTrainingRegistration/formperma/mkcLBJZUfEPHkfNPt1nQ_AjuyhTUu_iPgxJlLD834jI?utm_source=b2b&utm_medium=partners&utm_campaign=vd_guided_training_16_11_2026"}
+  {start: "2026-11-14T10:00:00+05:30", end: "2026-11-14T11:30:00+05:30", audience: "certified", kind: "Webinar", title: "SIF Webinar for certified partners", speaker: "Meenakshii Dubey, Head – Partner Learning and Development, AssetPlus", meta: ["Saturday", "10:00 AM IST", "Live on Zoom"], tag: "Free · For V-D certified partners", url: "https://zoom.us/webinar/register/WN_avRWkdIpRxWkjthoOKhO3A", img: "img/webinar-sif-14nov.webp", imgFit: "cover", cta: "Register on Zoom"},
+  {start: "2026-11-16T18:30:00+05:30", audience: "new", img: "img/batch-diwali.webp", imgFit: "contain", kind: "Certification batch", cta: "Register free", title: "NISM Series V-D: MF & SIF Distributors Certification Training", meta: ["8 evenings", "6:30–8:30 PM IST", "Live, in English"], tag: "Free · Live online", url: "https://academy.assetplus.in/course/nism-series-v-d-mf-sif-distributors-certification-training-16th-november", form: "https://forms.assetplusacademy.in/assetplus1/form/NISMVDTrainingRegistration/formperma/mkcLBJZUfEPHkfNPt1nQ_AjuyhTUu_iPgxJlLD834jI?utm_source=b2b&utm_medium=partners&utm_campaign=vd_guided_training_16_11_2026"}
 ];
 
 const BD = (function(){
   const now = Date.now(), lateJoin = 2 * 864e5;
-  const next = EVENTS.map(e => ({...e, t: new Date(e.start).getTime()})).filter(e => e.t + lateJoin > now).sort((a, b) => a.t - b.t)[0];
+  const next = EVENTS.filter(e => (e.audience || "new") === "new").map(e => ({...e, t: new Date(e.start).getTime()})).filter(e => e.t + lateJoin > now).sort((a, b) => a.t - b.t)[0];
   if (!next) return {open: false, short: "next batch", from: "", cta: "Join the waitlist", sub: "New batch dates are coming soon. Join the waitlist and we will WhatsApp you first.", mon: "NEXT", day: "V-D", batch: "next V-D batch", startingC: "", url: ""};
   const d = new Date(next.t), o = {timeZone: "Asia/Kolkata"};
   const day = d.toLocaleString("en-IN", {...o, day: "numeric"}), mon = d.toLocaleString("en-IN", {...o, month: "short"});
@@ -1923,36 +1927,52 @@ $("#asof3").textContent = DATA.asof;
   $("#pzBreadth").innerHTML = m.map(f => '<i class="' + (f.m1 > 0 ? "up" : "down") + '" title="' + esc(f.name) + ': ' + pct(f.m1) + '"></i>').join("");
 })();
 
-/* Why get SIF certified: tabs, featured batch, certified-partner events */
+/* Why get SIF certified: scrollable rail of batches and events */
 (function cert2(){
-  if (!$(".cert2")) return;
+  const rail = $("#c2Rail"); if (!rail) return;
+  const now = Date.now(), tz = {timeZone: "Asia/Kolkata"};
+  const evs = EVENTS.map(e => ({...e, aud: e.audience || "new", t: new Date(e.start).getTime(), te: e.end ? new Date(e.end).getTime() : new Date(e.start).getTime() + 2 * 36e5}))
+    .filter(e => e.aud === "certified" ? e.te > now : e.t + 2 * 864e5 > now).sort((a, b) => a.t - b.t);
+  const iso = x => new Date(x).toISOString().replace(/[-:]/g, "").replace(/\.\d{3}/, "");
+  const cal = e => "https://calendar.google.com/calendar/render?action=TEMPLATE&text=" + encodeURIComponent("AssetPlus: " + e.title) + "&dates=" + iso(e.t) + "/" + iso(e.te) + "&details=" + encodeURIComponent((e.aud === "new" ? "Session 1 of 8. " : "") + "Register: " + e.url) + "&location=Online";
+  const card = (e, i) => {
+    const d = new Date(e.t), live = e.t <= now;
+    const cta = e.aud === "new" ? '<button class="btn btn-flame" type="button" data-open="decoder">' + esc(BD.open ? (e.cta || "Register free") : "Join the waitlist") + '</button>'
+                                : '<a class="btn btn-flame" href="' + esc(e.url) + '" target="_blank" rel="noopener" data-ev="' + i + '">' + esc(e.cta || "Register") + '</a>';
+    const img = e.aud === "new" ? '<button type="button" class="c2-img" data-open="decoder" aria-label="' + esc(e.title) + '">' : '<a class="c2-img" href="' + esc(e.url) + '" target="_blank" rel="noopener" data-ev="' + i + '" aria-label="' + esc(e.title) + '">';
+    return '<article class="c2-card" data-aud="' + e.aud + '">' + img + '<img src="' + esc(e.img || "img/batch-diwali.webp") + '" alt="" loading="lazy" style="object-fit:' + (e.imgFit || "cover") + '">' + (e.aud === "new" ? '</button>' : '</a>') +
+      '<div class="c2-body"><div class="c2-kind"><span class="k">' + esc(e.kind || "Event") + '</span><span class="a">' + (e.aud === "new" ? "For new partners" : "For certified partners") + '</span></div>' +
+      '<h4>' + esc(e.title) + '</h4>' +
+      '<div class="c2-when"><span class="c2-dt"><small>' + d.toLocaleString("en-IN", {...tz, month: "short"}).toUpperCase() + '</small><strong>' + d.toLocaleString("en-IN", {...tz, day: "numeric"}) + '</strong></span><span><b>' + esc((e.meta || []).slice(0, 2).join(" · ")) + '</b><span>' + esc((e.meta || []).slice(2).join(" · ") || e.tag || "") + '</span></span></div>' +
+      (e.speaker ? '<p class="c2-spk">Speaker: <b>' + esc(e.speaker.split(",")[0]) + '</b>,' + esc(e.speaker.split(",").slice(1).join(",")) + '</p>' : '') +
+      '<p class="c2-cd" data-t="' + e.t + '">' + (live ? "Happening now" : "") + '</p>' +
+      '<div class="c2-btns">' + cta + '<a class="btn btn-ghost" href="' + cal(e) + '" target="_blank" rel="noopener" data-cal="' + i + '">Add to calendar</a></div></div></article>';
+  };
+  rail.innerHTML = evs.map(card).join("") || '<p class="c2-more">New batches and SIF sessions will be announced soon.</p>';
+  $$("[data-ev]", rail).forEach(a => a.addEventListener("click", () => { const e = evs[+a.dataset.ev]; track("register_click", {where: "event-rail", event: e.kind || "event", aud: e.aud}); }));
+  $$("[data-cal]", rail).forEach(a => a.addEventListener("click", () => track("add_to_calendar", {event: evs[+a.dataset.cal].kind || "event"})));
+  const tick = () => $$(".c2-cd", rail).forEach(p => { const ms = +p.dataset.t - Date.now(); if (ms <= 0) { p.textContent = "Happening now"; return; } const D = Math.floor(ms / 864e5), H = Math.floor(ms % 864e5 / 36e5), M = Math.floor(ms % 36e5 / 6e4); p.textContent = "Starts in " + (D ? D + "d " : "") + H + "h " + M + "m"; });
+  tick(); setInterval(tick, 30000);
+  // filter
   $$(".c2-tab").forEach(t => t.addEventListener("click", () => {
-    $$(".c2-tab").forEach(x => x.setAttribute("aria-selected", x === t));
-    $$(".c2-panel").forEach(pn => pn.hidden = pn.dataset.c2Panel !== t.dataset.c2);
-    track("events_tab", {tab: t.dataset.c2});
+    $$(".c2-tab").forEach(x => x.setAttribute("aria-pressed", x === t));
+    $$(".c2-card", rail).forEach(c => c.hidden = !(t.dataset.f === "all" || c.dataset.aud === t.dataset.f));
+    rail.scrollTo({left: 0}); upd(); track("events_filter", {f: t.dataset.f});
   }));
-  const now = Date.now();
-  const upcoming = EVENTS.filter(e => (e.audience || "new") === "new").map(e => ({...e, t: new Date(e.start).getTime()})).filter(e => e.t + 2 * 864e5 > now).sort((a, b) => a.t - b.t);
-  const nb = upcoming[0];
-  if (nb) {
-    const d = new Date(nb.t);
-    $("#c2Date").textContent = d.toLocaleDateString("en-IN", {day: "numeric", month: "short", year: "numeric", timeZone: "Asia/Kolkata"});
-    const iso = x => x.toISOString().replace(/[-:]/g, "").replace(/\.\d{3}/, "");
-    $("#c2Cal").href = "https://calendar.google.com/calendar/render?action=TEMPLATE&text=" + encodeURIComponent("Free NISM V-D training (AssetPlus): " + nb.title) + "&dates=" + iso(d) + "/" + iso(new Date(nb.t + 2 * 36e5)) + "&details=" + encodeURIComponent("Session 1 of 8. Register: " + nb.url) + "&location=Online";
-    $("#c2Cal").addEventListener("click", () => track("add_to_calendar", {}));
-    const tick = () => {
-      const ms = nb.t - Date.now();
-      if (ms <= 0) { $("#c2Count").innerHTML = "<p>This batch has started. Register to join the remaining sessions.</p>"; return; }
-      const D = Math.floor(ms / 864e5), H = Math.floor(ms % 864e5 / 36e5), M = Math.floor(ms % 36e5 / 6e4);
-      $("#c2Count").innerHTML = '<div><b>' + D + '</b><small>days</small></div><div><b>' + H + '</b><small>hours</small></div><div><b>' + M + '</b><small>mins</small></div><p>to the first session</p>';
-    };
-    tick(); setInterval(tick, 30000);
-  } else {
-    $("#c2Count").innerHTML = "<p>The next batch opens soon. Join the waitlist and we will WhatsApp you first.</p>";
-    $("#c2Cal").hidden = true; $("#c2Reg").textContent = "Join the waitlist";
+  // arrows + dots
+  const prev = $(".c2-nav.prev"), next = $(".c2-nav.next"), dots = $("#c2Dots");
+  const vis = () => $$(".c2-card", rail).filter(c => !c.hidden);
+  function upd(){
+    const cs = vis(), max = rail.scrollWidth - rail.clientWidth;
+    prev.disabled = rail.scrollLeft < 8; next.disabled = rail.scrollLeft > max - 8;
+    const idx = cs.reduce((best, c, i) => Math.abs(c.offsetLeft - rail.offsetLeft - rail.scrollLeft) < Math.abs(cs[best].offsetLeft - rail.offsetLeft - rail.scrollLeft) ? i : best, 0);
+    dots.innerHTML = cs.length > 1 ? cs.map((_, i) => '<i class="' + (i === idx ? "on" : "") + '"></i>').join("") : "";
   }
-  const certEv = EVENTS.filter(e => e.audience === "certified").map(e => ({...e, t: new Date(e.start).getTime()})).filter(e => e.t > now).sort((a, b) => a.t - b.t);
-  $("#c2CertList").innerHTML = certEv.map(e => { const d = new Date(e.t); return '<a class="c2-item" href="' + esc(e.url || "#") + '" target="_blank" rel="noopener"><span class="dt"><small>' + d.toLocaleString("en-IN", {month: "short", timeZone: "Asia/Kolkata"}).toUpperCase() + '</small><strong>' + d.toLocaleString("en-IN", {day: "numeric", timeZone: "Asia/Kolkata"}) + '</strong></span><span><b>' + esc(e.title) + '</b><span>' + esc((e.meta || []).join(" · ")) + '</span></span></a>'; }).join("");
+  const step = () => (vis()[0] ? vis()[0].getBoundingClientRect().width + 18 : 300);
+  prev.addEventListener("click", () => rail.scrollBy({left: -step()}));
+  next.addEventListener("click", () => rail.scrollBy({left: step()}));
+  rail.addEventListener("scroll", () => requestAnimationFrame(upd), {passive: true});
+  addEventListener("resize", upd); upd();
 })();
 
 /* Events + countdown */
