@@ -392,6 +392,79 @@ input[type=range]#pcAmt { -webkit-appearance: none; appearance: none; height: 8p
 .cmp-t thead th { text-align: left; }
 .cmp-t .hl { background: var(--brand-soft); color: var(--brand-deep); font-weight: 600; }
 .cmp-t thead th.hl { background: var(--brand); color: #fff; }
+/* Why get SIF certified (v2) */
+.cert2 { background: #fff; }
+.c2-ben { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 16px; margin-bottom: 36px; }
+.c2-ben > div { background: var(--bg); border: 1px solid var(--line); border-radius: 16px; padding: 20px; display: grid; gap: 8px; align-content: start; transition: transform .2s, box-shadow .2s, border-color .2s; }
+.c2-ben > div:hover { transform: translateY(-4px); border-color: var(--brand-tint); box-shadow: 0 14px 30px rgba(27,62,120,.10); }
+.c2-ben svg { width: 44px; height: 44px; padding: 10px; border-radius: 12px; background: var(--brand-soft); fill: none; stroke: var(--brand); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.c2-ben b { font-family: var(--font-display); font-size: 17px; color: var(--ink); }
+.c2-ben span { font-size: 14px; color: var(--muted); }
+.c2-ev { background: linear-gradient(160deg, #F4F7FD, #EAF0FB); border: 1px solid var(--line); border-radius: 22px; padding: 24px; }
+.c2-ev-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 18px; }
+.c2-ev-head h3 { font-size: 22px; color: var(--brand); }
+.c2-tabs { display: flex; gap: 6px; background: #fff; border: 1px solid var(--line); border-radius: 999px; padding: 4px; }
+.c2-tab { all: unset; cursor: pointer; padding: 8px 16px; border-radius: 999px; font-weight: 600; font-size: 14px; color: var(--body); }
+.c2-tab[aria-selected="true"] { background: #3A5FB8; color: #fff; }
+.c2-tab:focus-visible { outline: 3px solid var(--brand); outline-offset: 2px; }
+.c2-panel:not([hidden]) { animation: rise-in .4s ease-out both; }
+.c2-feat { display: grid; grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr); gap: 28px; align-items: center; }
+.c2-poster { all: unset; cursor: pointer; display: block; border-radius: 18px; overflow: hidden; box-shadow: 0 22px 44px rgba(27,62,120,.25); transition: transform .25s; }
+.c2-poster:hover { transform: translateY(-4px) rotate(-.4deg); }
+.c2-poster:focus-visible { outline: 3px solid var(--brand); outline-offset: 4px; }
+.c2-poster img { display: block; width: 100%; height: auto; }
+.c2-info { display: grid; gap: 14px; position: relative; }
+.c2-live { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; color: #D63B3B; border: 1.5px solid #D63B3B; border-radius: 999px; padding: 4px 12px; justify-self: start; }
+.c2-live i { width: 8px; height: 8px; border-radius: 50%; background: #D63B3B; animation: blink 1.2s steps(1) infinite; }
+.c2-info h4 { font-family: var(--font-display); font-size: clamp(20px, 2.2vw, 26px); color: var(--ink); line-height: 1.25; }
+.c2-facts { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); background: #fff; border: 1px solid var(--line); border-radius: 14px; }
+.c2-facts li { display: grid; gap: 2px; padding: 12px 14px; border-left: 1px solid var(--line); }
+.c2-facts li:first-child { border-left: 0; }
+.c2-facts b { font-size: 15px; color: var(--brand); }
+.c2-facts span { font-size: 12px; color: var(--muted); }
+.c2-count { display: flex; gap: 8px; align-items: flex-end; flex-wrap: wrap; }
+.c2-count div { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 8px 12px; min-width: 64px; text-align: center; }
+.c2-count b { display: block; font-family: var(--font-display); font-size: 26px; color: var(--ink); font-variant-numeric: tabular-nums; line-height: 1.1; }
+.c2-count small { font-size: 11px; color: var(--muted); }
+.c2-count p { font-size: 13px; color: var(--muted); padding-bottom: 6px; }
+.c2-act { display: flex; gap: 10px; flex-wrap: wrap; }
+.c2-cd-row { display: flex; align-items: center; justify-content: space-between; gap: 14px; }
+.c2-cal { width: 150px; height: auto; transform: rotate(3deg); filter: drop-shadow(0 12px 20px rgba(27,62,120,.2)); flex: none; }
+.c2-certev { display: grid; grid-template-columns: minmax(0,1fr) minmax(0, 420px); gap: 28px; align-items: center; }
+.c2-certev h4 { font-family: var(--font-display); font-size: 22px; color: var(--ink); }
+.c2-certev p { color: var(--muted); margin-top: 8px; }
+.c2-certev-copy { display: grid; gap: 14px; }
+.c2-list { display: grid; gap: 10px; }
+.c2-list .c2-item { display: flex; gap: 14px; align-items: center; background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 12px 14px; }
+.c2-item .dt { width: 52px; border-radius: 10px; background: #D63B3B; color: #fff; display: grid; place-items: center; line-height: 1; padding: 6px 0; flex: none; }
+.c2-item .dt small { font-size: 10px; font-weight: 700; } .c2-item .dt strong { font-size: 20px; }
+.c2-item b { color: var(--ink); display: block; } .c2-item span { font-size: 13px; color: var(--muted); }
+.c2-tab-img { width: 100%; height: auto; border-radius: 18px; box-shadow: 0 18px 36px rgba(27,62,120,.18); }
+.c2-lms { margin-top: 28px; }
+.c2-lms-banner { all: unset; cursor: pointer; display: block; width: 100%; box-sizing: border-box; border-radius: 20px; overflow: hidden; box-shadow: 0 16px 36px rgba(27,62,120,.14); transition: transform .2s, box-shadow .2s; }
+.c2-lms-banner:hover { transform: translateY(-3px); box-shadow: 0 22px 44px rgba(27,62,120,.2); }
+.c2-lms-banner:focus-visible { outline: 3px solid var(--brand); outline-offset: 4px; }
+.c2-lms-banner img { display: block; width: 100%; height: auto; }
+.c2-lms-m { display: none; }
+@media (max-width: 960px) {
+  .c2-ben { grid-template-columns: 1fr 1fr; }
+  .c2-feat, .c2-certev { grid-template-columns: 1fr; }
+  .c2-cal { display: none; }
+}
+@media (max-width: 640px) {
+  .c2-ben { gap: 10px; } .c2-ben > div { padding: 14px; } .c2-ben b { font-size: 15px; } .c2-ben span { font-size: 13px; } .c2-ben svg { width: 38px; height: 38px; padding: 8px; }
+  .c2-ev { padding: 16px; border-radius: 18px; }
+  .c2-ev-head h3 { font-size: 19px; }
+  .c2-tabs { width: 100%; } .c2-tab { flex: 1; text-align: center; padding: 8px 6px; font-size: 13px; }
+  .c2-facts { grid-template-columns: 1fr 1fr; } .c2-facts li:nth-child(3) { border-left: 0; } .c2-facts li:nth-child(n+3) { border-top: 1px solid var(--line); }
+  .c2-act .btn { flex: 1; }
+  .c2-lms-banner { display: none; }
+  .c2-lms-m { display: grid; gap: 10px; background: var(--bg); border: 1px solid var(--line); border-radius: 18px; padding: 16px; }
+  .c2-lms-m img { width: 100%; height: auto; border-radius: 12px; }
+  .c2-lms-m h4 { font-family: var(--font-display); font-size: 19px; color: var(--ink); }
+  .c2-lms-m p { font-size: 14px; color: var(--muted); }
+}
+@media (prefers-reduced-motion: reduce) { .c2-live i, .c2-panel:not([hidden]) { animation: none; } }
 /* SIF Ready hero (reference layout) */
 .rhero { background: linear-gradient(180deg, #F2F6FE 0%, #F7F9FD 100%); overflow: hidden; }
 .rhero > .wrap:first-child { display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr); gap: 40px; padding-top: 44px; align-items: center; }
@@ -1259,46 +1332,74 @@ input:focus, select:focus { outline: 2px solid var(--brand); border-color: var(-
   </div>
 </section>
 
-<section class="certify" id="certify">
+<section class="section cert2" id="certify">
   <div class="wrap">
-    <div>
+    <div class="section-head center">
       <h2 class="h2">Why get SIF certified</h2>
-      <p class="lede">You need NISM Series V-D to offer SIFs. It is one exam for both mutual funds and SIFs. Our live batch prepares you for it over 8 evenings.</p>
-      <div class="cert-pics"><img style="object-position:center 72%" src="img/p-notes.webp" alt="NISM V-D study notes, mock tests, practice questions and quick revision" loading="lazy"><img style="object-position:center 48%" src="img/p-ready.webp" alt="Exam readiness at 92 percent" loading="lazy"></div>
-      <ul class="can">
-        <li>Offer SIFs to clients investing ₹10 lakh or more</li>
-        <li>Discuss SIFs with clients holding FDs, arbitrage or debt funds</li>
-        <li>Answer clients who ask about PMS</li>
-      </ul>
+      <p class="lede">SIFs need a NISM Series V-D certified distributor. One exam covers mutual funds and SIFs, and AssetPlus trains you for it free.</p>
     </div>
-    <div class="events">
-      <h3 class="batch-h">Upcoming batches</h3>
-      <div id="eventList" class="events"></div>
-      <article class="event soon">
-        <span class="pill" style="justify-self:start;background:rgba(255,255,255,.14);color:#fff">Next batches</span>
-        <h3>More batches will be announced here and on WhatsApp.</h3>
-        <div style="display:flex;flex-wrap:wrap;gap:10px"><button class="btn btn-onband btn-sm" type="button" data-open="notify">Notify me about new batches</button><a class="btn btn-outline-band btn-sm wa-link" href="#" target="_blank" rel="noopener">Ask on WhatsApp</a></div>
-      </article>
-      <div class="lms">
-        <div class="lms-ui" aria-label="Example of the NISM V-D course in the LMS">
-          <div class="lu-top"><b>My learning</b><span class="lu-pill">NISM V-D</span></div>
-          <div class="lu-course">
-            <span class="lu-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"/></svg></span>
-            <span><b>MF &amp; SIF Distributors</b><small>Video lessons · Notes · Mock tests</small></span>
+
+    <div class="c2-ben">
+      <div><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c.8-3.6 3.2-5.5 6-5.5s5.2 1.9 6 5.5"/><path d="M17 7v6M14 10h6"/></svg><b>Serve ₹10 lakh+ clients</b><span>Every SIF ticket starts at ₹10 lakh, so every SIF client is a high-value client.</span></div>
+      <div><svg viewBox="0 0 24 24"><path d="M4 10l8-6 8 6v9a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1z"/><path d="M9 20v-6h6v6"/></svg><b>Keep HNI money with you</b><span>Clients asking about SIFs or PMS no longer need to go to a bank RM.</span></div>
+      <div><svg viewBox="0 0 24 24"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg><b>One exam, two products</b><span>NISM V-D covers both mutual funds and SIFs in a single certification.</span></div>
+      <div><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="12" rx="2"/><path d="M8 21h8M12 17v4"/><path d="M10 9l5 2-5 2z"/></svg><b>Free, live training</b><span>8 evenings with trainers, practice tests and recordings, at no cost.</span></div>
+    </div>
+
+    <div class="c2-ev">
+      <div class="c2-ev-head">
+        <h3>Batches and events</h3>
+        <div class="c2-tabs" role="tablist" aria-label="Events">
+          <button type="button" role="tab" class="c2-tab" aria-selected="true" data-c2="new" id="c2-tab-new">Get certified</button>
+          <button type="button" role="tab" class="c2-tab" aria-selected="false" data-c2="cert" id="c2-tab-cert">For certified partners</button>
+        </div>
+      </div>
+
+      <div class="c2-panel" data-c2-panel="new" role="tabpanel" aria-labelledby="c2-tab-new">
+        <div class="c2-feat">
+          <button type="button" class="c2-poster" data-open="decoder" aria-label="Register free for the NISM V-D batch"><img src="img/batch-diwali.webp" alt="This Diwali, add one more light to your practice: free NISM V-D online training from 16 Nov 2026, 6:30 to 8:30 PM, 8 evenings, live in English" width="720" height="720" loading="lazy"></button>
+          <div class="c2-info">
+            <span class="c2-live"><i aria-hidden="true"></i><span data-closed="Next batch opening soon">Registrations open</span></span>
+            <h4>NISM Series V-D: MF &amp; SIF Distributors Certification Training</h4>
+            <ul class="c2-facts">
+              <li><b id="c2Date">16 Nov 2026</b><span>Starts</span></li>
+              <li><b>6:30–8:30 PM</b><span>IST</span></li>
+              <li><b>8 evenings</b><span>Live online</span></li>
+              <li><b>Free</b><span>In English</span></li>
+            </ul>
+            <div class="c2-cd-row"><div class="c2-count" id="c2Count" aria-label="Time to batch start"></div><img class="c2-cal" src="img/batch-calendar.webp" alt="Upcoming batch calendar: 16 Nov, NISM Series V-D, free, live online" width="510" height="469" loading="lazy"></div>
+            <div class="c2-act">
+              <button class="btn btn-flame btn-lg" type="button" data-open="decoder" id="c2Reg">Register free</button>
+              <a class="btn btn-ghost" id="c2Cal" target="_blank" rel="noopener">Add to calendar</a>
+            </div>
           </div>
-          <div class="lu-bar" aria-hidden="true"><i></i></div>
-          <ul class="lu-list">
-            <li class="done">Mutual fund basics</li>
-            <li class="done">SIF framework and strategies</li>
-            <li class="now">Derivatives and long-short</li>
-            <li>Mock tests and revision</li>
-          </ul>
         </div>
-        <h3>Get your LMS access</h3>
+        <div id="eventList" hidden></div>
+      </div>
+
+      <div class="c2-panel" data-c2-panel="cert" role="tabpanel" aria-labelledby="c2-tab-cert" hidden>
+        <div class="c2-certev">
+          <div class="c2-certev-copy">
+            <h4>SIF sessions for certified partners</h4>
+            <p>Already hold NISM V-D? Join AssetPlus sessions on SIF strategies, client conversations and the SIF Decoder. Dates are shared on WhatsApp with registered partners.</p>
+            <div id="c2CertList" class="c2-list"></div>
+            <div class="c2-act">
+              <button class="btn btn-flame" type="button" data-open="notify">Notify me about sessions</button>
+              <a class="btn btn-ghost wa-link" href="#" target="_blank" rel="noopener">Ask on WhatsApp</a>
+            </div>
+          </div>
+          <img class="c2-tab-img" src="img/lms-tablet.webp" alt="NISM V-D course progress in the AssetPlus learning app" width="631" height="476" loading="lazy">
+        </div>
+      </div>
+    </div>
+
+    <div class="c2-lms">
+      <button type="button" class="c2-lms-banner" data-open="lms" aria-label="Request LMS access: recorded lessons, chapter notes and practice questions for NISM V-D"><img src="img/lms-banner.webp" alt="" width="868" height="476" loading="lazy"></button>
+      <div class="c2-lms-m">
+        <img src="img/lms-tablet.webp" alt="NISM V-D course progress in the AssetPlus learning app" width="631" height="476" loading="lazy">
+        <h4>Get your LMS access</h4>
         <p>Recorded lessons, chapter notes and practice questions for NISM V-D. Learn at your pace between the live evenings.</p>
-        <div class="row">
-          <button class="btn btn-onband btn-sm" type="button" data-open="lms">Request LMS access</button>
-        </div>
+        <button class="btn btn-flame" type="button" data-open="lms">Request LMS access</button>
       </div>
     </div>
   </div>
@@ -1645,7 +1746,8 @@ const CONFIG = {
 /* Batch state: the page switches to a waitlist once the last listed batch is under way (see BD below) */
 const EVENTS = [
   // Add new certification batches here; the first upcoming one gets the countdown.
-  {start: "2026-11-16T18:30:00+05:30", title: "NISM Series V-D: MF & SIF Distributors Certification Training", meta: ["8 evenings", "6:30–8:30 PM IST", "Live, in English"], tag: "Free · Live online", url: "https://academy.assetplus.in/course/nism-series-v-d-mf-sif-distributors-certification-training-16th-november", form: "https://forms.assetplusacademy.in/assetplus1/form/NISMVDTrainingRegistration/formperma/mkcLBJZUfEPHkfNPt1nQ_AjuyhTUu_iPgxJlLD834jI?utm_source=b2b&utm_medium=partners&utm_campaign=vd_guided_training_16_11_2026"}
+  // audience: "new" (default) shows under Get certified; "certified" shows under For certified partners
+  {start: "2026-11-16T18:30:00+05:30", audience: "new", title: "NISM Series V-D: MF & SIF Distributors Certification Training", meta: ["8 evenings", "6:30–8:30 PM IST", "Live, in English"], tag: "Free · Live online", url: "https://academy.assetplus.in/course/nism-series-v-d-mf-sif-distributors-certification-training-16th-november", form: "https://forms.assetplusacademy.in/assetplus1/form/NISMVDTrainingRegistration/formperma/mkcLBJZUfEPHkfNPt1nQ_AjuyhTUu_iPgxJlLD834jI?utm_source=b2b&utm_medium=partners&utm_campaign=vd_guided_training_16_11_2026"}
 ];
 
 const BD = (function(){
@@ -1828,10 +1930,43 @@ $("#asof3").textContent = DATA.asof;
   $("#pzBreadth").innerHTML = m.map(f => '<i class="' + (f.m1 > 0 ? "up" : "down") + '" title="' + esc(f.name) + ': ' + pct(f.m1) + '"></i>').join("");
 })();
 
+/* Why get SIF certified: tabs, featured batch, certified-partner events */
+(function cert2(){
+  if (!$(".cert2")) return;
+  $$(".c2-tab").forEach(t => t.addEventListener("click", () => {
+    $$(".c2-tab").forEach(x => x.setAttribute("aria-selected", x === t));
+    $$(".c2-panel").forEach(pn => pn.hidden = pn.dataset.c2Panel !== t.dataset.c2);
+    track("events_tab", {tab: t.dataset.c2});
+  }));
+  const now = Date.now();
+  const upcoming = EVENTS.filter(e => (e.audience || "new") === "new").map(e => ({...e, t: new Date(e.start).getTime()})).filter(e => e.t + 2 * 864e5 > now).sort((a, b) => a.t - b.t);
+  const nb = upcoming[0];
+  if (nb) {
+    const d = new Date(nb.t);
+    $("#c2Date").textContent = d.toLocaleDateString("en-IN", {day: "numeric", month: "short", year: "numeric", timeZone: "Asia/Kolkata"});
+    const iso = x => x.toISOString().replace(/[-:]/g, "").replace(/\.\d{3}/, "");
+    $("#c2Cal").href = "https://calendar.google.com/calendar/render?action=TEMPLATE&text=" + encodeURIComponent("Free NISM V-D training (AssetPlus): " + nb.title) + "&dates=" + iso(d) + "/" + iso(new Date(nb.t + 2 * 36e5)) + "&details=" + encodeURIComponent("Session 1 of 8. Register: " + nb.url) + "&location=Online";
+    $("#c2Cal").addEventListener("click", () => track("add_to_calendar", {}));
+    const tick = () => {
+      const ms = nb.t - Date.now();
+      if (ms <= 0) { $("#c2Count").innerHTML = "<p>This batch has started. Register to join the remaining sessions.</p>"; return; }
+      const D = Math.floor(ms / 864e5), H = Math.floor(ms % 864e5 / 36e5), M = Math.floor(ms % 36e5 / 6e4);
+      $("#c2Count").innerHTML = '<div><b>' + D + '</b><small>days</small></div><div><b>' + H + '</b><small>hours</small></div><div><b>' + M + '</b><small>mins</small></div><p>to the first session</p>';
+    };
+    tick(); setInterval(tick, 30000);
+  } else {
+    $("#c2Count").innerHTML = "<p>The next batch opens soon. Join the waitlist and we will WhatsApp you first.</p>";
+    $("#c2Cal").hidden = true; $("#c2Reg").textContent = "Join the waitlist";
+  }
+  const certEv = EVENTS.filter(e => e.audience === "certified").map(e => ({...e, t: new Date(e.start).getTime()})).filter(e => e.t > now).sort((a, b) => a.t - b.t);
+  $("#c2CertList").innerHTML = certEv.map(e => { const d = new Date(e.t); return '<a class="c2-item" href="' + esc(e.url || "#") + '" target="_blank" rel="noopener"><span class="dt"><small>' + d.toLocaleString("en-IN", {month: "short", timeZone: "Asia/Kolkata"}).toUpperCase() + '</small><strong>' + d.toLocaleString("en-IN", {day: "numeric", timeZone: "Asia/Kolkata"}) + '</strong></span><span><b>' + esc(e.title) + '</b><span>' + esc((e.meta || []).join(" · ")) + '</span></span></a>'; }).join("");
+})();
+
 /* Events + countdown */
 (function events(){
   const now = Date.now();
   const list = EVENTS.filter(e => new Date(e.start).getTime() + 30*864e5 > now).sort((a,b) => new Date(a.start) - new Date(b.start));
+  if (!$("#eventList")) return;
   $("#eventList").innerHTML = list.map((e, i) => {
     const d = new Date(e.start);
     const m = d.toLocaleString("en-IN", {month: "short", timeZone: "Asia/Kolkata"}), day = d.toLocaleString("en-IN", {day: "numeric", timeZone: "Asia/Kolkata"}), wd = d.toLocaleString("en-IN", {weekday: "short", timeZone: "Asia/Kolkata"});
