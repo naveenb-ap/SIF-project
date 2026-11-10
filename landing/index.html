@@ -568,7 +568,14 @@ input[type=range]#pcAmt { -webkit-appearance: none; appearance: none; height: 8p
 /* Journey: LMS note and the events rail inside the journey */
 .jp-lms { font-size: 14.5px; background: #E7EEF6; border-radius: 10px; padding: 10px 12px; }
 .jp-lms b { color: #0A4E9B; }
-#steps .c2-ev { margin-top: 36px; }
+.jp-btns { display: flex; flex-wrap: wrap; gap: 10px; }
+.kit-web { scroll-margin-top: 96px; }
+.jb-tag { justify-self: start; font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: #fff; background: #E41F26; padding: 4px 10px; border-radius: 999px; }
+.jb-meta { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 10px 18px; }
+.jb-meta li { display: grid; gap: 1px; font-weight: 600; color: var(--ink); font-size: 15px; }
+.jb-meta b { font-size: 11.5px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+.jb-go { justify-self: start; }
+.jp-img.jb-poster { aspect-ratio: 1 / 1 !important; object-fit: cover; object-position: center !important; }
 /* Partner kit: webinar for certified partners */
 .kit-web { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 0; background: #fff; border: 1px solid var(--line); border-radius: 18px; overflow: hidden; margin-bottom: 26px; box-shadow: var(--shadow); }
 .kw-img { display: block; background: #0A4E9B; }
@@ -645,7 +652,8 @@ input[type=range]#pcAmt { -webkit-appearance: none; appearance: none; height: 8p
 .rhero { padding-bottom: 40px; }
 /* step photos */
 .jp.has-img { grid-template-columns: minmax(0,1fr) 300px; max-width: none; align-items: center; column-gap: 28px; }
-.jp.has-img { grid-template-rows: 1fr auto auto auto auto 1fr; row-gap: 0; }
+.jp.has-img { grid-template-rows: 1fr auto auto auto auto auto auto 1fr; row-gap: 0; }
+.jp.has-img > :not(.jp-img):nth-child(5) { grid-row: 6; margin-top: 14px; } .jp.has-img > :not(.jp-img):nth-child(6) { grid-row: 7; margin-top: 16px; }
 .jp.has-img > :not(.jp-img) { grid-column: 1; }
 .jp.has-img > :nth-child(1) { grid-row: 2; } .jp.has-img > :nth-child(2) { grid-row: 3; margin-top: 8px; } .jp.has-img > :nth-child(3) { grid-row: 4; margin-top: 12px; } .jp.has-img > :nth-child(4) { grid-row: 5; margin-top: 20px; }
 .jp-img { grid-column: 2; grid-row: 1 / -1; width: 300px; height: auto; aspect-ratio: 720 / 899; object-fit: cover; border-radius: 20px; box-shadow: 0 18px 36px rgba(10,78,155,.14); align-self: center; background: #EEF3F8; }
@@ -1395,12 +1403,6 @@ input:focus, select:focus { outline: 2px solid var(--brand); border-color: var(-
     </div>
   </div>
 </section>
-<section class="trust" aria-label="SIF Pulse today">
-  <div class="wrap">
-    <a class="pulse-strip" href="#pulse"><span class="ps-live"><i></i>SIF Pulse · Live</span><span id="psTxt"><b>38 strategies</b> · NAV 9 Nov · 36 of 37 up on the day · launch date, 1M to 12M returns</span><span class="ps-go">See today's data →</span></a>
-    <p class="tr-back">Backed by <b>Rainmatter</b> (Zerodha) · <b>InCred</b> · <b>Eight Roads</b> · <b>Nexus Venture Partners</b></p>
-  </div>
-</section>
 
 <section class="section" id="learn">
   <div class="wrap">
@@ -1552,23 +1554,7 @@ input:focus, select:focus { outline: 2px solid var(--brand); border-color: var(-
     <div class="section-head center"><h2 class="h2">Your journey to SIF Ready</h2><p class="lede">Six steps, from registration to your first SIF client. Register for the next batch right here.</p></div>
     <div class="journey6">
       <div class="jtabs" role="tablist" aria-label="Steps"><button type="button" role="tab" class="jt on" aria-selected="true" data-step="0"><b>1</b>Register</button><button type="button" role="tab" class="jt" aria-selected="false" data-step="1"><b>2</b>Training</button><button type="button" role="tab" class="jt" aria-selected="false" data-step="2"><b>3</b>Certification</button><button type="button" role="tab" class="jt" aria-selected="false" data-step="3"><b>4</b>ARN</button><button type="button" role="tab" class="jt" aria-selected="false" data-step="4"><b>5</b>Empanel</button><button type="button" role="tab" class="jt" aria-selected="false" data-step="5"><b>6</b>Kickstart</button></div>
-      <div class="jpanels"><div class="jp has-img" role="tabpanel" data-panel="0"><span class="jp-n">Step 1 of 6</span><h3>Register for the free batch</h3><p data-closed="Join the waitlist for the next free NISM V-D batch. It takes a minute.">Save your seat in the free NISM V-D batch starting 16 Nov. It takes a minute.</p><button class="btn btn-flame" type="button" data-open="decoder">Get Started</button><img class="jp-img" src="img/step1-register.webp" alt="Partner registering for the free NISM V-D batch on his phone" loading="lazy" width="720" height="899"></div><div class="jp has-img" role="tabpanel" data-panel="1" hidden><span class="jp-n">Step 2 of 6</span><h3>Get NISM V-D training</h3><p>8 live evenings, 6:30 to 8:30 PM, in English. Expert trainers, practice tests and recorded sessions.</p><p class="jp-lms"><b>LMS access included.</b> Recorded lessons, chapter notes and practice questions between the live evenings.</p><button class="btn btn-flame" type="button" data-open="lms">Request LMS access</button><img class="jp-img" src="img/step2-training.webp" alt="Partner watching a live V-D training lesson on a tablet" loading="lazy" width="720" height="899"></div><div class="jp has-img" role="tabpanel" data-panel="2" hidden><span class="jp-n">Step 3 of 6</span><h3>Clear the NISM V-D exam</h3><p>One exam covers both mutual funds and SIFs. It replaces the earlier V-A plus XIII route.</p><button class="btn btn-flame" type="button" data-open="decoder">Get Started</button><img class="jp-img" src="img/step3-certified.webp" alt="Partner celebrating his NISM V-D certification" loading="lazy" width="720" height="899"></div><div class="jp has-img" role="tabpanel" data-panel="3" hidden><span class="jp-n">Step 4 of 6</span><h3>Register for your ARN</h3><p>Apply for your AMFI Registration Number once you pass. Already have an ARN? Your V-D adds SIFs to it.</p><a class="btn btn-flame wa-link" href="#" target="_blank" rel="noopener">Talk to us on WhatsApp</a><img class="jp-img" src="img/step4-arn.webp" alt="Partner completing ARN registration and KYC documents" loading="lazy" width="720" height="899"></div><div class="jp has-img" role="tabpanel" data-panel="4" hidden><span class="jp-n">Step 5 of 6</span><h3>Empanel with AssetPlus</h3><p>Offer SIFs to clients on the AssetPlus platform, with onboarding and operations support.</p><a class="btn btn-flame wa-link" href="#" target="_blank" rel="noopener">Talk to us on WhatsApp</a><img class="jp-img" src="img/step5-empanel.webp" alt="Partner empanelled with AssetPlus, with dashboard and support" loading="lazy" width="720" height="899"></div><div class="jp has-img" role="tabpanel" data-panel="5" hidden><span class="jp-n">Step 6 of 6</span><h3>Kickstart your SIF practice</h3><p>Start with the SIF Decoder, six persona pitch sheets and client notes stamped with your ARN.</p><button class="btn btn-flame" type="button" data-open="decoder">Get the free bundle</button><img class="jp-img" src="img/step5-empanel.webp" alt="Partner starting his SIF practice with AssetPlus tools and support" loading="lazy" width="720" height="899"></div></div>
-    </div>
-    <div class="c2-ev">
-      <div class="c2-ev-head">
-        <h3>Register for a batch or event</h3>
-        <div class="c2-tabs" role="group" aria-label="Filter events">
-          <button type="button" class="c2-tab" aria-pressed="true" data-f="all">All</button>
-          <button type="button" class="c2-tab" aria-pressed="false" data-f="new">Get certified</button>
-          <button type="button" class="c2-tab" aria-pressed="false" data-f="certified">Certified</button>
-        </div>
-      </div>
-      <div class="c2-rail-wrap">
-        <button type="button" class="c2-nav prev" aria-label="Previous events">‹</button>
-        <div class="c2-rail" id="c2Rail" tabindex="0" aria-label="Upcoming batches and events"></div>
-        <button type="button" class="c2-nav next" aria-label="More events">›</button>
-      </div>
-      <div class="c2-rail-foot"><span id="c2Dots" class="c2-dots" aria-hidden="true"></span><span class="c2-more">More batches and SIF sessions are announced here and on WhatsApp. <button type="button" class="c2-link" data-open="notify">Notify me</button></span></div>
+      <div class="jpanels"><div class="jp has-img" role="tabpanel" data-panel="0"><span class="jp-n">Step 1 of 6</span><h3>Register for the free batch</h3><p data-closed="Join the waitlist for the next free NISM V-D batch. It takes a minute.">Save your seat in the free NISM V-D batch starting 16 Nov. It takes a minute.</p><button class="btn btn-flame" type="button" data-open="decoder">Get Started</button><img class="jp-img" src="img/step1-register.webp" alt="Partner registering for the free NISM V-D batch on his phone" loading="lazy" width="720" height="899"></div><div class="jp has-img" role="tabpanel" data-panel="1" hidden><span class="jp-n">Step 2 of 6</span><h3>Get NISM V-D training</h3><p>8 live evenings, 6:30 to 8:30 PM, in English. Expert trainers, practice tests and recorded sessions.</p><p class="jp-lms"><b>LMS access included.</b> Recorded lessons, chapter notes and practice questions between the live evenings.</p><div class="jp-btns"><button class="btn btn-flame" type="button" data-open="lms">Request LMS access</button><a class="btn btn-ghost jp-web" href="#kitWeb">Already certified? SIF Webinar ↓</a></div><img class="jp-img" src="img/step2-training.webp" alt="Partner watching a live V-D training lesson on a tablet" loading="lazy" width="720" height="899"></div><div class="jp has-img" role="tabpanel" data-panel="2" hidden><span class="jp-n">Step 3 of 6</span><h3>Clear the NISM V-D exam</h3><p>One exam covers both mutual funds and SIFs. It replaces the earlier V-A plus XIII route.</p><button class="btn btn-flame" type="button" data-open="decoder">Get Started</button><img class="jp-img" src="img/step3-certified.webp" alt="Partner celebrating his NISM V-D certification" loading="lazy" width="720" height="899"></div><div class="jp has-img" role="tabpanel" data-panel="3" hidden><span class="jp-n">Step 4 of 6</span><h3>Register for your ARN</h3><p>Apply for your AMFI Registration Number once you pass. Already have an ARN? Your V-D adds SIFs to it.</p><a class="btn btn-flame wa-link" href="#" target="_blank" rel="noopener">Talk to us on WhatsApp</a><img class="jp-img" src="img/step4-arn.webp" alt="Partner completing ARN registration and KYC documents" loading="lazy" width="720" height="899"></div><div class="jp has-img" role="tabpanel" data-panel="4" hidden><span class="jp-n">Step 5 of 6</span><h3>Empanel with AssetPlus</h3><p>Offer SIFs to clients on the AssetPlus platform, with onboarding and operations support.</p><a class="btn btn-flame wa-link" href="#" target="_blank" rel="noopener">Talk to us on WhatsApp</a><img class="jp-img" src="img/step5-empanel.webp" alt="Partner empanelled with AssetPlus, with dashboard and support" loading="lazy" width="720" height="899"></div><div class="jp has-img" role="tabpanel" data-panel="5" hidden><span class="jp-n">Step 6 of 6</span><h3>Kickstart your SIF practice</h3><p>Start with the SIF Decoder, six persona pitch sheets and client notes stamped with your ARN.</p><button class="btn btn-flame" type="button" data-open="decoder">Get the free bundle</button><img class="jp-img" src="img/step5-empanel.webp" alt="Partner starting his SIF practice with AssetPlus tools and support" loading="lazy" width="720" height="899"></div></div>
     </div>
   </div>
 </section>
@@ -1614,12 +1600,6 @@ input:focus, select:focus { outline: 2px solid var(--brand); border-color: var(-
       <p class="lede">Explainers, pitch sheets and client notes. Data in all of them is to 23 Oct 2026. Partner notes are for your use only. Client notes can be shared with clients and carry your name and ARN.</p>
     </div>
     <div class="kit-web" id="kitWeb"></div>
-    <div class="journey">
-      <div class="step on"><h4>Understand SIF</h4><p>What it is, where it came from, how the market grew.</p></div>
-      <div class="step on"><h4>Get certified</h4><p data-closed="NISM V-D, free live training. Next batch soon.">NISM V-D, free live training from 16 Nov.</p></div>
-      <div class="step on"><h4>Find the clients</h4><p>Six persona pitch sheets and a 60-day plan.</p></div>
-      <div class="step on"><h4>Send client notes</h4><p>Five comparisons against what clients hold today.</p></div>
-    </div>
     <div class="tabs" role="tablist" aria-label="Kit sections">
       <button class="tab" role="tab" id="tab-learn" aria-selected="true" data-tab="learn">Learn · free</button>
       <button class="tab" role="tab" id="tab-pitch" aria-selected="false" data-tab="pitch">Pitch sheets · partners</button>
@@ -2589,11 +2569,24 @@ function showNudge(src){
 })();
 
 /* First-visit popup: 45% scroll, 40 s on page, or exit intent. Once per 7 days; never after sign-up. */
+/* Journey step 1: the next free NISM V-D batch, with its poster */
+(function stepBatch(){
+  const pn = $('.jp[data-panel="0"]'); if (!pn) return;
+  const e = EVENTS.filter(x => (x.audience || "new") === "new").map(x => ({...x, t: new Date(x.start).getTime()})).filter(x => x.t + 2 * 864e5 > Date.now()).sort((a, b) => a.t - b.t)[0];
+  if (!e) return; // no open batch: keep the waitlist copy
+  const d = new Date(e.t).toLocaleDateString("en-IN", {weekday: "short", day: "numeric", month: "short", year: "numeric", timeZone: "Asia/Kolkata"});
+  const m = e.meta || [];
+  pn.innerHTML = '<span class="jp-n">Step 1 of 6 · Register</span><span class="jb-tag">' + esc(e.tag || "Free · Live online") + '</span><h3>' + esc(e.title) + '</h3>' +
+    '<ul class="jb-meta"><li><b>Starts</b>' + d + '</li><li><b>Time</b>' + esc(m[1] || "") + '</li><li><b>Duration</b>' + esc(m[0] || "") + '</li><li><b>Mode</b>' + esc(m[2] || "") + '</li></ul>' +
+    '<a class="btn btn-flame jb-go" href="' + esc(e.url) + '" target="_blank" rel="noopener" onclick="track(\'register_click\',{where:\'journey-step1\'})">' + esc(e.cta || "Register free") + ' →</a>' +
+    '<img class="jp-img jb-poster" src="' + esc(e.img) + '" alt="' + esc(e.title) + ', from ' + d + '" loading="lazy" width="720" height="720">';
+})();
+
 /* Partner kit: the next webinar for certified partners */
 (function kitWebinar(){
   const box = $("#kitWeb"); if (!box) return;
   const w = EVENTS.filter(e => e.audience === "certified").map(e => ({...e, te: new Date(e.end || e.start).getTime()})).filter(e => e.te > Date.now()).sort((a, b) => a.te - b.te)[0];
-  if (!w) { box.remove(); return; }
+  if (!w) { box.remove(); $$(".jp-web").forEach(a => a.remove()); return; }
   const d = new Date(w.start).toLocaleDateString("en-IN", {weekday: "long", day: "numeric", month: "long", timeZone: "Asia/Kolkata"});
   box.innerHTML = '<a class="kw-img" href="' + esc(w.url) + '" target="_blank" rel="noopener" aria-label="' + esc(w.title) + '"><img src="' + esc(w.img) + '" alt="" loading="lazy"></a>' +
     '<div class="kw-body"><span class="kw-tag">For NISM V-D certified partners</span><h3>' + esc(w.title) + '</h3><p class="kw-meta">' + d + ' · ' + esc((w.meta || [])[1] || "") + ' · ' + esc((w.meta || [])[2] || "") + '</p>' +
