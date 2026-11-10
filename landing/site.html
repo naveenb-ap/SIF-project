@@ -360,6 +360,7 @@ input[type=range]#pcAmt { -webkit-appearance: none; appearance: none; height: 8p
 .tr-back b { color: var(--ink); font-weight: 600; }
 .tr-proof { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px 22px; font-size: 13.5px; color: var(--body); }
 .tr-proof li { display: flex; gap: 8px; align-items: center; }
+.foot-proof { color: var(--muted); font-size: 13px; }
 .tr-ic { width: 22px; height: 22px; border-radius: 6px; background: #fff; border: 1px solid var(--line); display: grid; place-items: center; color: var(--brand); font-size: 12px; }
 @media (max-width: 760px) { .tr-row { grid-template-columns: 1fr 1fr; row-gap: 14px; } .tr-row > div:nth-child(3) { border-left: 0; padding-left: 0; } .tr-row b { font-size: 21px; } }
 /* share blocks */
@@ -503,6 +504,14 @@ input[type=range]#pcAmt { -webkit-appearance: none; appearance: none; height: 8p
 .c2-lms2 b { display: block; font-family: var(--font-display); font-size: 17px; color: var(--ink); }
 .c2-lms2 span { font-size: 14px; color: var(--muted); }
 @media (max-width: 640px) { .c2-rail { grid-auto-columns: 84%; gap: 12px; } .c2-nav { display: none; } .c2-lms2 .btn { width: 100%; } }
+.pulse-strip { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; background: #fff; border: 1px solid var(--brand-tint); border-radius: 14px; padding: 12px 16px; text-decoration: none; color: var(--body); font-size: 14.5px; transition: border-color .2s, box-shadow .2s; }
+.pulse-strip:hover { border-color: var(--brand); box-shadow: 0 10px 24px rgba(27,62,120,.12); }
+.pulse-strip b { color: var(--ink); }
+.ps-live, .nav-live { display: inline-flex; align-items: center; gap: 7px; font-weight: 700; color: #D63B3B; }
+.ps-live i, .nav-live i { width: 8px; height: 8px; border-radius: 50%; background: #D63B3B; animation: blink 1.2s steps(1) infinite; }
+.nav-live { color: var(--ink) !important; font-weight: 500; }
+.ps-go { margin-left: auto; font-weight: 600; color: var(--brand); }
+@media (max-width: 640px) { .ps-go { margin-left: 0; } .pulse-strip { font-size: 13.5px; } }
 /* SIF Ready hero (reference layout) */
 .rhero { background: linear-gradient(180deg, #F2F6FE 0%, #F7F9FD 100%); overflow: hidden; }
 .rhero > .wrap:first-child { display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr); gap: 40px; padding-top: 44px; align-items: center; }
@@ -998,6 +1007,9 @@ tbody tr:hover { background: var(--brand-soft); }
 .pop { display: grid; gap: 14px; }
 .pop-thumb { display: flex; gap: 14px; align-items: center; }
 .pop-thumb .mini { width: 64px; aspect-ratio: 3 / 4; border-radius: 6px; background: #0F4185; color: #fff; font-size: 9px; font-weight: 800; line-height: 1.05; padding: 7px 6px; display: grid; align-content: space-between; box-shadow: 0 6px 16px rgba(15,65,133,.3); transform: rotate(-4deg); flex: none; }
+.pd-cover { width: 100%; height: 150px; object-fit: cover; object-position: top; border-radius: 12px; box-shadow: 0 12px 26px rgba(27,62,120,.2); }
+.pd-free { justify-self: start; font-size: 12.5px; font-weight: 600; color: #D63B3B; border: 1.5px solid #D63B3B; border-radius: 999px; padding: 3px 10px; }
+@media (max-width: 640px) { .pd-cover { max-height: 130px; object-fit: cover; object-position: top; } .pop.pd .sub { display: block !important; font-size: 13.5px; } }
 .pop-thumb .date { width: 64px; border-radius: 10px; background: var(--flame); color: #fff; display: grid; place-items: center; padding: 8px 4px; flex: none; text-align: center; line-height: 1; }
 .pop-thumb .date small { font-size: 11px; font-weight: 700; letter-spacing: .1em; }
 .pop-thumb .date strong { font-size: 30px; font-weight: 800; }
@@ -1283,7 +1295,7 @@ input:focus, select:focus { outline: 2px solid var(--brand); border-color: var(-
       <a href="#steps">How it works</a>
       <a href="#certify">Batches</a>
       <a href="#bundle">Free bundle</a>
-                  <a href="#pulse">SIF Pulse</a>
+                  <a href="#pulse" class="nav-live"><i></i>SIF Pulse</a>
             <a href="#kit">Partner kit</a>
       <a href="#faq">FAQ</a>
     </nav>
@@ -1302,7 +1314,6 @@ input:focus, select:focus { outline: 2px solid var(--brand); border-color: var(-
       <p class="ahx-sub">Get certified in 8 live evenings, free, and start offering SIFs to your ₹10 lakh+ clients.</p>
       <button class="ahx-btn" type="button" data-open="decoder">Get Started</button>
       <p class="ahx-note" data-closed="Next batch opening soon · Join the waitlist">Batch starts 16 Nov · 6:30 to 8:30 PM · Live in English</p>
-      <div id="heroShare"></div>
     </div>
     <div class="ahx-vis">
       <div class="ahx-blob" aria-hidden="true"></div>
@@ -1317,16 +1328,12 @@ input:focus, select:focus { outline: 2px solid var(--brand); border-color: var(-
   <div class="wrap">
     <div class="tr-row">
       <div><b>20,000+</b><span>distributors on AssetPlus</span></div>
-      <div><b>₹7,500 Cr+</b><span>assets on the platform</span></div>
+      <div><b>₹10,000 Cr+</b><span>assets on the platform</span></div>
       <div><b>4.8 ★</b><span>app rating, 11k+ reviews</span></div>
       <div><b>ARN-114376</b><span>AMFI-registered distributor</span></div>
     </div>
+    <a class="pulse-strip" href="#pulse"><span class="ps-live"><i></i>SIF Pulse · Live</span><span id="psTxt">Every SIF strategy's NAV, returns and AUM, from AMFI</span><span class="ps-go">See today's data →</span></a>
     <p class="tr-back">Backed by <b>Rainmatter</b> (Zerodha) · <b>InCred</b> · <b>Eight Roads</b> · <b>Nexus Venture Partners</b></p>
-    <ul class="tr-proof">
-      <li><span class="tr-ic">◎</span>SIF data straight from AMFI, refreshed every evening</li>
-      <li><span class="tr-ic">§</span>Content follows SEBI’s SIF framework and AMFI disclosure norms</li>
-      <li><span class="tr-ic">✎</span>Training mapped to the NISM Series V-D syllabus</li>
-    </ul>
   </div>
 </section>
 
@@ -1408,117 +1415,7 @@ input:focus, select:focus { outline: 2px solid var(--brand); border-color: var(-
   </div>
 </section>
 
-<section class="section band-paper" id="opportunity">
-  <div class="wrap opp-wrap">
-    <div class="section-head" style="margin:0">
-      <h2 class="h2">The SIF opportunity</h2>
-      <p class="lede">SIF assets grew from ₹2,010 crore to ₹38,287 crore in 11 months. Every SIF sale needs a NISM V-D certified distributor.</p>
-      <div class="opp-cards">
-        <div><b>19×</b><span>growth in SIF assets since the first SIF in Oct 2025</span></div>
-        <div><b>69%</b><span>of SIF money is in hybrid strategies, the conversation for FD and debt clients</span></div>
-        <div><b>₹10 lakh</b><span>minimum per client, so every SIF client is a high-value client</span></div>
-      </div>
-      <button class="btn btn-flame" style="justify-self:start" type="button" data-open="decoder">Get Started</button>
-    </div>
-    <div class="opp" aria-label="SIF assets each month">
-      <p class="opp-h">SIF assets at month-end, ₹ crore</p>
-      <svg id="oppChart" viewBox="0 0 460 220" role="img" aria-label="SIF assets rose from 2,010 crore in October 2025 to 38,287 crore in September 2026"></svg>
-      <p class="opp-note">Source: AMFI. 17 SIF brands with assets at end of Sep 2026.</p>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="learn">
-  <div class="wrap">
-    <div class="section-head">
-      <h2 class="h2">What is a SIF?</h2>
-      <p class="lede">A Specialised Investment Fund is run by a mutual fund house under SEBI's mutual fund rules, with a separate SIF brand. The main difference: it can take short positions of up to 25% of its money through derivatives. Minimum investment is ₹10 lakh per investor.</p>
-    </div>
-    <div class="two">
-      <div class="panel metaphor">
-        <span class="tag">How we explain it to clients</span>
-        <h3>A hybrid SIF carries an umbrella</h3>
-        <p>Most of the money earns steadily in arbitrage and bonds, some sits in shares, and a small "short" part gains when markets fall. On a rainy day you still get a little wet, just less.</p>
-        <div class="callout" style="margin-top:8px">In March 2026 the Nifty fell 11.3%. On ₹10 lakh, the middle hybrid SIF lost <b>₹19,200</b>. A balanced advantage fund lost ₹66,900. The Nifty 50 lost ₹1,13,000.</div>
-      </div>
-      <div class="panel">
-        <span class="metaphor"><span class="tag">Where it fits</span></span>
-        <h3 style="margin-top:10px">The missing middle</h3>
-        <p>Clients keep money in two places: steady but modest, or growing but bumpy. A SIF gives the middle a home.</p>
-        <div class="middle">
-          <div class="middle-row">
-            <div><b>FD</b>steady</div>
-            <div><b>Arbitrage</b>steady</div>
-            <div class="sif"><b>Hybrid SIF</b>the middle</div>
-            <div><b>Equity</b>bumpy</div>
-          </div>
-          <div class="axis"><span>← lower swings</span><span>higher growth →</span></div>
-        </div>
-        <div class="middle" style="margin-top:22px">
-          <div class="middle-row">
-            <div><b>₹500</b>MF SIP</div>
-            <div class="sif"><b>₹10 lakh</b>SIF</div>
-            <div><b>₹50 lakh</b>PMS</div>
-            <div><b>₹1 crore</b>AIF</div>
-          </div>
-          <div class="axis"><span>Minimum ticket</span><span>SEBI framework, 27 Feb 2025</span></div>
-        </div>
-      </div>
-    </div>
-    <div class="rules">
-      <div class="rule"><div class="v">₹10 lakh</div><div class="l">Minimum per investor, across a fund house's SIF strategies</div></div>
-      <div class="rule"><div class="v">Up to 25%</div><div class="l">Of the money can be in unhedged short positions using derivatives</div></div>
-      <div class="rule"><div class="v">Level 1–5</div><div class="l">Every strategy carries a risk band, shown in its documents</div></div>
-      <div class="rule"><div class="v">Daily NAV</div><div class="l">Published to AMFI every business day, like a mutual fund</div></div>
-      <div class="rule"><div class="v">Set exit days</div><div class="l">Many strategies are interval funds: money comes out only on scheduled days</div></div>
-      <div class="rule"><div class="v">NISM V-D</div><div class="l">The certification a distributor needs to offer SIFs, along with an ARN</div></div>
-    </div>
-
-    <div class="cmp">
-      <h3 class="cmp-h">SIF vs mutual fund vs PMS vs AIF</h3>
-      <div class="table-box">
-        <table class="cmp-t">
-          <thead><tr><th></th><th>Mutual fund</th><th class="hl">SIF</th><th>PMS</th><th>AIF</th></tr></thead>
-          <tbody>
-            <tr><th scope="row">Minimum investment</th><td>From a few hundred rupees</td><td class="hl">₹10 lakh per investor</td><td>₹50 lakh</td><td>₹1 crore</td></tr>
-            <tr><th scope="row">Structure</th><td>Pooled fund</td><td class="hl">Pooled fund under mutual fund rules, separate SIF brand</td><td>Securities held in your own account</td><td>Pooled fund (Category I, II or III)</td></tr>
-            <tr><th scope="row">Short positions</th><td>For hedging only</td><td class="hl">Unhedged shorts up to 25% via derivatives</td><td>As per mandate</td><td>Category III can</td></tr>
-            <tr><th scope="row">Valuation</th><td>Daily NAV</td><td class="hl">Daily NAV</td><td>Portfolio value</td><td>Periodic NAV</td></tr>
-            <tr><th scope="row">Tax event</th><td>When units are sold</td><td class="hl">When units are sold</td><td>On each trade in your account</td><td>Depends on category</td></tr>
-            <tr><th scope="row">SEBI rules</th><td>MF Regulations</td><td class="hl">MF Regulations, SIF framework (Feb 2025)</td><td>PMS Regulations</td><td>AIF Regulations</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <p class="tk-note">Simplified for education. Tax depends on the product, holding period and the investor; read each product's documents.</p>
-    </div>
-  </div>
-</section>
-
-<section class="section bundle-sec band-paper" id="bundle">
-  <div class="wrap bundle">
-    <div class="bundle-copy">
-      <span class="free-tag">Free with your seat</span>
-      <h2 class="h2">Sign up and get the SIF starter bundle</h2>
-      <p class="lede">Everything we use to explain SIFs to partners and their clients, in one bundle.</p>
-      <ul class="bundle-list">
-        <li><b>SIF Decoder, Oct 2026</b><span>Our 26-page research on every SIF</span></li>
-        <li><b>15 one-pagers</b><span>Explainers, pitch sheets and client notes</span></li>
-        <li><b>Client notes with your ARN</b><span>Ready to share once you are certified</span></li>
-        <li><b>Daily SIF NAVs</b><span>Every strategy, from AMFI</span></li>
-      </ul>
-      <div class="ctas" style="margin-top:22px"><button class="btn btn-flame btn-lg" type="button" data-open="decoder">Get the SIF Decoder free</button></div>
-    </div>
-    <button type="button" class="fan" data-open="decoder" aria-label="Get the free SIF starter bundle">
-      <img class="f1" src="thumbs/01-What-is-a-SIF.webp" alt="" loading="lazy">
-      <img class="f2" src="thumbs/07a-Persona-FD-Retiree.webp" alt="" loading="lazy">
-      <img class="f3" src="thumbs/06a-SIF-vs-FD.webp" alt="" loading="lazy">
-      <img loading="lazy" decoding="async" class="f4" src="decoder-cover.webp" alt="SIF Decoder cover with one-pagers behind it">
-      <span class="fan-badge">FREE</span>
-    </button>
-  </div>
-</section>
-
-<section class="section" id="pulse">
+<section class="section band-paper" id="pulse">
   <div class="wrap">
     <div class="section-head">
       <h2 class="h2">SIF Pulse</h2>
@@ -1641,6 +1538,118 @@ input:focus, select:focus { outline: 2px solid var(--brand); border-color: var(-
   </div>
 </section>
 
+<section class="section band-paper" id="opportunity">
+  <div class="wrap opp-wrap">
+    <div class="section-head" style="margin:0">
+      <h2 class="h2">The SIF opportunity</h2>
+      <p class="lede">SIF assets grew from ₹2,010 crore to ₹38,287 crore in 11 months. Every SIF sale needs a NISM V-D certified distributor.</p>
+      <div class="opp-cards">
+        <div><b>19×</b><span>growth in SIF assets since the first SIF in Oct 2025</span></div>
+        <div><b>69%</b><span>of SIF money is in hybrid strategies, the conversation for FD and debt clients</span></div>
+        <div><b>₹10 lakh</b><span>minimum per client, so every SIF client is a high-value client</span></div>
+      </div>
+      <button class="btn btn-flame" style="justify-self:start" type="button" data-open="decoder">Get Started</button>
+    </div>
+    <div class="opp" aria-label="SIF assets each month">
+      <p class="opp-h">SIF assets at month-end, ₹ crore</p>
+      <svg id="oppChart" viewBox="0 0 460 220" role="img" aria-label="SIF assets rose from 2,010 crore in October 2025 to 38,287 crore in September 2026"></svg>
+      <p class="opp-note">Source: AMFI. 17 SIF brands with assets at end of Sep 2026.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="learn">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 class="h2">What is a SIF?</h2>
+      <p class="lede">A Specialised Investment Fund is run by a mutual fund house under SEBI's mutual fund rules, with a separate SIF brand. The main difference: it can take short positions of up to 25% of its money through derivatives. Minimum investment is ₹10 lakh per investor.</p>
+    </div>
+    <div class="two">
+      <div class="panel metaphor">
+        <span class="tag">How we explain it to clients</span>
+        <h3>A hybrid SIF carries an umbrella</h3>
+        <p>Most of the money earns steadily in arbitrage and bonds, some sits in shares, and a small "short" part gains when markets fall. On a rainy day you still get a little wet, just less.</p>
+        <div class="callout" style="margin-top:8px">In March 2026 the Nifty fell 11.3%. On ₹10 lakh, the middle hybrid SIF lost <b>₹19,200</b>. A balanced advantage fund lost ₹66,900. The Nifty 50 lost ₹1,13,000.</div>
+      </div>
+      <div class="panel">
+        <span class="metaphor"><span class="tag">Where it fits</span></span>
+        <h3 style="margin-top:10px">The missing middle</h3>
+        <p>Clients keep money in two places: steady but modest, or growing but bumpy. A SIF gives the middle a home.</p>
+        <div class="middle">
+          <div class="middle-row">
+            <div><b>FD</b>steady</div>
+            <div><b>Arbitrage</b>steady</div>
+            <div class="sif"><b>Hybrid SIF</b>the middle</div>
+            <div><b>Equity</b>bumpy</div>
+          </div>
+          <div class="axis"><span>← lower swings</span><span>higher growth →</span></div>
+        </div>
+        <div class="middle" style="margin-top:22px">
+          <div class="middle-row">
+            <div><b>₹500</b>MF SIP</div>
+            <div class="sif"><b>₹10 lakh</b>SIF</div>
+            <div><b>₹50 lakh</b>PMS</div>
+            <div><b>₹1 crore</b>AIF</div>
+          </div>
+          <div class="axis"><span>Minimum ticket</span><span>SEBI framework, 27 Feb 2025</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="rules">
+      <div class="rule"><div class="v">₹10 lakh</div><div class="l">Minimum per investor, across a fund house's SIF strategies</div></div>
+      <div class="rule"><div class="v">Up to 25%</div><div class="l">Of the money can be in unhedged short positions using derivatives</div></div>
+      <div class="rule"><div class="v">Level 1–5</div><div class="l">Every strategy carries a risk band, shown in its documents</div></div>
+      <div class="rule"><div class="v">Daily NAV</div><div class="l">Published to AMFI every business day, like a mutual fund</div></div>
+      <div class="rule"><div class="v">Set exit days</div><div class="l">Many strategies are interval funds: money comes out only on scheduled days</div></div>
+      <div class="rule"><div class="v">NISM V-D</div><div class="l">The certification a distributor needs to offer SIFs, along with an ARN</div></div>
+    </div>
+
+    <div class="cmp">
+      <h3 class="cmp-h">SIF vs mutual fund vs PMS vs AIF</h3>
+      <div class="table-box">
+        <table class="cmp-t">
+          <thead><tr><th></th><th>Mutual fund</th><th class="hl">SIF</th><th>PMS</th><th>AIF</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Minimum investment</th><td>From a few hundred rupees</td><td class="hl">₹10 lakh per investor</td><td>₹50 lakh</td><td>₹1 crore</td></tr>
+            <tr><th scope="row">Structure</th><td>Pooled fund</td><td class="hl">Pooled fund under mutual fund rules, separate SIF brand</td><td>Securities held in your own account</td><td>Pooled fund (Category I, II or III)</td></tr>
+            <tr><th scope="row">Short positions</th><td>For hedging only</td><td class="hl">Unhedged shorts up to 25% via derivatives</td><td>As per mandate</td><td>Category III can</td></tr>
+            <tr><th scope="row">Valuation</th><td>Daily NAV</td><td class="hl">Daily NAV</td><td>Portfolio value</td><td>Periodic NAV</td></tr>
+            <tr><th scope="row">Tax event</th><td>When units are sold</td><td class="hl">When units are sold</td><td>On each trade in your account</td><td>Depends on category</td></tr>
+            <tr><th scope="row">SEBI rules</th><td>MF Regulations</td><td class="hl">MF Regulations, SIF framework (Feb 2025)</td><td>PMS Regulations</td><td>AIF Regulations</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="tk-note">Simplified for education. Tax depends on the product, holding period and the investor; read each product's documents.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section bundle-sec band-paper" id="bundle">
+  <div class="wrap bundle">
+    <div class="bundle-copy">
+      <span class="free-tag">Free with your seat</span>
+      <h2 class="h2">Sign up and get the SIF starter bundle</h2>
+      <p class="lede">Everything we use to explain SIFs to partners and their clients, in one bundle.</p>
+      <ul class="bundle-list">
+        <li><b>SIF Decoder, Oct 2026</b><span>Our 26-page research on every SIF</span></li>
+        <li><b>15 one-pagers</b><span>Explainers, pitch sheets and client notes</span></li>
+        <li><b>Client notes with your ARN</b><span>Ready to share once you are certified</span></li>
+        <li><b>Daily SIF NAVs</b><span>Every strategy, from AMFI</span></li>
+      </ul>
+      <div class="ctas" style="margin-top:22px"><button class="btn btn-flame btn-lg" type="button" data-open="decoder">Get the SIF Decoder free</button></div>
+    </div>
+    <button type="button" class="fan" data-open="decoder" aria-label="Get the free SIF starter bundle">
+      <img class="f1" src="thumbs/01-What-is-a-SIF.webp" alt="" loading="lazy">
+      <img class="f2" src="thumbs/07a-Persona-FD-Retiree.webp" alt="" loading="lazy">
+      <img class="f3" src="thumbs/06a-SIF-vs-FD.webp" alt="" loading="lazy">
+      <img loading="lazy" decoding="async" class="f4" src="decoder-cover.webp" alt="SIF Decoder cover with one-pagers behind it">
+      <span class="fan-badge">FREE</span>
+    </button>
+  </div>
+</section>
+
+
+
 <section class="section band-paper" id="kit">
   <div class="wrap">
     <div class="section-head">
@@ -1702,6 +1711,11 @@ input:focus, select:focus { outline: 2px solid var(--brand); border-color: var(-
       <p>This page is for the education of mutual fund distributors and is not investment advice or a recommendation of any scheme, strategy or fund house. SIF names appear only as part of the complete list of live strategies, from AMFI's official data. Illustrations are not forecasts. Stories and personas are illustrative and do not describe real people. Tax figures assume today's rules for a resident individual in the 30% slab, before surcharge and cess.</p>
       <p>Sources: AMFI SIF NAVs and monthly SIF data; NSE Indices; RBI; SEBI SIF framework and circulars. NAV board data as of <span id="asof3"></span>.</p>
     </div>
+    <ul class="tr-proof foot-proof">
+      <li><span class="tr-ic">◎</span>SIF data straight from AMFI, refreshed every evening</li>
+      <li><span class="tr-ic">§</span>Content follows SEBI’s SIF framework and AMFI disclosure norms</li>
+      <li><span class="tr-ic">✎</span>Training mapped to the NISM Series V-D syllabus</li>
+    </ul>
     <div class="foot-links">
       <a href="https://www.amfiindia.com" target="_blank" rel="noopener">AMFI India</a>
       <a href="https://www.sebi.gov.in" target="_blank" rel="noopener">SEBI</a>
@@ -2285,11 +2299,26 @@ const starterSideUnused = '<p class="eyebrow">Free for partners</p><h3>SIF Decod
 function openStarter(source){
   store.set("ap_sif_popup", String(Date.now()));
   track("popup_open", {trigger: source});
+  if (/^popup-|^nudge/.test(source)) return openDecoderFirst(source);
   const thumb = '<div class="pop-thumb"><div class="date"><small>' + BD.mon + '</small><strong>' + BD.day + '</strong></div><div><h3 id="mTitle">' + (BD.open ? "Register for the free NISM V-D batch" : "Join the waitlist for the next NISM V-D batch") + '</h3></div></div>';
   const bonus = '<div class="bonus"><img loading="lazy" decoding="async" src="decoder-cover.webp" alt="" width="72" height="41" style="width:72px;height:auto;border-radius:4px;flex:none"><span>You also get the SIF Decoder, our 26-page SIF research.</span></div>';
   openModal("", '<div class="pop"><span class="steps">Step 1 of 2</span>' + thumb + '<p class="sub">' + BD.sub + '</p>' + bonus + leadForm({minimal: true, cta: BD.open ? "Register free" : "Join the waitlist"}) + '<button class="skip" type="button" id="popSkip">No thanks</button></div>', true, true);
   $("#popSkip").addEventListener("click", closeModal);
   bindLead(source, {want: "sif-decoder"}, (saved, d) => askCertified(saved, d.name, (certified) => showDecoder(saved, d.name, certified)));
+}
+function webinarInvite(){
+  const w = EVENTS.filter(e => e.audience === "certified").map(e => ({...e, te: new Date(e.end || e.start).getTime()})).filter(e => e.te > Date.now()).sort((a, b) => a.te - b.te)[0];
+  if (!w) return "";
+  const d = new Date(w.start).toLocaleDateString("en-IN", {weekday: "short", day: "numeric", month: "short", timeZone: "Asia/Kolkata"});
+  return '<div class="reg-card"><b>You\u2019re invited: ' + esc(w.title) + '</b><span>' + d + ' · ' + esc((w.meta || [])[1] || "") + (w.speaker ? ' · ' + esc(w.speaker.split(",")[0]) : '') + '</span><a class="btn btn-flame" href="' + esc(w.url) + '" target="_blank" rel="noopener" onclick="track(\'register_click\',{where:\'popup-webinar\'})">Register on Zoom</a></div>';
+}
+/* Auto pop-up: lead with the SIF Decoder, then push certification (or the webinar for certified partners) */
+function openDecoderFirst(source){
+  const cover = '<img src="decoder-cover.webp" alt="SIF Decoder, October 2026" class="pd-cover" width="1000" height="563">';
+  openModal("", '<div class="pop pd">' + cover + '<span class="pd-free">Free · 26 pages</span><h3 id="mTitle">Get the SIF Decoder</h3><p class="sub">AssetPlus research on every SIF in India: the strategies, how we evaluate them, and a tracker of all of them.</p>' +
+    leadForm({minimal: true, cta: "Send me the Decoder"}) + '<button class="skip" type="button" id="popSkip">Not now</button></div>', true, true);
+  $("#popSkip").addEventListener("click", closeModal);
+  bindLead(source, {want: "sif-decoder"}, (saved, d) => askCertified(saved, d.name, certified => showDecoder(saved, d.name, certified)));
 }
 function showDecoder(saved, name, certified){
     const dec = DOCS.find(x => x.id === "D");
@@ -2297,7 +2326,7 @@ function showDecoder(saved, name, certified){
     $("#mMain").innerHTML = '<div class="pop"><h3 id="mTitle">Thanks, ' + esc(String(name).trim().split(" ")[0]) + '</h3><p class="sub">Get the SIF Decoder on WhatsApp or download it here.</p>' +
       '<a class="btn btn-wa" href="' + waGet + '" target="_blank" rel="noopener">Get it on WhatsApp</a>' +
       '<button class="btn btn-ghost" type="button" id="decNow">Download PDF here</button><p class="err" id="dlMsg" role="status"></p>' +
-      (certified ? '<p class="notice">Your client notes (06a–06e) are unlocked too. <a href="#kit" id="toKit">Open the partner kit</a></p>' : '<p class="notice">Seat not saved yet? <a href="' + (BD.url || CONFIG.eventUrl) + '" target="_blank" rel="noopener">' + BD.cta + '</a></p>') +
+      (certified ? webinarInvite() + '<p class="notice">Your client notes (06a–06e) are unlocked too. <a href="#kit" id="toKit">Open the partner kit</a></p>' : '<p class="notice">Seat not saved yet? <a href="' + (BD.url || CONFIG.eventUrl) + '" target="_blank" rel="noopener">' + BD.cta + '</a></p>') +
       (saved ? '' : '<p class="notice">We couldn’t record your details from this view. The WhatsApp button still works.</p>') + shareBlock("Bring a colleague to the " + BD.batch) + '</div>';
     $("#decNow").addEventListener("click", async () => { const r = await download(dec); $("#dlMsg").innerHTML = r === "saved" ? "Saved." : r === "cancelled" ? "Download cancelled." : '<a href="pdfs/' + esc(dec.file) + '" target="_blank" rel="noopener">Open the PDF</a>'; });
     const tk = $("#toKit"); if (tk) tk.addEventListener("click", closeModal);
@@ -2525,9 +2554,16 @@ function showNudge(src){
   $$("[data-closed]").forEach(el => el.textContent = el.dataset.closed);
 })();
 
+/* Live SIF Pulse strip */
+(function pulseStrip(){
+  const el = $("#psTxt"); if (!el || typeof PULSE === "undefined") return;
+  const day = new Date(PULSE.asof + "T00:00:00").toLocaleDateString("en-IN", {day: "numeric", month: "short"});
+  const up = DATA.rows.filter(r => r.chg > 0).length, m1 = PULSE.funds.filter(f => f.m1 != null), m1up = m1.filter(f => f.m1 > 0).length;
+  el.innerHTML = "<b>" + PULSE.funds.length + " strategies</b> · " + up + " of " + DATA.rows.length + " up on " + day + " · " + m1up + " of " + m1.length + " up over a month";
+})();
+
 /* Share blocks on the page */
 (function shareSpots(){
-  const h = $("#heroShare"); if (h) h.innerHTML = shareBlock("Know a distributor? Send them this free batch");
   const b = $("#bandShare"); if (b) b.innerHTML = shareBlock("Tell your network");
 })();
 
@@ -2538,8 +2574,8 @@ function showNudge(src){
   if ((lead && lead.vd === "Certified") || (last && Date.now() - last < 864e5)) return;
   let shown = false;
   const phone = matchMedia("(max-width: 640px)").matches;
-  const show = (src) => { if (shown || !overlay.hidden) return; shown = true; phone ? showNudge(src) : openStarter(src); };
-  setTimeout(() => show("popup-time"), 15000);
+  const show = (src) => { if (shown || !overlay.hidden) return; shown = true; openStarter(src); };
+  setTimeout(() => show("popup-time"), 2000);
   const onScroll = () => { const h = document.scrollingElement || document.documentElement; if ((scrollY + innerHeight) / h.scrollHeight > 0.3) { removeEventListener("scroll", onScroll); show("popup-scroll"); } };
   addEventListener("scroll", onScroll, {passive: true});
   document.addEventListener("mouseout", e => { if (!e.relatedTarget && e.clientY <= 0) show("popup-exit"); });
