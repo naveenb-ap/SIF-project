@@ -24,12 +24,71 @@ if SITE_URL and not SITE_URL.endswith("/"):
     SITE_URL += "/"
 
 
+def _esc(t):
+    return str(t).replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;").replace('"', "&quot;")
+
+
+def _pct(v):
+    if v is None:
+        return "–"
+    return ("+" if v > 0 else "−" if v < 0 else "") + "%.2f%%" % abs(v)
+
+
+def prerender(body, nav, pulse):
+    """Write real numbers into the HTML so search engines and link previews see them without running scripts."""
+    funds = pulse["funds"]
+    day = dt.date.fromisoformat(pulse["asof"])
+    day_txt = day.strftime("%-d %b %Y")
+    rows = nav["rows"]
+    up = sum(1 for r in rows if r["chg"] > 0)
+    m1 = [f for f in funds if f.get("m1") is not None]
+    cls = lambda v: "na" if v is None else "up" if v > 0 else "down" if v < 0 else ""
+    trs = []
+    for f in sorted(funds, key=lambda f: -(f.get("aum") or 0))[:10]:
+        trs.append('<tr><td class="pz-name"><b>%s</b><small>%s</small></td><td><span class="pz-pill">%s</span></td><td class="r num">%s</td><td class="r num">%s</td>'
+                   '<td class="r num"><span class="pz-ret na">–</span></td>%s<td class="r num"><span class="pz-si %s">%s</span></td></tr>' % (
+                       _esc(f["name"]), _esc(f["amc"]), _esc(f["cat"]), "–" if f.get("aum") is None else format(f["aum"], ","), "%.2f" % f["nav"],
+                       "".join('<td class="r num"><span class="pz-ret %s">%s</span></td>' % (cls(f.get(k)), _pct(f.get(k))) for k in ("m1", "m3", "m6")),
+                       cls(f.get("si")), _pct(f.get("si"))))
+    rep = {
+        "__PZ_ROWS__": "".join(trs),
+        "__PZ_ASOF__": "NAV as of %s. Average AUM for %s." % (day_txt, pulse["aumPeriod"]),
+        "__PZ_N__": str(len(funds)),
+        "__PZ_UP__": "%d of %d" % (up, len(rows)),
+        "__PZ_B__": str(len({f["brand"] for f in funds})),
+        "__PS_TXT__": "<b>%d strategies</b> · %d of %d up on %s · %d of %d up over a month" % (len(funds), up, len(rows), day.strftime("%-d %b"), sum(1 for f in m1 if f["m1"] > 0), len(m1)),
+    }
+    for k, v in rep.items():
+        body = body.replace(k, v)
+
+    # structured data from what is visible on the page
+    faqs = []
+    for q, a in re.findall(r"<details><summary>(.*?)</summary><div class=\"ans\">(.*?)</div></details>", body, flags=re.S):
+        a = re.sub(r'<span data-closed="[^"]*">(.*?)</span>', r"\1", a)
+        faqs.append({"@type": "Question", "name": re.sub("<[^>]+>", "", q).strip(),
+                     "acceptedAnswer": {"@type": "Answer", "text": re.sub(r"\s+", " ", re.sub("<[^>]+>", " ", a)).strip()}})
+    dataset = {"@context": "https://schema.org", "@type": "Dataset", "name": "SIF Pulse: NAV, returns and AUM of every SIF strategy in India",
+               "description": "Daily NAV and 1-month, 3-month, 6-month and since-launch returns, with quarterly average AUM, for every live Specialised Investment Fund strategy, built from AMFI data.",
+               "creator": {"@type": "Organization", "name": "AssetPlus"}, "isBasedOn": "https://www.amfiindia.com/sif",
+               "dateModified": pulse["asof"], "temporalCoverage": "2025-10/" + pulse["asof"], "variableMeasured": ["NAV", "1M return", "3M return", "6M return", "Since-launch return", "Average AUM"],
+               "keywords": ["SIF", "Specialised Investment Fund", "SIF NAV", "SIF returns", "AMFI"]}
+    items = {"@context": "https://schema.org", "@type": "ItemList", "name": "Live SIF strategies in India", "numberOfItems": len(funds),
+             "itemListElement": [{"@type": "ListItem", "position": i + 1, "name": "%s (%s, %s)" % (f["name"], f["amc"], f["cat"])} for i, f in enumerate(sorted(funds, key=lambda f: f["name"]))]}
+    m = re.search(r'<script type="application/ld\+json">(.*?)</script>', body, flags=re.S)
+    ld = [x for x in json.loads(m.group(1)) if x.get("@type") not in ("FAQPage", "Dataset", "ItemList")]
+    ld += [{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": faqs}, dataset, items]
+    body = body[:m.start()] + '<script type="application/ld+json">' + json.dumps(ld, ensure_ascii=False) + "</script>" + body[m.end():]
+    body = body.replace('<meta name="robots"', '<meta property="article:modified_time" content="%sT23:00:00+05:30">\n<meta name="robots"' % pulse["asof"], 1)
+    return body
+
+
 def build():
     src = (ROOT / "landing/index.src.html").read_text()
     nav = (ROOT / "landing/sifdata.json").read_text()
     pulse = json.loads((ROOT / "landing/pulse-data.json").read_text())
     pulse.pop("brandQuarterEnd", None)
     body = src.replace("__SIFDATA__", nav).replace("__PULSEDATA__", json.dumps(pulse, ensure_ascii=False, separators=(",", ":")))
+    body = prerender(body, json.loads(nav), pulse)
 
     (ROOT / "landing/index.html").write_text(body.replace("__SITEURL__", ""))
 

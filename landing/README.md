@@ -28,3 +28,16 @@ The repo is Vercel-ready: `vercel.json` serves `landing/` as a static site and `
 ### Batches and analytics
 - Add new batches to `EVENTS` in `index.src.html`. Two days after the last listed batch starts, the page switches by itself to "Join the waitlist" copy and sign-ups are tagged `waitlist`.
 - Paste IDs into `CONFIG.ga4`, `CONFIG.metaPixel` and `CONFIG.linkedinPartner` to switch on GA4, Meta Pixel and LinkedIn Insight. Every funnel step (pop-up, lead, register click, download, share, quiz, calculator, badge) is forwarded; leads fire GA4 `generate_lead` and Meta `Lead`.
+
+### Sharing in comms (tracked links)
+Replace `BASE` with the live URL. Every link carries UTM tags, so sign-ups show their source.
+- WhatsApp broadcast: `BASE?utm_source=whatsapp&utm_medium=broadcast&utm_campaign=sif_ready`
+- Email newsletter: `BASE?utm_source=email&utm_medium=newsletter&utm_campaign=sif_ready`
+- AssetPlus app banner: `BASE?utm_source=app&utm_medium=banner&utm_campaign=sif_ready`
+- RM / partner groups: `BASE?utm_source=rm&utm_medium=whatsapp&utm_campaign=sif_ready`
+- LinkedIn post: `BASE?utm_source=linkedin&utm_medium=social&utm_campaign=sif_ready`
+- Open the sign-up straight away: add `#register` to any link.
+- Jump to live data: add `#pulse`.
+
+### SEO
+`tools/build_page.py` writes real SIF numbers (strategy table, counts, dates) into the HTML and generates FAQPage, Dataset and ItemList structured data from what is on the page, so search engines and link previews see them without running scripts. Rebuilt nightly with the data.
