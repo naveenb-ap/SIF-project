@@ -96,7 +96,7 @@ def main():
         except Exception:
             pass
 
-    periods = {"m1": 30, "m3": 91, "m6": 182}
+    periods = {"m1": 30, "m3": 91, "m6": 182, "m12": 365}
     hist = {k: navs_on(asof - dt.timedelta(days=v)) for k, v in periods.items()}
 
     # average AUM by strategy, latest quarter (₹ lakh -> ₹ crore)

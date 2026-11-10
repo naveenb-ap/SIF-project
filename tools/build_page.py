@@ -45,10 +45,11 @@ def prerender(body, nav, pulse):
     cls = lambda v: "na" if v is None else "up" if v > 0 else "down" if v < 0 else ""
     trs = []
     for f in sorted(funds, key=lambda f: -(f.get("aum") or 0))[:10]:
-        trs.append('<tr><td class="pz-name"><b>%s</b><small>%s</small></td><td><span class="pz-pill">%s</span></td><td class="r num">%s</td><td class="r num">%s</td>'
+        ld = dt.date.fromisoformat(f["launch"]).strftime("%-d %b %y") if f.get("launch") else "–"
+        trs.append('<tr><td class="pz-name"><b>%s</b><small>%s</small></td><td><span class="pz-pill">%s</span></td><td class="num pz-ld">%s</td><td class="r num">%s</td><td class="r num">%s</td>'
                    '<td class="r num"><span class="pz-ret na">–</span></td>%s<td class="r num"><span class="pz-si %s">%s</span></td></tr>' % (
-                       _esc(f["name"]), _esc(f["amc"]), _esc(f["cat"]), "–" if f.get("aum") is None else format(f["aum"], ","), "%.2f" % f["nav"],
-                       "".join('<td class="r num"><span class="pz-ret %s">%s</span></td>' % (cls(f.get(k)), _pct(f.get(k))) for k in ("m1", "m3", "m6")),
+                       _esc(f["name"]), _esc(f["amc"]), _esc(f["cat"]), ld, "–" if f.get("aum") is None else format(f["aum"], ","), "%.2f" % f["nav"],
+                       "".join('<td class="r num"><span class="pz-ret %s">%s</span></td>' % (cls(f.get(k)), _pct(f.get(k))) for k in ("m1", "m3", "m6", "m12")),
                        cls(f.get("si")), _pct(f.get("si"))))
     rep = {
         "__PZ_ROWS__": "".join(trs),
@@ -56,7 +57,7 @@ def prerender(body, nav, pulse):
         "__PZ_N__": str(len(funds)),
         "__PZ_UP__": "%d of %d" % (up, len(rows)),
         "__PZ_B__": str(len({f["brand"] for f in funds})),
-        "__PS_TXT__": "<b>%d strategies</b> · %d of %d up on %s · %d of %d up over a month" % (len(funds), up, len(rows), day.strftime("%-d %b"), sum(1 for f in m1 if f["m1"] > 0), len(m1)),
+        "__PS_TXT__": "<b>%d strategies</b> · NAV %s · %d of %d up on the day · launch date, 1M to 12M returns" % (len(funds), day.strftime("%-d %b"), up, len(rows)),
     }
     for k, v in rep.items():
         body = body.replace(k, v)
@@ -70,7 +71,7 @@ def prerender(body, nav, pulse):
     dataset = {"@context": "https://schema.org", "@type": "Dataset", "name": "SIF Pulse: NAV, returns and AUM of every SIF strategy in India",
                "description": "Daily NAV and 1-month, 3-month, 6-month and since-launch returns, with quarterly average AUM, for every live Specialised Investment Fund strategy, built from AMFI data.",
                "creator": {"@type": "Organization", "name": "AssetPlus"}, "isBasedOn": "https://www.amfiindia.com/sif",
-               "dateModified": pulse["asof"], "temporalCoverage": "2025-10/" + pulse["asof"], "variableMeasured": ["NAV", "1M return", "3M return", "6M return", "Since-launch return", "Average AUM"],
+               "dateModified": pulse["asof"], "temporalCoverage": "2025-10/" + pulse["asof"], "variableMeasured": ["NAV", "Launch date", "1M return", "3M return", "6M return", "12M return", "Since-launch return", "Average AUM"],
                "keywords": ["SIF", "Specialised Investment Fund", "SIF NAV", "SIF returns", "AMFI"]}
     items = {"@context": "https://schema.org", "@type": "ItemList", "name": "Live SIF strategies in India", "numberOfItems": len(funds),
              "itemListElement": [{"@type": "ListItem", "position": i + 1, "name": "%s (%s, %s)" % (f["name"], f["amc"], f["cat"])} for i, f in enumerate(sorted(funds, key=lambda f: f["name"]))]}
