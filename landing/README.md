@@ -41,3 +41,10 @@ Replace `BASE` with the live URL. Every link carries UTM tags, so sign-ups show 
 
 ### SEO
 `tools/build_page.py` writes real SIF numbers (strategy table, counts, dates) into the HTML and generates FAQPage, Dataset and ItemList structured data from what is on the page, so search engines and link previews see them without running scripts. Rebuilt nightly with the data.
+
+### Deploy without git (drag and drop)
+1. `python3 tools/make_static_site.py` builds `dist/sif-site/` and `dist/sif-site.zip`.
+2. Go to https://app.netlify.com/drop, log in, and drag the `sif-site` folder (or unzip the zip and drag the folder).
+3. Leads arrive in Netlify → Site → Forms → `sif-lead` (enable form detection once in Site settings → Forms; set email notifications there).
+4. To update data: rebuild and drag the folder onto the same site's Deploys page.
+Same folder also works on Cloudflare Pages (Upload assets) or any static host; there, leads need the Vercel function or a webhook instead.

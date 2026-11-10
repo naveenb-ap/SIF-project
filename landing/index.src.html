@@ -2129,6 +2129,17 @@ let dlP = null;
 function getDownloads(){ if (!dlP) dlP = (window.claude && window.claude.use) ? window.claude.use("downloads").catch(() => null) : Promise.resolve(null); return dlP; }
 getDb(); getDownloads();
 function savedLead(){ try { return JSON.parse(store.get("ap_sif_lead") || "null"); } catch(e){ return null; } }
+/* Lead posting when hosted outside Claude: Vercel function first, then Netlify Forms (works with drag-and-drop hosting) */
+const LEAD_FIELDS = ["id","update","name","mobile","city","arn","noArn","vd","consent","source","want","doc","waitlist","eventClicked","utm_source","utm_medium","utm_campaign","utm_content","ref","referrer","landedAt","visit","at","updatedAt","page"];
+async function postLead(data){
+  try { const r = await fetch("/api/lead", {method: "POST", headers: {"Content-Type": "application/json"}, body: JSON.stringify(data)}); if (r.ok) return true; } catch(e){}
+  try {
+    const f = new URLSearchParams({"form-name": "sif-lead"});
+    LEAD_FIELDS.forEach(k => f.append(k, data[k] == null ? "" : String(data[k])));
+    const r = await fetch("/", {method: "POST", headers: {"Content-Type": "application/x-www-form-urlencoded"}, body: f.toString()});
+    return r.ok;
+  } catch(e){ return false; }
+}
 async function saveLead(lead){
   store.set("ap_sif_lead", JSON.stringify({name: lead.name, mobile: lead.mobile, arn: lead.arn, vd: lead.vd, city: lead.city}));
   const db = await getDb();
@@ -2136,7 +2147,7 @@ async function saveLead(lead){
   store.set("ap_sif_lid", id);
   if (!db) {
     // Hosted outside Claude (e.g. Vercel): send to the site's own lead endpoint
-    try { const r = await fetch("/api/lead", {method: "POST", headers: {"Content-Type": "application/json"}, body: JSON.stringify({id, ...lead, ...ATTR, visit: VISIT, at: new Date().toISOString(), page: location.href})}); return r.ok ? id : false; } catch(e){ return false; }
+    return (await postLead({id, ...lead, ...ATTR, visit: VISIT, at: new Date().toISOString(), page: location.href})) ? id : false;
   }
   store.set("ap_sif_lid", id);
   try { await db.doc("leads/" + id).set({...lead, ...ATTR, visit: VISIT, at: new Date().toISOString(), page: "sif-partner-hub"}); track("lead", {source: lead.source, doc: lead.doc||""}); return id; } catch(e){ return false; }
@@ -2145,7 +2156,7 @@ async function updateLead(id, fields){
   const p = savedLead() || {}; store.set("ap_sif_lead", JSON.stringify({...p, ...fields}));
   if (!id) return;
   const db = await getDb();
-  if (!db) { try { await fetch("/api/lead", {method: "POST", headers: {"Content-Type": "application/json"}, body: JSON.stringify({id, update: true, ...fields, updatedAt: new Date().toISOString()})}); } catch(e){} return; }
+  if (!db) { await postLead({id, update: true, ...fields, updatedAt: new Date().toISOString()}); return; }
   try { await db.doc("leads/" + id).update({...fields, updatedAt: new Date().toISOString()}); } catch(e){}
 }
 
